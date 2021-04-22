@@ -13,9 +13,11 @@ class mydb {
 		$this->dbpassword = "5ad~6r8V" ;
 		$this->dbname = "chonjob_postkai" ;
 
-		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword) or die ("Username Password Database inValid") ;
-		mysqli_select_db($this->dbname) or die ("Connect Database Error ".$this->dbname) ;
-		mysqli_set_charset("SET NAMES utf8");
+		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword,$this->dbname);
+		if (mysqli_connect_errno()){
+			echo "Database Connect Failed : " . mysqli_connect_error();
+		}
+		mysqli_set_charset($this->linkID,"utf8");
 
 
 		return $this->linkID ;
@@ -29,7 +31,7 @@ class mydb {
 
 	function query($query) {
 
-		mysqli_set_charset("SET NAMES utf8");
+		mysqli_set_charset($this->linkID,"utf8");
 		$result = mysqli_query($query) or die(mysqli_error());
 		return $result ;
 	}
