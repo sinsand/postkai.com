@@ -1,4 +1,4 @@
-<div class="top20weblist"><strong>เลือกประเภท&nbsp;&nbsp;&nbsp;:&nbsp;</strong>
+<div class="top20weblist"><strong>๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;&nbsp;&nbsp;:&nbsp;</strong>
 <input name="typeall" id="house10" type="radio" value="1" checked="checked" onclick="hidden()" /><strong>House</strong>&nbsp;&nbsp;
 <input name="typeall" id="condo10" type="radio" value="2" onclick="hidden()" /><strong>Condo</strong>&nbsp;&nbsp;
 <input name="typeall" id="building10" type="radio" value="3" onclick="hidden()" /><strong>Building</strong>&nbsp;&nbsp;
@@ -12,253 +12,212 @@
 
 <br />
 <div id="showtop10allwebHouse" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '1' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 	?>
 
-<div class="imgleft">    
-<?	
-if($row['jPic1'] != "")
-{
-echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
+<div class="imgleft">
+<?php
+if($row['jPic1'] != ""){
+	echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
 }else{
-echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
+	echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
 }
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div>
 
 <br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebCondo" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '2' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
-if($row['jPic1'] != "")
-{
-echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
+<div class="imgleft">
+<?php
+if($row['jPic1'] != ""){
+	echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
 }else{
-echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
+	echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
 }
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div>
 <br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebBuilding" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '3' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -268,90 +227,77 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebLand" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '4' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -361,90 +307,79 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebRent" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '5' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
+	// code...
+}
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -454,90 +389,77 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebFurniture" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '6' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -547,90 +469,77 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br /><br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebCar" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '7' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -640,90 +549,77 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br /><br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebOthers" style="display:none;">
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jType = '8' ORDER BY jDate_Create DESC limit 0,10";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 ?>
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -733,102 +629,89 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div><br /><br />
-<?
+<?php
 }
 ?>
 </div>
 
 <div id="showtop10allwebhidden" align="center" style="display:none;">
-<font color="#CC6600" size="5"><strong>เลือกประเภทอสังหาริมทรัพย์</strong></font>
+<font color="#CC6600" size="5"><strong>๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ</strong></font>
 </div>
 
-<p class="alignrights"><a href="<?=$page_link?>/property-search.php" title="อสังหาริมทรัพย์ทั้งหมด"><strong>อสังหาริมทรัพย์ทั้งหมด</strong></a></p> 
+<p class="alignrights"><a href="<?php echo $page_link;?>/property-search.php" title="๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ"><strong>๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></a></p>
 
 </div><br />
-<img src="<?=$page_link?>/images/20ID2.jpg" title="อสังหาริมทรัพย์ทั้งหมด 20 อันดับล่าสุด" alt="อสังหาริมทรัพย์ทั้งหมด 20 อันดับล่าสุด" /><br /><br />
+<img src="<?php echo $page_link;?>/images/20ID2.jpg" title="๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 20 ๏ฟฝัน๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุด" alt="๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 20 ๏ฟฝัน๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุด" /><br /><br />
 <div class="top20weblist">
 <div>
 
 
-<?
+<?php
 $sql = "SELECT * FROM sb_job where jStatus = '1' ORDER BY jDate_Create DESC limit 0,20";
-$result = $db->query($sql);
-while ($row = mysql_fetch_array($result))
-{
+foreach (select_tb($sql) as $row) {
 	$titleall = str_replace(' ','-', $row['jTitle']);
 	$titleall = str_replace('#','-', $titleall);
 	$titleall = str_replace('%','-', $titleall);
-	
-	if($row['jaType'] == "1")
-	{
-		$subtype = "ซื้อ";
+
+	if($row['jaType'] == "1"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "2")
-	{
-		$subtype = "ขาย";
+	if($row['jaType'] == "2"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jaType'] == "3")
-	{
-		$subtype = "ให้เช่า";
+	if($row['jaType'] == "3"){
+		$subtype = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	
-	if($row['jType'] == "1")
-	{
-		$cat_type = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
+
+	if($row['jType'] == "1"){
+		$cat_type = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "2")
-	{
-		$cat_type = "คอนโด-คอนโดมีเนียม-อาคารชุด";
+	if($row['jType'] == "2"){
+		$cat_type = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
 	}
-	if($row['jType'] == "3")
-	{
-		$cat_type = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
+	if($row['jType'] == "3"){
+		$cat_type = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
 	}
-	if($row['jType'] == "4")
-	{
-		$cat_type = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
+	if($row['jType'] == "4"){
+		$cat_type = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
 	}
-	if($row['jType'] == "5")
-	{
-		$cat_type = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
+	if($row['jType'] == "5"){
+		$cat_type = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "6")
-	{
-		$cat_type = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
+	if($row['jType'] == "6"){
+		$cat_type = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
 	}
-	if($row['jType'] == "7")
-	{
-		$cat_type = "รถยนต์-รถมือสอง";
+	if($row['jType'] == "7"){
+		$cat_type = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
 	}
-	if($row['jType'] == "8")
-	{
-		$cat_type = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
+	if($row['jType'] == "8"){
+		$cat_type = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
 	}
 	?>
 
-<div class="imgleft">    
-<?	
+<div class="imgleft">
+<?php
 if($row['jPic1'] != "")
 {
 echo "<img src='".$page_link."/picture_job_1/$row[jPic1]' width='60' height='60' alt='$row[jTitle]' title='$row[jTitle]' class='boarderimg' />";
@@ -838,33 +721,32 @@ echo "<img src='".$page_link."/images/noimage-news.gif' width='60' height='60' a
 ?>
 </div>
 <div class="titleright">
-<a href="<?=$page_link?>/<?=$cat_type?>/<?=$titleall?>/1/1/<?=$row['jType']?>/<?=$row['jaType']?>/<?=$row['jID']?>" target="_blank" title="<?=$row['jTitle']?>">
-                <? 
-		  	echo "<b><font size='2'>"; 
-			$position=100; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jTitle']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<a href="<?php echo $page_link;?>/<?php echo $cat_type;?>/<?php echo $titleall;?>/1/1/<?php echo $row['jType'];?>/<?php echo $row['jaType'];?>/<?php echo $row['jID'];?>" target="_blank" title="<?php echo $row['jTitle'];?>">
+                <?php
+		  	echo "<b><font size='2'>";
+			$position=100; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jTitle'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
 </a>
-&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?=$subtype?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>ดูแ้ล้ว&nbsp;:&nbsp;<?=$row['jRead']?>&nbsp;ครั้ง</strong></font>
+&nbsp;&nbsp;<font color="#CC0000" size="2"><strong><?php echo $subtype;?></strong></font>&nbsp;,&nbsp;<font color="#009900"><strong>๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;:&nbsp;<?php echo $row['jRead'];?>&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></font>
 <br />
-<?
-			$position=150; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$row['jDetail']; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
+<?php
+			$position=150; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$row['jDetail'];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
 			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
 ?>
 </div>
 
 <br />&nbsp;<br />
-<?
+<?php
 }
 ?>
 </div>
 
 </div>
-
