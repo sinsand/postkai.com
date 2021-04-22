@@ -7,69 +7,68 @@
   </div>
 </form>
 <script type="text/javascript" src="http://www.google.co.th/cse/brand?form=cse-search-box&amp;lang=th"></script><br />
-<img src="<?=$page_link?>/images/cat.jpg" alt="ประเภทอสังหาริมทรัพย์" title="ประเภทอสังหาริมทรัพย์" /><br /><br />
-&nbsp;<strong><a href="<?=$page_link?>/บ้าน-ทาวน์เฮ้าส์-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง/house" title="บ้าน ทาวน์เฮ้าส์ บ้านจัดสรร บ้านเดี่ยว บ้านมือสอง">House</a></strong>&nbsp;-&nbsp;บ้าน ,ทาวน์เฮ้าส์ ,บ้านจัดสรร ,บ้านเดี่ยว ,บ้านมือสอง&nbsp;
-(<?
+<img src="<?php echo $page_link;?>/images/cat.jpg" alt="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ" /><br /><br />
+&nbsp;<strong><a href="<?php echo $page_link;;?>/๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง/house" title="๏ฟฝ๏ฟฝาน ๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง">House</a></strong>&nbsp;-&nbsp;๏ฟฝ๏ฟฝาน ,๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '1' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/คอนโด-คอนโดมีเนียม-อาคารชุด-แฟลต/condo" title="คอนโด คอนโดมีเนียม อาคารชุด">Condo</a></strong>&nbsp;-&nbsp;คอนโด ,คอนโดมีเนียม ,อาคารชุด <br />อพาร์ทเม้นท์&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด-๏ฟฝ๏ฟฝลต/condo" title="๏ฟฝอน๏ฟฝ๏ฟฝ ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝาค๏ฟฝรชุด">Condo</a></strong>&nbsp;-&nbsp;๏ฟฝอน๏ฟฝ๏ฟฝ ,๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝาค๏ฟฝรชุด <br />อพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ้นท๏ฟฝ&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '2' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/ตึก-อาคารพานิชย์-ร้านค้า-โรงงาน-โกดัง/building" title="ตึก อาคารพานิชย์ โรงงาน โกดัง">Building</a></strong>&nbsp;-&nbsp;ตึก ,อาคารพานิชย์ ,โรงงาน <br />โกดัง ,สำนักงาน&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง/building" title="๏ฟฝึก ๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ ๏ฟฝรง๏ฟฝาน โกดัง">Building</a></strong>&nbsp;-&nbsp;๏ฟฝึก ,๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ ,๏ฟฝรง๏ฟฝาน <br />โกดัง ,๏ฟฝำนัก๏ฟฝาน&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '3' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดินสำหรับการเกษตร/land" title="ที่ดินเปล่า ที่ดินจัดสรร ที่ดิน">Land</a></strong>&nbsp;-&nbsp;ที่ดินเปล่า ,ที่ดินจัดสรร ,ที่ดิน&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษต๏ฟฝ/land" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน">Land</a></strong>&nbsp;-&nbsp;๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '4' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/อาคารเช่า-ห้องเช่า-บ้านเช่า-หอพัก/rent" title="อาคารเช่า ห้องเช่า บ้านเช่า">Rent</a></strong>&nbsp;-&nbsp;อาคารเช่า ,ห้องเช่า ,ตึกเช่า ,ห้องพัก<br />ให้เช่า ,ห้องว่างให้เช่า&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝอพัก/rent" title="๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ">Rent</a></strong>&nbsp;-&nbsp;๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝอง๏ฟฝัก<br />๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '5' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ร้านซ่อม-ซ่อมแซม/furniture" title="อุปกร์ตกแต่งบ้าน อุปกรณ์สำนักงาน แอร์ ซ่อมแซม">Furniture</a></strong>&nbsp;-&nbsp;อุปกร์ตกแต่งบ้าน ,อุปกรณ์สำนักงาน ,แอร์ ,ซ่อมแซม ,เฟอร์นิเจอร์&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ/furniture" title="๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน ๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ">Furniture</a></strong>&nbsp;-&nbsp;๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน ,๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '6' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/รถยนต์-รถมือสอง-รถจักรยานยนต์/car" title="รถยนต์ รถมือสอง รถจักรยานยนต์">Car</a></strong>&nbsp;-&nbsp;รถยนต์ ,รถมือสอง ,รถยนต์มือสอง <br />รถใหม่ ,รถบรรทุก&nbsp;
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง-รถ๏ฟฝัก๏ฟฝ๏ฟฝานยน๏ฟฝ๏ฟฝ/car" title="รถยน๏ฟฝ๏ฟฝ รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง รถ๏ฟฝัก๏ฟฝ๏ฟฝานยน๏ฟฝ๏ฟฝ">Car</a></strong>&nbsp;-&nbsp;รถยน๏ฟฝ๏ฟฝ ,รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง ,รถยน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง <br />รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ,รถ๏ฟฝ๏ฟฝรทุก&nbsp;
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '7' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
-&nbsp;<strong><a href="<?=$page_link?>/รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน-ที่พัก/others" title="รถรับจ้าง ทุบตึก รื้อถอนบ้าน">Others</a></strong>&nbsp;-&nbsp;รถรับจ้าง ,ทุบตึก ,รื้อถอนบ้าน <br />ย้ายสำนักงาน และอื่น ๆ&nbsp
-(<?
+&nbsp;<strong><a href="<?php echo $page_link;?>/รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัก/others" title="รถ๏ฟฝับ๏ฟฝ๏ฟฝาง ๏ฟฝุบ๏ฟฝึก ๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน">Others</a></strong>&nbsp;-&nbsp;รถ๏ฟฝับ๏ฟฝ๏ฟฝาง ,๏ฟฝุบ๏ฟฝึก ,๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน <br />๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝำนัก๏ฟฝาน ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ&nbsp
+(<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '8' ";
 	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = mysql_num_rows($resulthouse);
+	echo $totalrowshouse = mysqli_num_rows($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font>
-

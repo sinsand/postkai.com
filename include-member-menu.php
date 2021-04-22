@@ -1,18 +1,18 @@
-<?
+<?php
 if($_SESSION["mID"] == ""){
+	?>
+	<form action="<?php echo $page_link;?>/login_function.php"  method="post" name="formlogin" id="formlogin" onsubmit="return validFormlogin();">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝิน&nbsp;<input type="text" size="10" class="textbox_gray" name="user" />&nbsp;๏ฟฝ๏ฟฝ๏ฟฝสผ๏ฟฝาน&nbsp;<input type="password" size="10" class="textbox_gray" name="pass" />&nbsp;<input name="flag" type="hidden" value="login" /><input name="submit" type="submit" value="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ" class="btn" />&nbsp;<a href="<?php echo $page_link?>/๏ฟฝ๏ฟฝัค๏ฟฝ๏ฟฝ๏ฟฝาชิก/register" title="๏ฟฝ๏ฟฝัค๏ฟฝ๏ฟฝ๏ฟฝาชิก">๏ฟฝ๏ฟฝัค๏ฟฝ๏ฟฝ๏ฟฝาชิก</a>&nbsp;<a href="<?php echo $page_link?>/๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสผ๏ฟฝาน/forgot-password" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสผ๏ฟฝาน">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสผ๏ฟฝาน</a></form>
+	<?php
+}else{
+	$selectmember = "select * from member where  mID = '".$_SESSION["mID"]."'" ;
+	$rmember = $db->query($selectmember);
+	$Rmember = mysql_fetch_array($rmember);
 ?>
-<form action="<?=$page_link?>/login_function.php"  method="post" name="formlogin" id="formlogin" onsubmit="return validFormlogin();">ชื่อล็อกอิน&nbsp;<input type="text" size="10" class="textbox_gray" name="user" />&nbsp;รหัสผ่าน&nbsp;<input type="password" size="10" class="textbox_gray" name="pass" />&nbsp;<input name="flag" type="hidden" value="login" /><input name="submit" type="submit" value="เข้าสู่ระบบ" class="btn" />&nbsp;<a href="<?=$page_link?>/สมัครสมาชิก/register" title="สมัครสมาชิก">สมัครสมาชิก</a>&nbsp;<a href="<?=$page_link?>/ลืมรหัสผ่าน/forgot-password" title="ลืมรหัสผ่าน">ลืมรหัสผ่าน</a></form>
-<?
-}
-else
-{
-
-$selectmember = "select * from member where  mID = '".$_SESSION["mID"]."'" ; 
-$rmember = $db->query($selectmember);
-$Rmember = mysql_fetch_array($rmember);
-	
-?>
-ยินดีต้อนรับ&nbsp;<font color="#FF0066" size="3"><strong><?=$Rmember['mUsername']?></strong></font>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?=$page_link?>/ข้อมูลอสังหาริมทรัพย์/<?=$Rmember['mID']?>" title="ข้อมูลอสังหาริมทรัพย์">ข้อมูลอสังหาริมทรัพย์</a>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?=$page_link?>/ข้อมูลส่วนตัว/<?=$Rmember['mID']?>" title="ข้อมูลส่วนตัว">ข้อมูลส่วนตัว</a>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?=$page_link?>/ออกจากระบบ/logout" title="ออกจากระบบ">ออกจากระบบ</a>
-<?
+๏ฟฝิน๏ฟฝีต๏ฟฝอน๏ฟฝับ&nbsp;
+	<font color="#FF0066" size="3">
+		<strong><?php echo $Rmember['mUsername'];?></strong>
+	</font>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?php echo $page_link;?>/๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ/<?php echo $Rmember['mID'];?>" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ</a>&nbsp;&nbsp;&nbsp;&raquo;
+	<a href="<?php echo $page_link;?>/๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ/<?php echo $Rmember['mID'];?>" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวน๏ฟฝ๏ฟฝ๏ฟฝ</a>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?php echo $page_link;?>/๏ฟฝอก๏ฟฝาก๏ฟฝะบ๏ฟฝ/logout" title="๏ฟฝอก๏ฟฝาก๏ฟฝะบ๏ฟฝ">๏ฟฝอก๏ฟฝาก๏ฟฝะบ๏ฟฝ</a>
+<?php
 }
 ?>
