@@ -58,7 +58,7 @@ function bookmark(title,url){
 <center>
 </center><br /><br />
 <a href="http://www.startconcept.com/" target="_blank"><img src="http://image.ohozaa.com/i6/yenta4.png" alt="Manga ???? Onepiece" class="b-s-ora"width="1" height="1" border="0" /></a>
-<img src="images/20ID.jpg" /><?php include "include-top10-type.php"; ?><p class="alignrights"><a href="<?php echo $page_link?>/property-search.php" title="??ѧ???????Ѿ???????"><strong>??ѧ???????Ѿ???????</strong></a></p>&nbsp;</div>
+<img src="images/20ID.jpg" /><?php include "include-top10-type.php"; ?><p class="alignrights"><a href="<?php echo $page_link;?>/property-search.php" title="??ѧ???????Ѿ???????"><strong>??ѧ???????Ѿ???????</strong></a></p>&nbsp;</div>
 <div class="rjobright"><?php include "include-right-banner.php"; ?></div>
 
 </div>
