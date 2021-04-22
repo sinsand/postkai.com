@@ -30,10 +30,12 @@ class mydb {
 	}
 
 	function query($query) {
-
-		mysqli_set_charset($this->linkID,"tis-620");
-		$result = mysqli_query($query) or die(mysqli_error());
-		return $result ;
+		$result = mysqli_query($query);
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
 	}
 
 	function numrows($result) {
