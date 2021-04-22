@@ -17,7 +17,7 @@ class mydb {
 		if (mysqli_connect_errno()){
 			echo "Database Connect Failed : " . mysqli_connect_error();
 		}
-		mysqli_set_charset($this->linkID,"tis-620");
+		mysqli_set_charset($this->linkID,"utf8");
 
 
 		return $this->linkID ;
@@ -30,7 +30,7 @@ class mydb {
 	}
 
 	function query($query) {
-		$result = mysqli_query($query);
+		$result = mysqli_query($this->linkID,$query);
 		if($result){
 			return $result;
 		}else{
