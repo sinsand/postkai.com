@@ -18,15 +18,11 @@ class mydb {
 			echo "Database Connect Failed : " . mysqli_connect_error();
 		}
 		mysqli_set_charset($this->linkID,"utf8");
-
-
-		return $this->linkID ;
+		return $this->linkID;
 	}
 
 	function close(){
-
-		mysqli_close($this->linkID) ;
-
+		mysqli_close($this->linkID);
 	}
 
 	function query($query) {
@@ -34,14 +30,12 @@ class mydb {
 		if($result){
 			return $result;
 		}else{
-			return false;
+			return "false";
 		}
 	}
 
 	function numrows($result) {
-
-		$result = mysqli_num_rows($result) ;
-
+		$result = mysqli_num_rows($result);
 		return $result ;
 	}
 
