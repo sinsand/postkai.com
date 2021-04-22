@@ -1,146 +1,123 @@
-<img src="<?=$page_link?>/images/asungha_re_s.jpg" alt="อสังหาริมทรัพย์แนะนำ" title="อสังหาริมทรัพย์แนะนำ" /><br />
-	<? 
+<img src="<?php echo $page_link;?>/images/asungha_re_s.jpg" alt="๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะน๏ฟฝ" title="๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะน๏ฟฝ" /><br />
+	<?php
 	$sqljr = "SELECT * FROM sb_job where jStatus = '1' and jPic1 != '' ORDER BY RAND() limit 0,4";
-	$resultjr = $db->query($sqljr);
-	$totalrowsj = mysql_num_rows($resultjr);
+	$totalrowsj = select_num($sqljr);
 	$r = 0;
-	while($RWjr = mysql_fetch_array($resultjr)){
-	$jID[$r] = $RWjr['jID'];
-	$jTitle[$r] = $RWjr['jTitle'];
-	$jaType[$r] = $RWjr['jaType'];
-	$jType[$r] = $RWjr['jType'];
-	$jRead[$r] = $RWjr['jRead'];
-	$jPic1[$r] = $RWjr['jPic1'];
-	
-	$titleall[$r] = str_replace(' ','-', $jTitle[$r]);
-	$titleall[$r] = str_replace('#','-', $titleall[$r]);
-	$titleall[$r] = str_replace('%','-', $titleall[$r]);
-	
-	if($jaType[$r] == "1")
-	{
-		$jaTypes[$r] = "ซื้อ";
-	}
-	if($jaType[$r] == "2")
-	{
-		$jaTypes[$r] = "ขาย";
-	}
-	if($jaType[$r] == "3")
-	{
-		$jaTypes[$r] = "ให้เช่า";
-	}
-	
-	if($jType[$r] == "1")
-	{
-		$jTypes[$r] = "บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง";
-	}
-	if($jType[$r] == "2")
-	{
-		$jTypes[$r] = "คอนโด-คอนโดมีเนียม-อาคารชุด";
-	}
-	if($jType[$r] == "3")
-	{
-		$jTypes[$r] = "ตึก-อาคารพานิชย์-โรงงาน-โกดัง";
-	}
-	if($jType[$r] == "4")
-	{
-		$jTypes[$r] = "ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน";
-	}
-	if($jType[$r] == "5")
-	{
-		$jTypes[$r] = "อาคารเช่า-ห้องเช่า-บ้านเช่า";
-	}
-	if($jType[$r] == "6")
-	{
-		$jTypes[$r] = "อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม";
-	}
-	if($jType[$r] == "7")
-	{
-		$jTypes[$r] = "รถยนต์-รถมือสอง";
-	}
-	if($jType[$r] == "8")
-	{
-		$jTypes[$r] = "รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน";
-	}
-	
-	 $r++;}
+	foreach (select_tb($sqljr) as $RWjr) {
+		$jID[$r] = $RWjr['jID'];
+		$jTitle[$r] = $RWjr['jTitle'];
+		$jaType[$r] = $RWjr['jaType'];
+		$jType[$r] = $RWjr['jType'];
+		$jRead[$r] = $RWjr['jRead'];
+		$jPic1[$r] = $RWjr['jPic1'];
+
+		$titleall[$r] = str_replace(' ','-', $jTitle[$r]);
+		$titleall[$r] = str_replace('#','-', $titleall[$r]);
+		$titleall[$r] = str_replace('%','-', $titleall[$r]);
+
+		if($jaType[$r] == "1"){
+			$jaTypes[$r] = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+		}
+		if($jaType[$r] == "2"){
+			$jaTypes[$r] = "๏ฟฝ๏ฟฝ๏ฟฝ";
+		}
+		if($jaType[$r] == "3"){
+			$jaTypes[$r] = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+		}
+
+		if($jType[$r] == "1"){
+			$jTypes[$r] = "๏ฟฝ๏ฟฝาน-๏ฟฝ๏ฟฝาน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
+		}
+		if($jType[$r] == "2"){
+			$jTypes[$r] = "๏ฟฝอน๏ฟฝ๏ฟฝ-๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝาค๏ฟฝรชุด";
+		}
+		if($jType[$r] == "3"){
+			$jTypes[$r] = "๏ฟฝึก-๏ฟฝาค๏ฟฝรพานิช๏ฟฝ๏ฟฝ-๏ฟฝรง๏ฟฝาน-โกดัง";
+		}
+		if($jType[$r] == "4"){
+			$jTypes[$r] = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝัด๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน";
+		}
+		if($jType[$r] == "5"){
+			$jTypes[$r] = "๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+		}
+		if($jType[$r] == "6"){
+			$jTypes[$r] = "๏ฟฝุป๏ฟฝ๏ฟฝ์ตก๏ฟฝ๏ฟฝ่งบ๏ฟฝาน-๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝำนัก๏ฟฝาน-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+		}
+		if($jType[$r] == "7"){
+			$jTypes[$r] = "รถยน๏ฟฝ๏ฟฝ-รถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
+		}
+		if($jType[$r] == "8"){
+			$jTypes[$r] = "รถ๏ฟฝับ๏ฟฝ๏ฟฝาง-๏ฟฝุบ๏ฟฝึก-๏ฟฝ๏ฟฝ๏ฟฝอถอน๏ฟฝ๏ฟฝาน";
+		}
+		$r++;
+ }
 	 ?>
 
 <li>
-<? if($jPic1[0] != ""){ ?><img src="<?=$page_link?>/picture_job_1/<?=$jPic1[0]?>" width="120" height="90" alt="<?=$jTitle[0]?>" title="<?=$jTitle[0]?>" class="boarderimg" /><? } ?><br />
-<a href="<?=$page_link?>/<?=$jTypes[0]?>/<?=$titleall[0]?>/1/1/<?=$jType[0]?>/<?=$jaType[0]?>/<?=$jID[0]?>" target="_blank" title="<?=$jTitle[0]?>">
-			<? 
-		  	echo "<b><font size='2'>"; 
-			$position=50; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$jTitle[0]; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<?php if($jPic1[0] != ""){ ?><img src="<?php echo $page_link;?>/picture_job_1/<?php echo $jPic1[0];?>" width="120" height="90" alt="<?php echo $jTitle[0];?>" title="<?php echo $jTitle[0];?>" class="boarderimg" /><?php } ?><br />
+<a href="<?php echo $page_link;?>/<?php echo $jTypes[0];?>/<?php echo $titleall[0];?>/1/1/<?php echo $jType[0];?>/<?php echo $jaType[0];?>/<?php echo $jID[0];?>" target="_blank" title="<?php echo $jTitle[0];?>">
+			<?php
+		  	echo "<b><font size='2'>";
+				$position=50; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+				$message=$jTitle[0];
+				$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+				$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+				if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+				echo "</font></b>";
 			?>
-</a><br />ดูแล้ว <font color="#009900"><strong><?=$jRead[0]?></strong></font> ครั้ง<br /><br />
+</a><br />๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ <font color="#009900"><strong><?php echo $jRead[0];?></strong></font> ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ<br /><br />
 </li>
 <li>
-<? if($jPic1[1] != ""){ ?><img src="<?=$page_link?>/picture_job_1/<?=$jPic1[1]?>" width="120" height="90" alt="<?=$jTitle[1]?>" title="<?=$jTitle[1]?>" class="boarderimg" /><? } ?><br />
-<a href="<?=$page_link?>/<?=$jTypes[1]?>/<?=$titleall[1]?>/1/1/<?=$jType[1]?>/<?=$jaType[1]?>/<?=$jID[1]?>" target="_blank" title="<?=$jTitle[1]?>">
-			<? 
-		  	echo "<b><font size='2'>"; 
-			$position=50; // ระบุความยาวของโปรโยคว่าต้องการแค่ไหน
-			$message=$jTitle[1]; 
-			$pre_post = substr($message,$position,1); // เริ่มตัวข้อความตามความยาวที่ระบุไว้ในตัวแปร position
-			$show_post = substr($message,0,$position); // แสดงข้อความออกมา
-			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}	
-			echo "</font></b>";		
+<?php if($jPic1[1] != ""){ ?><img src="<?php echo $page_link;?>/picture_job_1/<?php echo $jPic1[1];?>" width="120" height="90" alt="<?php echo $jTitle[1];?>" title="<?php echo $jTitle[1];?>" class="boarderimg" /><?php } ?><br />
+<a href="<?php echo $page_link;?>/<?php echo $jTypes[1];?>/<?php echo $titleall[1];?>/1/1/<?php echo $jType[1];?>/<?php echo $jaType[1];?>/<?php echo $jID[1];?>" target="_blank" title="<?php echo $jTitle[1];?>">
+			<?php
+		  	echo "<b><font size='2'>";
+			$position=50; // ๏ฟฝะบุค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยค๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน
+			$message=$jTitle[1];
+			$pre_post = substr($message,$position,1); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวข๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวท๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ position
+			$show_post = substr($message,0,$position); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ
+			if($pre_post != ""){echo"$show_post ...";}else{echo"$show_post";}
+			echo "</font></b>";
 			?>
-</a><br />ดูแล้ว <font color="#009900"><strong><?=$jRead[1]?></strong></font> ครั้ง<br /><br />
+</a><br />๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ <font color="#009900"><strong><?php echo $jRead[1];?></strong></font> ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ<br /><br />
 </li>
 <li>
-<img src="<?=$page_link?>/images/ads2.jpg" width="120" height="90" alt="ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90" title="ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90" /><br />
-<a href="http://www.singburin.net/ติดต่อเรา/contactus" title="ติดต่อโฆษณาตำแหน่งนี้ขนาด  120 x 90"><b><font size="2">ติดต่อโฆษณาตำแหน่งนี้ขนาด  120 x 90</font></b></a><br /><br />
+<img src="<?php echo $page_link;?>/images/ads2.jpg" width="120" height="90" alt="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90" title="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90" /><br />
+<a href="<?php echo $page_link;?>/๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ/contactus" title="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด  120 x 90"><b><font size="2">๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด  120 x 90</font></b></a><br /><br />
 </li>
 <li>
-<img src="<?=$page_link?>/images/ads2.jpg" width="120" height="90" alt="ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90" title="ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90" /><br />
-<a href="http://www.singburin.net/ติดต่อเรา/contactus" title="ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90"><b><font size="2">ติดต่อโฆษณาตำแหน่งนี้ขนาด 120 x 90</font></b></a><br /><br />
+<img src="<?php echo $page_link;?>/images/ads2.jpg" width="120" height="90" alt="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90" title="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90" /><br />
+<a href="<?php echo $page_link;?>/๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ/contactus" title="๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90"><b><font size="2">๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝษณาต๏ฟฝ๏ฟฝหน่งน๏ฟฝ้ขนาด 120 x 90</font></b></a><br /><br />
 </li>
 
 <p align="center"><font color="#B4B4B4">---------------------------------------------</font></p>
 <p align="left">
-<img src="<?=$page_link?>/images/board15.jpg" alt="เว็บบอร์ด 15 อันดับล่าสุด" title="เว็บบอร์ด 15 อันดับล่าสุด" /><br />
-<?
+<img src="<?php echo $page_link;?>/images/board15.jpg" alt="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 15 ๏ฟฝัน๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุด" title="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 15 ๏ฟฝัน๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุด" /><br />
+<?php
 $sqlall = "SELECT * FROM webboard where wStatus = '1' order by wDate_Create desc limit 0,15";
-$resultall = $db->query($sqlall);
-while($fetchall = mysql_fetch_array($resultall)){
+foreach (select_tb($sqlall) as $fetchall) {
 
-$sqlre = "SELECT * FROM rejob where wID = '".$fetchall['wID']."'";
-$resultre = $db->query($sqlre);
-$numre= mysql_num_rows($resultre);
+	$sqlre = "SELECT * FROM rejob where wID = '".$fetchall['wID']."'";
+	$numre= select_num($sqlre);
 
-$titleb = str_replace(' ','-', $fetchall['wTitle']);
-$titleb = str_replace('#','-', $titleb);
-$titleb = str_replace('%','-', $titleb);
+	$titleb = str_replace(' ','-', $fetchall['wTitle']);
+	$titleb = str_replace('#','-', $titleb);
+	$titleb = str_replace('%','-', $titleb);
 
-$sqlm = "SELECT * FROM member where mID = '".$fetchall['mID']."' ";
-$resultm = $db->query($sqlm);
-$fetchm = mysql_fetch_array($resultm);
-?>
-
-<img src="<?=$page_link?>/images/list-webboard.png" alt="<?=$fetchall['wTitle']?>" title="<?=$fetchall['wTitle']?>" />&nbsp;&nbsp;<a href="<?=$page_link?>/board/<?=$titleb?>/<?=$fetchall['wID']?>/<?=$fetchall['wType']?>" title="<?=$fetchall['wTitle']?>" target="_blank"><u><?=$fetchall['wTitle']?></u></a>&nbsp;&nbsp;<font size="1"><b>โดย:</b>&nbsp;<?=$fetchm['mUsername']?>&nbsp;&nbsp;<b>วันที่:</b>&nbsp;<?=$fetchall['wDate_Create']?></font><font color="#FF0099">&nbsp;อ่าน:&nbsp;<strong><?=$fetchall['wRead']?></strong>&nbsp;,ตอบ:&nbsp;<strong><?=$numre?></strong></font><br />
-<?
+	$sqlm = "SELECT * FROM member where mID = '".$fetchall['mID']."' ";
+	foreach (select_tb($sqlm) as $fetchall) {
+	?>
+		<img src="<?php echo $page_link;?>/images/list-webboard.png" alt="<?php echo $fetchall['wTitle'];?>" title="<?php echo $fetchall['wTitle'];?>" />&nbsp;&nbsp;
+		<a href="<?php echo $page_link;?>/board/<?php echo $titleb;?>/<?php echo $fetchall['wID'];?>/<?php echo $fetchall['wType'];?>" title="<?php echo $fetchall['wTitle'];?>" target="_blank"><u>
+			<?php echo $fetchall['wTitle'];?></u></a>&nbsp;&nbsp;<font size="1"><b>๏ฟฝ๏ฟฝ๏ฟฝ:</b>&nbsp;<?php echo $fetchm['mUsername'];?>&nbsp;&nbsp;<b>๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝ:</b>&nbsp;<?php echo $fetchall['wDate_Create'];?></font>
+			<font color="#FF0099">&nbsp;๏ฟฝ๏ฟฝาน:&nbsp;<strong><?php echo $fetchall['wRead'];?></strong>&nbsp;,๏ฟฝอบ:&nbsp;<strong><?php echo $numre;?></strong></font><br />
+	<?php
+	}
 }
 ?>
 </p>
-<p align="right"><a href="<?=$page_link?>/เว็บบอร์ด/webboard" title="เว็บบอร์ดทั้งหมด"><strong>เว็บบอร์ดทั้งหมด</strong></a></p>
+<p align="right"><a href="<?php echo $page_link;?>/๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ/webboard" title="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ์ดท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ"><strong>๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ์ดท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</strong></a></p>
 <p align="center"><font color="#B4B4B4">---------------------------------------------</font></p>
 <center>
-<script type="text/javascript"><!--
-google_ad_client = "pub-2101138700314615";
-/* 160x600, ถูกสร้างขึ้นแล้ว 7/23/10 */
-google_ad_slot = "1565717998";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
 </center><br />
 <br />

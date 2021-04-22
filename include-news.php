@@ -1,44 +1,36 @@
-<img src="<?=$page_link?>/images/news.jpg" title="¢èÒÇ»ÃÐªÒÊÑÁ¾Ñ¹¸ì" alt="¢èÒÇ»ÃÐªÒÊÑÁ¾Ñ¹¸ì" /><br /><br />
-		<?
+<img src="<?php echo $page_link;?>/images/news.jpg" title="ï¿½ï¿½ï¿½Ç»ï¿½Ðªï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½" alt="ï¿½ï¿½ï¿½Ç»ï¿½Ðªï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½" /><br /><br />
+		<?php
 		$sqlnew = "SELECT * FROM news where nStatus = '1' order by nDate_Create desc limit 0,4";
-		$resultnew = $db->query($sqlnew);
-		$totalrowsnew = mysql_num_rows($resultnew);
-		if($totalrowsnew > 0)
-		{
 
+		if(select_num($sqlnew) > 0){
 		  $color = "#FFFFFF";
-		  while($Rs = mysql_fetch_array($resultnew))
-		  { 
-		  if ($color == "#FFFFFF")
-			{
-				$color = "#F9F9F9";
-			}
-			else
-			{
-				$color = "#FFFFFF";
-			}
-			$nTitle = str_replace(' ','-', $Rs['nTitle']);
-			$nTitle = str_replace('#','-', $nTitle);
-			$nTitle = str_replace('%','-', $nTitle);
- 		 ?>
-        <img src="<?=$page_link?>/images/news.gif" align="<? echo $Rs['nTitle']; ?>" border="0" title="<? echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?=$page_link?>/¢èÒÇÍÊÑ§ËÒÃÔÁ·ÃÑ¾Âì/<?=$nTitle?>/<?=$Rs['nID']?>" title="<?=$Rs['nTitle']?>" target="_blank"><?
-			if(strlen(strip_tags($Rs['nTitle']))<75)
-			{
-				echo $detail = $Rs['nTitle'];
-			}
-			else
-			{
-				echo $detail = substr(strip_tags($nTitle),0,75)."...";
-			} 
-			?></a>&nbsp;&nbsp;</font><br /><font size="1" color="#000000"><em>( ÇÑ¹·Õè :
-        <?
-		  list($day,$time) = explode (" ",$Rs['nDate_Create']) ;
-		  list($h,$m,$s) = explode(":",$time) ;
-		  list ($year,$month,$days)=explode("-",$day) ;
-	      echo "$days-$month-$year" ;
-	?> )
-    </em></font><br /><br />
-        <?
+			foreach (select_tb($sqlnew) as $Rs) {
+			  if ($color == "#FFFFFF"){
+					$color = "#F9F9F9";
+				}else{
+					$color = "#FFFFFF";
+				}
+				$nTitle = str_replace(' ','-', $Rs['nTitle']);
+				$nTitle = str_replace('#','-', $nTitle);
+				$nTitle = str_replace('%','-', $nTitle);
+ 		 		?>
+        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½/<?php echo $nTitle;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
+				<?php
+				if(strlen(strip_tags($Rs['nTitle']))<75){
+					echo $detail = $Rs['nTitle'];
+				}else{
+					echo $detail = substr(strip_tags($nTitle),0,75)."...";
+				}
+				?>
+				</a>&nbsp;&nbsp;</font><br /><font size="1" color="#000000"><em>( ï¿½Ñ¹ï¿½ï¿½ï¿½ :
+	      <?php
+				  list($day,$time) = explode (" ",$Rs['nDate_Create']) ;
+				  list($h,$m,$s) = explode(":",$time) ;
+				  list ($year,$month,$days)=explode("-",$day) ;
+		      echo "$days-$month-$year" ;
+					?> )
+    		</em></font><br /><br />
+        <?php
         }
 		}
 		?>
