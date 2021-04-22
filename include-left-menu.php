@@ -11,64 +11,56 @@
 &nbsp;<strong><a href="<?php echo $page_link;?>/house">House</a></strong>&nbsp;-&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '1' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/condo">Condo</a></strong>&nbsp;-&nbsp;�͹�� ,�͹��������� ,�Ҥ�êش <br />;������鹷�&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '2' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/building">Building</a></strong>&nbsp;-&nbsp;�֡ ,�Ҥ�þҹԪ�� ,�ç�ҹ <br />⡴ѧ ,�ӹѡ�ҹ&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '3' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/����Թ�����-����Թ�Ѵ���-����Թ����Ѻ�����ɵ�/land" title="����Թ����� ����Թ�Ѵ��� ����Թ">Land</a></strong>&nbsp;-&nbsp;����Թ����� ,����Թ�Ѵ��� ,����Թ&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '4' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/�Ҥ������-��ͧ����-��ҹ����-�;ѡ/rent" title="�Ҥ������ ��ͧ���� ��ҹ����">Rent</a></strong>&nbsp;-&nbsp;�Ҥ������ ,��ͧ���� ,�֡���� ,��ͧ�ѡ<br />������� ,��ͧ��ҧ�������&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '5' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/�ػ��쵡��觺�ҹ-�ػ�ó��ӹѡ�ҹ-����-��ҹ����-�������/furniture" title="�ػ��쵡��觺�ҹ �ػ�ó��ӹѡ�ҹ ���� �������">Furniture</a></strong>&nbsp;-&nbsp;�ػ��쵡��觺�ҹ ,�ػ�ó��ӹѡ�ҹ ,���� ,������� ,������������&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '6' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/ö¹��-ö����ͧ-ö�ѡ��ҹ¹��/car" title="ö¹�� ö����ͧ ö�ѡ��ҹ¹��">Car</a></strong>&nbsp;-&nbsp;ö¹�� ,ö����ͧ ,ö¹������ͧ <br />ö���� ,ö��÷ء&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '7' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font><br />
 &nbsp;<strong><a href="<?php echo $page_link;?>/ö�Ѻ��ҧ-�غ�֡-���Ͷ͹��ҹ-����ѡ/others" title="ö�Ѻ��ҧ �غ�֡ ���Ͷ͹��ҹ">Others</a></strong>&nbsp;-&nbsp;ö�Ѻ��ҧ ,�غ�֡ ,���Ͷ͹��ҹ <br />�����ӹѡ�ҹ ������� �&nbsp
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '8' ";
-	$resulthouse = $db->query($sqlhouse);
-	echo $totalrowshouse = numrows($resulthouse);
+	echo select_num($resulthouse);
 ?>)
 <br />
 &nbsp;<font color="#CCCCCC">------------------------------------------------------</font>
