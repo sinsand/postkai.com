@@ -29,7 +29,6 @@ function bookmark(title,url){
 	}
 }
 </script>
-<meta name="google-site-verification" content="dZIVpNMhH0W_pD_bezS1s678A-4xh8NyCe9ZgbQLEPI" />
 </head>
 <body onload="document.getElementById('showtop10allwebHouse').style.display='';">
 <center>

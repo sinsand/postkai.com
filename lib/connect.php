@@ -399,7 +399,7 @@ echo   "<a href='$PHP_SELF?offset=$prevoffset&limit=$limit".$msg."'><< Back</a> 
 
 }
 
-$page_link = "https://www.postkai.com/";
+$page_link = "https://www.postkai.com";
 
 function pagehouse($offset,$limit,$totalrows,$msg,$colora,$colorb,$colorc){
 // Begin Prev/Next Links
