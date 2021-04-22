@@ -1,0 +1,68 @@
+RewriteEngine On 
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+RewriteRule ^บ้าน-ทาวน์เฮ้าส์-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง/(.*) property-house.php?type=$1
+RewriteRule ^คอนโด-คอนโดมีเนียม-อาคารชุด-แฟลต/(.*) property-condo.php?type=$1
+RewriteRule ^ตึก-อาคารพานิชย์-ร้านค้า-โรงงาน-โกดัง/(.*) property-building.php?type=$1
+RewriteRule ^ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดินสำหรับการเกษตร/(.*) property-land.php?type=$1
+RewriteRule ^อาคารเช่า-ห้องเช่า-บ้านเช่า-หอพัก/(.*) property-rent.php?type=$1
+RewriteRule ^อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ร้านซ่อม-ซ่อมแซม/(.*) property-furniture.php?type=$1
+RewriteRule ^รถยนต์-รถมือสอง-รถจักรยานยนต์/(.*) property-car.php?type=$1
+RewriteRule ^รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน-ที่พัก/(.*) property-others.php?type=$1
+
+RewriteRule ^ข่าวสาร/(.*) property-news.php?title=$1
+RewriteRule ^ข่าวอสังหาริมทรัพย์/(.*)/(.*) property-news-asungha.php?title=$1&nID=$2
+RewriteRule ^ข่าวดารา-บันเทิง/(.*)/(.*) property-news-entertain.php?title=$1&eID=$2
+RewriteRule ^ข่าวเศรษฐกิจ-การเมือง/(.*)/(.*) property-news-business.php?title=$1&bbID=$2
+RewriteRule ^ข่าวกีฬา/(.*)/(.*) property-news-sport.php?title=$1&sID=$2
+RewriteRule ^บทความ/(.*)/(.*) property-news-content.php?title=$1&cID=$2
+
+RewriteRule ^บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^คอนโด-คอนโดมีเนียม-อาคารชุด/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^ตึก-อาคารพานิชย์-โรงงาน-โกดัง/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^อาคารเช่า-ห้องเช่า-บ้านเช่า/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^รถยนต์-รถมือสอง/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+RewriteRule ^รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน/(.*)/(.*)/(.*)/(.*)/(.*)/(.*) property-show-detail.php?title=$1&IDRead=$2&type=$3&jType=$4&jaType=$5&jID=$6
+
+RewriteRule ^บ้าน-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^คอนโด-คอนโดมีเนียม-อาคารชุด/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^ตึก-อาคารพานิชย์-โรงงาน-โกดัง/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดิน/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^อาคารเช่า-ห้องเช่า-บ้านเช่า/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ซ่อมแซม/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^รถยนต์-รถมือสอง/(.*)/(.*) property-edit.php?title=$1&jID=$2
+RewriteRule ^รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน/(.*)/(.*) property-edit.php?title=$1&jID=$2
+
+RewriteRule ^ลงประกาศฟรี-อสังหาริมทรัพย์/(.*) property-add.php?title=$1
+RewriteRule ^ค้นหา-อสังหาริมทรัพย์/(.*) property-search.php?title=$1
+RewriteRule ^อสังหาริมทรัพย์ทั้งหมด/(.*) property-search.php?title=$1
+RewriteRule ^อสังหาริมทรัพย์-type/(.*) property-type.php?title=$1
+RewriteRule ^ข้อมูลอสังหาริมทรัพย์/(.*) property-myproperty.php?mID=$1
+RewriteRule ^สมัครสมาชิก/(.*) property-register.php?title=$1
+RewriteRule ^ข้อมูลส่วนตัว/(.*) property-member-edit.php?mID=$1
+RewriteRule ^ลืมรหัสผ่าน/(.*) property-forgot-password.php?title=$1
+RewriteRule ^ออกจากระบบ/(.*) login_function.php?logout=$1
+
+RewriteRule ^ติดต่อเรา/(.*) property-contactus.php?title=$1
+RewriteRule ^ติดต่อชำระเงิน/(.*) property-payment.php?title=$1
+RewriteRule ^ติดต่อลงโฆษณา/(.*) property-advertisting.php?title=$1
+RewriteRule ^แลกลิ้งค์เพื่อนบ้าน/(.*) property-network.php?title=$1
+RewriteRule ^แผนผังเว็บ/(.*) property-sitemap.php?title=$1
+RewriteRule ^เว็บบอร์ด/(.*) property-webboard.php?title=$1
+
+RewriteRule ^webboard/บ้าน-ทาวน์เฮ้าส์-บ้านจัดสรร-บ้านเดี่ยว-บ้านมือสอง/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/คอนโด-คอนโดมีเนียม-อาคารชุด-แฟลต/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/ตึก-อาคารพานิชย์-ร้านค้า-โรงงาน-โกดัง/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/ที่ดินเปล่า-ที่ดินจัดสรร-ที่ดินสำหรับการเกษตร/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/อาคารเช่า-ห้องเช่า-บ้านเช่า-หอพัก/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/อุปกร์ตกแต่งบ้าน-อุปกรณ์สำนักงาน-แอร์-ร้านซ่อม-ซ่อมแซม/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/รถยนต์-รถมือสอง-รถจักรยานยนต์/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/รถรับจ้าง-ทุบตึก-รื้อถอนบ้าน-ที่พัก/(.*) property-webboard-type.php?bID=$1
+RewriteRule ^webboard/(.*) property-webboard-add.php?title=$1
+RewriteRule ^board/(.*)/(.*)/(.*) property-webboard-detail.php?title=$1&bID=$2&btype=$3

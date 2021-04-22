@@ -1,0 +1,69 @@
+body {
+	background-color: #FFFFFF;
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	color: #666666;
+	scrollbar-3dlight-color: #F0F0EE;
+	scrollbar-arrow-color: #676662;
+	scrollbar-base-color: #F0F0EE;
+	scrollbar-darkshadow-color: #DDDDDD;
+	scrollbar-face-color: #E0E0DD;
+	scrollbar-highlight-color: #F0F0EE;
+	scrollbar-shadow-color: #F0F0EE;
+	scrollbar-track-color: #F5F5F5;
+}
+
+td {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	color: #666666;
+}
+
+pre {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	color: #666666;
+}
+
+.TxNormal {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	color: #666666;
+}
+.TxHeadBold {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 14px;
+	font-weight: bold;
+	color: #0033CC;
+	text-decoration: underline;
+}
+.TxHeadSub {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+}
+.TxNormalBold {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+thead {
+	background-color: #FFBBBB;
+}
+
+tfoot {
+	background-color: #BBBBFF;
+}
+
+th {
+	font-family: Tahoma, "MS Sans Serif", sans-serif, "Times New Roman";
+	font-size: 12px;
+	color: #666666;
+}
+
+.border {
+	border: 1px solid #DCDDE8;
+}
