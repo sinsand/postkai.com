@@ -13,8 +13,8 @@ class mydb {
 		$this->dbpassword = "5ad~6r8V" ;
 		$this->dbname = "chonjob_postkai" ;
 
-		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword) or die ("???????ö?Դ??Ͱҹ????????") ;
-		mysqli_select_db($this->dbname) or die ("????????ö?Դ???Ͱҹ???????? ".$this->dbname) ;
+		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword) or die ("Username Password Database inValid") ;
+		mysqli_select_db($this->dbname) or die ("Connect Database Error ".$this->dbname) ;
 		mysqli_set_charset("SET NAMES utf8");
 
 
