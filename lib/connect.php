@@ -13,9 +13,9 @@ class mydb {
 		$this->dbpassword = "5ad~6r8V" ;
 		$this->dbname = "chonjob_postkai" ;
 
-		$this->linkID = mysql_connect($this->dbhost,$this->dbuser,$this->dbpassword) or die ("???????ö?Դ??Ͱҹ????????") ;
-		mysql_select_db($this->dbname) or die ("????????ö?Դ???Ͱҹ???????? ".$this->dbname) ;
-		mysql_query("SET NAMES utf8");
+		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword) or die ("???????ö?Դ??Ͱҹ????????") ;
+		mysqli_select_db($this->dbname) or die ("????????ö?Դ???Ͱҹ???????? ".$this->dbname) ;
+		mysqli_set_charset("SET NAMES utf8");
 
 
 		return $this->linkID ;
@@ -23,27 +23,27 @@ class mydb {
 
 	function close(){
 
-		mysql_close($this->linkID) ;
+		mysqli_close($this->linkID) ;
 
 	}
 
 	function query($query) {
 
-		mysql_query("SET NAMES utf8");
-		$result = mysql_query($query) or die(mysql_error());
+		mysqli_set_charset("SET NAMES utf8");
+		$result = mysqli_query($query) or die(mysqli_error());
 		return $result ;
 	}
 
 	function numrows($result) {
 
-		$result = mysql_num_rows($result) ;
+		$result = mysqli_num_rows($result) ;
 
 		return $result ;
 	}
 
 	function maxRank($field, $table){
 		$sel = "select  max($field) as max from $table ";
-		$m = mysql_fetch_array($this->query($sel));
+		$m = mysqli_fetch_array($this->query($sel));
 		return ($m['max']+1);
 	}
 
@@ -61,7 +61,7 @@ class mydb {
 		$r = $this->query($sel);
 		$num = $this->numrows($r);
 		if($num > 0){
-			while($R = mysql_fetch_array($r)){
+			while($R = mysqli_fetch_array($r)){
 				$value++ ;
 				$upd = "update $table set $fname = '$value' where $fid = '$R[0]'";
 				$this->query($upd);
@@ -82,9 +82,9 @@ class mydb {
 function checkloginadmin($user,$pass){
 	//$db = new mydb;
 	$select = "select * from admin  where  aUsername = '$user' and aPassword = '$pass'" ;
-	$r = mysql_query($select);
-	$R = mysql_fetch_array($r);
-	$num = mysql_num_rows($r);
+	$r = mysqli_query($select);
+	$R = mysqli_fetch_array($r);
+	$num = mysqli_num_rows($r);
 
 	if($num >= 1 ){
 		 $admin["aID"]= $R['aID'] ;
@@ -160,7 +160,7 @@ function page($offset,$limit,$totalrows,$msg,$colora,$colorb,$colorc){
     // Now loop through the Ë¹éÒs to create numbered links
     // ex. 1 2 3 4 5 NEXT
     for ($i=1;$i<=$Numint;$i++) {
-        // Check if on current Ë¹éÒ 
+        // Check if on current Ë¹éÒ
         if (($offset/$limit) == ($i-1)) {
             // $i is equal to current Ë¹éÒ, so don't display a link
             echo "<font color=\"".$colora."\"><strong>$i</strong> </font>";
@@ -187,7 +187,7 @@ while($i<count($checkbox))
 {
 $id = $checkbox[$i];
 $query = "delete  from  $table  where $field = $id";
-$result = mysql_query($query) ;
+$result = mysqli_query($query) ;
 $i++;
 }
 }
@@ -209,9 +209,9 @@ return $file ;
  function checklogin($user,$pass){
 	//$db = new mydb;
 	 $select = "select * from member where  mUsername = '$user' and mPassword = '$pass' and mStatus = '1' " ;
-	$r = mysql_query($select);
-	$R = mysql_fetch_array($r);
-	$num = mysql_num_rows($r);
+	$r = mysqli_query($select);
+	$R = mysqli_fetch_array($r);
+	$num = mysqli_num_rows($r);
 
 	if($num >= 1 ){
 		 $member["mID"]= $R['mID'] ;
@@ -225,9 +225,9 @@ return $file ;
  function checkloginmember($user,$pass){
 	//$db = new mydb;
 	 $select = "select * from member where  mUsername = '$user' and mPassword = '$pass' and mStatus = '1'" ;
-	$r = mysql_query($select);
-	$R = mysql_fetch_array($r);
-	$num = mysql_num_rows($r);
+	$r = mysqli_query($select);
+	$R = mysqli_fetch_array($r);
+	$num = mysqli_num_rows($r);
 
 	if($num >= 1 ){
 		 $admin["aID"]= $R['aID'] ;
@@ -313,8 +313,8 @@ return $string ;
 }
 function mincat() {
 $selcat = "select min(cID) AS id from category" ;
-$r = mysql_query($selcat) ;
-$R = mysql_fetch_array($r) ;
+$r = mysqli_query($selcat) ;
+$R = mysqli_fetch_array($r) ;
 $id = $R['id'] ;
 return $id  ;
 }
