@@ -15,7 +15,7 @@ class mydb {
 
 		$this->linkID = mysqli_connect($this->dbhost,$this->dbuser,$this->dbpassword,$this->dbname);
 		if (mysqli_connect_errno()){
-			echo "Database Connect Failed : " . mysqli_connect_error();
+			echo "Database Connect Failed : ".mysqli_connect_error();
 		}
 		mysqli_set_charset($this->linkID,"utf8");
 		return $this->linkID;
@@ -30,7 +30,7 @@ class mydb {
 		if($result){
 			return $result;
 		}else{
-			return "false";
+			return false;
 		}
 	}
 

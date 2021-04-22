@@ -8,7 +8,7 @@
 </form>
 <script type="text/javascript" src="http://www.google.co.th/cse/brand?form=cse-search-box&amp;lang=th"></script><br />
 <img src="<?php echo $page_link;?>/images/cat.jpg" alt="��������ѧ�������Ѿ��" title="��������ѧ�������Ѿ��" /><br /><br />
-&nbsp;<strong><a href="<?php echo $page_link;?>/house">House</a></strong>&nbsp;-&nbsp;��ҹ ,��ǹ������� ,��ҹ�Ѵ��� ,��ҹ������ ,��ҹ����ͧ&nbsp;
+&nbsp;<strong><a href="<?php echo $page_link;?>/house">House</a></strong>&nbsp;-&nbsp;
 (<?php
 	$sqlhouse = "SELECT * FROM sb_job where jType = '1' ";
 	$resulthouse = $db->query($sqlhouse);
