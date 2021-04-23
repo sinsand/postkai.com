@@ -7,7 +7,6 @@ header('Access-Control-Allow-Origin: *');
 date_default_timezone_set("utc");
 
 global $Link, $Host, $User, $Pass, $DBname;
-
 //$page_link = "https://www.postkai.com";
 $page_link = "https://".$_SERVER['HTTP_HOST'];
 
@@ -124,13 +123,6 @@ function ranking($fid,$fid_value,$fname, $table,$value,$flag,$con){
 function checkloginadmin($user,$pass){
 	//$db = new mydb;
 	$select = "select * from admin  where  aUsername = '$user' and aPassword = '$pass'" ;
-
-
-
-	$r = mysqli_query($select);
-	$R = mysqli_fetch_array($r);
-	$num = mysqli_num_rows($r);
-
 	if(select_num($select) >= 1 ){
 		foreach (select_tb($select) as $R) {
 			 $admin["aID"]= $R['aID'] ;
