@@ -1,8 +1,8 @@
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/index.php" title="หน้าแรก">หน้าแรก</a>
-&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:bookmark(document.title,window.location);" title="เก็บหน้านี้ไว้">เก็บหน้านี้ไว้</a>
-&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/ลงประกาศฟรี-อสังหาริมทรัพย์/ลงประกาศฟรี" title="ลงประกาศฟรี"><font color="#FF0066">ลงประกาศฟรี</font></a>
-&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/property-search.php" title="ค้นหาอสังหาริมทรัพย์">ค้นหาอสังหาริมทรัพย์</a>
-&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/อสังหาริมทรัพย์-type/type" title="ประเภทอสังหาริมทรัพย์">ประเภทอสังหาริมทรัพย์</a>
-&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/ติดต่อเรา/contactus" title="ติดต่อเรา">ติดต่อเรา</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=$page_link?>/ติดต่อลงโฆษณา/advertisting" title="ติดต่อลงโฆษณา"><img src="<?=$page_link?>/images/ads.png" border="0" align="absmiddle" title="ติดต่อลงโฆษณา" alt="ติดต่อลงโฆษณา" /></a>
-<a href="<?=$page_link?>/เว็บบอร์ด/webboard" title="เว็บบอร์ด"><img src="<?=$page_link?>/images/webboard.png" border="0" align="absmiddle" title="เว็บบอร์ด" alt="เว็บบอร์ด" /></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>" title="เธซเธเนเธฒเธซเธฅเธฑเธ">เธซเธเนเธฒเธซเธฅเธฑเธ</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:bookmark(document.title,window.location);" title="๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>/ลง๏ฟฝ๏ฟฝะก๏ฟฝศฟ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัพ๏ฟฝ๏ฟฝ/ลง๏ฟฝ๏ฟฝะก๏ฟฝศฟ๏ฟฝ๏ฟฝ" title="ลง๏ฟฝ๏ฟฝะก๏ฟฝศฟ๏ฟฝ๏ฟฝ"><font color="#FF0066">ลง๏ฟฝ๏ฟฝะก๏ฟฝศฟ๏ฟฝ๏ฟฝ</font></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>/property-search.php" title="เธเนเธเธซเธฒ-เธญเธชเธฑเธเธซเธฒเธฃเธดเธกเธ—เธฃเธฑเธเธขเน">เธญเธชเธฑเธเธซเธฒเธฃเธดเธกเธ—เธฃเธฑเธเธขเนเธ—เธฑเนเธเธซเธกเธ”</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>/เธญเธชเธฑเธเธซเธฒเธฃเธดเธกเธ—เธฃเธฑเธเธขเน-type/type" title="เธญเธชเธฑเธเธซเธฒเธฃเธดเธกเธ—เธฃเธฑเธเธขเน-type">เธญเธชเธฑเธเธซเธฒเธฃเธดเธกเธ—เธฃเธฑเธเธขเน-type</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>/เธ•เธดเธ”เธ•เนเธญเน€เธฃเธฒ" title="เธ•เธดเธ”เธ•เนเธญเน€เธฃเธฒ">เธ•เธดเธ”เธ•เนเธญเน€เธฃเธฒ</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $page_link;?>/เธ•เธดเธ”เธ•เนเธญเธฅเธเนเธเธฉเธ“เธฒ" title="เธ•เธดเธ”เธ•เนเธญเธฅเธเนเธเธฉเธ“เธฒ"><img src="<?php echo $page_link;?>/images/ads.png" border="0" align="absmiddle" title="เธ•เธดเธ”เธ•เนเธญเธฅเธเนเธเธฉเธ“เธฒ" alt="เธ•เธดเธ”เธ•เนเธญเธฅเธเนเธเธฉเธ“เธฒ" /></a>
+<a href="<?php echo $page_link;?>/๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ/webboard" title="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ"><img src="<?php echo $page_link;?>/images/webboard.png" border="0" align="absmiddle" title="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ" alt="๏ฟฝ๏ฟฝ็บบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ" /></a>
