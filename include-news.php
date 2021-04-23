@@ -13,22 +13,27 @@
 				$nTitle = str_replace('#','-', $nTitle);
 				$nTitle = str_replace('%','-', $nTitle);
  		 		?>
-        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
-				<?php
-				if(strlen(strip_tags($Rs['nTitle']))<75){
-					echo $detail = $Rs['nTitle'];
-				}else{
-					echo $detail = substr(strip_tags($nTitle),0,75)."...";
-				}
-				?>
-				</a>&nbsp;&nbsp;</font><br /><font size="1" color="#000000"><em>( �ѹ��� :
-	      <?php
-				  list($day,$time) = explode (" ",$Rs['nDate_Create']) ;
-				  list($h,$m,$s) = explode(":",$time) ;
-				  list ($year,$month,$days)=explode("-",$day) ;
-		      echo "$days-$month-$year" ;
+        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;
+						<a href="<?php echo $page_link;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
+						<?php
+							if(strlen(strip_tags($Rs['nTitle']))<75){
+								echo $Rs['nTitle'];
+							}else{
+								echo substr(strip_tags($nTitle),0,75)."...";
+							}
+						?>
+						</a>&nbsp;&nbsp;
+			
+				<font size="1" color="#000000">
+					<em>( �ѹ��� :
+		      <?php
+					  list($day,$time) = explode (" ",$Rs['nDate_Create']) ;
+					  list($h,$m,$s) = explode(":",$time) ;
+					  list ($year,$month,$days)=explode("-",$day) ;
+			      echo "$days-$month-$year" ;
 					?> )
-    		</em></font><br /><br />
+    			</em>
+				</font><br /><br />
         <?php
       }
 		}
