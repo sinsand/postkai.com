@@ -1,45 +1,37 @@
-<? session_start() ; 
+<?php
 include 'lib/connect.php' ;
 error_reporting (E_ALL ^ E_NOTICE);
-$flag=$_POST["flag"] ; 
+$flag=$_POST["flag"] ;
 $user = $_POST["user"] ;
-$pass = $_POST["pass"] ; 
-$logout = $_GET["logout"] ; 
-$db = new mydb ;
+$pass = $_POST["pass"] ;
+$logout = $_GET["logout"] ;
 
 
-if ($flag == 'login')
-{
-		if (checklogin($user,$pass))
-		{
+if ($flag == 'login'){
+		if (checklogin($user,$pass)){
 			 $member = checklogin($user,$pass);
 			 $mID = $member["mID"];
-			 $mName = $member["mName"] ; 
-			 $_SESSION["mID"] = $mID ; 
-			 $_SESSION["mName"] = $mName ; 
-			 $msg = "à¢éÒÊÙèÃÐººàÃÕÂºÃéÍÂ" ; 
+			 $mName = $member["mName"] ;
+			 $_SESSION["mID"] = $mID ;
+			 $_SESSION["mName"] = $mName ;
+			 $msg = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½" ;
 			 $url = "$page_link/index.php" ;
-	
-		}
-		else
-		{
-	
-			if(!checklogin($user,$pass))
-			{
-				$msg = "ª×èÍÅçÍ¡ÍÔ¹ËÃ×ÍÃËÑÊ¼èÒ¹äÁè¶Ù¡µéÍ§ ËÃ×Í ª×èÍÅçÍ¡ÍÔ¹¹ÕéäÁèÊÒÁÒÃ¶ãªé§Ò¹ä´é ¡ÃØ³ÒµÃÇ¨ÊÍºËÃ×ÍµÔ´µèÍ¼Ùé´ÙáÅ" ; 
-				$url = "$page_link/index.php" ; 
+
+		}else{
+
+			if(!checklogin($user,$pass)){
+				$msg = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½Í§ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ø³Òµï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½ÍµÔ´ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ;
+				$url = "$page_link/index.php" ;
 			}
-
 	}
-
-	$db->close() ; 
+	close() ;
 }
 
 if ($logout == 'logout'){
 $_SESSION["mID"] = '' ;
 $msg = "Logout Complete." ; 
-$url = "$page_link/index.php" ; 		
+$url = "$page_link/index.php" ;
 }
 
 ?>
-<script type="text/javascript">alert("<?=$msg?>");window.location.replace("<?=$url?>");</script>
+<script type="text/javascript">alert("<?php echo $msg;?>");window.location.replace("<?php echo $url;?>");</script>
