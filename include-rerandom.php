@@ -69,7 +69,7 @@
 </li>
 <li>
 <?php if($jPic1[1] != ""){ ?><img src="<?php echo $page_link;?>/picture_job_1/<?php echo $jPic1[1];?>" width="120" height="90" alt="<?php echo $jTitle[1];?>" title="<?php echo $jTitle[1];?>" class="boarderimg" /><?php } ?><br />
-<a href="<?php echo $page_link;?>/<?php echo $jTypes[1];?>/<?php echo $titleall[1];?>/1/1/<?php echo $jType[1];?>/<?php echo $jaType[1];?>/<?php echo $jID[1];?>" target="_blank" title="<?php echo $jTitle[1];?>">
+<a href="<?php echo $page_link;?>/<?php echo $jTypes[1];?>/<?php echo $jID[1];?>" target="_blank" title="<?php echo $jTitle[1];?>">
 			<?php
 		  	echo "<b><font size='2'>";
 			$position=50; // �кؤ�����Ǣͧ����¤��ҵ�ͧ�������˹
@@ -116,7 +116,7 @@ foreach (select_tb($sqlall) as $fetchall) {
 }
 ?>
 </p>
-<p align="right"><a href="<?php echo $page_link;?>/��纺����/webboard" title="��纺��촷������"><strong>��纺��촷������</strong></a></p>
+<p align="right"><a href="<?php echo $page_link;?>/webboard" title=""><strong>webboard</strong></a></p>
 <p align="center"><font color="#B4B4B4">---------------------------------------------</font></p>
 <center>
 </center><br />
