@@ -29,40 +29,70 @@ function bookmark(title,url){
 </script>
 </head>
 <body onload="document.getElementById('showtop10allwebHouse').style.display='';">
-<center>
-<!--HEAD-->
-<div class="head">
-<div class="headlogo"><?php include "include-logo.php"; ?></div>
-<div class="headmember">
-<?php include "include-member-menu.php"; ?>
-</div>
-</div>
+  <center>
+    <!--HEAD-->
+    <div class="head">
+      <div class="headlogo">
+        <?php include "include-logo.php"; ?>
+      </div>
+      <div class="headmember">
+        <?php include "include-member-menu.php"; ?>
+      </div>
+    </div>
 
-<!--MENU-->
-<div class="headmenu"><?php include "include-head-menu.php"; ?></div>
+    <!--MENU-->
+    <div class="headmenu">
+      <?php include "include-head-menu.php"; ?>
+    </div>
 
-<!--MENUCAT-->
-<div class="headcat">
-<div class="menucat"><?php include "include-left-menu.php"; ?></div>
-<div class="banner"><?php include "include-banner.php"; ?><?php include "include-remenu.php"; ?></div>
-</div>
+    <!--MENUCAT-->
+    <div class="headcat">
+      <div class="menucat">
+        <?php include "include-left-menu.php"; ?>
+      </div>
+      <div class="banner">
+        <?php
+          include "include-banner.php";
+          include "include-remenu.php";
+        ?>
+      </div>
+    </div>
 
 
-<!--CONTENT-->
-<div class="content">
-<div class="lnews"><?php include "include-news.php"; ?><?php include "include-rerandom.php"; ?></div>
+    <!--CONTENT-->
+    <div class="content">
+      <div class="lnews">
+        <?php
+          include "include-news.php";
+          include "include-rerandom.php";
+        ?>
+      </div>
+      <div class="rjob">
+        <div class="rjobleft">
+          <img src="images/20ID.jpg" />
+          <?php
+            include "include-top10-type.php";
+          ?>
+          <p class="alignrights">
+            <a href="<?php echo $page_link;?>/property-search.php" title="">
+              <strong>??ѧ???????Ѿ???????</strong>
+            </a>
+          </p>
+        </div>
+        <div class="rjobright">
+          <?php
+            include "include-right-banner.php";
+          ?>
+        </div>
+      </div>
+    </div>
 
-<div class="rjob">
-<div class="rjobleft">
-<img src="images/20ID.jpg" /><?php include "include-top10-type.php"; ?><p class="alignrights"><a href="<?php echo $page_link;?>/property-search.php" title="??ѧ???????Ѿ???????"><strong>??ѧ???????Ѿ???????</strong></a></p>&nbsp;</div>
-<div class="rjobright"><?php include "include-right-banner.php"; ?></div>
-
-</div>
-</div>
-
-<!--FOOTER-->
-<div class="footer"><br /><?php include "include-footer.php"; ?></div>
-
-</center>
+    <!--FOOTER-->
+    <div class="footer">
+    <?php
+      include "include-footer.php";
+    ?>
+  </div>
+  </center>
 </body>
 </html>
