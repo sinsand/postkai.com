@@ -13,7 +13,7 @@
 				$nTitle = str_replace('#','-', $nTitle);
 				$nTitle = str_replace('%','-', $nTitle);
  		 		?>
-        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/<?php echo $nTitle;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
+        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
 				<?php
 				if(strlen(strip_tags($Rs['nTitle']))<75){
 					echo $detail = $Rs['nTitle'];
@@ -30,6 +30,7 @@
 					?> )
     		</em></font><br /><br />
         <?php
-        }
+      }
 		}
 ?>
+<br>
