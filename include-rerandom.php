@@ -1,4 +1,4 @@
-<img src="<?php echo $page_link;?>/images/asungha_re_s.jpg" alt="��ѧ�������Ѿ����й�" title="��ѧ�������Ѿ����й�" /><br />
+<img src="<?php echo $page_link;?>/images/asungha_re_s.jpg" alt="" title="" /><br />
 	<?php
 	$sqljr = "SELECT * FROM sb_job where jStatus = '1' and jPic1 != '' ORDER BY RAND() limit 0,4";
 	$totalrowsj = select_num($sqljr);
@@ -55,7 +55,7 @@
 
 <li>
 <?php if($jPic1[0] != ""){ ?><img src="<?php echo $page_link;?>/picture_job_1/<?php echo $jPic1[0];?>" width="120" height="90" alt="<?php echo $jTitle[0];?>" title="<?php echo $jTitle[0];?>" class="boarderimg" /><?php } ?><br />
-<a href="<?php echo $page_link;?>/<?php echo $jTypes[0];?>/<?php echo $titleall[0];?>/1/1/<?php echo $jType[0];?>/<?php echo $jaType[0];?>/<?php echo $jID[0];?>" target="_blank" title="<?php echo $jTitle[0];?>">
+<a href="<?php echo $page_link;?>/<?php echo $jTypes[0];?>/<?php echo $jID[0];?>" target="_blank" title="<?php echo $jTitle[0];?>">
 			<?php
 		  	echo "<b><font size='2'>";
 				$position=50; // �кؤ�����Ǣͧ����¤��ҵ�ͧ�������˹
