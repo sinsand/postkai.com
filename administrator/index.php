@@ -1,11 +1,11 @@
-<?php session_start();
+<?php
 session_register("titles");
 $titles = ".:: Administrator ::.";
-?> 
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title><? echo $titles ; ?></title>
+<title><?php echo $titles ; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874" />
 <link href="css/style_text.css" rel="stylesheet" type="text/css">
 </head>
@@ -19,68 +19,67 @@ $titles = ".:: Administrator ::.";
 		        return false;
 	   }
 	   return true;
-	 } 
+	 }
 
 				function  validForm() {
 			if(emptyField(document.form1.user)){
-				alert("¡ÃØ³Ò¡ÃÍ¡ª×èÍÅçÍ¡ÍÔ¹");
+				alert("ï¿½ï¿½Ø³Ò¡ï¿½Í¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ô¹");
 				document.form1.user.focus();
 				return false;
-			}	
+			}
 						if(emptyField(document.form1.pass)){
-				alert("¡ÃØ³Ò¡ÃÍ¡ÃËÑÊ¼èÒ¹");
+				alert("ï¿½ï¿½Ø³Ò¡ï¿½Í¡ï¿½ï¿½ï¿½Ê¼ï¿½Ò¹");
 				document.form1.pass.focus();
 				return false;
-			}	
-			
+			}
+
 
 return true;
 }
 
 
 </script>
-<? 
-error_reporting (E_ALL ^ E_NOTICE);
+<?php
 $msg = $_GET['msg'] ; ?>
-<body <? if($msg !=''){?> onLoad="alert('<? echo $msg ; ?>')"<? } ?> >
+<body <?php if($msg !=''){?> onLoad="alert('<?php echo $msg ; ?>')"<?php } ?> >
 
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr> 
+  <tr>
     <td align="center" valign="middle">
 <table width="483" height="241" border="0" cellpadding="0" cellspacing="0">
        <tr>
-          <td align="center" class="contentbody"><font color="#464646" size="8"><img src="images/admin_key.gif" width="51" height="51">¼Ùé´ÙáÅÃÐºº</font>			</td>
+          <td align="center" class="contentbody"><font color="#464646" size="8"><img src="images/admin_key.gif" width="51" height="51">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½</font>			</td>
         </tr>
-        <tr> 
+        <tr>
           <td valign="top"><table width="93%" border="0" cellspacing="0" cellpadding="0">
                <form action="login_function.php"  method="post" name="form1" onSubmit="return validForm();">
-			  
-			  <tr> 
+
+			  <tr>
                 <td width="39%" class="contenttx"><div align="right"></div></td>
                 <td width="61%" class="contenttx">&nbsp;</td>
               </tr>
-              <tr> 
-                <td height="30" class="contentbody"><div align="right"><strong><font color="#464646">ª×èÍÅçÍ¡ÍÔ¹:</font>&nbsp;&nbsp;</strong></div></td>
+              <tr>
+                <td height="30" class="contentbody"><div align="right"><strong><font color="#464646">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ô¹:</font>&nbsp;&nbsp;</strong></div></td>
                 <td height="30" class="contenttx"> <div align="left">
                     <font face="MS Sans Serif, Microsoft Sans Serif" size="2" color="#FF0000">
                     <input style="width: 150px" name="user" type="text" >
                     </font> </div></td>
               </tr>
-              <tr> 
-                <td height="30" class="contentbody"><div align="right"><strong><font color="#464646">ÃËÑÊ¼èÒ¹:</font>&nbsp;&nbsp;</strong></div></td>
+              <tr>
+                <td height="30" class="contentbody"><div align="right"><strong><font color="#464646">ï¿½ï¿½ï¿½Ê¼ï¿½Ò¹:</font>&nbsp;&nbsp;</strong></div></td>
                 <td height="30" class="contenttx"> <div align="left">
                     <input style="width: 150px" name="pass" type="password">
                   </div></td>
               </tr>
-              <tr> 
+              <tr>
                 <td class="contenttx">&nbsp;</td>
                 <td class="contenttx">&nbsp;</td>
               </tr>
-              <tr> 
+              <tr>
                 <td class="contenttx"> <div align="right">&nbsp; </div></td>
-                  <td class="contenttx"> 
-                    <input name="Submit" type="submit" style="border-style:none" value=" à¢éÒÊÙèÃÐºº ">
-                    &nbsp; <input name="Submit2" type="reset" style="border-style:none" value=" Â¡àÅÔ¡ ">
+                  <td class="contenttx">
+                    <input name="Submit" type="submit" style="border-style:none" value=" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ ">
+                    &nbsp; <input name="Submit2" type="reset" style="border-style:none" value=" Â¡ï¿½ï¿½Ô¡ ">
                     <input name="flag" type="hidden" value="login"> </td>
               </tr>
               <tr>
@@ -88,16 +87,16 @@ $msg = $_GET['msg'] ; ?>
                 <td class="contenttx">&nbsp;</td>
               </tr>
 			  </form>
-			  
+
             </table></td>
         </tr>
-      </table> 
+      </table>
     </td>
   </tr>
-  <tr valign="top"> 
+  <tr valign="top">
     <td></td>
   </tr>
-  <tr align="center" valign="top"> 
+  <tr align="center" valign="top">
     <td height="23"></td>
   </tr>
 </table>

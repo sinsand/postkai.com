@@ -1,43 +1,36 @@
-<? session_start() ; 
+<?php
 include '../lib/connect.php' ;
 error_reporting (E_ALL ^ E_NOTICE);
-$flag=$_POST["flag"] ; 
+$flag=$_POST["flag"] ;
 $user = $_POST["user"] ;
-$pass = $_POST["pass"] ; 
-$logout = $_GET["logout"] ; 
- $db = new mydb ;
-
-
+$pass = $_POST["pass"] ;
+$logout = $_GET["logout"] ;
 if ($flag == 'login'){
 
 	if (checkloginadmin($user,$pass)){
 		$admin = checkloginadmin($user,$pass);
-		 $aID = $admin["aID"];
-		$aName = $admin["aName"] ; 
-		$aSurname = $admin["aSurname"] ; 
+		$aID = $admin["aID"];
+		$aName = $admin["aName"] ;
+		$aSurname = $admin["aSurname"] ;
 		$aAdmin = $admin["aAdmin"] ;
-	$_SESSION["aaID"] = $aID ; 
-	$_SESSION["aAdmin"] = $aAdmin ; 
+	  $_SESSION["aaID"] = $aID ;
+	  $_SESSION["aAdmin"] = $aAdmin ;
 
-	$url = "admin_mod.php?msg=à¢éÒÊÙèÃÐººàÃÕÂºÃéÍÂ" ; 
+	 $url = "admin_mod.php?msg=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½" ;
 
 	}else{
-
 		if(!checkloginadmin($user,$pass)){
-			$url = "index.php?msg=ª×èÍÅçÍ¡ÍÔ¹áÅÐ ËÑÊ¼èÒ¹äÁè¶Ù¡µéÍ§";
+			$url = "index.php?msg=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ô¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¼ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½Í§";
 		}
-
-	}
-
-	$db->close() ; 
+	}close() ;
 }
 
 if ($logout == 'logout'){
-$_SESSION["aaID"] = '' ;
-$url = "index.php?msg=ÍÍ¡¨Ò¡ÃÐººàÃÕÂºÃéÍÂ";
+  $_SESSION["aaID"] = '' ;
+  $url = "index.php?msg=ï¿½Í¡ï¿½Ò¡ï¿½Ðºï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½";
 }
 ?>
 
  <script language="javascript">
-window.location.replace("<? echo $url;?>");
+window.location.replace("<?php echo $url;?>");
 </script>

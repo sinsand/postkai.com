@@ -1,4 +1,5 @@
-<?php include 'config/isLogon.php' ; 
+<?php
+include 'config/isLogon.php' ;
 include '../lib/connect.php' ; ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -11,126 +12,110 @@ include '../lib/connect.php' ; ?>
 
 <body>
 <?php
-error_reporting (E_ALL ^ E_NOTICE);
 $limit = $_GET["limit"] ;
 $offset = $_GET["offset"] ;
-$db = new mydb;
 
 if ($_SESSION['aAdmin'] == "2"){
-$Sel  = "select * from admin  order by aID desc" ; 
+  $Sel  = "select * from admin  order by aID desc" ;
+}else if ($_SESSION['aAdmin'] == "1"){
+  $Sel  = "select * from admin  where aID != '1' order by aID desc" ;
+}else{
+  $Sel  = "select * from admin where aID =".$_SESSION['aaID']." " ;
 }
-else if ($_SESSION['aAdmin'] == "1")
-{
-$Sel  = "select * from admin  where aID != '1' order by aID desc" ; 
-}
-else
-{
-
-$Sel  = "select * from admin where aID =".$_SESSION['aaID']." " ; 
-
-}
-/***************** Start Seperate Ë¹éÒ ****************/
- //    If $offset is set below zero (invalid) or empty, set to zero 
-    if (empty($offset) || $offset < 0) { 
-        $offset=0; 
-    } 
-//    Set $limit,  $limit = Max number of results per 'Ë¹éÒ' 
+/***************** Start Seperate Ë¹ï¿½ï¿½ ****************/
+ //    If $offset is set below zero (invalid) or empty, set to zero
+    if (empty($offset) || $offset < 0) {
+        $offset=0;
+    }
+//    Set $limit,  $limit = Max number of results per 'Ë¹ï¿½ï¿½'
 $limit = 25;
-//    Set $totalrows = total number of rows that unlimited query would return 
-//    (total number of records to display across all Ë¹éÒs) 
-$ExecSel = $db->query($Sel);
-$nof = mysql_num_fields($ExecSel); 
-$totalrows = $db->numrows($ExecSel);
+//    Set $totalrows = total number of rows that unlimited query would return
+//    (total number of records to display across all Ë¹ï¿½ï¿½s)
+
+$totalrows = select_num($Sel);
 ?>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr valign="top"> 
-    <td height="70" colspan="3" class="contentbody"><font color="#464646" size="8">¼Ùé´ÙáÅÃÐºº</font></td>
+  <tr valign="top">
+    <td height="70" colspan="3" class="contentbody"><font color="#464646" size="8">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½</font></td>
   </tr>
-  <tr> 
+  <tr>
     <td width="160" align="left" valign="top">
 <?php include ('include_menu.php') ; ?></td>
     <td width="10" align="left" valign="top"><img src="images/spacer.gif" width="10" height="100"></td>
     <td width="100%" align="left" valign="top"> <table width="98%" border="0" cellspacing="0" cellpadding="0">
-        <tr> 
+        <tr>
           <td colspan="2" valign="top"></td>
         </tr>
-        <tr> 
-          <td width="50%" height="30" valign="middle" class="boldbodytx">ÁÕ <font color="#009900"><?php echo $totalrows ; ?></font> ¼Ùé´ÙáÅÃÐºº</td>
-          <td width="58%" height="30" valign="middle" class="boldbodytx"><div align="right"> 
+        <tr>
+          <td width="50%" height="30" valign="middle" class="boldbodytx">ï¿½ï¿½ <font color="#009900"><?php echo $totalrows ; ?></font> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½</td>
+          <td width="58%" height="30" valign="middle" class="boldbodytx"><div align="right">
               <?php if ($_SESSION['aAdmin'] == "1" || $_SESSION['aAdmin'] == '2'){ ?>
-<a href="admin_add.php"><font color="#000000">à¾ÔèÁ¼Ùé´ÙáÅÃÐºº</font></a> <?php } ?>
+<a href="admin_add.php"><font color="#000000">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½</font></a> <?php } ?>
             </div></td>
         </tr>
       </table>
       <?php
 if($totalrows != 0){
-	// Set $begin and $end to record range of the current Ë¹éÒ 
-    $begin =($offset+1); 
-    $end = ($begin+($limit-1)); 
-    if ($end > $totalrows) { 
-        $end = $totalrows; 
-    } 
+	// Set $begin and $end to record range of the current Ë¹ï¿½ï¿½
+    $begin =($offset+1);
+    $end = ($begin+($limit-1));
+    if ($end > $totalrows) {
+        $end = $totalrows;
+    }
 $Show = $Sel." LIMIT $offset, $limit ";
 //echo $Show;
 //exit();
-
-$ExecShow = $db->query($Show); ?>
+ ?>
       <?php if ($totalrows > 0 ) { ?>
-      <table width="100%" border=0 cellpadding=3 cellspacing=1 
+      <table width="100%" border=0 cellpadding=3 cellspacing=1
                   bgcolor=#efefef>
         <tbody>
         <form action="admin_function.php" method="post">
-          <tr bgcolor="#003399" class="menutx"> 
-            <td height="25" align=middle bgcolor="#838383"><div align="left" class="boldbodytx"><b><font color="#FFFFFF">ª×èÍ - Ê¡ØÅ</font></b></div></td>
-           
-<td width="11%" height="25" align=middle bgcolor="#838383"><div align="center" class="boldbodytx"><b><font color="#FFFFFF">á¡éä¢</font></b></div></td>
+          <tr bgcolor="#003399" class="menutx">
+            <td height="25" align=middle bgcolor="#838383"><div align="left" class="boldbodytx"><b><font color="#FFFFFF">ï¿½ï¿½ï¿½ï¿½ - Ê¡ï¿½ï¿½</font></b></div></td>
+
+<td width="11%" height="25" align=middle bgcolor="#838383"><div align="center" class="boldbodytx"><b><font color="#FFFFFF">ï¿½ï¿½ï¿½ï¿½ï¿½</font></b></div></td>
             <?php if ($_SESSION['aAdmin'] == "1" || $_SESSION['aAdmin'] == "2"){ ?> <td width="18%" height="25" align=middle bgcolor="#838383"><div align="center" class="boldbodytx"><strong><font color="#FFFFFF">Åº</font></strong></div></td><?php } ?>
           </tr>
           <?php
-$i = 0;  
- $color ="#F9F9F9" ;   
-while($R = mysql_fetch_array($ExecShow )){
-                  
-   if  ($color =="#FFFFFF" )
- {
-$color= "#F9F9F9";
-}
-else
-{
- $color = "#FFFFFF";
-}
-				   
-				   
-				   ?>
-          <tr valign="middle"   class="bodytx"> 
-            <td height="25" bgcolor="<?php echo $color ; ?>" ><font face="MS Sans Serif, Microsoft Sans Serif" size="2" color="#000000"> 
-              <?php echo htmlspecialchars($R['aName']); ?>&nbsp;<?php echo htmlspecialchars($R['aSurname']); ?>
-              </font></td>
-            <td height="25" bgcolor="<? echo $color ; ?>"><div align="center" class="menutx"><a href="admin_add.php?offset=<?php echo $offset ; ?>&limit=<?php echo $limit ; ?>&flag=Edit&aID=<?php echo $R['aID'] ; ?>"><font color="#000000">á¡éä¢</font></a></div></td>
-            <?php if ($_SESSION['aAdmin'] == "1" || $_SESSION['aAdmin'] == "2"){ ?>
-<td height="25" bgcolor="<? echo $color ; ?>"> <div align="center"> 
-                <?php if ($R['aID'] != 1){ ?><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $R['aID'] ; ?>"><?php } ?>
-              </div></td><?php } ?>
-          </tr>
-          <?php $i++; 
-} // end while?>
-          <tr> 
-            <td height="26" colspan=3 align=right bgcolor="#ffffff" class="fixfont"> 
-              <div align="right"> 
+$i = 0;
+ $color ="#F9F9F9" ;
+ foreach (select_tb($Show) as $R) {
+   if  ($color =="#FFFFFF" ){
+     $color= "#F9F9F9";
+   }else{
+     $color = "#FFFFFF";
+   }
+	   ?>
+    <tr valign="middle"   class="bodytx">
+      <td height="25" bgcolor="<?php echo $color ; ?>" ><font face="MS Sans Serif, Microsoft Sans Serif" size="2" color="#000000">
+        <?php echo htmlspecialchars($R['aName']); ?>&nbsp;<?php echo htmlspecialchars($R['aSurname']); ?>
+        </font></td>
+      <td height="25" bgcolor="<? echo $color ; ?>"><div align="center" class="menutx"><a href="admin_add.php?offset=<?php echo $offset ; ?>&limit=<?php echo $limit ; ?>&flag=Edit&aID=<?php echo $R['aID'] ; ?>"><font color="#000000">ï¿½ï¿½ï¿½ï¿½ï¿½</font></a></div></td>
+      <?php if ($_SESSION['aAdmin'] == "1" || $_SESSION['aAdmin'] == "2"){ ?>
+<td height="25" bgcolor="<? echo $color ; ?>"> <div align="center">
+          <?php if ($R['aID'] != 1){ ?><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $R['aID'] ; ?>"><?php } ?>
+        </div></td><?php } ?>
+    </tr>
+    <?php $i++;
+  } // end while?>
+          <tr>
+            <td height="26" colspan=3 align=right bgcolor="#ffffff" class="fixfont">
+              <div align="right">
                 <input name="offset" type="hidden" id="offset" value="<?php echo 0 ; ?>">
                 <input name="limit" type="hidden" id="limit" value="<?php echo 25 ; ?>">
                 <input name="flag" type="hidden" id="flag" value="Delete">
                <?php if ($_SESSION['aAdmin'] == "1" || $_SESSION['aAdmin'] == "2" ){ ?>
-<input name="Submit" type="submit" class="aceButton" value="  Åº  " onClick="return confirm('µéÍ§¡ÒÃÅº¼Ù´ÙáÅÃÐººãªèËÃ×ÍäÁè?');">
+<input name="Submit" type="submit" class="aceButton" value="  Åº  " onClick="return confirm('ï¿½ï¿½Í§ï¿½ï¿½ï¿½Åºï¿½Ù´ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?');">
 <?php } ?>
               </div></td>
           </tr>
         </form>
       </table>
-      <p align="left" class="menutx">Ë¹éÒ  : 
+      <p align="left" class="menutx">Ë¹ï¿½ï¿½  :
       <?php page($offset,$limit,$totalrows,"","blue","black","black"); ?>
       </p>
-                
+
         <?php
 } }
 ?>
@@ -139,17 +124,17 @@ else
       </table>
       <p class="bodytx">&nbsp;</p></td>
   </tr>
-  <tr valign="top"> 
+  <tr valign="top">
     <td colspan="3"><img src="images/spacer.gif" width="200" height="10"></td>
   </tr>
-  <tr align="center" valign="top"> 
-    <td height="23" colspan="3"><div align="center"> <img src="images/spacer.gif" width="1" height="1"> 
-        
+  <tr align="center" valign="top">
+    <td height="23" colspan="3"><div align="center"> <img src="images/spacer.gif" width="1" height="1">
+
       </div>
     </td>
   </tr>
 </table>
-<?php $db->close() ; ?>
+<?php close() ; ?>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 </body>
