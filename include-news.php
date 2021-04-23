@@ -1,8 +1,7 @@
-<img src="<?php echo $page_link;?>/images/news.jpg" title="���ǻ�Ъ�����ѹ��" alt="���ǻ�Ъ�����ѹ��" /><br /><br />
-		<?php
-		$sqlnew = "SELECT * FROM news where nStatus = '1' order by nDate_Create desc limit 0,4";
-
-		if(select_num($sqlnew) > 0){
+<img src="<?php echo $page_link;?>/images/news.jpg"  />
+<?php
+	$sqlnew = "SELECT * FROM news where nStatus = '1' order by nDate_Create desc limit 0,4";
+	if(select_num($sqlnew) > 0){
 		  $color = "#FFFFFF";
 			foreach (select_tb($sqlnew) as $Rs) {
 			  if ($color == "#FFFFFF"){
@@ -14,7 +13,7 @@
 				$nTitle = str_replace('#','-', $nTitle);
 				$nTitle = str_replace('%','-', $nTitle);
  		 		?>
-        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/������ѧ�������Ѿ��/<?php echo $nTitle;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
+        	<img src="<?php echo $page_link;?>/images/news.gif" align="<?php echo $Rs['nTitle']; ?>" border="0" title="<?php echo $Rs['nTitle']; ?>" />&nbsp;&nbsp;<a href="<?php echo $page_link;?>/<?php echo $nTitle;?>/<?php echo $Rs['nID'];?>" title="<?php echo $Rs['nTitle'];?>" target="_blank">
 				<?php
 				if(strlen(strip_tags($Rs['nTitle']))<75){
 					echo $detail = $Rs['nTitle'];
@@ -33,5 +32,4 @@
         <?php
         }
 		}
-		?>
-  <br />
+?>
