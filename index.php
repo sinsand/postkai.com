@@ -1,42 +1,72 @@
 <?php
-include ('lib/connect.php') ;
+  include ('lib/connect.php') ;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <title>โพสขายฟรี - Postkai.com</title>
-<meta name="Keywords" content="??ѧ???????Ѿ??,??ѧ??,????,???,??????,??ҹ,??ҹ????ͧ,??ҹ?????,??ҹ?Ѵ???,???ͺ?ҹ????ͧ,???͢?º?ҹ,ŧ??С?ȿ??,??ǹ???????,???ͷ?ǹ???????,??·??Թ,???ͷ??Թ,???ͤ͹???????,??¤͹???????,??Ҥ͹???????,????ö¹??????ͧ,???ö¹??????ͧ,???ö¹??,??ͧ???" />
-<meta name="Description" content="??ѧ???????Ѿ?? ??ѧ?? ???? ??? ?????? ??ҹ ??ҹ????ͧ ??ҹ????? ??ҹ?Ѵ??? ???ͺ?ҹ????ͧ ???͢?º?ҹ ŧ??С?ȿ?? ??ǹ??????? ???ͷ?ǹ??????? ??·??Թ ???ͷ??Թ ???ͤ͹??????? ??¤͹??????? ??Ҥ͹??????? ????ö¹??????ͧ ???ö¹??????ͧ ???ö¹?? ??ͧ???" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
 <meta name="robots" content="index,follow" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo $page_link;?>/favicon.ico" />
-<link href="<?php echo $page_link;?>/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $page_link;?>/css/style.css"/>
 <script type="text/javascript" src="<?php echo $page_link;?>/js/checkmember.js"></script>
 <script type="text/javascript">
-function bookmark(title,url){
-	if(window.sidebar){ // ????Ѻ firefox
-		window.sidebar.addPanel(title, url, "");
-	}else if(window.opera & window.print){ // ????Ѻ opera
-		var elem = document.createElement('a');
-		elem.setAttribute('href',url);
-		elem.setAttribute('title',title);
-		elem.setAttribute('rel','sidebar');
-		elem.click();
-	}else if(document.all){// ????Ѻ ie
-		window.external.AddFavorite(url, title);
-	}
-}
+  function bookmark(title,url){
+  	if(window.sidebar){ // ????Ѻ firefox
+  		window.sidebar.addPanel(title, url, "");
+  	}else if(window.opera & window.print){ // ????Ѻ opera
+  		var elem = document.createElement('a');
+  		elem.setAttribute('href',url);
+  		elem.setAttribute('title',title);
+  		elem.setAttribute('rel','sidebar');
+  		elem.click();
+  	}else if(document.all){// ????Ѻ ie
+  		window.external.AddFavorite(url, title);
+  	}
+  }
 </script>
+
 </head>
-<body onload="document.getElementById('showtop10allwebHouse').style.display='';">
+<body>
   <center>
     <!--HEAD-->
     <div class="head">
       <div class="headlogo">
-        <?php include "include-logo.php"; ?>
+        <a href="<?php echo $page_link;?>" title="">
+          <img src="<?=$page_link?>/images/head_sing.jpg" title="" alt="" border="0" />
+        </a>
       </div>
       <div class="headmember">
-        <?php include "include-member-menu.php"; ?>
+        <!--menu top -->
+        <?php
+          if($_SESSION["mID"] == ""){
+          	?>
+            	<form action="<?php echo $page_link;?>/login_function.php"  method="post" name="formlogin" id="formlogin" onsubmit="return validFormlogin();">
+                Username <input type="text" size="10" class="textbox_gray" name="user" />
+                Password&nbsp;<input type="password" size="10" class="textbox_gray" name="pass" />
+                &nbsp;<input name="flag" type="hidden" value="login" />
+                <input name="submit" type="submit" value="Login" class="btn" />
+                &nbsp;<a href="<?php echo $page_link?>/register" title="Register">Register</a>
+                &nbsp;<a href="<?php echo $page_link?>/forgot-password" title="Forgot">Forgot</a>
+              </form>
+          	<?php
+          }else{
+          	$selectmember = "select * from member where  mID = '".$_SESSION["mID"]."'" ;
+          	$rmember = $db->query($selectmember);
+          	$Rmember = mysql_fetch_array($rmember);
+          ?>
+          �Թ�յ�͹�Ѻ&nbsp;
+          	<font color="#FF0066" size="3">
+          		<strong><?php echo $Rmember['mUsername'];?></strong>
+          	</font>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?php echo $page_link;?>/��������ѧ�������Ѿ��/<?php echo $Rmember['mID'];?>" title="��������ѧ�������Ѿ��">��������ѧ�������Ѿ��</a>&nbsp;&nbsp;&nbsp;&raquo;
+          	<a href="<?php echo $page_link;?>/��������ǹ���/<?php echo $Rmember['mID'];?>" title="��������ǹ���">��������ǹ���</a>&nbsp;&nbsp;&nbsp;&raquo;<a href="<?php echo $page_link;?>/�͡�ҡ�к�/logout" title="�͡�ҡ�к�">�͡�ҡ�к�</a>
+          <?php
+          }
+        ?>
+        <!--menu top -->
       </div>
     </div>
 
