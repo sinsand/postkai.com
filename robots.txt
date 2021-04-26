@@ -1,3 +1,2 @@
-User-agent: *
-Allow : /
-Sitemap: https://www.postkai.com/sitemap.xml
+User-Agent: *
+Allow: /
