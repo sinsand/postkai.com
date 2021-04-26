@@ -23,13 +23,17 @@ $LinkWebadmin 	= $LinkWeb."admin/";
 
 $Linkfile = "images/file/";
 
-$keyAPI = "AIzaSyCvY2IXvJumj6fn0SGhc5WEm_cxKeitMcs";
-
 /// postkai.com
-$Host = "localhost";
-$User = "admin";
-$Pass = "admin";
-$DBname = "postkai";
+$Host = "localhost" ;
+$User = "chonjob_postkai" ;
+$Pass = "5ad~6r8V" ;
+$DBname = "chonjob_postkai" ;
+
+/// localhost postkai
+//$Host = "localhost";
+//$User = "admin";
+//$Pass = "admin";
+//$DBname = "postkai";
 
 //// Job step show
 $s_start = 0;
@@ -48,20 +52,20 @@ $UrlOther     = "";
 $UrlOther2    = "";
 
 
+if (!empty($PathExplode[1])) {
+  $UrlPage = $PathExplode[1];
+}
 if (!empty($PathExplode[2])) {
-  $UrlPage = $PathExplode[2];
+  $UrlId = $PathExplode[2];
 }
 if (!empty($PathExplode[3])) {
-  $UrlId = $PathExplode[3];
+  $UrlIdSub = $PathExplode[3];
 }
 if (!empty($PathExplode[4])) {
-  $UrlIdSub = $PathExplode[4];
+  $UrlOther = $PathExplode[4];
 }
 if (!empty($PathExplode[5])) {
-  $UrlOther = $PathExplode[5];
-}
-if (!empty($PathExplode[6])) {
-  $UrlOther2 = $PathExplode[6];
+  $UrlOther2 = $PathExplode[5];
 }
 
 /// Session and Cookie Admin
