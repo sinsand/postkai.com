@@ -17,11 +17,7 @@ if(isset($_SERVER['HTTPS']) &&  $_SERVER['HTTPS'] === 'on'){  $httplink = "https
 //$LinkWeb 		= $httplink."://".$_SERVER['HTTP_HOST']."/deltasalereport/";//"http://dsp.deltapaintgroup.com/";
 $LinkWeb 		    = $httplink."://".$_SERVER['HTTP_HOST']."/";//"http://dsp.deltapaintgroup.com/";
 $LinkPath 		  = $linkpath;
-$LinkHostWeb 		= $LinkWeb;
-$LinkHostLocal 	= $LinkWeb;
-$LinkWebadmin 	= $LinkWeb."admin/";
 
-$Linkfile = "images/file/";
 
 /// postkai.com
 $Host = "localhost" ;
