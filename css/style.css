@@ -227,23 +227,29 @@
 }
 
 .t-search{
-  background: #294156;
+  /*background: #294156;*/
+  background: #45637d !important;
 }
 .t-province{
-  background: #3c92bb;
+  /*background: #3c92bb;*/
+  background: #45637d !important;
 }
 .t-type{
-  background: #843c3c;
+  /*background: #843c3c;*/
+  background: #45637d !important;
 }
 .t-advertis{
-  background: #ea202e;
+  /*background: #ea202e;*/
+  background: #45637d !important;
 }
 .t-announce{
-  background: #57307b;
+  /*background: #57307b;*/
+  background: #45637d !important;
 }
 .t-others{
-  background: #e1e1e1 !important;
+  /*background: #e1e1e1 !important;*/
   color: #000 !important;
+  background: #45637d !important;
 }
 .text-link-footer{
   padding:5px 0 !important;
