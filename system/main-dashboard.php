@@ -80,22 +80,22 @@
   <!-- show new 4 --->
   <a href="" class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
-      <img src="http://placehold.it/200x150?text=FREE+1+MONTH" class="col-xs-12 p-0" alt=""/>
+      <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
     </div>
   </a>
   <a href="" class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
-      <img src="http://placehold.it/200x150?text=FREE+1+MONTH" class="col-xs-12 p-0" alt=""/>
+      <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
     </div>
   </a>
   <a href="" class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
-      <img src="http://placehold.it/200x150?text=FREE+1+MONTH" class="col-xs-12 p-0" alt=""/>
+      <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
     </div>
   </a>
   <a href="" class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
-      <img src="http://placehold.it/200x150?text=FREE+1+MONTH" class="col-xs-12 p-0" alt=""/>
+      <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
     </div>
   </a>
   <!-- show new 4 --->
