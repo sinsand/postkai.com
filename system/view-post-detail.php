@@ -2,7 +2,7 @@
   $SqlUpdate = "UPDATE sb_job SET jRead = jRead+1 WHERE ( jID = '".$UrlId."'  AND jStatus = '1') "; update_tb($SqlUpdate);
   $SqlSelect = "SELECT sj.*,pt.name_Type
                 FROM sb_job sj
-                INNER JOIN p_Type pt ON (sj.jaType = pt.id_Type)
+                INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                 WHERE (
                         sj.jID = '".$UrlId."'  AND
                         sj.jStatus = '1'
@@ -92,7 +92,7 @@
 
     $SqlSelect = "SELECT sj.*,pt.name_Type
                   FROM sb_job sj
-                  INNER JOIN p_Type pt ON (sj.jaType = pt.id_Type)
+                  INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                   WHERE (
                           ( sj.mID = '".$mID."' )  AND
                           ( sj.jID != '".$UrlId."' ) AND

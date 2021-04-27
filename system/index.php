@@ -72,6 +72,7 @@
                   ?>
                 </ul>
               </li>
+              <li><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo $LinkWeb;?>">เข้าสู่ระบบ</a></li>
@@ -90,6 +91,7 @@
                 case 'province'         : include("view-province.php"); break;
                 case 'post'             : include("view-post-detail.php"); break;
                 case 'post-all'         : include("view-post-all.php"); break;
+                case 'post-new'         : include("view-post-vew.php"); break;
 
                 case 'policy'           : include("view-policy.php"); break;
                 case 'sitemap'          : include("view-sitemap.php"); break;
