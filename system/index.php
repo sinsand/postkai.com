@@ -172,7 +172,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="col-xs-12 p-0">
-                <h2 class="main-head-cate t-type f-k mb-0">หมวดหมู่</h2>
+                <h2 class="main-head-cate t-type f-k mb-0">ประเภท</h2>
               </div>
               <div class="col-xs-12 p-0">
               <ul class="list-group">
