@@ -49,11 +49,11 @@
                 </tr>
                 <tr>
                   <th>แก้ไข</th>
-                  <td><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-edit=<?php echo $row['jID'];?>">แก้ไขประกาศ</a></td>
+                  <td><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-edit=check">แก้ไขประกาศ</a></td>
                 </tr>
                 <tr>
                   <th>แจ้งลบ</th>
-                  <td><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-delete=<?php echo $row['jID'];?>">แจ้งลบประกาศ</a></td>
+                  <td><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-delete=check">แจ้งลบประกาศ</a></td>
                 </tr>
                 <tr>
                   <th>วันที่ประกาศ</th>
