@@ -211,7 +211,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="row" style="background-color:#45637d;color:#fff;margin-top:30px;">
+    <div class="row mr-0 ml-0" style="background-color:#45637d;color:#fff;margin-top:30px;">
       <div class="container" style="padding:20px 15px;">
         <div class="col-lg-6 col-md-12">
           <h5 class="text-uppercase">Postkai</h5>
