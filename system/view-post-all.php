@@ -2,7 +2,7 @@
 <?php
     $SqlSelect = "SELECT sj.*,pt.name_Type
                   FROM sb_job sj
-                  INNER JOIN p_Type pt ON (sj.jaType = pt.id_Type)
+                  INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                   WHERE ( sj.jStatus = '1' )
                   ORDER BY sj.jDate_Create DESC ";
 

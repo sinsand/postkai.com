@@ -62,7 +62,7 @@
                 <ul class="dropdown-menu">
                   <?php
                     $SqlSelect = "SELECT *
-                                  FROM p_Type
+                                  FROM p_type
                                   ORDER BY name_Type ASC ;";
                     if (select_num($SqlSelect)>0) {
                       foreach (select_tb($SqlSelect) as $row) {
@@ -147,7 +147,7 @@
                         <option value="">ทุกประเภท</option>
                         <?php
                           $SqlSelect = "SELECT *
-                                        FROM p_Type
+                                        FROM p_type
                                         ORDER BY name_Type ASC ";
                           if (select_num($SqlSelect)>0) {
                             foreach (select_tb($SqlSelect) as $row) {
@@ -175,7 +175,7 @@
               <?php
                 $SqlSelect = "SELECT pt.id_Type,pt.name_Type,COUNT(sj.jaType) as cjaType
                               FROM sb_job sj
-                              INNER JOIN p_Type pt ON (sj.jaType = pt.id_Type)
+                              INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                               GROUP BY pt.name_Type
                               ORDER BY pt.name_Type ASC";
                 foreach (select_tb($SqlSelect) as $row) {
