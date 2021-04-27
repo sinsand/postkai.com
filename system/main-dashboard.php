@@ -12,15 +12,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img src="http://placehold.it/900x300" alt="Los Angeles" style="width:100%;">
+            <img src="<?php echo $LinkWeb;?>images/system/p-1.jpg" alt="" style="width:100%;">
           </div>
 
           <div class="item">
-            <img src="http://placehold.it/900x300" alt="Chicago" style="width:100%;">
+            <img src="<?php echo $LinkWeb;?>images/system/p-1.jpg" alt="" style="width:100%;">
           </div>
 
           <div class="item">
-            <img src="http://placehold.it/900x300" alt="New york" style="width:100%;">
+            <img src="<?php echo $LinkWeb;?>images/system/p-3.jpg" alt="" style="width:100%;">
           </div>
         </div>
 
