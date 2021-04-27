@@ -82,7 +82,7 @@
       </nav>
       <!-- Menu-->
       <div class="row">
-        <div class="col-xs-12 col-sm-9 col-md-9">
+        <div class="col-xs-12 col-sm-12 col-md-9">
           <?php
               switch (trim($UrlPage)) {
                 case 'home'             : include("main-dashboard.php"); break;
@@ -100,77 +100,78 @@
               }
           ?>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3">
+        <div class="col-xs-12 col-sm-12 col-md-3">
           <?php
             if ($UrlPage!='search') {
               ?>
-              <div class="col-xs-12 p-0">
-                <h2 class="main-head-cate t-search f-k">ค้นหาประกาศ</h2>
-                <div class="col-xs-12 p-0">
-                  <form action="<?php echo $LinkWeb;?>search/" method="get">
-                    <div class="form-group">
-                      <label for="email">ข้อความค้นหา</label>
-                      <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                      <select class="form-control" name="province">
-                        <option value="">ทุกจังหวัด</option>
-                        <?php
-                          $SqlSelect = "SELECT *
-                                        FROM p_province
-                                        ORDER BY PROVINCE_NAME ASC ";
-                          if (select_num($SqlSelect)>0) {
-                            foreach (select_tb($SqlSelect) as $row) {
-                              ?><option value="<?php echo $row['PROVINCE_ID'];?>"<?php echo $_GET['province']==$row['PROVINCE_ID']?"selected":"";?>><?php echo $row['PROVINCE_NAME'];?></option><?php
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 p-0">
+                  <h2 class="main-head-cate t-search f-k">ค้นหาประกาศ</h2>
+                  <div class="col-xs-12 p-0">
+                    <form action="<?php echo $LinkWeb;?>search/" method="get">
+                      <div class="form-group">
+                        <label for="email">ข้อความค้นหา</label>
+                        <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" required>
+                      </div>
+                      <div class="form-group">
+                        <select class="form-control" name="province">
+                          <option value="">ทุกจังหวัด</option>
+                          <?php
+                            $SqlSelect = "SELECT *
+                                          FROM p_province
+                                          ORDER BY PROVINCE_NAME ASC ";
+                            if (select_num($SqlSelect)>0) {
+                              foreach (select_tb($SqlSelect) as $row) {
+                                ?><option value="<?php echo $row['PROVINCE_ID'];?>"<?php echo $_GET['province']==$row['PROVINCE_ID']?"selected":"";?>><?php echo $row['PROVINCE_NAME'];?></option><?php
+                              }
                             }
-                          }
-                        ?>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <select class="form-control" name="category">
-                        <option value="">ทุกหมวดหมู่</option>
-                        <?php
-                          $SqlSelect = "SELECT *
-                                        FROM p_category
-                                        ORDER BY name_category ASC ";
-                          if (select_num($SqlSelect)>0) {
-                            foreach (select_tb($SqlSelect) as $row) {
-                              ?><option value="<?php echo $row['id_category'];?>" <?php echo $_GET['category']==$row['id_category']?"selected":"";?>><?php echo $row['name_category'];?></option><?php
+                          ?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <select class="form-control" name="category">
+                          <option value="">ทุกหมวดหมู่</option>
+                          <?php
+                            $SqlSelect = "SELECT *
+                                          FROM p_category
+                                          ORDER BY name_category ASC ";
+                            if (select_num($SqlSelect)>0) {
+                              foreach (select_tb($SqlSelect) as $row) {
+                                ?><option value="<?php echo $row['id_category'];?>" <?php echo $_GET['category']==$row['id_category']?"selected":"";?>><?php echo $row['name_category'];?></option><?php
+                              }
                             }
-                          }
-                        ?>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <select class="form-control" name="type">
-                        <option value="">ทุกประเภท</option>
-                        <?php
-                          $SqlSelect = "SELECT *
-                                        FROM p_type
-                                        ORDER BY name_Type ASC ";
-                          if (select_num($SqlSelect)>0) {
-                            foreach (select_tb($SqlSelect) as $row) {
-                              ?><option value="<?php echo $row['id_Type'];?>" <?php echo $_GET['type']==$row['id_Type']?"selected":"";?>><?php echo $row['name_Type'];?></option><?php
+                          ?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <select class="form-control" name="type">
+                          <option value="">ทุกประเภท</option>
+                          <?php
+                            $SqlSelect = "SELECT *
+                                          FROM p_type
+                                          ORDER BY name_Type ASC ";
+                            if (select_num($SqlSelect)>0) {
+                              foreach (select_tb($SqlSelect) as $row) {
+                                ?><option value="<?php echo $row['id_Type'];?>" <?php echo $_GET['type']==$row['id_Type']?"selected":"";?>><?php echo $row['name_Type'];?></option><?php
+                              }
                             }
-                          }
-                        ?>
-                      </select>
-                    </div>
-                    <p class="text-center"><a href="<?php echo $LinkWeb;?>search">ค้นหาแบบละเอียด</a></p>
-                    <button type="submit" class="btn btn-success mb-10" style="width:100%;">ค้นหา</button>
-                  </form>
+                          ?>
+                        </select>
+                      </div>
+                      <p class="text-center"><a href="<?php echo $LinkWeb;?>search">ค้นหาแบบละเอียด</a></p>
+                      <button type="submit" class="btn btn-success mb-10" style="width:100%;">ค้นหา</button>
+                    </form>
+                  </div>
                 </div>
               </div>
               <?php
             }
           ?>
-
-
-          <div class="col-xs-12 p-0">
-            <h2 class="main-head-cate t-type f-k">หมวดหมู่</h2>
-          </div>
-          <div class="col-xs-12 p-0">
+          <div class="row">
+            <div class="col-xs-12 p-0">
+              <h2 class="main-head-cate t-type f-k">หมวดหมู่</h2>
+            </div>
+            <div class="col-xs-12 p-0">
             <ul class="list-group">
               <?php
                 $SqlSelect = "SELECT pt.id_Type,pt.name_Type,COUNT(sj.jaType) as cjaType
@@ -186,26 +187,29 @@
               ?>
             </ul>
           </div>
-          <div class="col-xs-12 p-0">
-            <h2 class="main-head-cate t-province f-k">ประกาศตามจังหวัด</h2>
-          </div>
-          <div class="col-xs-12 p-0">
-            <ul class="list-group">
-              <?php
-                $SqlSelect = "SELECT p.PROVINCE_ID,p.PROVINCE_NAME,COUNT(sj.jProvince) as cjProvince
-                              FROM sb_job sj
-                              INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_NAME)
-                              GROUP BY p.PROVINCE_ID,p.PROVINCE_NAME
-                              ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
-                foreach (select_tb($SqlSelect) as $row) {
-                  ?>
-                  <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo $row['cjProvince'];?>)</a>
-                  <?php
-                }
-              ?>
-            </ul>
           </div>
 
+          <div class="row">
+            <div class="col-xs-12 p-0">
+              <h2 class="main-head-cate t-province f-k">ประกาศตามจังหวัด</h2>
+            </div>
+            <div class="col-xs-12 p-0">
+              <ul class="list-group">
+                <?php
+                  $SqlSelect = "SELECT p.PROVINCE_ID,p.PROVINCE_NAME,COUNT(sj.jProvince) as cjProvince
+                                FROM sb_job sj
+                                INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_NAME)
+                                GROUP BY p.PROVINCE_ID,p.PROVINCE_NAME
+                                ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
+                  foreach (select_tb($SqlSelect) as $row) {
+                    ?>
+                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo $row['cjProvince'];?>)</a>
+                    <?php
+                  }
+                ?>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
