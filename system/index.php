@@ -168,7 +168,7 @@
             }
           ?>
           <div class="row">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="col-xs-12 p-0">
                 <h2 class="main-head-cate t-type f-k">หมวดหมู่</h2>
               </div>
@@ -190,7 +190,7 @@
             </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="col-xs-12 p-0">
                 <h2 class="main-head-cate t-province f-k">ประกาศตามจังหวัด</h2>
               </div>
