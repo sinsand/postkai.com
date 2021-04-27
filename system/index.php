@@ -105,7 +105,7 @@
             if ($UrlPage!='search') {
               ?>
               <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-12 p-0">
+                <div class="col-xs-12 col-sm-6 col-md-12">
                   <h2 class="main-head-cate t-search f-k">ค้นหาประกาศ</h2>
                   <div class="col-xs-12 p-0">
                     <form action="<?php echo $LinkWeb;?>search/" method="get">
