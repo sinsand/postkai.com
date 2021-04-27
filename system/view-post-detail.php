@@ -40,6 +40,10 @@
                   <td class="wb"><?php echo $row['jProvince'];?></td>
                 </tr>
                 <tr>
+                  <th>เลขที่ประกาศ</th>
+                  <td><?php echo $row['jID'];?></td>
+                </tr>
+                <tr>
                   <th>เข้าชม</th>
                   <td><?php echo $row['jRead'];?> ครั้ง</td>
                 </tr>
