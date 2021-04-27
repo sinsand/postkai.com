@@ -4,7 +4,7 @@
     if ($_GET['confirm-edit']=="check") {
       ?>
       <h2 class="main-head-cate t-announce f-k">แก้ไขประกาศเลขที่ : <?php echo $UrlId;?></h2>
-      <div class="col-xs-12">
+      <div class="col-xs-12 pt-10 pb-10">
         <form class="" action="<?php $LinkWeb;?>" method="post">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="รหัสสำหรับแก้ไขประกาศ">
