@@ -168,46 +168,48 @@
             }
           ?>
           <div class="row">
-            <div class="col-xs-12 p-0">
-              <h2 class="main-head-cate t-type f-k">หมวดหมู่</h2>
-            </div>
-            <div class="col-xs-12 p-0">
-            <ul class="list-group">
-              <?php
-                $SqlSelect = "SELECT pt.id_Type,pt.name_Type,COUNT(sj.jaType) as cjaType
-                              FROM sb_job sj
-                              INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                              GROUP BY pt.name_Type
-                              ORDER BY pt.name_Type ASC";
-                foreach (select_tb($SqlSelect) as $row) {
-                  ?>
-                    <a href="<?php echo $LinkWeb;?>search/?type=<?php echo $row['id_Type'];?>" class="list-group-item"><?php echo $row['name_Type'];?> (<?php echo $row['cjaType'];?>)</a>
-                  <?php
-                }
-              ?>
-            </ul>
-          </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 p-0">
-              <h2 class="main-head-cate t-province f-k">ประกาศตามจังหวัด</h2>
-            </div>
-            <div class="col-xs-12 p-0">
+            <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 p-0">
+                <h2 class="main-head-cate t-type f-k">หมวดหมู่</h2>
+              </div>
+              <div class="col-xs-12 p-0">
               <ul class="list-group">
                 <?php
-                  $SqlSelect = "SELECT p.PROVINCE_ID,p.PROVINCE_NAME,COUNT(sj.jProvince) as cjProvince
+                  $SqlSelect = "SELECT pt.id_Type,pt.name_Type,COUNT(sj.jaType) as cjaType
                                 FROM sb_job sj
-                                INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_NAME)
-                                GROUP BY p.PROVINCE_ID,p.PROVINCE_NAME
-                                ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
+                                INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                                GROUP BY pt.name_Type
+                                ORDER BY pt.name_Type ASC";
                   foreach (select_tb($SqlSelect) as $row) {
                     ?>
-                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo $row['cjProvince'];?>)</a>
+                      <a href="<?php echo $LinkWeb;?>search/?type=<?php echo $row['id_Type'];?>" class="list-group-item"><?php echo $row['name_Type'];?> (<?php echo $row['cjaType'];?>)</a>
                     <?php
                   }
                 ?>
               </ul>
+            </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 p-0">
+                <h2 class="main-head-cate t-province f-k">ประกาศตามจังหวัด</h2>
+              </div>
+              <div class="col-xs-12 p-0">
+                <ul class="list-group">
+                  <?php
+                    $SqlSelect = "SELECT p.PROVINCE_ID,p.PROVINCE_NAME,COUNT(sj.jProvince) as cjProvince
+                                  FROM sb_job sj
+                                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_NAME)
+                                  GROUP BY p.PROVINCE_ID,p.PROVINCE_NAME
+                                  ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
+                    foreach (select_tb($SqlSelect) as $row) {
+                      ?>
+                      <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo $row['cjProvince'];?>)</a>
+                      <?php
+                    }
+                  ?>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
