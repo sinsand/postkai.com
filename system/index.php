@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun">
+    <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
   </head>
   <body>
     <!-- Logo and ads -->
