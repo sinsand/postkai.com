@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-xs-12" style="padding:25px 0px;">
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category">หมวดหมู่:</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category">หมวดหมู่</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_category" id="post_category">
               <option value="">เลิอกหมวดหมู่</option>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type">ประเภท:</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type">ประเภท</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_type">
               <option value="">เลิอกประเภท</option>
@@ -59,19 +59,19 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">หัวข้อประกาศ:</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">หัวข้อประกาศ</label>
           <div class="col-sm-9 pr-0 pl-0">
             <input class="form-control" type="text" name="post_subject" value="" placeholder="">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc">รายละเอียดย่อ:</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc">รายละเอียดย่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
             <input class="form-control" type="text" name="post_desc" value="" placeholder="">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full">รายละเอียดทั้งหมด:</label>
+          <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full">รายละเอียดทั้งหมด</label>
           <div class="col-sm-12 pr-0 pl-0">
             <textarea class="form-control summernote" name="post_desc_full"></textarea>
           </div>
