@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-3 text-ll" for="post_desc_full">รายละเอียดทั้งหมด:</label>
+          <label class="control-label col-sm-3 text-ll mb-5" for="post_desc_full">รายละเอียดทั้งหมด:</label>
           <div class="col-sm-12">
             <textarea class="form-control summernote" name="post_desc_full"></textarea>
           </div>
