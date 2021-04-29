@@ -5,9 +5,9 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
-          <label class="control-label col-sm-2" for="post_type">หมวดหมู่:</label>
+          <label class="control-label col-sm-2" for="post_category">หมวดหมู่:</label>
           <div class="col-sm-6 col-xs-12">
-            <select class="form-control" name="post_type" id="post_type">
+            <select class="form-control" name="post_category" id="post_category">
               <option value="">เลิอกหมวดหมู่</option>
               <?php
               $SqlSelect = "SELECT *
@@ -36,6 +36,24 @@
                     ?><option value="<?php echo $row['PROVINCE_ID'];?>"><?php echo $row['PROVINCE_NAME'];?></option><?php
                   }
                 }
+              ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="post_type">ประเภท:</label>
+          <div class="col-sm-6 col-xs-12">
+            <select class="form-control" name="post_type">
+              <option value="">เลิอกประเภท</option>
+              <?php
+              $SqlSelect = "SELECT *
+                            FROM p_type
+                            ORDER BY name_Type ASC ";
+              if (select_num($SqlSelect)>0) {
+                foreach (select_tb($SqlSelect) as $row) {
+                  ?><option value="<?php echo $row['id_Type'];?>" ><?php echo $row['name_Type'];?></option><?php
+                }
+              }
               ?>
             </select>
           </div>
