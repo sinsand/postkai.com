@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-xs-12" style="padding:25px 15px;">
         <div class="form-group col-xs-12">
-          <label class="control-label" for="post_category">หมวดหมู่:</label>
+          <label class="control-label col-sm-3 text-ll" for="post_category">หมวดหมู่:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="post_category" id="post_category">
               <option value="">เลิอกหมวดหมู่</option>
