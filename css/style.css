@@ -272,3 +272,7 @@ body{
 .f-s{
   font-family: 'Sarabun';
 }
+
+.text-l{ text-align: left !important;}
+.text-c{ text-align: center !important;}
+.text-r{ text-align: right !important;}
