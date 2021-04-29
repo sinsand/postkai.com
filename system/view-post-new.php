@@ -3,7 +3,7 @@
   <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12" style="padding:25px 15px;">
         <div class="form-group">
           <label class="control-label col-sm-2" for="post_category">หมวดหมู่:</label>
           <div class="col-sm-6 col-xs-12">
