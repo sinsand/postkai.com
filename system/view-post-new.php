@@ -8,7 +8,7 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category">หมวดหมู่</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_category" id="post_category">
-              <option value="">เลิอกหมวดหมู่</option>
+              <option value="">เลือกหมวดหมู่</option>
               <?php
               $SqlSelect = "SELECT *
                             FROM p_category
@@ -26,7 +26,7 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="province">จังหวัด:</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="province">
-              <option value="">เลิอกจังหวัด</option>
+              <option value="">เลือกจังหวัด</option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_province
@@ -44,7 +44,7 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type">ประเภท</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_type">
-              <option value="">เลิอกประเภท</option>
+              <option value="">เลือกประเภท</option>
               <?php
               $SqlSelect = "SELECT *
                             FROM p_type
@@ -76,6 +76,61 @@
             <textarea class="form-control summernote" name="post_desc_full"></textarea>
           </div>
         </div>
+
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">ราคา</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input class="form-control" type="text" name="post_subject" value="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">สภาพสินค้า</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input class="form-control" type="text" name="post_subject" value="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">จำนวนวันประกาศ</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <select class="form-control" name="">
+                <option value="">ไม่จำกัด</option>
+                <option value="">30 วัน</option>
+                <option value="">90 วัน</option>
+                <option value="">365 วัน</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">สถานะ</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <select class="form-control" name="">
+                <option value="">เปิดให้ Comment</option>
+                <option value="">ปิด Comment</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">แนบรูปภาพ (ไฟล์ภาพ .jpg .jpeg หรือ .png เท่านั้น)</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <div class="form-group">
+                <input id="fileshow" name="fileshow" type="file" class="filestyle" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+                <div class="bootstrap-filestyle input-group">
+                  <input type="text" class="form-control " disabled="">
+                  <span class="group-span-filestyle input-group-btn" tabindex="0">
+                    <label for="fileshow" class="btn btn-primary ">
+                      <span class="glyphicon glyphicon-folder-open"></span> เลือกรูปภาพ
+                    </label>
+                  </span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
 
 
       </div>
