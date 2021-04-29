@@ -7,9 +7,9 @@
       <div class="col-xs-12 pt-10 pb-10">
         <form class="" action="<?php $LinkWeb;?>" method="post">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="รหัสสำหรับแก้ไขประกาศ">
+            <input type="text" class="form-control" placeholder="ใส่รหัสสำหรับแก้ไขประกาศ">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
+              <button class="btn btn-success" type="submit">
                 ยืนยัน
               </button>
             </div>
@@ -17,8 +17,82 @@
         </form>
       </div>
       <?php
-    }else if ($_GET['confirm-edit']=="check") {
-      // code...
+    }else if ($_GET['confirm-delete']=="check") {
+      ?>
+      <h2 class="main-head-cate t-announce f-k">ลบประกาศเลขที่ : <?php echo $UrlId;?></h2>
+      <div class="col-xs-12 pt-10 pb-10">
+        <form action="<?php echo $LinkWeb;?>" method="post">
+          <div class="row">
+          	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+          		<label for="InputReason">เหตุผล</label>
+          	</div>
+          	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          		<div class="form-group">
+              	<div class="radio">
+                    <label><input type="radio" name="reason_id" value="1">สแปม ประกาศซ้ำ</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="reason_id" value="2">สินค้าต้องห้าม / ผิดกฏหมาย</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="reason_id" value="3">มิจฉาชีพ หลอกลวง</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="reason_id" value="4">เหตุผลอื่น ๆ</label>
+                </div>
+              </div>
+          	</div>
+          </div>
+          <div class="row">
+          	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+          		<label for="InputEmail">Email</label>
+          	</div>
+          	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+          		<div class="form-group">
+                  <div class="input-group">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                  </div>
+              </div>
+          	</div>
+          </div>
+          <div class="row">
+          	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+          		<label for="InputTel">เบอร์โทรศัพท์</label>
+          	</div>
+          	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+          		<div class="form-group">
+                  <div class="input-group">
+                      <input type="text" class="form-control" name="tel" id="tel" placeholder="เบอร์โทรศัพท์" required="">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                  </div>
+              </div>
+          	</div>
+          </div>
+          <div class="row">
+          	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+              <img src="<?php echo $LinkWeb;?>captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
+              <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
+          		<div class="form-group">
+                  <div class="input-group">
+                      <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="ใส่รหัสยืนยัน" required="">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                  </div>
+              </div>
+          	</div>
+          </div>
+          <div class="row">
+          	<div class="col-sm-2 col-md-2 col-lg-2 hidden-xs"></div>
+          	<div class="col-sm-9 col-md-9 col-lg-9 hidden-xs">
+                  <input type="submit" name="submit" id="submit" value="แจ้งลบประกาศ" class="btn btn-success">
+              </div>
+          	<div class="col-xs-12 visible-xs">
+                  <input type="submit" name="submit" id="submit" value="แจ้งลบประกาศ" class="btn btn-success btn-block">
+              </div>
+          </div>
+        </form>
+      </div>
+      <?php
     }
 
   }else {

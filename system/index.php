@@ -91,7 +91,7 @@
                 case 'province'         : include("view-province.php"); break;
                 case 'post'             : include("view-post-detail.php"); break;
                 case 'post-all'         : include("view-post-all.php"); break;
-                case 'post-new'         : include("view-post-vew.php"); break;
+                case 'post-new'         : include("view-post-new.php"); break;
 
                 case 'policy'           : include("view-policy.php"); break;
                 case 'sitemap'          : include("view-sitemap.php"); break;
