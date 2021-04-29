@@ -255,8 +255,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-
-    <script src="<?php echo $LinkWeb;?>plugins/summernote/summernote.js"></script>
+    <script type="text/javascript" src="<?php echo $LinkWeb;?>js/bootstrap-filestyle.min.js"> </script>
+    <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/summernote/summernote.js"></script>
     <script>
       $('.summernote').summernote({
           height: 400,   //set editable area's height
@@ -266,6 +266,7 @@
       });
       // List Menu Category & Sub Category
       $(function(){
+        $(":file").filestyle();
 
           /*// เมื่อเปลี่ยนค่าของ select id เท่ากับ list1
            $("select#cate_id").change(function(){
