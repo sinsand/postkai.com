@@ -258,7 +258,7 @@
   text-decoration: none !important;
 }
 .text-link-footer:hover{
-  color: #d7d7d7 !important;;
+  color: #d7d7d7 !important;
 }
 
 body{
@@ -273,6 +273,6 @@ body{
   font-family: 'Sarabun';
 }
 
-.text-l{ text-align: left !important;}
-.text-c{ text-align: center !important;}
-.text-r{ text-align: right !important;}
+.text-ll{ text-align: left !important;}
+.text-cc{ text-align: center !important;}
+.text-rr{ text-align: right !important;}
