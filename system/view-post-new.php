@@ -6,8 +6,8 @@
       <div class="col-xs-12">
         <div class="form-group">
           <label class="control-label col-sm-2" for="post_type">หมวดหมู่:</label>
-          <div class="col-sm-10">
-            <select class="form-cntrol" name="post_type" id="post_type">
+          <div class="col-sm-6 col-xs-12">
+            <select class="form-control" name="post_type" id="post_type">
               <?php
               $SqlSelect = "SELECT *
                             FROM p_category
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="province">จังหวัด:</label>
-          <div class="col-sm-10">
+          <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="province">
               <option value="">ทุกจังหวัด</option>
               <?php
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-12" for="post_desc_full">รายละเอียดทั้งหมด:</label>
+          <label class="control-label col-sm-2" for="post_desc_full">รายละเอียดทั้งหมด:</label>
           <div class="col-sm-12">
             <textarea class="form-control summernote" name="post_desc_full"></textarea>
           </div>
