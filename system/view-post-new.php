@@ -8,6 +8,7 @@
           <label class="control-label col-sm-2" for="post_type">หมวดหมู่:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="post_type" id="post_type">
+              <option value="">เลิอกหมวดหมู่</option>
               <?php
               $SqlSelect = "SELECT *
                             FROM p_category
@@ -25,7 +26,7 @@
           <label class="control-label col-sm-2" for="province">จังหวัด:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="province">
-              <option value="">ทุกจังหวัด</option>
+              <option value="">เลิอกจังหวัด</option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_province
