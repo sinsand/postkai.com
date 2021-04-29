@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-xs-12" style="padding:25px 15px;">
         <div class="form-group">
-          <label class="control-label col-sm-2" for="post_category">หมวดหมู่:</label>
+          <label class="control-label col-sm-2 tex-left" for="post_category">หมวดหมู่:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="post_category" id="post_category">
               <option value="">เลิอกหมวดหมู่</option>
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="province">จังหวัด:</label>
+          <label class="control-label col-sm-2 tex-left" for="province">จังหวัด:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="province">
               <option value="">เลิอกจังหวัด</option>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="post_type">ประเภท:</label>
+          <label class="control-label col-sm-2 tex-left" for="post_type">ประเภท:</label>
           <div class="col-sm-6 col-xs-12">
             <select class="form-control" name="post_type">
               <option value="">เลิอกประเภท</option>
@@ -59,13 +59,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="post_subject">หัวข้อประกาศ:</label>
+          <label class="control-label col-sm-2 tex-left" for="post_subject">หัวข้อประกาศ:</label>
           <div class="col-sm-10">
             <input class="form-control" type="text" name="post_subject" value="" placeholder="">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="post_desc">รายละเอียดย่อ:</label>
+          <label class="control-label col-sm-2 tex-left" for="post_desc">รายละเอียดย่อ:</label>
           <div class="col-sm-10">
             <input class="form-control" type="text" name="post_desc" value="" placeholder="">
           </div>
