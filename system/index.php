@@ -252,5 +252,34 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+    <script src="<?php echo $LinkWeb;?>plugins/summernote/summernote.js"></script>
+    <script>
+      $('.summernote').summernote({
+          height: 400,   //set editable area's height
+          codemirror: { // codemirror options
+              theme: 'monokai'
+          }
+      });
+      // List Menu Category & Sub Category
+      $(function(){
+
+          /*// เมื่อเปลี่ยนค่าของ select id เท่ากับ list1
+           $("select#cate_id").change(function(){
+               // ส่งค่า ตัวแปร list1 มีค่าเท่ากับค่าที่เลือก ส่งแบบ get ไปที่ไฟล์ data_for_list2.php
+               $.get("data_for_list2.php",{
+                   cate_id:$(this).val()
+               },function(data){ // คืนค่ากลับมา
+                      $("select#sub_cate_id").html(data);  // นำค่าที่ได้ไปใส่ใน select id เท่ากับ list2
+                      $("select#sub_cate_id").trigger("change"); // อัพเดท list2 เพื่อให้ list2 ทำงานสำหรับรีเซ็ตค่า
+               });
+          });
+          */
+
+      });
+  </script>
+
   </body>
 </html>
