@@ -257,7 +257,7 @@
 
     <script type="text/javascript" src="<?php echo $LinkWeb;?>js/bootstrap-filestyle.min.js"> </script>
     <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/summernote/summernote.js"></script>
-    <script>
+    <script type="text/javascript" >
       $('.summernote').summernote({
           height: 400,   //set editable area's height
           codemirror: { // codemirror options
