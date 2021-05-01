@@ -115,11 +115,6 @@
             <div class="col-xs-12">
               <div class="bootstrap-filestyle input-group">
                 <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
-                <span class="group-span-filestyle input-group-btn" tabindex="0">
-                  <label for="fileshow" class="btn btn-primary ">
-                    <span class="glyphicon glyphicon-folder-open"></span> เลือกรูปภาพ
-                  </label>
-                </span>
               </div>
             </div>
             <div class="col-xs-12 pt-5">
