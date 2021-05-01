@@ -114,17 +114,17 @@
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12">
               <div class="bootstrap-filestyle input-group">
-                <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+                <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle form-control" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
               </div>
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow" name="fileshow" type="file" class="filestyle" >
+              <input id="fileshow-1" name="fileshow-2" type="file" class="filestyle form-control" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow" name="fileshow" type="file" class="filestyle" >
+              <input id="fileshow-1" name="fileshow-3" type="file" class="filestyle form-control" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow" name="fileshow" type="file" class="filestyle" >
+              <input id="fileshow-1" name="fileshow-4" type="file" class="filestyle form-control" data-buttonname="btn-primary" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
             </div>
           </div>
         </div>
