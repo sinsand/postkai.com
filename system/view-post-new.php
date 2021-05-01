@@ -80,7 +80,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_price">ราคา</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_price" value="" placeholder="ใส่เฉพาะตัวเลขเท่านั้น">
+            <input class="form-control" type="text" name="post_price" value="" placeholder="ไม่ใส่ หรือ ใส่เฉพาะตัวเลขเท่านั้น">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
@@ -178,6 +178,13 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">LINE ID</label>
           <div class="col-sm-9 pr-0 pl-0">
             <input type="text" class="form-control" name="" placeholder="LINE ID">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input type="text" class="form-control" name="" placeholder="รหัส สำหรับแก้ไขประกาศ">
           </div>
         </div>
 
