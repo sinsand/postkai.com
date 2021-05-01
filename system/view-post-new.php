@@ -153,7 +153,7 @@
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จังหวัด</label>
-          <div class="col-sm-9 pr-0 pl-0">
+          <div class="col-sm-6 pr-0 pl-0">
             <select class="form-control" name="" required>
                 <option value="">เลือกจังหวัด</option>
                 <?php
@@ -171,7 +171,7 @@
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ</label>
-          <div class="col-sm-9 pr-0 pl-0">
+          <div class="col-sm-6 pr-0 pl-0">
             <input type="text" class="form-control" name="" required placeholder="เบอร์ติดต่อกลับ">
           </div>
         </div>
@@ -183,14 +183,14 @@
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">LINE ID</label>
-          <div class="col-sm-9 pr-0 pl-0">
+          <div class="col-sm-6 pr-0 pl-0">
             <input type="text" class="form-control" name="" placeholder="LINE ID">
           </div>
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข</label>
-          <div class="col-sm-9 pr-0 pl-0">
+          <div class="col-sm-6 pr-0 pl-0">
             <input type="text" class="form-control" name="" required placeholder="รหัส สำหรับแก้ไขประกาศ">
           </div>
         </div>
