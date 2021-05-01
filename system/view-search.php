@@ -121,64 +121,66 @@
 
     <?php
 
-    if (select_num($SqlSelectSearch)>0) {
-      ?>
-      <div class="col-xs-12 p-0">
-        <h2 class="main-head-cate t-others f-k">แสดงประกาศ <?php echo  select_num($SqlSelectSearch)."/".select_num($SqlSelectSearchAll);?> รายการ</h2>
-      </div>
-      <?php
-      foreach (select_tb($SqlSelectSearch) as $row) {
+    if (!empty($S_search)) {
+      if (select_num($SqlSelectSearch)>0) {
         ?>
-          <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
-            <div class="col-md-4 col-xs-3 p-0">
-              <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
-              <?php
-                if (!empty($row['jPic1'])) {
-                  ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12" alt="" /><?php
-                }else {
-                  ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
-                }
+        <div class="col-xs-12 p-0">
+          <h2 class="main-head-cate t-others f-k">แสดงประกาศ <?php echo  select_num($SqlSelectSearch)."/".select_num($SqlSelectSearchAll);?> รายการ</h2>
+        </div>
+        <?php
+        foreach (select_tb($SqlSelectSearch) as $row) {
+          ?>
+            <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
+              <div class="col-md-4 col-xs-3 p-0">
+                <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
+                <?php
+                  if (!empty($row['jPic1'])) {
+                    ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12" alt="" /><?php
+                  }else {
+                    ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
+                  }
+                ?>
+              </div>
+              <div class="col-md-8 col-xs-9 p-0">
+                <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
+                <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
+                <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span></p>
+                <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['jDate_Create'];?></span></p>
+                <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
+                <h4 class="pt-10 pb-10 m-0 font-price"><?php echo $row['jPrice'];?></h4>
+              </div>
+            </a>
+          <?php
+        }
+        ?>
+          <div class="col-xs-12 p-0 text-center">
+            <nav>
+              <ul class="pagination m-0">
+               <?php
+                  if($Prev_Page){
+                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Prev_Page;?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><?php
+                  }
+                  for($i=1; $i<=$Num_Pages; $i++){
+                    $Page1 = $Page-2;
+                    $Page2 = $Page+2;
+                    if($i != $Page && $i >= $Page1 && $i <= $Page2){
+                      ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $i;?>"><?php echo $i;?></a></li><?php
+                    }else if($i==$Page){
+                      ?><li class="active"><a href="#"><?php echo $i;?></a></li><?php
+                    }
+                  }
+                  if($Page!=$Num_Pages){
+                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Next_Page;?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li><?php
+                  }
               ?>
-            </div>
-            <div class="col-md-8 col-xs-9 p-0">
-              <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
-              <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-              <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span></p>
-              <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['jDate_Create'];?></span></p>
-              <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
-              <h4 class="pt-10 pb-10 m-0 font-price"><?php echo $row['jPrice'];?></h4>
-            </div>
-          </a>
+              </ul>
+            </nav>
+          </div>
+        <?php
+      }else {
+        ?>
+        <p>ไม่พบข้อมูล - not found - กรุณาเลือกข้อมูลให้ถูกต้อง</p>
         <?php
       }
-      ?>
-        <div class="col-xs-12 p-0 text-center">
-          <nav>
-            <ul class="pagination m-0">
-             <?php
-                if($Prev_Page){
-                  ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Prev_Page;?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><?php
-                }
-                for($i=1; $i<=$Num_Pages; $i++){
-                  $Page1 = $Page-2;
-                  $Page2 = $Page+2;
-                  if($i != $Page && $i >= $Page1 && $i <= $Page2){
-                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $i;?>"><?php echo $i;?></a></li><?php
-                  }else if($i==$Page){
-                    ?><li class="active"><a href="#"><?php echo $i;?></a></li><?php
-                  }
-                }
-                if($Page!=$Num_Pages){
-                  ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Next_Page;?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li><?php
-                }
-            ?>
-            </ul>
-          </nav>
-        </div>
-      <?php
-    }else {
-      ?>
-      <p>ไม่พบข้อมูล - not found - กรุณาเลือกข้อมูลให้ถูกต้อง</p>
-      <?php
     }
 ?>
