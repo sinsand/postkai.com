@@ -266,7 +266,7 @@
       });
       // List Menu Category & Sub Category
       $(function(){
-        $(":file").filestyle({
+        $("input:file").filestyle({
           classIcon: "icon-plus",
           buttonText: "Upload Photo",
           buttonName: "btn-primary"
