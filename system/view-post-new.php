@@ -199,7 +199,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <button type="submit" name="btnPost" class="btn btn-success btn-sm">บันทึกประกาศ</button>
+            <button type="submit" name="btnPost" class="btn btn-success btn-lg">บันทึกประกาศ</button>
           </div>
         </div>
 
