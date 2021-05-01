@@ -264,13 +264,15 @@
               theme: 'monokai'
           }
       });
+      $("input:file").filestyle({
+        classIcon: "icon-plus",
+        buttonText: "Upload Photo",
+        buttonName: "btn-primary"
+      });
+
       // List Menu Category & Sub Category
       $(function(){
-        $("input:file").filestyle({
-          classIcon: "icon-plus",
-          buttonText: "Upload Photo",
-          buttonName: "btn-primary"
-        });
+
 
           /*// เมื่อเปลี่ยนค่าของ select id เท่ากับ list1
            $("select#cate_id").change(function(){
