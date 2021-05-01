@@ -127,6 +127,46 @@
           </div>
         </div>
 
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input type="text" class="form-control" name="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ที่อยู่</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <textarea class="form-contol" placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input type="text" class="form-control" name="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input type="text" class="form-control" name="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">LINE ID</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <input type="text" class="form-control" name="" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <img src="<?php echo $LinkWeb;?>captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
+            <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
+            <input type="text" class="form-control" name="" placeholder="">
+          </div>
+        </div>
+
 
 
 
