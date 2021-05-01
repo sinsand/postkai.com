@@ -126,32 +126,32 @@
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12 p-0 ">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle" required  data-buttonName="btn-primary">
+                <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle" required data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-2" name="fileshow-2" type="file" class="filestyle"  data-buttonName="btn-primary">
+                <input id="fileshow-2" name="fileshow-2" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-3" name="fileshow-3" type="file" class="filestyle"  data-buttonName="btn-primary">
+                <input id="fileshow-3" name="fileshow-3" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-4" name="fileshow-4" type="file" class="filestyle" data-buttonName="btn-primary">
+                <input id="fileshow-4" name="fileshow-4" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-5" name="fileshow-5" type="file" class="filestyle" data-buttonName="btn-primary">
+                <input id="fileshow-5" name="fileshow-5" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow-6" name="fileshow-6" type="file" class="filestyle" data-buttonName="btn-primary">
+                <input id="fileshow-6" name="fileshow-6" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
           </div>

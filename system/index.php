@@ -264,12 +264,13 @@
               theme: 'monokai'
           }
       });
+      /*
       $("input:file").filestyle({
         classIcon: "icon-plus",
         buttonText: "Upload Photo",
         buttonName: "btn-primary"
       });
-
+      */
       // List Menu Category & Sub Category
       $(function(){
 
