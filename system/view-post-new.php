@@ -184,9 +184,9 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <img src="<?php echo $LinkWeb;?>system/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
+            <img src="<?php echo $LinkWeb;?>plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
             <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
-            <input type="text" class="form-control" style="width:50%" name="" placeholder="">
+            <input type="text" class="form-control" style="width:50%" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
           </div>
         </div>
 
