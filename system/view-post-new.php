@@ -186,7 +186,7 @@
           <div class="col-sm-9 pr-0 pl-0">
             <img src="<?php echo $LinkWeb;?>system/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
             <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
-            <input type="text" class="form-control" name="" placeholder="">
+            <input type="text" class="form-control" style="width:50%" name="" placeholder="">
           </div>
         </div>
 
