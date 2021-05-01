@@ -78,25 +78,30 @@
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">ราคา</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_price">ราคา</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_subject" value="" placeholder="">
+            <input class="form-control" type="text" name="post_price" value="" placeholder="ใส่เฉพาะตัวเลขเท่านั้น">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">สภาพสินค้า</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">สภาพสินค้า</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_subject" value="" placeholder="">
+            <select class="form-control" name="">
+                <option value="">ไม่ระบุ</option>
+                <option value="1">ใหม่</option>
+                <option value="2">มือสอง</option>
+                <option value="3">ล้างสต๊อก</option>
+            </select>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">จำนวนวันประกาศ</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จำนวนวันประกาศ</label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="">
                 <option value="">ไม่จำกัด</option>
-                <option value="">30 วัน</option>
-                <option value="">90 วัน</option>
-                <option value="">365 วัน</option>
+                <option value="30">30 วัน</option>
+                <option value="90">90 วัน</option>
+                <option value="365">365 วัน</option>
             </select>
           </div>
         </div>
@@ -140,6 +145,24 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จังหวัด</label>
+          <div class="col-sm-9 pr-0 pl-0">
+            <select class="form-control" name="">
+                <option value="">เลือกจังหวัด</option>
+                <?php
+                  $SqlSelect = "SELECT *
+                                FROM p_province
+                                ORDER BY PROVINCE_NAME ASC ";
+                  if (select_num($SqlSelect)>0) {
+                    foreach (select_tb($SqlSelect) as $row) {
+                      ?><option value="<?php echo $row['PROVINCE_ID'];?>"><?php echo $row['PROVINCE_NAME'];?></option><?php
+                    }
+                  }
+                ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
             <input type="text" class="form-control" name="" placeholder="">
@@ -161,7 +184,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <img src="<?php echo $LinkWeb;?>captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
+            <img src="<?php echo $LinkWeb;?>system/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
             <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
             <input type="text" class="form-control" name="" placeholder="">
           </div>
