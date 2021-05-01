@@ -1,13 +1,20 @@
 <h2 class="main-head-cate t-announce f-k">เพิ่มประกาศใหม่</h2>
+<?php
+  if (isset($_POST['btnPost'])) {
+    // code...
+  }
+
+
+?>
 <div class="col-xs-12">
-  <form class="" action="<?php echo $LinkPath;?>" method="post">
+  <form class="" action="<?php echo $LinkPath;?>" method="post" enctype="multipart/form-data">
 
     <div class="row">
       <div class="col-xs-12" style="padding:25px 0px;">
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category">หมวดหมู่</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
-            <select class="form-control" name="post_category" id="post_category">
+            <select class="form-control" name="post_category" id="post_category" required>
               <option value="">เลือกหมวดหมู่</option>
               <?php
               $SqlSelect = "SELECT *
@@ -25,7 +32,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="province">จังหวัด:</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
-            <select class="form-control" name="province">
+            <select class="form-control" name="province" required>
               <option value="">เลือกจังหวัด</option>
               <?php
                 $SqlSelect = "SELECT *
@@ -43,7 +50,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type">ประเภท</label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
-            <select class="form-control" name="post_type">
+            <select class="form-control" name="post_type" required>
               <option value="">เลือกประเภท</option>
               <?php
               $SqlSelect = "SELECT *
@@ -61,19 +68,19 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">หัวข้อประกาศ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_subject" value="" placeholder="หัวข้อประกาศ">
+            <input class="form-control" type="text" name="post_subject" value="" required placeholder="หัวข้อประกาศ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc">รายละเอียดย่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_desc" value="" placeholder="รายละเอียดย่อ">
+            <input class="form-control" type="text" name="post_desc" value="" required placeholder="รายละเอียดย่อ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full">รายละเอียดทั้งหมด</label>
           <div class="col-sm-12 pr-0 pl-0">
-            <textarea class="form-control summernote" name="post_desc_full" ></textarea>
+            <textarea class="form-control summernote" name="post_desc_full" required ></textarea>
           </div>
         </div>
 
@@ -108,7 +115,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">สถานะ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <select class="form-control" name="">
+            <select class="form-control" name="" required>
                 <option value="">เปิดให้ Comment</option>
                 <option value="">ปิด Comment</option>
             </select>
@@ -118,7 +125,7 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">แนบรูปภาพ <br>(.jpg .jpeg หรือ .png เท่านั้น)<br> ขนาดเหมาะสม คือ 1:1,800x800px</label>
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12">
-              <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle form-control">
+              <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle form-control" required>
             </div>
             <div class="col-xs-12 pt-5">
               <input id="fileshow-2" name="fileshow-2" type="file" class="filestyle form-control">
@@ -141,13 +148,13 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ที่อยู่</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <textarea class="form-control" placeholder="กรอกที่อยู่"></textarea>
+            <textarea class="form-control" placeholder="กรอกที่อยู่" required></textarea>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จังหวัด</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <select class="form-control" name="">
+            <select class="form-control" name="" required>
                 <option value="">เลือกจังหวัด</option>
                 <?php
                   $SqlSelect = "SELECT *
@@ -165,13 +172,13 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="เบอร์ติดต่อกลับ">
+            <input type="text" class="form-control" name="" required placeholder="เบอร์ติดต่อกลับ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="email สำหรับติดต่อ">
+            <input type="text" class="form-control" name="" required placeholder="email สำหรับติดต่อ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
@@ -184,7 +191,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="รหัส สำหรับแก้ไขประกาศ">
+            <input type="text" class="form-control" name="" required placeholder="รหัส สำหรับแก้ไขประกาศ">
           </div>
         </div>
 
