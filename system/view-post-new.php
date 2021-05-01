@@ -125,16 +125,16 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">แนบรูปภาพ <br>(.jpg .jpeg หรือ .png เท่านั้น)<br> ขนาดเหมาะสม คือ 1:1,800x800px</label>
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12">
-              <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle form-control" required>
+              <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle" required  data-buttonName="btn-primary">
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow-2" name="fileshow-2" type="file" class="filestyle form-control">
+              <input id="fileshow-2" name="fileshow-2" type="file" class="filestyle"  data-buttonName="btn-primary">
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow-3" name="fileshow-3" type="file" class="filestyle form-control">
+              <input id="fileshow-3" name="fileshow-3" type="file" class="filestyle"  data-buttonName="btn-primary">
             </div>
             <div class="col-xs-12 pt-5">
-              <input id="fileshow-4" name="fileshow-4" type="file" class="filestyle form-control">
+              <input id="fileshow-4" name="fileshow-4" type="file" class="filestyle" data-buttonName="btn-primary">
             </div>
           </div>
         </div>
