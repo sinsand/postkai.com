@@ -61,19 +61,19 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">หัวข้อประกาศ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_subject" value="" placeholder="">
+            <input class="form-control" type="text" name="post_subject" value="" placeholder="หัวข้อประกาศ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc">รายละเอียดย่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_desc" value="" placeholder="">
+            <input class="form-control" type="text" name="post_desc" value="" placeholder="รายละเอียดย่อ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full">รายละเอียดทั้งหมด</label>
           <div class="col-sm-12 pr-0 pl-0">
-            <textarea class="form-control summernote" name="post_desc_full"></textarea>
+            <textarea class="form-control summernote" name="post_desc_full" ></textarea>
           </div>
         </div>
 
@@ -135,13 +135,13 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="">
+            <input type="text" class="form-control" name="" placeholder="กรอกชื่อ และ นามสกุล">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ที่อยู่</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <textarea class="form-control" placeholder=""></textarea>
+            <textarea class="form-control" placeholder="กรอกที่อยู่"></textarea>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
@@ -165,19 +165,19 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="">
+            <input type="text" class="form-control" name="" placeholder="เบอร์ติดต่อกลับ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="">
+            <input type="text" class="form-control" name="" placeholder="email สำหรับติดต่อ">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">LINE ID</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="" placeholder="">
+            <input type="text" class="form-control" name="" placeholder="LINE ID">
           </div>
         </div>
 
