@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">แนบรูปภาพ <br>(ไฟล์ภาพ .jpg .jpeg หรือ .png เท่านั้น)<br>ขนาด 1:1 หรือ 800x800 pixel</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">แนบรูปภาพ <br>(ไฟล์ภาพ .jpg .jpeg หรือ .png เท่านั้น)<br>ขนาด 1:1 หรือ 800x800 pixel<br> ขนาดเหมาะสม คือ 800x800px</label>
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12">
               <input id="fileshow-1" name="fileshow-1" type="file" class="filestyle form-control">
