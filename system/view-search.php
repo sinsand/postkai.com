@@ -58,7 +58,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="email">ข้อความค้นหา</label>
-            <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" required>
+            <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" value="<?php echo $_GET['keywords'];?>" required>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4">
