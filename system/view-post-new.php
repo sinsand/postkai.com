@@ -190,7 +190,7 @@
                 <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
               </div>
               <div class="col-xs-12 col-sm-6 pl-0 pr-0">
-                <input type="text" class="form-control" style="width:50%" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
+                <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
               </div>
             </div>
           </div>
