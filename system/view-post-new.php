@@ -141,7 +141,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ที่อยู่</label>
           <div class="col-sm-9 pr-0 pl-0">
-            <textarea class="form-contol" placeholder=""></textarea>
+            <textarea class="form-control" placeholder=""></textarea>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
