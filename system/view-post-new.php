@@ -187,9 +187,9 @@
             <div class="row m-0">
               <div class="col-xs-12 col-sm-6 pl-0 pr-0">
                 <img src="<?php echo $LinkWeb;?>plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 col-sm-12 p-0">
-                <p class="m-0 text-center">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
               </div>
               <div class="col-xs-12 col-sm-6 pl-0 pr-0">
+                <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
                 <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
               </div>
             </div>
