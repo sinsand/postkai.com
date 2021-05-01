@@ -222,13 +222,13 @@
     <!-- Footer -->
     <div class="row mr-0 ml-0" style="background-color:#45637d;color:#fff;margin-top:30px;">
       <div class="container" style="padding:20px 15px;">
-        <div class="col-lg-6 col-xs-12">
+        <div class="col-sm-6 col-xs-12">
           <h5 class="text-uppercase">Postkai</h5>
           <p>
             ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข
           </p>
         </div>
-        <div class="col-lg-3 col-xs-12">
+        <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Menu</h5>
           <p style="padding-left:25px;">
             <a href="<?php echo $LinkWeb;?>" class="col-xs-12 text-link-footer">หน้าหลัก</a>
@@ -237,7 +237,7 @@
             <a href="<?php echo $LinkWeb;?>sitemap" class="col-xs-12 text-link-footer">sitemap</a>
           </p>
         </div>
-        <div class="col-lg-3 col-xs-12">
+        <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Contact us</h5>
           <p style="padding-left:25px;">
             Email : contact@postkai.com
