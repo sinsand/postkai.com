@@ -202,7 +202,7 @@
         ?>
           <div class="col-xs-12 pt-10">
             <h2 class="main-sub-cate-show t-others f-k">Comment</h2>
-            <div class="row">
+            <div class="row row-sub">
               <div class="col-xs-12">
               <?php
                 foreach (select_tb($SqlSelectCom) as $rowcom) {
