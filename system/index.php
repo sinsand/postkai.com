@@ -208,7 +208,7 @@
             <ul class="nav navbar-nav">
               <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>">หน้าหลัก</a></li>
               <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search">ค้นหาประกาศ</a></li>
-              <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all">ประกาศทั้งหมด</a></li>
+              <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all">ประกาศล่าสุด</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">หมวดหมู่ <span class="caret"></span></a>
                 <ul class="dropdown-menu">
