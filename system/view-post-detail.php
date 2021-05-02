@@ -208,7 +208,7 @@
                 foreach (select_tb($SqlSelectCom) as $rowcom) {
                   ?>
                   <div class="box-comment row m-0 mb-10">
-                    <h4>จากคุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
+                    <h4 class="lh-15">จากคุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
                     <div class="col-xs-12 pt-5 pb-5 box-show-left">
                       <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
                     </div>
