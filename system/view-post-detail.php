@@ -70,7 +70,10 @@
           	</div>
           </div>
           <div class="row">
-          	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+          		<label for="InputTel"></label>
+          	</div>
+            <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
               <img src="<?php echo $LinkWeb;?>/plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 p-0">
               <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
           		<div class="form-group">
