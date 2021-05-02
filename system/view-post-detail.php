@@ -192,8 +192,25 @@
         </div>
         <?php
         $mID = $row['mID'];
+
+        if ($row['jComment']=='1') {
+          ?>
+          <div class="col-xs-12">
+            <div class="col-sm-12 pr-0 pl-0">
+              <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
+            </div>
+            <div class="col-sm-12 pr-0 pl-0">
+              <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
+            </div>
+          </div>
+          <?php
+        }
+
+
+
       }
-      ////// comment
+
+      ////// view comment
       $SqlSelectCom = "SELECT *
                        FROM p_comment
                        WHERE ( jID = '".$UrlId."' )
@@ -221,6 +238,7 @@
           </div>
         <?php
       }
+
 
 
       ///// post others

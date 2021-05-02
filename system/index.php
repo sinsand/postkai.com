@@ -427,6 +427,12 @@
               theme: 'monokai'
           }
       });
+      $('.summernote-comment').summernote({
+          height: 150,   //set editable area's height
+          codemirror: { // codemirror options
+              theme: 'monokai'
+          }
+      });
       /*
       $("input:file").filestyle({
         classIcon: "icon-plus",
