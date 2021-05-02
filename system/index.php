@@ -323,7 +323,7 @@
                           ?>
                         </select>
                       </div>
-                      <p class="text-center"><a href="<?php echo $LinkWeb;?>search">ค้นหาแบบละเอียด</a></p>
+                      <p class="text-center"><a href="<?php echo $LinkWeb;?>search">หน้าค้นหา</a></p>
                       <button type="submit" class="btn btn-success mb-10" style="width:100%;">ค้นหา</button>
                     </form>
                   </div>
