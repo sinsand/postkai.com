@@ -7,7 +7,7 @@
       <div class="col-xs-12 pt-10 pb-10">
         <form class="" action="<?php $LinkWeb;?>" method="post">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="ใส่รหัสสำหรับแก้ไขประกาศ">
+            <input type="text" class="form-control" placeholder="ใส่รหัสสำหรับแก้ไขประกาศ" required>
             <div class="input-group-btn">
               <button class="btn btn-success" type="submit">
                 ยืนยัน
@@ -50,7 +50,7 @@
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
                   <div class="input-group">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                   </div>
               </div>
@@ -63,7 +63,7 @@
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
                   <div class="input-group">
-                      <input type="text" class="form-control" name="tel" id="tel" placeholder="เบอร์โทรศัพท์" required="">
+                      <input type="text" class="form-control" name="tel" id="tel" placeholder="เบอร์โทรศัพท์" required>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                   </div>
               </div>
@@ -78,7 +78,7 @@
               <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
           		<div class="form-group">
                   <div class="input-group">
-                      <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="ใส่รหัสยืนยัน" required="">
+                      <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="ใส่รหัสยืนยัน" required>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                   </div>
               </div>
