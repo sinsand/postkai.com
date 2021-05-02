@@ -197,9 +197,9 @@
         ////// view comment
 
           ?>
-            <div class="col-xs-12 pt-10">
+            <div class="col-xs-12 pt-10 pr-0">
               <h2 class="main-sub-cate-show t-others f-k">Comment</h2>
-              <div class="row row-sub">
+              <div class="row row-sub mr-0">
                 <div class="col-xs-12">
                 <?php
                     if ($row['jComment']=='1') {
@@ -208,8 +208,37 @@
                         <div class="col-sm-12 pr-0 pl-0">
                           <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
                         </div>
-                        <div class="col-sm-12 pr-0 pl-0">
-
+                        <div class="form-group col-xs-12 pr-0 pl-0">
+                          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล</label>
+                          <div class="col-sm-9 pr-0 pl-0">
+                            <input type="text" class="form-control" name="" placeholder="กรอกชื่อ และ นามสกุล" autocomplete="off">
+                          </div>
+                        </div>
+                        <div class="form-group col-xs-12 pr-0 pl-0">
+                          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email</label>
+                          <div class="col-sm-9 pr-0 pl-0">
+                            <input type="text" class="form-control" name="" required placeholder="email สำหรับติดต่อ" autocomplete="off">
+                          </div>
+                        </div>
+                        <div class="form-group col-xs-12 pr-0 pl-0">
+                          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
+                          <div class="col-sm-9 pr-0 pl-0">
+                            <div class="row m-0">
+                              <div class="col-xs-12 col-sm-6 pl-0 pr-0">
+                                <img src="<?php echo $LinkWeb;?>plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 col-sm-12 p-0">
+                              </div>
+                              <div class="col-xs-12 col-sm-6 pl-0 pr-0">
+                                <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
+                                <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-xs-12 pr-0 pl-0">
+                          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
+                          <div class="col-sm-9 pr-0 pl-0">
+                            <button type="submit" name="btnPostComment" class="btn btn-success">บันทึก Comment</button>
+                          </div>
                         </div>
                       </div>
                       <?php
