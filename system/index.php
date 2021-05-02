@@ -33,11 +33,11 @@
               <meta property="og:type" content="website"/>
               <!--<meta property="fb:admins" content="102845294863081" />-->
               <?php
-              if (!empty($row['jPic1']) || $row['jPic1']!="") {
+              if (!empty($rowpost['jPic1']) || $rowpost['jPic1']!="") {
                 ?><meta property="og:image" content="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $rowpost['jPic1'];?>"/><?php
                 ?><meta property="og:image:secure_url" content="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $rowpost['jPic1'];?>"/><?php
               }else {
-                ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
+                ?><meta property="og:image:secure_url" content="<?php echo $LinkWeb;?>"/><?php
               }
             }
           }
