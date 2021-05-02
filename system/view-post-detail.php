@@ -71,7 +71,7 @@
           </div>
           <div class="row">
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
-              <img src="<?php echo $LinkWeb;?>/plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-12" style="padding:0px;">
+              <img src="<?php echo $LinkWeb;?>/plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 p-0">
               <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
           		<div class="form-group">
                   <div class="input-group">
