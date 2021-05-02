@@ -95,6 +95,10 @@
                 case 'post-all'         : include("view-post-all.php"); break;
                 case 'post-new'         : include("view-post-new.php"); break;
 
+                case 'login'            : include("view-login.php"); break;
+                case 'register'         : include("view-register.php"); break;
+
+
                 case 'policy'           : include("view-policy.php"); break;
                 case 'sitemap'          : include("view-sitemap.php"); break;
                 case 'term-and-condition'  : include("view-term-and-condition.php"); break;
