@@ -44,7 +44,25 @@
         }
       }
       if ($UrlPage=="post-all") {
-        $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+        $P_Per_Page = 1;
+        if(!$_GET['page']){
+          $P_Page=1;
+        }
+
+        $P_Prev_Page = $Page-1;
+        $P_Next_Page = $Page+1;
+
+        $P_Page_Start = (($P_Per_Page*$P_Page)-$P_Per_Page);
+        if(select_num($SqlSelectPostAll)<=$P_Per_Page){
+          $P_Num_Pages =1;
+        }
+        else if((select_num($SqlSelectsearch) % $P_Per_Page)==0){
+          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page) ;
+        }else{
+          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
+          $P_Num_Pages = (int)$P_Num_Pages;
+        }
+        $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
                             INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                             INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
@@ -52,9 +70,9 @@
                                     ( sj.jStatus = '1' )
                                   )
                             ORDER BY sj.jDate_Create DESC
-                            LIMIT 0,1;";
-        if (select_num($SqlSelectsearch)>0) {
-          foreach (select_tb($SqlSelectsearch) as $rowtype) {
+                            LIMIT $P_Page_Start,1;";
+        if (select_num($SqlSelectPostAll)>0) {
+          foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
             <title><?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
             <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />

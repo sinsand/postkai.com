@@ -20,7 +20,7 @@
       $Num_Pages =1;
     }
     else if((select_num($SqlSelect) % $Per_Page)==0){
-      $Num_Pages =(select_num($sql)/$Per_Page) ;
+      $Num_Pages =(select_num($SqlSelect)/$Per_Page) ;
     }else{
       $Num_Pages =(select_num($SqlSelect)/$Per_Page)+1;
       $Num_Pages = (int)$Num_Pages;
