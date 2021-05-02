@@ -37,8 +37,8 @@ if (select_num($SqlSelectPost)>0) {
 
   foreach (select_tb($SqlSelectPost) as $row) {
     echo "<url>";
-    echo "<loc>".$LinkWeb."post/".$row['link']."</loc>";
-    echo "<lastmod>".$row['jDate_Create']."</lastmod>";
+    echo "<loc>".$LinkWeb."post/".$row['jID']."</loc>";
+    echo "<lastmod>".con_xml($row['jDate_Create'])."</lastmod>";
     echo "<changefreq>daily</changefreq>";
     echo "</url>";
   }
