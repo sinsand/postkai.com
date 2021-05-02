@@ -26,6 +26,14 @@
   border-radius: 5px;
   font-size: 1.5em;
 }
+
+.main-sub-cate{
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-size: 1.2em;
+}
+
 .navbar-new{
   background: #45637d;
   border-color: #294156;
@@ -276,3 +284,7 @@ body{
 .text-ll{ text-align: left !important;}
 .text-cc{ text-align: center !important;}
 .text-rr{ text-align: right !important;}
+
+.box-comment{
+  
+}
