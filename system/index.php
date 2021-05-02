@@ -77,8 +77,8 @@
               <li><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo $LinkWeb;?>">เข้าสู่ระบบ</a></li>
-              <li><a href="<?php echo $LinkWeb;?>">สมัครสมาชิก</a></li>
+              <li><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
+              <li><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
