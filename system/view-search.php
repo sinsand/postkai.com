@@ -179,7 +179,7 @@
         <?php
       }else {
         ?>
-        <p>ไม่พบข้อมูล - not found - กรุณาเลือกข้อมูลให้ถูกต้อง</p>
+        <p class="text-center pt-10 pb-10">ขออภัยไม่พบข้อมูลที่ค้นหา - Search not found</p>
         <?php
       }
     }

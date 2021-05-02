@@ -4,19 +4,129 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>โพสขายฟรี - Postkai.com</title>
     <meta name="robots" content="index,follow" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
-    <meta name="Keywords" content="" />
-    <meta name="Description" content="" />
-
-
-
-
-
+    <?php
+      if (empty($UrlPage)) {
+        ?>
+        <title>โพสขาย ลงประกาศฟรี - postkai.com</title>
+        <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี,ลงขายฟรี" />
+        <meta name="description" content="เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+        <?php
+      }
+      if ($UrlPage=="post") {
+        if (!empty($UrlId)) {
+          $SqlSelectPost = "SELECT *
+                            FROM sb_job
+                            WHERE ( jID = '".$UrlId."' )";
+          if (select_num($SqlSelectPost)>0) {
+            foreach (select_tb($SqlSelectPost) as $rowpost) {
+              ?>
+              <title><?php echo $rowpost['jTitle'];?> - postkai.com</title>
+              <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์" />
+              <meta name="description" content="<?php echo $rowpost['jDetail'];?>" />
+              <meta property="og:title" content="<?php echo $rowpost['jTitle'];?>"/>
+              <meta property="og:description" content="<?php echo $rowpost['jDetail'];?>"/>
+              <meta property="og:url" content="<?php echo $LinkPath;?>"/>
+              <meta property="og:site_name" content="- postkai.com ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์"/>
+              <meta property="og:locale" content="th_TH"/>
+              <meta property="og:type" content="website"/>
+              <!--<meta property="fb:admins" content="102845294863081" />-->
+              <?php
+              if (!empty($row['jPic1']) || $row['jPic1']!="") {
+                ?><meta property="og:image" content="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $rowpost['jPic1'];?>"/><?php
+                ?><meta property="og:image:secure_url" content="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $rowpost['jPic1'];?>"/><?php
+              }else {
+                ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
+              }
+            }
+          }
+        }
+      }
+      if ($UrlPage=="search") {
+        if (!empty($_GET['type']) && empty($_GET['province']) && empty($_GET['category']) && empty($_GET['keywords'])) {
+          ////// type
+          $SqlSelectsearch = "SELECT name_Type
+                              FROM p_type
+                              WHERE ( id_Type = '".$_GET['type']."' ) ;";
+          if (select_num($SqlSelectsearch)>0) {
+            foreach (select_tb($SqlSelectsearch) as $rowtype) {
+              ?>
+              <title>หมวดหมู่ <?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
+              <meta name="keywords" content="<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+              <meta name="description" content="<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+              <?php
+            }
+          }
+        }else if (empty($_GET['type']) && !empty($_GET['province']) && empty($_GET['category']) && empty($_GET['keywords'])) {
+          ////// province
+          $SqlSelectsearch = "SELECT PROVINCE_NAME
+                              FROM p_province
+                              WHERE ( PROVINCE_ID = '".$_GET['province']."' );";
+          if (select_num($SqlSelectsearch)>0) {
+            foreach (select_tb($SqlSelectsearch) as $rowtype) {
+              ?>
+              <title>ประกาศจังหวัด<?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
+              <meta name="keywords" content="จังหวัด<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+              <meta name="description" content="จังหวัด<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+              <?php
+            }
+          }
+        }else if (!empty($_GET['type']) && !empty($_GET['province']) && !empty($_GET['category']) && !empty($_GET['keywords'])) {
+          ////// search all
+          $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+                              FROM sb_job sj
+                              INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                              INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                              WHERE (
+                                      ( sj.jStatus = '1' ) AND
+                                      ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
+                                      ( p.id_category = '".$_GET['category']."' ) AND
+                                      ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
+                                      ( pt.id_Type = '".$_GET['type']."' )
+                                    )
+                              ORDER BY sj.jDate_Create DESC
+                              LIMIT 0,1;";
+          if (select_num($SqlSelectsearch)>0) {
+            foreach (select_tb($SqlSelectsearch) as $rowtype) {
+              ?>
+              <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+              <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+              <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
+              <?php
+            }
+          }
+        }
+      }
+      if ($UrlPage=="policy") {
+        ?>
+        <title>นโยบายการให้บริการ ลงประกาศฟรี - postkai.com</title>
+        <meta name="keywords" content="นโยบาย,นโยบายการให้บริการลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+        <meta name="description" content="ห้ามโพสประกาศขายสิ่งผิดกฏหมายทุกชนิด การพนัน, เว็บลามก, ยาผิดกฏหมายทุกชนิด, บริการทางเพศ ฯลฯ หากพบเห็นจะลบประกาศทันที ห้ามโพสข้อความหรือสิ่งใดที่เป็นการดูหมิ่นสถาบันพระมหากษัตริย์โดยเด็ดขาด" />
+        <?php
+      }
+      if ($UrlPage=="term-and-condition") {
+        ?>
+        <title>กฏ กติกา ระเบียบข้อบังคับ ลงประกาศฟรี - postkai.com</title>
+        <meta name="keywords" content="ระเบียบข้อบังคับ,ข้อบังคับลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+        <meta name="description" content="ห้ามโพสข้อความหรือสิ่งใดที่เป็นการดูหมิ่นสถาบันพระมหากษัตริย์ โดยเด็ดขาด เว็บไซต์ www.postkai.com เป็นเว็บไซต์ให้บริการประกาศโฆษณาฟรี หรือ ประชาสัมพันธ์เว็บไซต์เพื่อการค้าขายบนอินเตอร์เน็ต (อี-คอมเมิร์ซ) เท่านั้นเว็บไซต์" />
+        <?php
+      }
+      if ($UrlPage=="login") {
+        ?>
+        <title>เข้าสู่ระบบ ลงประกาศฟรี  - postkai.com</title>
+        <meta name="keywords" content="เข้าสู่ระบบ,เข้าสู่ระบบลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+        <meta name="description" content="เข้าสู่ระบบ เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+        <?php
+      }
+      if ($UrlPage=="register") {
+        ?>
+        <title>สมัครสมาชิก ลงประกาศฟรี ไม่มีค่าบริการ - postkai.com</title>
+        <meta name="keywords" content="สมัครสมาชิก,สมัครลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+        <meta name="description" content="สมัครสมาชิก เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+        <?php
+      }
+    ?>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
