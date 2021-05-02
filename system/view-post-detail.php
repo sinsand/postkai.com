@@ -201,7 +201,7 @@
       if (select_num($SqlSelectCom)>0) {
         ?>
           <div class="col-xs-12 pt-10">
-            <h2 class="main-sub-cate t-others f-k">Comment</h2>
+            <h2 class="main-sub-cate-show t-others f-k">Comment</h2>
             <div class="row">
               <div class="col-xs-12">
               <?php
