@@ -43,6 +43,26 @@
           }
         }
       }
+      if ($UrlPage=="post-all") {
+        $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+                            FROM sb_job sj
+                            INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                            INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                            WHERE (
+                                    ( sj.jStatus = '1' )
+                                  )
+                            ORDER BY sj.jDate_Create DESC
+                            LIMIT 0,1;";
+        if (select_num($SqlSelectsearch)>0) {
+          foreach (select_tb($SqlSelectsearch) as $rowtype) {
+            ?>
+            <title><?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+            <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+            <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
+            <?php
+          }
+        }
+      }
       if ($UrlPage=="search") {
         if (!empty($_GET['type']) && empty($_GET['province']) && empty($_GET['category']) && empty($_GET['keywords'])) {
           ////// type
