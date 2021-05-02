@@ -165,6 +165,13 @@
         <meta name="description" content="สมัครสมาชิก เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
         <?php
       }
+      if ($UrlPage=="post-new") {
+        ?>
+        <title>ลงประกาศฟรี ไม่มีค่าบริการ - postkai.com</title>
+        <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+        <meta name="description" content="ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+        <?php
+      }
     ?>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
