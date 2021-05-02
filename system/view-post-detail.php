@@ -200,21 +200,23 @@
                        ORDER BY cid_comment DESC ";
       if (select_num($SqlSelectCom)>0) {
         ?>
-          <h2 class="main-sub-cate t-announce f-k">Comment</h2>
-          <div class="row">
-            <div class="col-xs-12">
-            <?php
-              foreach (select_tb($SqlSelectCom) as $rowcom) {
-                ?>
-                <div class="box-comment">
-                  <h4>คุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
-                  <div class="col-xs-12 pt-5 pb-5">
-                    <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
+          <div class="col-xs-12 pt-10">
+            <h2 class="main-sub-cate t-announce f-k">Comment</h2>
+            <div class="row">
+              <div class="col-xs-12">
+              <?php
+                foreach (select_tb($SqlSelectCom) as $rowcom) {
+                  ?>
+                  <div class="box-comment">
+                    <h4>คุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
+                    <div class="col-xs-12 pt-5 pb-5">
+                      <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
+                    </div>
                   </div>
-                </div>
-                <?php
-              }
-            ?>
+                  <?php
+                }
+              ?>
+              </div>
             </div>
           </div>
         <?php
