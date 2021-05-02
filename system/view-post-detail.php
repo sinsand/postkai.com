@@ -193,51 +193,54 @@
         <?php
         $mID = $row['mID'];
 
-        if ($row['jComment']=='1') {
+
+        ////// view comment
+
           ?>
-          <div class="col-xs-12">
-            <div class="col-sm-12 pr-0 pl-0">
-              <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
-            </div>
-            <div class="col-sm-12 pr-0 pl-0">
-              <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
-            </div>
-          </div>
-          <?php
-        }
+            <div class="col-xs-12 pt-10">
+              <h2 class="main-sub-cate-show t-others f-k">Comment</h2>
+              <div class="row row-sub">
+                <div class="col-xs-12">
+                <?php
+                    if ($row['jComment']=='1') {
+                      ?>
+                      <div class="col-xs-12">
+                        <div class="col-sm-12 pr-0 pl-0">
+                          <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
+                        </div>
+                        <div class="col-sm-12 pr-0 pl-0">
 
-
-
-      }
-
-      ////// view comment
-      $SqlSelectCom = "SELECT *
-                       FROM p_comment
-                       WHERE ( jID = '".$UrlId."' )
-                       ORDER BY cid_comment DESC ";
-      if (select_num($SqlSelectCom)>0) {
-        ?>
-          <div class="col-xs-12 pt-10">
-            <h2 class="main-sub-cate-show t-others f-k">Comment</h2>
-            <div class="row row-sub">
-              <div class="col-xs-12">
-              <?php
-                foreach (select_tb($SqlSelectCom) as $rowcom) {
-                  ?>
-                  <div class="box-comment row m-0 mb-10">
-                    <h4 class="lh-15">จากคุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
-                    <div class="col-xs-12 pt-5 pb-5 box-show-left">
-                      <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
-                    </div>
-                  </div>
-                  <?php
-                }
-              ?>
+                        </div>
+                      </div>
+                      <?php
+                    }
+                    $SqlSelectCom = "SELECT *
+                                     FROM p_comment
+                                     WHERE ( jID = '".$UrlId."' )
+                                     ORDER BY cid_comment DESC ";
+                    if (select_num($SqlSelectCom)>0) {
+                      foreach (select_tb($SqlSelectCom) as $rowcom) {
+                        ?>
+                        <div class="box-comment row m-0 mb-10">
+                          <h4 class="lh-15">จากคุณ <a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
+                          <div class="col-xs-12 pt-5 pb-5 box-show-left">
+                            <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
+                          </div>
+                        </div>
+                        <?php
+                      }
+                    }
+                ?>
+                </div>
               </div>
             </div>
-          </div>
-        <?php
+          <?php
+
+
+
       }
+
+
 
 
 
