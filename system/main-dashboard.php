@@ -62,7 +62,7 @@
                 }
               ?>
                 <div class="caption col-xs-12 p-0">
-                  <h4 class="text-head text-row"><?php echo $row['jTitle'];?></h4>
+                  <h4 class="text-head text-row mt-5 mb-5"><?php echo $row['jTitle'];?></h4>
                   <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
                   <p class="text-desc-2 text-row"><?php echo $row['jPrice'];?></p>
               </div>
