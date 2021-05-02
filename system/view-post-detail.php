@@ -212,7 +212,7 @@
                           <div class="form-group col-xs-12 pr-0 pl-0">
                             <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล</label>
                             <div class="col-sm-9 pr-0 pl-0">
-                              <input type="text" class="form-control" name="" placeholder="กรอกชื่อ และ นามสกุล" autocomplete="off">
+                              <input type="text" class="form-control" name="" placeholder="กรอกชื่อ และ นามสกุล" required autocomplete="off">
                             </div>
                           </div>
                           <div class="form-group col-xs-12 pr-0 pl-0">
@@ -230,7 +230,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 pl-0 pr-0">
                                   <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
-                                  <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
+                                  <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ" required>
                                 </div>
                               </div>
                             </div>
