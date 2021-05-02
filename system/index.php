@@ -45,7 +45,8 @@
       }
       if ($UrlPage=="post-all") {
         $P_Per_Page = 1;
-        if(!$_GET['page']){
+        $P_Page = $_GET['page'];
+        if(!$P_Page){
           $P_Page=1;
         }
 
@@ -70,7 +71,7 @@
                                     ( sj.jStatus = '1' )
                                   )
                             ORDER BY sj.jDate_Create DESC
-                            LIMIT $P_Page_Start,1;";
+                            LIMIT $P_Page_Start,$P_Per_Page;";
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
