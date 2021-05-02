@@ -204,7 +204,7 @@
                 <?php
                     if ($row['jComment']=='1') {
                       ?>
-                      <div class="col-xs-12">
+                      <div class="row">
                         <div class="col-sm-12 pr-0 pl-0">
                           <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
                         </div>
