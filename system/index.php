@@ -349,7 +349,6 @@
             <a href="<?php echo $LinkWeb;?>" class="col-xs-12 text-link-footer">หน้าหลัก</a>
             <a href="<?php echo $LinkWeb;?>policy" class="col-xs-12 text-link-footer">นโยบายการให้บริการ</a>
             <a href="<?php echo $LinkWeb;?>term-and-condition" class="col-xs-12 text-link-footer">ระเบียบข้อบังคับ</a>
-            <a href="<?php echo $LinkWeb;?>sitemap.xml" class="col-xs-12 text-link-footer">sitemap</a>
           </p>
         </div>
         <div class="col-sm-3 col-xs-12">
