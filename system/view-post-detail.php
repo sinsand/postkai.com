@@ -204,7 +204,7 @@
                 <?php
                     if ($row['jComment']=='1') {
                       ?>
-                      <div class="row">
+                      <div class="row mb-10">
                         <div class="col-sm-12 pr-0 pl-0">
                           <textarea class="form-control summernote-comment" name="post_comment" required></textarea>
                         </div>
@@ -236,7 +236,7 @@
                         </div>
                         <div class="form-group col-xs-12 pr-0 pl-0">
                           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
-                          <div class="col-sm-9 pr-0 pl-0">
+                          <div class="col-sm-9 pr-0 pl-0 text-right">
                             <button type="submit" name="btnPostComment" class="btn btn-success">บันทึก Comment</button>
                           </div>
                         </div>
