@@ -57,8 +57,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo $LinkWeb;?>">หน้าหลัก</a></li>
-              <li><a href="<?php echo $LinkWeb;?>search">ค้นหาประกาศ</a></li>
+              <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>">หน้าหลัก</a></li>
+              <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search">ค้นหาประกาศ</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">หมวดหมู่ <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -74,11 +74,11 @@
                   ?>
                 </ul>
               </li>
-              <li><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
+              <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
-              <li><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
+              <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
+              <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
