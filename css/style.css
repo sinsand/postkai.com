@@ -290,3 +290,9 @@ body{
   margin-left: 20px !important;
   font-size: 1.2em !important;
 }
+.main-sub-cate-show .row{
+  margin-left: 20px !important;
+}
+.box-show-left{
+  border-left:1px solid #d7d7d7 !important;
+}
