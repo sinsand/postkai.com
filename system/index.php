@@ -47,7 +47,7 @@
         $P_Per_Page = 1;
         $P_Page = $_GET['page'];
         if(empty($P_Page) || $P_Page=='1'){
-          $P_Page = 1;
+          $P_Page = 0;
         }else {
           $P_Page = ($P_Page*10);
         }
