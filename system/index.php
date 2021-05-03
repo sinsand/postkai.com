@@ -44,7 +44,7 @@
         }
       }
       if ($UrlPage=="post-all") {
-        $P_Per_Page = 1;
+        $P_Per_Page = 50;
         $P_Page = $_GET['page'];
         if(!$P_Page){
           $P_Page = 1;
@@ -69,7 +69,8 @@
           $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
           $P_Num_Pages = (int)$P_Num_Pages;
         }
-        $SqlSelectPostAll .= " LIMIT $P_Page_Start,$P_Per_Page; ";
+        $id_run = $Page_Start+1;
+        $SqlSelectPostAll .= " LIMIT $P_Page_Start,1; ";
         echo $SqlSelectPostAll;
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
