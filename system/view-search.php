@@ -158,19 +158,19 @@
               <ul class="pagination m-0">
                <?php
                   if($Prev_Page){
-                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Prev_Page;?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><?php
+                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/?page=<?php echo $Prev_Page;?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><?php
                   }
                   for($i=1; $i<=$Num_Pages; $i++){
                     $Page1 = $Page-2;
                     $Page2 = $Page+2;
                     if($i != $Page && $i >= $Page1 && $i <= $Page2){
-                      ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $i;?>"><?php echo $i;?></a></li><?php
+                      ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/?page=<?php echo $i;?>"><?php echo $i;?></a></li><?php
                     }else if($i==$Page){
                       ?><li class="active"><a href="#"><?php echo $i;?></a></li><?php
                     }
                   }
                   if($Page!=$Num_Pages){
-                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/<?php echo $Next_Page;?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li><?php
+                    ?><li><a href="<?php echo $LinkWeb.$UrlPage;?>/?page=<?php echo $Next_Page;?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li><?php
                   }
               ?>
               </ul>
