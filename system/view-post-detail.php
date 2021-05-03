@@ -186,8 +186,8 @@
             </div>
           </div>
           <div class="col-xs-12 p-0">
-            <h3 class="main-sub-cate-show t-others f-k">รายละเอียด</h3>
-            <div class="row row-sub mt-10 mb-10 mr-0"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
+            <h3 class="main-min-cate-show t-others f-k">รายละเอียด</h3>
+            <div class="row mt-10 mb-10"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
           </div>
         </div>
         <?php
