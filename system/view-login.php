@@ -17,7 +17,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="email"></label>
         <div class="col-sm-10">
-          <button type="submit" name="btnlogin" class="btn btn-success">เข้าสูระบบ</button>
+          <button type="submit" name="btnlogin" class="btn btn-success">เข้าสูระบบ</button> | <a href="<?php echo $LinkWeb;?>forgot">ลืมรหัสผ่าน</a>
         </div>
       </div>
     </form>
