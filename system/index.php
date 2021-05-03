@@ -215,13 +215,15 @@
     <div class="container">
       <div class="row" style="margin:20px 0;">
         <div class="col-sm-2" style="padding:0px;">
-          <a href="" class="col-xs-12" style="padding:0px;">
+          <a href="<?php echo $LinkWeb;?>" class="col-xs-12 p-0">
             <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" class="col-sm-12 hidden-xs" alt="Logo">
             <!--<img src="http://placehold.it/300/300" class="col-sm-12 hidden-xs" alt="Logo">-->
           </a>
         </div>
-        <div class="col-sm-10" style="padding:0px;">
-
+        <div class="col-sm-10 p-0">
+          <a href="<?php echo $LinkWeb;?>">
+            <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12" alt="ads Banner" />
+          </a>
         </div>
       </div>
     </div>
