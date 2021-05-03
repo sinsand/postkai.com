@@ -123,7 +123,7 @@
     <div class="tab-content">
       <div id="category_post" class="tab-pane fade in active">
         <div class="row m-0">
-          <div class="col-xs-12">
+          <div class="col-xs-12" style="padding:20px 0px;">
 
             <?php
               $SqlSelect = "SELECT *
