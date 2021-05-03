@@ -49,6 +49,14 @@
         if(!$P_Page){
           $P_Page = 1;
         }
+        $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+                            FROM sb_job sj
+                            INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                            INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                            WHERE (
+                                    ( sj.jStatus = '1' )
+                                  )
+                            ORDER BY sj.jDate_Create DESC";
         $P_Page_Start = (($P_Per_Page*$P_Page)-$P_Per_Page);
         if(select_num($SqlSelectPostAll)<=$P_Per_Page){
           $P_Num_Pages =1;
@@ -59,15 +67,7 @@
           $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
           $P_Num_Pages = (int)$P_Num_Pages;
         }
-        $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
-                            FROM sb_job sj
-                            INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                            INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
-                            WHERE (
-                                    ( sj.jStatus = '1' )
-                                  )
-                            ORDER BY sj.jDate_Create DESC
-                            LIMIT $P_Page_Start,$P_Per_Page;";
+        $SqlSelectPostAll .= "LIMIT $P_Page_Start,$P_Per_Page;";
         echo $SqlSelectPostAll;
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
