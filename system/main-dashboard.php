@@ -124,7 +124,22 @@
       <div id="category_post" class="tab-pane fade in active">
         <div class="row m-0">
           <div class="col-xs-12">
-            <p>Coming content</p>
+
+            <?php
+              $SqlSelect = "SELECT *
+                            FROM p_category
+                            ORDER BY name_category ASC ";
+              if (select_num($SqlSelect)>0) {
+                foreach (select_tb($SqlSelect) as $row) {
+                  ?>
+                  <a href="<?php echo $LinkWeb;?>/search/?category=<?php echo $row['id_category'];?>" class="col-xs-6 col-sm-4 col-md-3 box-in-cate">
+                    <h3 class="text-center"><?php echo $row['name_category'];?></h3>
+                  </a>
+                  <?php
+                }
+              }
+            ?>
+
           </div>
         </div>
       </div>
