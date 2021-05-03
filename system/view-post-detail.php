@@ -160,7 +160,7 @@
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="รูปที่ 3" class="col-xs-6 col-sm-3 p-0 pb-2" >
                           <img src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" alt="<?php echo $row['jTitle'];?>" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 4</figure>
+                          <figure  style="display:none;" class="text-center">รูปที่ 3</figure>
                         </a>
                       <?php
                     }else {
@@ -168,7 +168,7 @@
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 3">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 4</figure>
+                          <figure  style="display:none;" class="text-center">รูปที่ 3</figure>
                         </a>
                       <?php
                     }
