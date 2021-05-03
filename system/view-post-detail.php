@@ -363,46 +363,42 @@
                           )
                     ORDER BY sj.jDate_Create DESC
                     LIMIT 0,20;";
-
+      if (select_num($SqlSelect)>0) {
       ?>
-      <div class="col-xs-12 p-0" style="margin-top:20px;">
-        <h2 class="main-head-cate f-k">ประกาศอื่นๆ ของสมาชิกท่านนี้</h2>
-          <div class="col-xs-12">
-          <?php
-            if (select_num($SqlSelect)>0) {
-                foreach (select_tb($SqlSelect) as $row) {
-                  ?>
-                    <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
-                      <div class="col-xs-3 p-0">
-                        <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
-                        <?php
-                          if (!empty($row['jPic1']) || $row['jPic1']!="") {
-                            ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" /><?php
-                          }else {
-                            ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
-                          }
-                        ?>
-                      </div>
-                      <div class="col-xs-9 p-0">
-                        <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
-                        <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-                        <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['jProvince'];?></span></p>
-                        <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
-                        <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
-                        <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>
-                      </div>
-                    </a>
-                  <?php
-                }
-            }else {
+        <div class="col-xs-12 p-0" style="margin-top:20px;">
+          <h2 class="main-head-cate f-k">ประกาศอื่นๆ ของสมาชิกท่านนี้</h2>
+            <div class="col-xs-12">
+            <?php
+            foreach (select_tb($SqlSelect) as $row) {
               ?>
-              <h4 class="text-center">--ไม่มีข้อมูลประกาศอื่นๆ ของสมาชิกท่านนี้--</h4>
+                <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
+                  <div class="col-xs-3 p-0">
+                    <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
+                    <?php
+                      if (!empty($row['jPic1']) || $row['jPic1']!="") {
+                        ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" /><?php
+                      }else {
+                        ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
+                      }
+                    ?>
+                  </div>
+                  <div class="col-xs-9 p-0">
+                    <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
+                    <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
+                    <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['jProvince'];?></span></p>
+                    <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
+                    <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
+                    <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>
+                  </div>
+                </a>
               <?php
             }
-          ?>
-          </div>
-     </div>
-     <?php
+      }else {
+            ?><h4 class="text-center">--ไม่มีข้อมูลประกาศอื่นๆ ของสมาชิกท่านนี้--</h4>
+            </div>
+         </div>
+         <?php
+      }
     }
   }
 ?>
