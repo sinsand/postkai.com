@@ -132,9 +132,11 @@
               if (select_num($SqlSelect)>0) {
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
-                  <a href="<?php echo $LinkWeb;?>/search/?category=<?php echo $row['id_category'];?>" class="col-xs-6 col-sm-4 col-md-3 box-in-cate">
-                    <h5 class="text-center"><?php echo $row['name_category'];?></h5>
-                  </a>
+                  <div class="col-xs-6 col-sm-4 col-md-3 box-cate">
+                    <a href="<?php echo $LinkWeb;?>/search/?category=<?php echo $row['id_category'];?>" class="box-in-cate">
+                      <h5 class="text-center"><?php echo $row['name_category'];?></h5>
+                    </a>
+                  </div>
                   <?php
                 }
               }

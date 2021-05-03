@@ -303,8 +303,10 @@ body{
 .nav-tabs>li.active>a:hover {
     border-top: 4px solid #45637d !important;
 }
+.box-cate{
+  padding: 5px;
+}
 .box-in-cate{
   background: #e1e1e1;
   display: block;
-  padding: 15px;
 }
