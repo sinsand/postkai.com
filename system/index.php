@@ -49,6 +49,8 @@
         if(!$P_Page){
           $P_Page = 1;
         }
+        $P_Prev_Page = $P_Page-1;
+        $P_Next_Page = $P_Page+1;
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
                             INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
