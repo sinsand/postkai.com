@@ -46,7 +46,7 @@
       if ($UrlPage=="post-all") {
         $P_Per_Page = 1;
         $P_Page = $_GET['page'];
-        if(!empty($P_Page)){
+        if(empty($P_Page)){
           $P_Page = 1;
         }else {
           $P_Page = (($P_Page*10)+1);
