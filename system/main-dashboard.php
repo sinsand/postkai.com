@@ -109,13 +109,13 @@
   <!-- show new 4 --->
 </div>
 <!-- category-->
-<div class="row">
+<div class="row" style="margin:20px 0;">
   <!--
   <div class="col-xs-12">
     <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
   </div>-->
   <!-- show tab --->
-  <div class="col-xs-12">
+  <div class="col-xs-12 p-0">
     <ul class="nav nav-tabs f-k fs-15">
       <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
       <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
