@@ -16,7 +16,7 @@
           </div>
 
           <div class="item">
-            <img src="<?php echo $LinkWeb;?>images/system/p-1.jpg" alt="" style="width:100%;">
+            <img src="<?php echo $LinkWeb;?>images/system/p-2.jpg" alt="" style="width:100%;">
           </div>
 
           <div class="item">
