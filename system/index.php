@@ -49,7 +49,7 @@
         if(empty($P_Page)){
           $P_Page = 1;
         }else {
-          $P_Page = (($P_Page*10)+1);
+          $P_Page = ($P_Page*10);
         }
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
