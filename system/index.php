@@ -436,7 +436,7 @@
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
-        © 2009-2021 <a class="" style="color:#fff;" href="https://www.postkai.com/">www.postkai.com</a>
+        © 2552-2564 <a href="https://www.postkai.com/" class="" style="color:#fff;">www.postkai.com</a>
       </div>
     </div>
     <!-- Footer -->
