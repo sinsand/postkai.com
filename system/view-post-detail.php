@@ -274,7 +274,7 @@
           </div>
           <div class="col-xs-12 p-0">
             <h3 class="main-head-cate t-announce f-k">รายละเอียด</h3>
-            <div class="row m-0"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
+            <div class="row m-0 wb"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
           </div>
         </div>
         <?php
@@ -341,7 +341,7 @@
                         ?>
                         <div class="box-comment row m-0 mb-10">
                           <h4 class="lh-15">จากคุณ <b><a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a></b> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
-                          <div class="col-xs-12 pt-5 pb-5 box-show-left">
+                          <div class="col-xs-12 pt-5 pb-5 box-show-left wb">
                             <?php echo htmlspecialchars_decode($rowcom['c_detail']);?>
                           </div>
                         </div>
