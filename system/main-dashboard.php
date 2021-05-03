@@ -132,7 +132,7 @@
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
                   <div class="col-xs-6 col-sm-4 col-md-3 box-cate">
-                    <a href="<?php echo $LinkWeb;?>search/?category=<?php echo $row['id_category'];?>" class="box-in-cate col-xs-12">
+                    <a href="<?php echo $LinkWeb;?>search/?category=<?php echo $row['id_category'];?>" class="box-in-cate col-xs-12" alt="<?php echo $row['name_category'];?>">
                       <h5 class="text-center p-5 lh-15 text-row"><?php echo $row['name_category'];?></h5>
                     </a>
                   </div>
