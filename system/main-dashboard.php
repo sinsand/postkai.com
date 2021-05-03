@@ -52,7 +52,7 @@
                     LIMIT 0,4;";
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-          <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="col-xs-6 col-sm-6 col-md-3 pb-10">
+          <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="col-xs-6 col-sm-3 col-md-3 pb-10">
             <div class="thumbnail p-0">
               <?php
                 if (!empty($row['jPic1'])) {
