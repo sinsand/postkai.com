@@ -154,7 +154,7 @@
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
                   <p class="col-xs-6 col-sm-4 col-md-3 box-province">
-                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="box-in-province"><?php echo $row['PROVINCE_NAME'];?></a>
+                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="box-in-province"><i class="fa fa-circle-o" aria-hidden="true"></i>  <?php echo $row['PROVINCE_NAME'];?></a>
                   </p>
                   <?php
                 }
