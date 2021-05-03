@@ -322,6 +322,10 @@ body{
   display: block;
   text-decoration: none !important;
   color: #000 !important;
+  -webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
 }
 .box-in-cate:hover{
   background: #45637d !important;
@@ -334,6 +338,10 @@ body{
   color:#000 !important;
   display: block;
   text-decoration: none !important;
+  -webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
 }
 .box-in-province:hover{
   color: #f00 !important;
