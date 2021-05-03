@@ -32,7 +32,12 @@
           <input type="text" class="form-control" id="" placeholder="เบอร์ติดต่อ" required autocomplete="off">
         </div>
       </div>
-
+      <div class="form-group">
+        <label class="control-label col-sm-3" for=""></label>
+        <div class="col-sm-9">
+          <input type="checkbox" name="re_check_policy" value="1" required id="re_check_policy"> <label style="display: initial;" for="re_check_policy">ยอมรับ <a href="<?php echo $LinkWeb;?>policy" target="_blank">นโยบายการให้บริการ</a> และ <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank">กฏ กติกา ระเบียบข้อบังคับ</a> ของ postkai</label>
+        </div>
+      </div>
 
       <div class="form-group">
         <label class="control-label col-sm-3" for=""></label>
