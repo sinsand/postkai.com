@@ -123,7 +123,7 @@
     <div class="tab-content">
       <div id="category_post" class="tab-pane fade in active">
         <div class="row m-0">
-          <div class="col-xs-12" style="padding:20px 0px;">
+          <div class="col-xs-12" style="padding:20px;">
 
             <?php
               $SqlSelect = "SELECT *
@@ -133,8 +133,8 @@
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
                   <div class="col-xs-6 col-sm-4 col-md-3 box-cate">
-                    <a href="<?php echo $LinkWeb;?>/search/?category=<?php echo $row['id_category'];?>" class="box-in-cate col-xs-12">
-                      <h5 class="text-center"><?php echo $row['name_category'];?></h5>
+                    <a href="<?php echo $LinkWeb;?>search/?category=<?php echo $row['id_category'];?>" class="box-in-cate col-xs-12">
+                      <h5 class="text-center p-5"><?php echo $row['name_category'];?></h5>
                     </a>
                   </div>
                   <?php
