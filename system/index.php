@@ -430,9 +430,9 @@
         </div>
         <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Contact us</h5>
-          <p style="padding-left:25px;">
-            Email : contact@postkai.com
-          </p>
+          <p style="padding-left:25px;">Email : contact@postkai.com</p>
+          <p style="padding-left:25px;">LINE ID : seen_nuakaew</p>
+          <p style="padding-left:25px;">ติดต่อโฆษณา</p>
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
