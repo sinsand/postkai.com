@@ -60,6 +60,7 @@
                                   )
                             ORDER BY sj.jDate_Create DESC
                             LIMIT $P_Page,$P_Per_Page;";
+        echo $SqlSelectPostAll;
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
