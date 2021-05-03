@@ -127,7 +127,7 @@
               <?php
             }
           }
-        }else if (!empty($_GET['type']) && !empty($_GET['province']) && !empty($_GET['category']) && !empty($_GET['keywords'])) {
+        }else if (!empty($_GET['keywords'])) {
           ////// search all
           $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                               FROM sb_job sj
