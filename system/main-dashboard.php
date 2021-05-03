@@ -1,3 +1,4 @@
+<!-- Slide -->
 <div class="row">
   <div class="col-sm-12 hidden-xs" style="padding:20px 15px;">
       <!-- slide -->
@@ -37,12 +38,11 @@
       <!-- slide -->
   </div>
 </div>
-
+<!-- recommand -->
 <div class="row">
   <div class="col-xs-12">
     <h2 class="main-head-cate t-announce f-k">ประกาศแนะนำ</h2>
   </div>
-
   <?php
       $SqlSelect = "SELECT sj.*,pt.name_Type
                     FROM sb_job sj
@@ -72,7 +72,7 @@
       }
   ?>
 </div>
-
+<!-- Ads -->
 <div class="row">
   <div class="col-xs-12">
     <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
@@ -108,7 +108,28 @@
   </div>
   <!-- show new 4 --->
 </div>
-
+<!-- category-->
+<div class="row">
+  <!--
+  <div class="col-xs-12">
+    <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
+  </div>-->
+  <!-- show tab --->
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
+    <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="category_post" class="tab-pane fade in active">
+      <p>Coming content.</p>
+    </div>
+    <div id="province_post" class="tab-pane fade">
+      <p>Coming content in Province.</p>
+    </div>
+  </div>
+  <!-- show tab --->
+</div>
+<!-- post lasted -->
 <div class="row">
   <div class="col-xs-12 col-sm-12">
     <div class="col-xs-12" style="padding:0px 0px 15px 0px;">
