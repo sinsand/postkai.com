@@ -122,10 +122,18 @@
     </ul>
     <div class="tab-content">
       <div id="category_post" class="tab-pane fade in active">
-        <p>Coming content.</p>
+        <div class="row m-0">
+          <div class="col-xs-12">
+            <p>Coming content</p>
+          </div>
+        </div>
       </div>
       <div id="province_post" class="tab-pane fade">
-        <p>Coming content in Province.</p>
+        <div class="row m-0">
+          <div class="col-xs-12">
+            <p>Coming content in Province.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
