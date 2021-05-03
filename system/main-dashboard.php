@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div class="row hidden-xs">
+<div class="row">
   <div class="col-xs-12">
     <h2 class="main-head-cate t-announce f-k">ประกาศแนะนำ</h2>
   </div>
@@ -52,7 +52,7 @@
                     LIMIT 0,4;";
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-          <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="col-xs-12 col-sm-6 col-md-3">
+          <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="col-xs-6 col-sm-6 col-md-3">
             <div class="thumbnail p-0">
               <?php
                 if (!empty($row['jPic1'])) {
