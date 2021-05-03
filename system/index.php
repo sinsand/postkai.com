@@ -190,6 +190,7 @@
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
+    <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.css">
   </head>
   <body>
     <!-- Logo and ads -->
@@ -427,6 +428,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     -->
+
+    <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe-ui-default.js"></script>
+    <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.js"></script>
+
     <script type="text/javascript" src="<?php echo $LinkWeb;?>js/bootstrap-filestyle.min.js"> </script>
     <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/summernote/summernote.js"></script>
     <script type="text/javascript" >
