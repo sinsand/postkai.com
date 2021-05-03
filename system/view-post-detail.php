@@ -187,7 +187,7 @@
           </div>
           <div class="col-xs-12 p-0">
             <h3 class="main-head-cate t-announce f-k">รายละเอียด</h3>
-            <div class="row"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
+            <div class="row m-0"><?php echo htmlspecialchars_decode($row['jDetail']);?></div>
           </div>
         </div>
         <?php
