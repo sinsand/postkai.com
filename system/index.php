@@ -222,7 +222,7 @@
         </div>
         <div class="col-sm-10 p-0">
           <a href="<?php echo $LinkWeb;?>">
-            <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12" alt="ads Banner" />
+            <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12 p-0" alt="ads Banner" />
           </a>
         </div>
       </div>
