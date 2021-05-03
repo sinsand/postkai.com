@@ -46,10 +46,10 @@
       if ($UrlPage=="post-all") {
         $P_Per_Page = 1;
         $P_Page = $_GET['page'];
-        if(!$P_Page){
+        if(!empty($P_Page)){
           $P_Page=1;
         }else {
-          $P_Page=$_GET['page']*10;
+          $P_Page= ($_GET['page']*10);
         }
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
@@ -59,7 +59,7 @@
                                     ( sj.jStatus = '1' )
                                   )
                             ORDER BY sj.jDate_Create DESC
-                            LIMIT $P_Page_Start,$P_Per_Page;";
+                            LIMIT $P_Page,$P_Per_Page;";
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
