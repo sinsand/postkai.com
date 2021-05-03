@@ -145,7 +145,7 @@
       </div>
       <div id="province_post" class="tab-pane fade">
         <div class="row m-0">
-          <div class="col-xs-12">
+          <div class="col-xs-12" style="padding:20px;">
             <?php
               $SqlSelect = "SELECT *
                             FROM p_province
@@ -153,8 +153,8 @@
               if (select_num($SqlSelect)>0) {
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
-                  <p class="col-xs-6 col-sm-4 col-md-3">
-                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>"><?php echo $row['PROVINCE_NAME'];?></a>
+                  <p class="col-xs-6 col-sm-4 col-md-3 box-province">
+                    <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="box-in-province"><?php echo $row['PROVINCE_NAME'];?></a>
                   </p>
                   <?php
                 }

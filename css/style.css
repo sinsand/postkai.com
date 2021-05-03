@@ -327,3 +327,14 @@ body{
   background: #b3b1b1;
   color: #fff !important;
 }
+.box-province{
+  margin:0px;
+}
+.box-in-province{
+  color:#000;
+  display: block;
+  text-decoration: none;
+}
+.box-in-province:hover{
+  color: #f00 !important;
+}
