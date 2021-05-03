@@ -116,7 +116,7 @@
           <h2 class="lh-15 f-k"><?php echo htmlspecialchars_decode($row['jTitle']);?></h2>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-7 pt-5">
-                <div id="demo-test-gallery" class="demo-gallery">
+                <div id="demo-test-gallery" class="demo-gallery" data-pswp-uid="1">
                   <?php
                     /// pic1
                     if (!empty($row['jPic1']) || $row['jPic1']!="") {

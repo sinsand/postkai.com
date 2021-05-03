@@ -191,6 +191,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.css">
+    <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/default-skin/default-skin.css">
   </head>
   <body>
     <!-- Logo and ads -->
