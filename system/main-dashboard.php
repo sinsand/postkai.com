@@ -115,16 +115,18 @@
     <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
   </div>-->
   <!-- show tab --->
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
-    <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
-  </ul>
-  <div class="tab-content">
-    <div id="category_post" class="tab-pane fade in active">
-      <p>Coming content.</p>
-    </div>
-    <div id="province_post" class="tab-pane fade">
-      <p>Coming content in Province.</p>
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs f-k">
+      <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
+      <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="category_post" class="tab-pane fade in active">
+        <p>Coming content.</p>
+      </div>
+      <div id="province_post" class="tab-pane fade">
+        <p>Coming content in Province.</p>
+      </div>
     </div>
   </div>
   <!-- show tab --->
