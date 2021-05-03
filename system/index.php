@@ -46,10 +46,18 @@
       if ($UrlPage=="post-all") {
         $P_Per_Page = 1;
         $P_Page = $_GET['page'];
-        if(empty($P_Page) || $P_Page=='1'){
-          $P_Page = 0;
-        }else {
-          $P_Page = ($P_Page+50);
+        if(!$P_Page){
+          $P_Page = 1;
+        }
+        $P_Page_Start = (($P_Per_Page*$P_Page)-$P_Per_Page);
+        if(select_num($SqlSelectPostAll)<=$P_Per_Page){
+          $P_Num_Pages =1;
+        }
+        else if((select_num($SqlSelectPostAll) % $P_Per_Page)==0){
+          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page) ;
+        }else{
+          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
+          $P_Num_Pages = (int)$P_Num_Pages;
         }
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
@@ -59,7 +67,7 @@
                                     ( sj.jStatus = '1' )
                                   )
                             ORDER BY sj.jDate_Create DESC
-                            LIMIT $P_Page,$P_Per_Page;";
+                            LIMIT $P_Page_Start,$P_Per_Page;";
         echo $SqlSelectPostAll;
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
