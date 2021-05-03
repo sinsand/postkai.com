@@ -71,7 +71,6 @@
         }
         $id_run = $Page_Start+1;
         $SqlSelectPostAll .= " LIMIT $P_Page_Start,1; ";
-        echo $SqlSelectPostAll;
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
