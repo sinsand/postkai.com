@@ -126,7 +126,7 @@
           foreach (select_tb($SqlSelect) as $row) {
             ?>
               <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="row click-post">
-                <div class="col-md-3 col-xs-3 p-0">
+                <div class="col-xs-3 p-0">
                   <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
                   <?php
                     if (!empty($row['jPic1'])) {
@@ -136,7 +136,7 @@
                     }
                   ?>
                 </div>
-                <div class="col-md-9 col-xs-9 p-0">
+                <div class="col-xs-9 p-0">
                   <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
                   <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
                   <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['jProvince'];?></span></p>
