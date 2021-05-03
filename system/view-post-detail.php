@@ -132,7 +132,7 @@
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 1">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0 pb-2" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 1</figure>
+                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
                     }
@@ -150,7 +150,7 @@
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 2</figure>
+                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
                     }
@@ -168,7 +168,7 @@
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 3">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 3</figure>
+                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
                     }
@@ -186,7 +186,7 @@
                       ?>
                       <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 4</figure>
+                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
                     }
@@ -204,7 +204,7 @@
                       ?>
                       <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
                           <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 5</figure>
+                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
                     }
