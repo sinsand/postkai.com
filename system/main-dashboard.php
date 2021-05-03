@@ -133,7 +133,7 @@
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
                   <a href="<?php echo $LinkWeb;?>/search/?category=<?php echo $row['id_category'];?>" class="col-xs-6 col-sm-4 col-md-3 box-in-cate">
-                    <h3 class="text-center"><?php echo $row['name_category'];?></h3>
+                    <h5 class="text-center"><?php echo $row['name_category'];?></h5>
                   </a>
                   <?php
                 }
