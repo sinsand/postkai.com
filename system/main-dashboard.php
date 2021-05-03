@@ -78,28 +78,28 @@
     <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
   </div>
   <!-- show new 4 --->
-  <div class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
+  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
       <a href="<?php echo $LinkWeb;?>">
         <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
       </a>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
+  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
       <a href="<?php echo $LinkWeb;?>">
         <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
       </a>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
+  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
       <a href="<?php echo $LinkWeb;?>">
         <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
       </a>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-3 mb-5 pb-5 pt-5">
+  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
     <div class="thumbnail p-0">
       <a href="<?php echo $LinkWeb;?>">
         <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
