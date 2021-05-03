@@ -48,20 +48,8 @@
         $P_Page = $_GET['page'];
         if(!$P_Page){
           $P_Page=1;
-        }
-
-        $P_Prev_Page = $Page-1;
-        $P_Next_Page = $Page+1;
-
-        $P_Page_Start = (($P_Per_Page*$P_Page)-$P_Per_Page);
-        if(select_num($SqlSelectPostAll)<=$P_Per_Page){
-          $P_Num_Pages =1;
-        }
-        else if((select_num($SqlSelectsearch) % $P_Per_Page)==0){
-          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page) ;
-        }else{
-          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
-          $P_Num_Pages = (int)$P_Num_Pages;
+        }else {
+          $P_Page=$_GET['page']*10;
         }
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                             FROM sb_job sj
