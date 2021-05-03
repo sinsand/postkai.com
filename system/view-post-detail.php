@@ -135,7 +135,7 @@
                     /// pic2
                     if (!empty($row['jPic2']) || $row['jPic2']!="") {
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-6 p-0 pb-2" >
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
                           <img src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
@@ -149,7 +149,7 @@
                     /// pic3
                     if (!empty($row['jPic3']) || $row['jPic3']!="") {
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" class="col-xs-6 p-0 pb-2" >
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
                           <img src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
@@ -163,7 +163,7 @@
                     /// pic2
                     if (!empty($row['jPic4']) || $row['jPic4']!="") {
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-6 p-0 pb-2" >
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
                           <img src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
@@ -177,7 +177,7 @@
                     /// pic5
                     if (!empty($row['jPic5']) || $row['jPic5']!="") {
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-6 p-0 pb-2" >
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
                           <img src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
