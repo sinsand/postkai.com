@@ -116,7 +116,7 @@
   </div>-->
   <!-- show tab --->
   <div class="col-xs-12">
-    <ul class="nav nav-tabs f-k">
+    <ul class="nav nav-tabs f-k fs-15">
       <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
       <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
     </ul>
