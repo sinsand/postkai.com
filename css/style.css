@@ -27,6 +27,7 @@
   font-size: 1.5em;
 }
 .navbar-new{
+  border-radius: 5px !important;
   background: #45637d;
   border-color: #294156;
 }
