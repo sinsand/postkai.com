@@ -313,3 +313,7 @@ body{
   text-decoration: none !important;
   color: #000 !important;
 }
+.box-in-cate:hover{
+  background: #b3b1b1;
+  color: #fff !important;
+}
