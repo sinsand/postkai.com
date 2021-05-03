@@ -136,13 +136,13 @@
                     if (!empty($row['jPic2']) || $row['jPic2']!="") {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" alt="<?php echo $row['jTitle'];?>" />
+                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
                     }else {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" alt="" />
+                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
                         </a>
                       <?php
                     }
@@ -156,7 +156,7 @@
                     }else {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" alt="" />
+                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
                         </a>
                       <?php
                     }
@@ -164,13 +164,13 @@
                     if (!empty($row['jPic4']) || $row['jPic4']!="") {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" alt="<?php echo $row['jTitle'];?>" />
+                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
                     }else {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" alt="" />
+                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
                         </a>
                       <?php
                     }
@@ -178,13 +178,13 @@
                     if (!empty($row['jPic5']) || $row['jPic5']!="") {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" alt="<?php echo $row['jTitle'];?>" />
+                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" />
                         </a>
                       <?php
                     }else {
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" alt="" />
+                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
                         </a>
                       <?php
                     }
