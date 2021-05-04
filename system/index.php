@@ -121,9 +121,9 @@
           if (select_num($SqlSelectsearch)>0) {
             foreach (select_tb($SqlSelectsearch) as $rowtype) {
               ?>
-              <title>ประกาศจังหวัด<?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
-              <meta name="keywords" content="จังหวัด<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
-              <meta name="description" content="จังหวัด<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+              <title>ประกาศจังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> ลงประกาศฟรี - postkai.com</title>
+              <meta name="keywords" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+              <meta name="description" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
               <?php
             }
           }
