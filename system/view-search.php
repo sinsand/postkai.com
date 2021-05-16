@@ -8,7 +8,7 @@
       $S_search .= " AND ( p.PROVINCE_ID = '".$_GET['province']."' ) ";
     }
     if (!empty($_GET['category'])) {
-      $S_search .= " AND ( p.id_category = '".$_GET['category']."' ) ";
+      $S_search .= " AND ( pc.id_category = '".$_GET['category']."' ) ";
     }
     if (!empty($_GET['keywords'])) {
       $S_search .= " AND ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) ";
