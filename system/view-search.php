@@ -18,9 +18,9 @@
     if (!empty($S_search)) {
       $SqlSelectSearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                           FROM sb_job sj
-                          INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                          INNER JOIN p_category pc ON (sj.jType = pc.id_category)
-                          INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
+                          LEFT OUTER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                          LEFT OUTER JOIN p_category pc ON (sj.jType = pc.id_category)
+                          LEFT OUTER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                           WHERE (
                                   ( sj.jStatus = '1' )
                                   $S_search
