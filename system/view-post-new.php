@@ -74,7 +74,7 @@
       }
     }
 
-    /*
+
     $SqlInsert = "INSERT INTO sb_job
                   (jTitle,jDetail,jDesc,jPrice,jaType,jType,jProvince,jPic1,jPic2,jPic3,jPic4,jPic5,
                    jc_Name,jc_Address,jc_Province,jc_Telephone,jc_Email,jRead,jDate_Create,jStatus,
@@ -96,12 +96,12 @@
   		echo fError(1,"ประกาศไม่สำเร็จ กรุณาตรวจสอบข้อมูล",$SqlInsert);
   		//log_insert("เพิ่มประกาศใหม่ ไม่สำเร็จ",$_COOKIE[$CookieID]);
   	}
-    */
+    /*
     echo "v1 : ".$v_photo1,"<br>";
     echo "v2 : ".$v_photo2,"<br>";
     echo "v3 : ".$v_photo3,"<br>";
     echo "v4 : ".$v_photo4,"<br>";
-    echo "v5 : ".$v_photo5,"<br>";
+    echo "v5 : ".$v_photo5,"<br>";*/
 
   }
 ?>
