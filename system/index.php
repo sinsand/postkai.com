@@ -156,17 +156,12 @@
             }
           }elseif (empty($_GET['province']) &&  empty($_GET['type']) && !empty($_GET['category'])) {
             ////// category
-            $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
+            $SqlSelectsearch = "SELECT sj.*,pc.name_category
                                 FROM sb_job sj
-                                INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                                 INNER JOIN p_category pc ON (sj.jType = pc.id_category)
-                                INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                                 WHERE (
                                         ( sj.jStatus = '1' ) AND
-                                        ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
-                                        ( pc.id_category = '".$_GET['category']."' ) AND
-                                        ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
-                                        ( pt.id_Type = '".$_GET['type']."' )
+                                        ( pc.id_category = '".$_GET['category']."' )
                                       )
                                 ORDER BY sj.jDate_Create DESC
                                 LIMIT 0,1;";
