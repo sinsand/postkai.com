@@ -409,6 +409,8 @@
         </div>
         <?php
       }
+    }else {
+      ?><div class="text-center f-k" style="margin:10% 0;font-size:2em;border:1px solid #e1e1e1;border-radius:5px;">ประกาศนี้ไม่มี หรือ ยกเลิกประกาศแล้ว</div><?php
     }
   }
 ?>
