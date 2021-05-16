@@ -43,7 +43,7 @@
 
         $imagepath = "postkai_".date("Y-m-d_His").'.'.$temp;
         $save      = "images/post/picture_job_".$i."/$imagepath"; //This is the new file you saving
-        $file      = $target //This is the original file
+        $file      = $target; //This is the original file
 
         list($width, $height) = getimagesize($target);
 
