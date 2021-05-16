@@ -365,7 +365,7 @@
 
 
       ///// post others
-      $SqlSelect = "SELECT sj.*,pt.name_Type
+      $SqlSelectA = "SELECT sj.*,pt.name_Type
                     FROM sb_job sj
                     INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                     WHERE (
@@ -375,13 +375,13 @@
                           )
                     ORDER BY sj.jDate_Create DESC
                     LIMIT 0,20;";
-      if (select_num($SqlSelect)>0) {
+      if (select_num($SqlSelectA)>0) {
       ?>
         <div class="col-xs-12 p-0" style="margin-top:20px;">
           <h2 class="main-head-cate f-k">ประกาศอื่นๆ ของสมาชิกท่านนี้</h2>
             <div class="col-xs-12">
             <?php
-            foreach (select_tb($SqlSelect) as $row) {
+            foreach (select_tb($SqlSelectA) as $row) {
               ?>
                 <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
                   <div class="col-xs-3 p-0">
