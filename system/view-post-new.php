@@ -96,6 +96,11 @@
   		//log_insert("เพิ่มประกาศใหม่ ไม่สำเร็จ",$_COOKIE[$CookieID]);
   	}
     */
+    echo "v1 : ".$v_photo1,"<br>";
+    echo "v2 : ".$v_photo2,"<br>";
+    echo "v3 : ".$v_photo3,"<br>";
+    echo "v4 : ".$v_photo4,"<br>";
+    echo "v5 : ".$v_photo5,"<br>";
 
   }
 ?>
