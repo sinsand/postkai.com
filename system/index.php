@@ -100,7 +100,9 @@
         }
       }
       if ($UrlPage=="search") {
-        if (!empty($_GET['type']) && empty($_GET['province']) && empty($_GET['category']) && empty($_GET['keywords'])) {
+        if (!empty($_GET['type']) &&
+            (empty($_GET['province']) || empty($_GET['category']) || empty($_GET['keywords']))
+        ) {
           ////// type
           $SqlSelectsearch = "SELECT name_Type
                               FROM p_type
@@ -114,7 +116,9 @@
               <?php
             }
           }
-        }else if (empty($_GET['type']) && !empty($_GET['province']) && empty($_GET['category']) && empty($_GET['keywords'])) {
+        }else if (!empty($_GET['province']) &&
+                  ( empty($_GET['type']) ||  empty($_GET['category']) || empty($_GET['keywords']))
+        ) {
           ////// province
           $SqlSelectsearch = "SELECT PROVINCE_NAME
                               FROM p_province
@@ -128,7 +132,9 @@
               <?php
             }
           }
-        }else if (!empty($_GET['keywords'])) {
+        }else if (!empty($_GET['keywords']) &&
+                  ( empty($_GET['type']) ||  empty($_GET['category']) || empty($_GET['province']))
+        ) {
           ////// search all
           $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                               FROM sb_job sj
@@ -153,7 +159,9 @@
               <?php
             }
           }
-        }elseif (!empty($_GET['category'])) {
+        }elseif (!empty($_GET['category']) &&
+                  ( empty($_GET['type']) ||  empty($_GET['keywords']) || empty($_GET['province'])) 
+        ) {
           ////// category
           $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                               FROM sb_job sj
