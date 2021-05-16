@@ -100,41 +100,7 @@
         }
       }
       if ($UrlPage=="search") {
-        if (!empty($_GET['type']) &&
-            (empty($_GET['province']) || empty($_GET['category']) || empty($_GET['keywords']))
-        ) {
-          ////// type
-          $SqlSelectsearch = "SELECT name_Type
-                              FROM p_type
-                              WHERE ( id_Type = '".$_GET['type']."' ) ;";
-          if (select_num($SqlSelectsearch)>0) {
-            foreach (select_tb($SqlSelectsearch) as $rowtype) {
-              ?>
-              <title>หมวดหมู่ <?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
-              <meta name="keywords" content="<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
-              <meta name="description" content="<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
-              <?php
-            }
-          }
-        }else if (!empty($_GET['province']) &&
-                  ( empty($_GET['type']) ||  empty($_GET['category']) || empty($_GET['keywords']))
-        ) {
-          ////// province
-          $SqlSelectsearch = "SELECT PROVINCE_NAME
-                              FROM p_province
-                              WHERE ( PROVINCE_ID = '".$_GET['province']."' );";
-          if (select_num($SqlSelectsearch)>0) {
-            foreach (select_tb($SqlSelectsearch) as $rowtype) {
-              ?>
-              <title>ประกาศจังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> ลงประกาศฟรี - postkai.com</title>
-              <meta name="keywords" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
-              <meta name="description" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
-              <?php
-            }
-          }
-        }else if (!empty($_GET['keywords']) &&
-                  ( empty($_GET['type']) ||  empty($_GET['category']) || empty($_GET['province']))
-        ) {
+        if (!empty($_GET['keywords'])) {
           ////// search all
           $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                               FROM sb_job sj
@@ -159,31 +125,59 @@
               <?php
             }
           }
-        }elseif (!empty($_GET['category']) &&
-                  ( empty($_GET['type']) ||  empty($_GET['keywords']) || empty($_GET['province'])) 
-        ) {
-          ////// category
-          $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
-                              FROM sb_job sj
-                              INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                              INNER JOIN p_category pc ON (sj.jType = pc.id_category)
-                              INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
-                              WHERE (
-                                      ( sj.jStatus = '1' ) AND
-                                      ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
-                                      ( pc.id_category = '".$_GET['category']."' ) AND
-                                      ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
-                                      ( pt.id_Type = '".$_GET['type']."' )
-                                    )
-                              ORDER BY sj.jDate_Create DESC
-                              LIMIT 0,1;";
-          if (select_num($SqlSelectsearch)>0) {
-            foreach (select_tb($SqlSelectsearch) as $rowtype) {
-              ?>
-              <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
-              <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
-              <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
-              <?php
+        }else{
+          if (!empty($_GET['province']) &&  empty($_GET['type']) && empty($_GET['category'])) {
+            ////// province
+            $SqlSelectsearch = "SELECT PROVINCE_NAME
+                                FROM p_province
+                                WHERE ( PROVINCE_ID = '".$_GET['province']."' );";
+            if (select_num($SqlSelectsearch)>0) {
+              foreach (select_tb($SqlSelectsearch) as $rowtype) {
+                ?>
+                <title>ประกาศจังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> ลงประกาศฟรี - postkai.com</title>
+                <meta name="keywords" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+                <meta name="description" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+                <?php
+              }
+            }
+          }else if (empty($_GET['province']) &&  !empty($_GET['type']) && empty($_GET['category'])) {
+            ////// type
+            $SqlSelectsearch = "SELECT name_Type
+                                FROM p_type
+                                WHERE ( id_Type = '".$_GET['type']."' ) ;";
+            if (select_num($SqlSelectsearch)>0) {
+              foreach (select_tb($SqlSelectsearch) as $rowtype) {
+                ?>
+                <title>หมวดหมู่ <?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
+                <meta name="keywords" content="<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+                <meta name="description" content="<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
+                <?php
+              }
+            }
+          }elseif (empty($_GET['province']) &&  empty($_GET['type']) && !empty($_GET['category'])) {
+            ////// category
+            $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
+                                FROM sb_job sj
+                                INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                                INNER JOIN p_category pc ON (sj.jType = pc.id_category)
+                                INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
+                                WHERE (
+                                        ( sj.jStatus = '1' ) AND
+                                        ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
+                                        ( pc.id_category = '".$_GET['category']."' ) AND
+                                        ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
+                                        ( pt.id_Type = '".$_GET['type']."' )
+                                      )
+                                ORDER BY sj.jDate_Create DESC
+                                LIMIT 0,1;";
+            if (select_num($SqlSelectsearch)>0) {
+              foreach (select_tb($SqlSelectsearch) as $rowtype) {
+                ?>
+                <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+                <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+                <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
+                <?php
+              }
             }
           }
         }
