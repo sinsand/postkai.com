@@ -219,27 +219,27 @@
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12 p-0 ">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow" name="fileshow[]" type="file" class="filestyle" required data-buttonName="btn-primary" />
+                <input id="fileshow1" name="fileshow[]" type="file" class="filestyle" required data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
+                <input id="fileshow2" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
+                <input id="fileshow3" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
+                <input id="fileshow4" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <div class="col-xs-12 pt-5 pl-0 pr-0">
               <div class="form-group pr-0 pl-0">
-                <input id="fileshow" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
+                <input id="fileshow5" name="fileshow[]" type="file" class="filestyle" data-buttonName="btn-primary" />
               </div>
             </div>
             <!--<div class="col-xs-12 pt-5 pl-0 pr-0">
