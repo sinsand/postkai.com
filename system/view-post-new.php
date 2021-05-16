@@ -41,7 +41,7 @@
         $target    = "images/post/picture_job_".$i."/$imagename";
         move_uploaded_file($source, $target);
 
-        $imagepath = date("Y-m-d_His").'.'.$temp;
+        $imagepath = "postkai_".date("Y-m-d_His").'.'.$temp;
         $save      = "images/post/picture_job_".$i."/$imagename"; //This is the new file you saving
         $file      = "images/post/picture_job_".$i."/$imagepath"; //This is the original file
 
