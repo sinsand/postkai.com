@@ -26,7 +26,7 @@
                                   $S_search
                                 )
                           ORDER BY sj.jDate_Create DESC ";
-      echo $SqlSelectSearch;
+      //echo $SqlSelectSearch;
       $Per_Page = 50;   // Per Page
       $Page = $_GET['page'];
       if(!$_GET['page']){
