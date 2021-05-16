@@ -35,6 +35,7 @@
 
     for ($i=1; $i <= count($_FILES['fileshow']['name']); $i++) {
       if ($_FILES['fileshow']['name'][$i] != "" ) {
+        $temp      = end(explode(".",$_FILES['fileshow']['name'][$i]));
         $imagename = $_FILES['fileshow']['name'][$i];
         $source    = $_FILES['fileshow']['tmp_name'][$i];
         $target    = "images/post/picture_job_".$i."/$imagename";
