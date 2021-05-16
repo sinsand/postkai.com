@@ -1,8 +1,9 @@
 <h2 class="main-head-cate t-announce f-k">ประกาศทั้งหมด</h2>
 <?php
-    $SqlSelect = "SELECT sj.*,pt.name_Type
+    $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                   FROM sb_job sj
                   INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_ID)
                   WHERE ( sj.jStatus = '1' )
                   ORDER BY sj.jDate_Create DESC ";
 
@@ -45,7 +46,7 @@
           <div class="col-xs-9 p-0">
             <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
             <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-            <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['jProvince'];?></span></p>
+            <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span></p>
             <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
             <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
             <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>

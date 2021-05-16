@@ -19,7 +19,7 @@
       $SqlSelectSearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                           FROM sb_job sj
                           INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                          INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                          INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                           WHERE (
                                   ( sj.jStatus = '1' )
                                   $S_search

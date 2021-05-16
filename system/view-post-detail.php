@@ -100,9 +100,10 @@
 
   }else {
     $SqlUpdate = "UPDATE sb_job SET jRead = jRead+1 WHERE ( jID = '".$UrlId."'  AND jStatus = '1') "; update_tb($SqlUpdate);
-    $SqlSelect = "SELECT sj.*,pt.name_Type
+    $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                   FROM sb_job sj
                   INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_ID)
                   WHERE (
                           sj.jID = '".$UrlId."'  AND
                           sj.jStatus = '1'
@@ -224,7 +225,7 @@
                   </tr>
                   <tr>
                     <th>จังหวัด</th>
-                    <td class="wb"><?php echo $row['jProvince'];?></td>
+                    <td class="wb"><?php echo $row['PROVINCE_NAME'];?></td>
                   </tr>
                   <tr>
                     <th>เลขที่ประกาศ</th>
