@@ -99,7 +99,7 @@
     }
 
   }else {
-    $SqlUpdate = "UPDATE sb_job SET jRead = jRead+1 WHERE ( jID = '".$UrlId."'  AND jStatus = '1') "; update_tb($SqlUpdate);
+
     $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
                   FROM sb_job sj
                   INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
@@ -109,6 +109,7 @@
                           sj.jStatus = '1'
                         )";
     if (select_num($SqlSelect)>0) {
+      $SqlUpdate = "UPDATE sb_job SET jRead = jRead+1 WHERE ( jID = '".$UrlId."'  AND jStatus = '1') "; update_tb($SqlUpdate);
       $mID = "";
       foreach (select_tb($SqlSelect) as $row) {
         ?>
