@@ -394,7 +394,7 @@
                   <?php
                     $SqlSelect = "SELECT p.PROVINCE_ID,p.PROVINCE_NAME,COUNT(sj.jProvince) as cjProvince
                                   FROM sb_job sj
-                                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_NAME)
+                                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_ID)
                                   GROUP BY p.PROVINCE_ID,p.PROVINCE_NAME
                                   ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
                     foreach (select_tb($SqlSelect) as $row) {
