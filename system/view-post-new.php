@@ -66,7 +66,7 @@
           $v_photo3 = $imagepath;
         }elseif ($i==4) {
           $v_photo4 = $imagepath;
-        }else
+        }else{
           $v_photo5 = $imagepath;
         }
 
