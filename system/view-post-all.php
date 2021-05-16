@@ -1,9 +1,10 @@
 <h2 class="main-head-cate t-announce f-k">ประกาศทั้งหมด</h2>
 <?php
-    $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+    $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                   FROM sb_job sj
                   INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                  INNER JOIN p_province p ON (sj.jProvince = p.PROVINCE_ID)
+                  INNER JOIN p_category pc ON (sj.jType = pc.id_category)
+                  INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                   WHERE ( sj.jStatus = '1' )
                   ORDER BY sj.jDate_Create DESC ";
 

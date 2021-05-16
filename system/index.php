@@ -68,10 +68,11 @@
         }
         $P_Prev_Page = $P_Page-1;
         $P_Next_Page = $P_Page+1;
-        $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+        $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                             FROM sb_job sj
                             INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                            INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                            INNER JOIN p_category pc ON (sj.jType = pc.id_category)
+                            INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                             WHERE (
                                     ( sj.jStatus = '1' )
                                   )
@@ -129,14 +130,40 @@
           }
         }else if (!empty($_GET['keywords'])) {
           ////// search all
-          $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME
+          $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                               FROM sb_job sj
                               INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                              INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_NAME)
+                              INNER JOIN p_category pc ON (sj.jType = pc.id_category)
+                              INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                               WHERE (
                                       ( sj.jStatus = '1' ) AND
                                       ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
-                                      ( p.id_category = '".$_GET['category']."' ) AND
+                                      ( pc.id_category = '".$_GET['category']."' ) AND
+                                      ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
+                                      ( pt.id_Type = '".$_GET['type']."' )
+                                    )
+                              ORDER BY sj.jDate_Create DESC
+                              LIMIT 0,1;";
+          if (select_num($SqlSelectsearch)>0) {
+            foreach (select_tb($SqlSelectsearch) as $rowtype) {
+              ?>
+              <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+              <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+              <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
+              <?php
+            }
+          }
+        }elseif (!empty($_GET['category'])) {
+          ////// category
+          $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
+                              FROM sb_job sj
+                              INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                              INNER JOIN p_category pc ON (sj.jType = pc.id_category)
+                              INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
+                              WHERE (
+                                      ( sj.jStatus = '1' ) AND
+                                      ( sj.jTitle LIKE '%".$_GET['keywords']."%' ) AND
+                                      ( pc.id_category = '".$_GET['category']."' ) AND
                                       ( p.PROVINCE_ID = '".$_GET['province']."' ) AND
                                       ( pt.id_Type = '".$_GET['type']."' )
                                     )
