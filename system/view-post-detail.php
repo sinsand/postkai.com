@@ -400,7 +400,9 @@
                   <div class="col-xs-9 p-0">
                     <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
                     <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-                    <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> | <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span></p>
+                    <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
+                                   <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span> |
+                                   <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
                     <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
                     <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
                     <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>
