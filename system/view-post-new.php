@@ -1,6 +1,102 @@
 <h2 class="main-head-cate t-announce f-k">เพิ่มประกาศใหม่</h2>
 <?php
-  
+  if (isset($_POST['btnPost'])) {
+    $v_cate       = $_POST['post_category'];
+    $v_province   = $_POST['post_province'];
+    $v_type       = $_POST['post_type'];
+    $v_subject    = htmlspecialchars($_POST['post_subject'],ENT_QUOTES);
+    $v_detail     = htmlspecialchars($_POST['post_desc'],ENT_QUOTES);
+    $v_description = htmlspecialchars($_POST['post_desc_full'],ENT_QUOTES);
+    $v_price      = $_POST['post_price'];
+    $v_type_product = $_POST['post_product'];
+    $v_day        = $_POST['post_day'];
+    $v_comment    = $_POST['post_comment'];
+
+    $v_photo1 = "";
+    $v_photo2 = "";
+    $v_photo3 = "";
+    $v_photo4 = "";
+    $v_photo5 = "";
+
+    $n_name       = htmlspecialchars($_POST['post_n_fullname'],ENT_QUOTES);
+    $n_address    = htmlspecialchars($_POST['post_n_address'],ENT_QUOTES);
+    $n_province   = $_POST['post_n_province'];
+    $n_phone      = htmlspecialchars($_POST['post_n_telephone'],ENT_QUOTES);
+    $n_email      = htmlspecialchars($_POST['post_n_email'],ENT_QUOTES);
+    $n_line       = htmlspecialchars($_POST['post_n_lineid'],ENT_QUOTES);
+    $n_code_edit  = $_POST['post_code_edit'];
+
+    $v_mID = "";
+    $d_mID = "";
+    if (!empty($_COOKIE['mID'])) {
+      $v_mID = ",mID";
+      $m_mID = ",'".base64url_decode($_COOKIE['mID'])."' ";
+    }
+
+    for ($i=1; $i <= count($_FILES['fileshow']['name']); $i++) {
+      if ($_FILES['fileshow']['name'][$i] != "") {
+        $temp      = explode(".", $_FILES["fileshow"]["name"][$i]);
+        $imagename = $_FILES['fileshow']['name'][$i];
+        $source    = $_FILES['fileshow']['tmp_name'][$i];
+        $target    = "images/post/picture_job_".$i."/$imagename";
+        move_uploaded_file($source, $target);
+
+        $imagepath = date("Y-m-d_His").'.'.$temp;
+        $save      = "images/post/picture_job_".$i."/$imagename"; //This is the new file you saving
+        $file      = "images/post/picture_job_".$i."/$imagepath"; //This is the original file
+
+        list($width, $height) = getimagesize($target);
+
+        $modwidth  = 1000;
+        $diff      = $width / $modwidth;
+        $modheight = $height / $diff;
+
+        $tn        = imagecreatetruecolor($modwidth, $modheight) ;
+        $image     = imagecreatefromjpeg($file) ;
+        imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ;
+
+        imagejpeg($tn, $save, 100) ;
+        unlink($target); //Delete our uploaded file
+
+        if ($i==1) {
+          $v_photo1 = $imagepath;
+        }elseif ($i==2) {
+          $v_photo2 = $imagepath;
+        }elseif ($i==3) {
+          $v_photo3 = $imagepath;
+        }elseif ($i==4) {
+          $v_photo4 = $imagepath;
+        }else
+          $v_photo5 = $imagepath;
+        }
+
+
+      }
+    }
+
+    $SqlInsert = "INSERT INTO sb_job
+                  (jTitle,jDetail,jDesc,jPrice,jaType,jType,jProvince,jPic1,jPic2,jPic3,jPic4,jPic5,
+                   jc_Name,jc_Address,jc_Province,jc_Telephone,jc_Email,jRead,jDate_Create,jStatus,
+                   jComment,jTypeProduct,jPostDay,jLINEID,jEditor $v_mID)
+                  VALUES(
+                    '$v_subject','$v_detail','$v_description','$v_price','$v_cate','$v_type','$v_photo1','$v_photo2','$v_photo3','$v_photo4','$v_photo5',
+                    '$n_name','$n_address','$n_province','$n_phone','$n_email','1',now(),'1',
+                    '$v_comment','$v_type_product','$v_day','$n_line','$n_code_edit' $m_mID
+                  )";
+    if (insert_tb($SqlInsert)==true) {
+      $jID = "";
+      $SqlSelect = "SELECT MAX(jID) as jID FROM sb_job LIMIT 1;";
+      foreach (select_tb($SqlSelect) as $kue) {
+        $jID = $kue['jID'];
+      }
+  		echo fSuccess(1,"ลงประกาศสำเร็จ",$LinkWeb."post/".$jID,2);
+  		//log_insert("เพิ่มประกาศใหม่ สำเร็จ",$_COOKIE[$CookieID]);
+  	}else {
+  		echo fError(1,"ประกาศไม่สำเร็จ กรุณาตรวจสอบข้อมูล",$SqlInsert);
+  		//log_insert("เพิ่มประกาศใหม่ ไม่สำเร็จ",$_COOKIE[$CookieID]);
+  	}
+
+  }
 ?>
 <div class="col-xs-12">
   <form class="" action="<?php echo $LinkPath;?>" method="post" enctype="multipart/form-data">
