@@ -79,10 +79,10 @@
                    jc_Name,jc_Address,jc_Province,jc_Telephone,jc_Email,jRead,jDate_Create,jStatus,
                    jComment,jTypeProduct,jPostDay,jLINEID,jEditor $v_mID)
                   VALUES(
-                    '$v_subject','$v_detail','$v_description','$v_price','$v_cate','$v_type','$v_photo1','$v_photo2','$v_photo3','$v_photo4','$v_photo5',
+                    '$v_subject','$v_detail','$v_description','$v_price','$v_cate','$v_type','$v_province','$v_photo1','$v_photo2','$v_photo3','$v_photo4','$v_photo5',
                     '$n_name','$n_address','$n_province','$n_phone','$n_email','1',now(),'1',
                     '$v_comment','$v_type_product','$v_day','$n_line','$n_code_edit' $m_mID
-                  )";
+                  );";
     if (insert_tb($SqlInsert)==true) {
       $jID = "";
       $SqlSelect = "SELECT MAX(jID) as jID FROM sb_job LIMIT 1;";
