@@ -1,7 +1,29 @@
+<?php
+if (isset($_POST['btnlogin'])) {
+  $SqlSelect = "SELECT
+                FROM member
+                WHERE ( mUsername = '' OR mEmail = '' OR mTelephone = '' )";
+  if (select_num($SqlSelect)>0) {
+
+  }else {
+    $SqlInsert = "INSERT INTO member
+                    ()
+                    VALUES(0,
+
+                    ); ";
+  }
+}
+?>
 <h2 class="main-head-cate t-search f-k">สมัครสมาชิก</h2>
 <div class="row">
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Username:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="Username" placeholder="Enter Username" required autocomplete="off">
+        </div>
+      </div>
       <div class="form-group">
         <label class="control-label col-sm-3" for="email">Email:</label>
         <div class="col-sm-9">
@@ -29,7 +51,7 @@
       <div class="form-group">
         <label class="control-label col-sm-3" for="">เบอร์ติดต่อ:</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="" placeholder="เบอร์ติดต่อ" required autocomplete="off">
+          <input type="text" class="form-control" id="" placeholder="เบอร์ติดต่อ ตัวเลขเท่านั้น" required autocomplete="off">
         </div>
       </div>
       <div class="form-group">
