@@ -288,13 +288,25 @@
               <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
-              <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
+              <?php
+              if (!empty($_COOKIE[$CookieID])) {
+                ?>
+                <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
+                <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
+                <?php
+              }else {
+                ?>
+                <li <?php echo $UrlPage=="member"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>member">ข้อมูลของฉัน</a></li>
+                <li><a href="<?php echo $LinkWeb;?>logout">ออกจากระบบ</a></li>
+                <?php
+              }
+              ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
       <!-- Menu-->
+
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-9">
           <?php
