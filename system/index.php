@@ -289,7 +289,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <?php
-              if (!empty($_COOKIE[$CookieID])) {
+              if (empty($_COOKIE[$CookieID])) {
                 ?>
                 <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
                 <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
