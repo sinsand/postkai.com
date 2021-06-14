@@ -240,7 +240,7 @@
       <div class="row" style="margin:20px 0;">
         <div class="col-sm-2" style="padding:0px;">
           <a href="<?php echo $LinkWeb;?>" class="col-xs-12 p-0">
-            <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" class="col-sm-12 hidden-xs" alt="Logo">
+            <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:90px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo">
             <!--<img src="http://placehold.it/300/300" class="col-sm-12 hidden-xs" alt="Logo">-->
           </a>
         </div>
