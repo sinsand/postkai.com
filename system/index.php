@@ -240,11 +240,11 @@
       <div class="row" style="margin:20px 0;">
         <div class="col-sm-2" style="padding:0px;">
           <a href="<?php echo $LinkWeb;?>" class="col-xs-12 p-0">
-            <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:90px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo">
+            <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo">
             <!--<img src="http://placehold.it/300/300" class="col-sm-12 hidden-xs" alt="Logo">-->
           </a>
         </div>
-        <div class="col-sm-10 p-0">
+        <div class="col-sm-10 p-0 text-left">
           <a href="https://bit.ly/3gwUthO" target="_blank"><img src="https://affiliates.moneyrobot.com/banners/798x90-1.gif" width="728" height="90" border="0" /></a>
           <!--<a href="<?php echo $LinkWeb;?>">
             <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12 p-0" alt="ads Banner" />
