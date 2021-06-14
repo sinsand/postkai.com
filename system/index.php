@@ -245,9 +245,10 @@
           </a>
         </div>
         <div class="col-sm-10 p-0">
-          <a href="<?php echo $LinkWeb;?>">
+          <a href="https://bit.ly/3gwUthO" target="_blank"><img src="https://affiliates.moneyrobot.com/banners/798x90-1.gif" width="728" height="90" border="0" /></a>
+          <!--<a href="<?php echo $LinkWeb;?>">
             <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12 p-0" alt="ads Banner" />
-          </a>
+          </a>-->
         </div>
       </div>
     </div>
