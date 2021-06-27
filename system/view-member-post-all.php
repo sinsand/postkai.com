@@ -6,15 +6,16 @@
    foreach (select_tb($SqlSelect) as $row) {
      ?>
       <div class="row">
-        <div class="col-sm-1"><?php echo $row['IDJOB'];?></div>
-        <div class="col-sm-8"><?php echo $row['jTitle'];?></div>
-        <div class="col-sm-3 text-center">
+        <div class="col-xs-6 col-sm-1 col-md-1">#ID <?php echo $row['IDJOB'];?></div>
+        <div class="col-sm-8 hidden-xs"><?php echo $row['jTitle'];?></div>
+        <div class="col-xs-6 col-sm-3 col-md-3 text-center">
           <div class="btn-group btn-xs">
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-view" data-target="#modal-view"><i class="fa fa-search"></i></button>
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-edit" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-trash" data-target="#modal-trash"><i class="fa fa-trash"></i></button>
           </div>
         </div>
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg"><?php echo $row['jTitle'];?></div>
       </div>
      <?php
    }
