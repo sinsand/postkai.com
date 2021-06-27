@@ -13,10 +13,10 @@ if (isset($_POST['btnUpdate'])) {
   foreach (select_tb($SqlSelect) as $row) {
     $m_id = $row['mID'];
     //$m_user = $row['mUsername'];
-    $m_pass = $row['mPassword'];
+    //$m_pass = $row['mPassword'];
     //$m_title = $row['mTitle'];
     $m_fname = $row['mName'];
-    $m_middle = $row['mMname'];
+    //$m_middle = $row['mMname'];
     $m_lname = $row['mLname'];
     $m_address = $row['mAddress'];
     $m_postcode = $row['mPostalcode'];
@@ -31,7 +31,7 @@ if (isset($_POST['btnUpdate'])) {
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">อีเมล:</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="email" value="<?php echo $m_id;?>" readonly>
+              <input type="email" class="form-control" id="email" value="<?php echo $m_email;?>" readonly>
             </div>
           </div>
           <div class="form-group">
@@ -46,6 +46,7 @@ if (isset($_POST['btnUpdate'])) {
               <input type="password" class="form-control" id="confirm-password" placeholder="ยืนยัน รหัสผ่านอีกครั้ง" required autocomplete="off">
             </div>
           </div>
+          <hr />
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">ชื่อจริง:</label>
             <div class="col-sm-9">
