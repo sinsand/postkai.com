@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-xs-12 text-right">
+<div class="row pb-10">
+  <div class="col-xs-12 text-right pb-10">
     <a href="<?php echo $LinkWeb;?>post-new" class="btn btn-lg btn-success" target="_blank">เพิ่มประกาศ <i class="fa fa-plus"></i></a>
   </div>
 </div>
