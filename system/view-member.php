@@ -11,7 +11,7 @@
         <div class="row m-0">
           <div class="col-xs-12" style="padding:20px;">
             <?php
-              if (trim($UrlId)) {
+              switch (trim($UrlId)) {
                 case 'profile'      : include("view-member-profile.php"); break();
                 case 'post-all'     : include("view-member-post-all.php"); break();
                 case 'comment-all'  : include("view-member-comment-all.php"); break();
