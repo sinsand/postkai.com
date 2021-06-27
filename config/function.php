@@ -67,8 +67,7 @@ function log_insert($value,$eid){
 
 ///// check login
 function checklogin(){
-  global $LinkWeb;
-  if (empty($_COOKIE[$CookieID])){
+  if (!isset($_COOKIE[$CookieID])){
     $host  = $_SERVER['HTTP_HOST'];
     //$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
     //$extra = 'mypage.php';
