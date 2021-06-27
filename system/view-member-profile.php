@@ -82,8 +82,7 @@ if (isset($_POST['btnUpdate'])) {
 
 
           <div class="form-group">
-            <label class="control-label col-sm-3"></label>
-            <div class="col-sm-10">
+            <div class="col-sm-12 text-right">
               <button type="submit" name="btnUpdate" class="btn btn-success">บันทึกข้อมูล</button>
             </div>
           </div>
