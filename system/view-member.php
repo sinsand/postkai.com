@@ -2,7 +2,7 @@
 <div class="row" style="margin:20px 0;">
   <div class="col-xs-12 p-0">
     <ul class="nav nav-tabs f-k fs-13">
-      <li <?php echo $UrlId=="profile"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>profile">Profile</a></li>
+      <li <?php echo $UrlId=="profile"||empty($UrlId)?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>profile">Profile</a></li>
       <li <?php echo $UrlId=="post-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>post-all">Post All</a></li>
       <li <?php echo $UrlId=="comment-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>comment-all">Comment All</a></li>
     </ul>
