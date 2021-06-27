@@ -1,5 +1,5 @@
 <h2 class="main-head-cate t-search f-k">Profile</h2>
-<div class="row">
+<div class="row" style="margin:20px 0;">
   <div class="col-xs-12 p-0">
     <ul class="nav nav-tabs f-k fs-13">
       <li class="active"><a href="#profile">Profile</a></li>
