@@ -16,7 +16,7 @@
         <div class="col-xs-6 col-sm-3 col-md-3 text-right">
           <div class="btn-group btn-xs">
             <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-search"></i></a>
-            <a href="<?php echo $LinkWeb."post/".$row['jID'];?>/?confirm-edit=check" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+            <a href="<?php echo $LinkWeb."post/".$row['jID'];?>/?confirm-edit=check" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></a>
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-trash" data-target="#modal-trash"><i class="fa fa-trash"></i></button>
           </div>
         </div>
