@@ -64,4 +64,12 @@ function log_insert($value,$eid){
     return false;
   }
 }
+
+///// check login
+function checklogin(){
+  if (empty($_COOKIE[$CookieID]){
+    echo header("Location:"$LinkWeb);
+  }
+}
+
 ?>
