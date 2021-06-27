@@ -12,7 +12,7 @@
      ?>
       <div class="row pb-10 pt-10" style="border-bottom: 1px solid #e1e1e1;">
         <div class="col-xs-6 col-sm-2 col-md-2 text-left fw-b">#รหัสประกาศ <?php echo $row['IDJOB'];?></div>
-        <div class="col-sm-7 hidden-xs"><b>#หัวข้อเรื่อง</b><div class="wb"><?php echo $row['jTitle'];?></div></div>
+        <div class="col-sm-7 hidden-xs"><b>#หัวข้อเรื่อง</b><div style="overflow: hidden;text-overflow: ellipsis;"><?php echo $row['jTitle'];?></div></div>
         <div class="col-xs-6 col-sm-3 col-md-3 text-right">
           <div class="btn-group btn-xs">
             <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-search"></i></a>
