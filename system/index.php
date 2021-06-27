@@ -322,6 +322,8 @@
                 case 'login'            : include("view-login.php"); break;
                 case 'register'         : include("view-register.php"); break;
 
+                case 'member'           : include("view-member.php"); break;
+
 
                 case 'policy'           : include("view-policy.php"); break;
                 case 'sitemap'          : include("view-sitemap.php"); break;
