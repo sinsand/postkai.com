@@ -2,28 +2,22 @@
 <div class="row" style="margin:20px 0;">
   <div class="col-xs-12 p-0">
     <ul class="nav nav-tabs f-k fs-13">
-      <li class="active"><a href="#profile">Profile</a></li>
-      <li><a href="#postall">Post All</a></li>
-      <li><a href="#commentall">Comment All</a></li>
+      <li <?php echo $UrlId=="profile"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>profile">Profile</a></li>
+      <li <?php echo $UrlId=="post-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>post-all">Post All</a></li>
+      <li <?php echo $UrlId=="comment-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>comment-all">Comment All</a></li>
     </ul>
     <div class="tab-content">
-      <div id="profile" class="tab-pane fade in active">
+      <div id="" class="tab-pane fade in active">
         <div class="row m-0">
           <div class="col-xs-12" style="padding:20px;">
-          </div>
-        </div>
-      </div>
-
-      <div id="postall" class="tab-pane">
-        <div class="row m-0">
-          <div class="col-xs-12" style="padding:20px;">
-          </div>
-        </div>
-      </div>
-
-      <div id="commentall" class="tab-pane">
-        <div class="row m-0">
-          <div class="col-xs-12" style="padding:20px;">
+            <?php
+              if (trim($UrlId)) {
+                case 'profile'      : include("view-member-profile.php"); break();
+                case 'post-all'     : include("view-member-post-all.php"); break();
+                case 'comment-all'  : include("view-member-comment-all.php"); break();
+                default             : include("view-member-profile.php"); break();
+              }
+            ?>
           </div>
         </div>
       </div>
