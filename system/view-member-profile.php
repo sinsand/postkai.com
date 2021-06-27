@@ -26,7 +26,7 @@ if (isset($_POST['btnUpdate'])) {
 
     ?>
     <div class="row">
-      <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+      <div class="col-xs-12">
         <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">อีเมล:</label>
