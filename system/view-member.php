@@ -4,7 +4,7 @@
     <ul class="nav nav-tabs f-k fs-13">
       <li <?php echo $UrlId=="profile"||empty($UrlId)?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>profile">ข้อมูลส่วนตัว</a></li>
       <li <?php echo $UrlId=="post-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>post-all">โพสของฉัน</a></li>
-      <li <?php echo $UrlId=="comment-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>comment-all">คอมเม้นท์ ทั้งหมด</a></li>
+      <li <?php echo $UrlId=="comment-all"?"class='active'":"";?>><a href="<?php echo $LinkWeb.$UrlPage."/";?>comment-all">คอมเม้นท์</a></li>
     </ul>
     <div class="tab-content">
       <div id="" class="tab-pane fade in active">
