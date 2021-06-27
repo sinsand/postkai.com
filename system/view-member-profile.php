@@ -21,7 +21,7 @@ if (isset($_POST['btnUpdate'])) {
     $m_address = $row['mAddress'];
     $m_postcode = $row['mPostalcode'];
     $m_telephone = $row['mTelephone'];
-    $m_email = $row['mEmail	'];
+    $m_email = $row['mEmail'];
     $m_status = $row['mStatus'];
 
     ?>
