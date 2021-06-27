@@ -62,7 +62,7 @@ if (isset($_POST['btnUpdate'])) {
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">ที่อยู่:</label>
             <div class="col-sm-9">
-              <textarea name="address" placeholder="ที่อยู่" class="form-control" rows="8">
+              <textarea name="address" placeholder="ที่อยู่" class="form-control" rows="3">
                 <?php echo $m_address;?>
               </textarea>
             </div>
