@@ -1,4 +1,4 @@
-<?php checklogin(); ?>
+<?php echo checklogin(); ?>
 <h2 class="main-head-cate t-search f-k">Profile</h2>
 <div class="row" style="margin:20px 0;">
   <div class="col-xs-12 p-0">
