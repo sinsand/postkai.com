@@ -329,6 +329,17 @@
                 case 'sitemap'          : include("view-sitemap.php"); break;
                 case 'term-and-condition'  : include("view-term-and-condition.php"); break;
 
+                case 'logout'           : setcookie($CookieID, null, time()-3600,'/');
+                                          unset($_COOKIE[$CookieID]);
+                                          unset($_COOKIE[$CookieType]);
+
+                                          unset($_SESSION[$SessionID]);
+                                          unset($_SESSION[$SessionType]);
+
+                                          session_unset();
+                                          session_destroy();
+                                          echo fSuccess(4,"ออกจากระบบสำเร็จ",$LinkWeb,2);break;
+
 
                 default                 : include("main-dashboard.php"); break;
               }
