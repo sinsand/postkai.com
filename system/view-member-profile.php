@@ -9,7 +9,7 @@ if (isset($_POST['btnUpdate'])) {
 
   $SqlSelect = "SELECT *
                 FROM member
-                WHERE ( mID = '".base64url_encode($_COOKIE[$CookieID])."' )";
+                WHERE ( mID = '".base64url_decode($_COOKIE[$CookieID])."' )";
   foreach (select_tb($SqlSelect) as $row) {
     $m_id = $row['mID'];
     //$m_user = $row['mUsername'];
