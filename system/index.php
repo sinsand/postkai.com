@@ -338,8 +338,8 @@
 
                                           session_unset();
                                           session_destroy();
-                                          echo fSuccess(4,"ออกจากระบบสำเร็จ",$LinkWeb,2);break;
-
+                                          $host  = $_SERVER['HTTP_HOST'];
+                                          header("Location: https://$host/");break;
 
                 default                 : include("main-dashboard.php"); break;
               }
