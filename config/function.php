@@ -69,7 +69,12 @@ function log_insert($value,$eid){
 function checklogin(){
   global $LinkWeb;
   if (empty($_COOKIE[$CookieID])){
-   ?><meta http-equiv="refresh" content="0;url=<?php echo $LinkWeb;?>"><?php
+    $host  = $_SERVER['HTTP_HOST'];
+    //$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    //$extra = 'mypage.php';
+    header("Location: https://$host/");
+    exit;
+    ?><!--<meta http-equiv="refresh" content="0;url=<?php echo $LinkWeb;?>">--><?php
    //exit;
   }
 }
