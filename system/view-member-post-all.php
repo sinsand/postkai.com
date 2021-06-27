@@ -1,3 +1,8 @@
+<div class="row">
+  <div class="col-xs-12 text-right">
+    <a href="<?php echo $LinkWeb;?>post-new" class="btn btn-lg btn-success" target="_blank">เพิ่มประกาศ <i class="fa fa-plus"></i></a>
+  </div>
+</div>
 <?php
  $SqlSelect = "SELECT *
                FROM sb_job
@@ -6,12 +11,12 @@
    foreach (select_tb($SqlSelect) as $row) {
      ?>
       <div class="row pb-10 pt-10" style="border-bottom: 1px solid #e1e1e1;">
-        <div class="col-xs-6 col-sm-2 col-md-2 text-left fw-b">#ID <?php echo $row['IDJOB'];?></div>
+        <div class="col-xs-6 col-sm-2 col-md-2 text-left fw-b">#รหัสประกาศ <?php echo $row['IDJOB'];?></div>
         <div class="col-sm-7 hidden-xs"><?php echo $row['jTitle'];?></div>
         <div class="col-xs-6 col-sm-3 col-md-3 text-right">
           <div class="btn-group btn-xs">
-            <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-view" data-target="#modal-view"><i class="fa fa-search"></i></button>
-            <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-edit" data-target="#modal-edit"><i class="fa fa-edit"></i></button>
+            <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-search"></i></a>
+            <a href="<?php echo $LinkWeb."post/".$row['jID'];?>/?confirm-edit=check" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-trash" data-target="#modal-trash"><i class="fa fa-trash"></i></button>
           </div>
         </div>
