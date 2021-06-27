@@ -67,7 +67,7 @@ function log_insert($value,$eid){
 
 ///// check login
 function checklogin(){
-  if (empty($_COOKIE[$CookieID]){
+  if (empty($_COOKIE[$CookieID])){
     echo header("Location:$LinkWeb");
   }
 }
