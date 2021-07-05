@@ -20,7 +20,7 @@
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-trash" data-target="#modal-trash"><i class="fa fa-trash"></i></button>
           </div>
         </div>
-        <div class="col-xs-12 pt-5 hidden-sm hidden-md hidden-lg"><b>#หัวข้อเรื่อง</b> <?php echo $row['jTitle'];?></div>
+        <div class="col-xs-12 pt-5 hidden-sm hidden-md hidden-lg"><b>#หัวข้อเรื่อง :</b> <?php echo $row['jTitle'];?></div>
       </div>
      <?php
    }
