@@ -1,62 +1,41 @@
-<!-- Slide -->
-<div class="row">
-  <div class="col-sm-12 hidden-xs" style="padding:20px 15px;">
-      <!-- slide -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="<?php echo $LinkWeb;?>images/system/p-1.jpg" alt="" style="width:100%;">
-          </div>
-
-          <div class="item">
-            <img src="<?php echo $LinkWeb;?>images/system/p-2.jpg" alt="" style="width:100%;">
-          </div>
-
-          <div class="item">
-            <img src="<?php echo $LinkWeb;?>images/system/p-3.jpg" alt="" style="width:100%;">
-          </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <!-- slide -->
-  </div>
-</div>
 <!-- recommand -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="main-head-cate t-announce f-k">ประกาศแนะนำ</h2>
+    <h2 class="head-main-cate-new f-k">ประกาศแนะนำประจำเดือน</h2>
   </div>
   <?php
-      $SqlSelect = "SELECT sj.*,pt.name_Type
+      /*$SqlSelect = "SELECT sj.*,pt.name_Type
                     FROM sb_job sj
                     INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
                     WHERE ( sj.jPic1 != '' AND sj.jStatus = '1' )
                     ORDER BY sj.jRead DESC
+                    LIMIT 0,4;";*/
+	$SqlSelect = "SELECT sj.*,pt.name_Type
+                    FROM sb_job sj
+                    INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                    WHERE (
+                              ( sj.jPic1 != '' AND sj.jStatus = '1' ) AND
+                              ( DATE_FORMAT(sj.jDate_Create ,'%Y-%m') BETWEEN '".date('Y-m')."'  AND '".date('Y-m')."')
+                          )
+                    ORDER BY sj.jRead DESC
                     LIMIT 0,4;";
+	//echo $SqlSelect;
+  if (select_num($SqlSelect)>0) {
       foreach (select_tb($SqlSelect) as $row) {
         ?>
           <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="col-xs-6 col-sm-3 col-md-3 pb-10">
             <div class="thumbnail p-0">
               <?php
                 if (!empty($row['jPic1'])) {
-                  ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>"/><?php
+                  ?>
+					<div class="photo-in-thumnail">
+						<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+						<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+						<div class="middle">
+    						<div class="text">เข้าดู</div>
+  						</div>
+					</div>
+					<?php
                 }else {
                   ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt=""/><?php
                 }
@@ -64,49 +43,152 @@
                 <div class="caption col-xs-12 p-0">
                   <h4 class="text-head text-row mt-5 mb-5"><?php echo $row['jTitle'];?></h4>
                   <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-                  <p class="text-desc-2 text-row"><?php echo $row['jPrice'];?></p>
+                  <p class="text-desc-2 text-row">
+					  <?php
+              $vaprice = floatval($row['jPrice']);
+              if(!empty($vaprice) && $vaprice>0) {
+                echo "<span style='color: #f00;font-weight: bold;'>ราคา ".number_format($vaprice)."</span>";
+              }else{
+                echo "<span style='color: #f00;font-weight: bold;'>ไม่ระบุราคา</span>";
+              }
+					  ?>
+				  </p>
               </div>
             </div>
           </a>
         <?php
       }
+    // code...
+  }
   ?>
 </div>
+<!-- Slide -->
+<?php
+  $SqlSelectSL = "SELECT *
+                  FROM n_slide
+                  WHERE (
+                    DATE_FORMAT(sstr,'%Y-%m-%d') <= '".date('Y-m-d')."' AND
+                    DATE_FORMAT(send,'%Y-%m-%d') >= '".date('Y-m-d')."'
+                  )
+                  ORDER BY RAND();";
+if (select_num($SqlSelectSL)>0) {
+  ?>
+  <div class="row">
+    <div class="col-xs-12" style="padding:20px 15px;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>-->
+            <?php
+            $i=0;
+            foreach (select_tb($SqlSelectSL) as $row) {
+              $clas ="";
+              if ($i==0) {
+                $clas = "active";
+              }
+              ?><li data-target="#myCarousel" data-slide-to="<?php echo ($i++);?>" class="<?php echo $clas;?>"></li><?php
+            }
+            ?>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <!--<div class="item active">
+  		         <a href="https://bit.ly/3BfV1ma" target="_blank">
+              	<img src="<?php echo $LinkWeb;?>images/data_ban/banana1.jpg" alt="" style="width:100%;">
+  		         </a>
+            </div>
+            <div class="item">
+  		         <a href="https://bit.ly/3Lt7mId" target="_blank">
+              	<img src="<?php echo $LinkWeb;?>images/data_ban/comset1.png" alt="" style="width:100%;">
+  			       </a>
+            </div>
+            <div class="item">
+  			        <a href="https://bit.ly/3uQnxcK" target="_blank">
+               	 <img src="<?php echo $LinkWeb;?>images/data_ban/viriya.jpg" alt="" style="width:100%;">
+  			        </a>
+            </div>
+            <div class="item">
+  			        <a href="https://bit.ly/3JFEIlJ" target="_blank">
+              	 <img src="<?php echo $LinkWeb;?>images/data_ban/428396_20220210041101148.jpg" alt="" style="width:100%;">
+  			        </a>
+            </div>-->
+            <?php
+              $i=0;
+              foreach (select_tb($SqlSelectSL) as $row) {
+                $clas ="";
+                if ($i==0) {
+                  $clas = "active";
+                }
+                ?>
+                <div class="item <?php echo $clas;?>">
+      			        <a href="<?php echo $row['slink'];?>" target="_blank">
+                  	 <img src="<?php echo $LinkWeb;?>query/view-image.php?sview=<?php echo $row['sid'];?>" alt="<?php echo $row['sname'];?>" style="width:100%;">
+      			        </a>
+                </div>
+                <?php $i++;
+              }
+            ?>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    </div>
+  </div>
+  <?php
+}
+?>
+
+<!-- slide -->
 <!-- Ads -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="main-head-cate t-advertis f-k">สนับสนุน</h2>
+    <h2 class="head-main-cate-new  f-k">จากผู้สนับสนุน</h2>
   </div>
+</div>
+<div class="grid">
   <!-- show new 4 --->
-  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
-    <div class="thumbnail p-0">
-      <a href="<?php echo $LinkWeb;?>">
-        <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
-      </a>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
-    <div class="thumbnail p-0">
-      <a href="<?php echo $LinkWeb;?>">
-        <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
-      </a>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
-    <div class="thumbnail p-0">
-      <a href="<?php echo $LinkWeb;?>">
-        <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
-      </a>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-3 mb-5 pb-5 pt-5">
-    <div class="thumbnail p-0">
-      <a href="<?php echo $LinkWeb;?>">
-        <img src="<?php echo $LinkWeb;?>images/system/ads-free-1month.jpg" class="col-xs-12 p-0" alt=""/>
-      </a>
-    </div>
-  </div>
-  <!-- show new 4 --->
+  <?php
+    $SqlSelect = "SELECT *
+                  FROM n_banner
+                  WHERE (
+                    DATE_FORMAT(bstr,'%Y-%m-%d') <= '".date('Y-m-d')."' AND
+                    DATE_FORMAT(bend,'%Y-%m-%d') >= '".date('Y-m-d')."'
+                  )
+                  ORDER BY RAND();";
+    if (select_num($SqlSelect)>0) {
+      foreach (select_tb($SqlSelect) as $row) {
+        ?>
+        <div class="grid-item p-10">
+          <div class="thumbnail p-0">
+            <?php
+              if (!empty($row['bscript'])) {
+                echo htmlspecialchars_decode($row['bscript']);
+              }else {
+                ?>
+                <a href="<?php echo $row['blink'];?>" target="_blank">
+            		  <img src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" border="0" />
+            	  </a>
+                <?php
+              }
+            ?>
+          </div>
+        </div>
+        <?php
+      }
+    }
+  ?>
 </div>
 <!-- category-->
 <div class="row" style="margin:20px 0;">
@@ -171,41 +253,67 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12">
     <div class="col-xs-12" style="padding:0px 0px 15px 0px;">
-      <h2 class="main-head-cate t-announce f-k">ประกาศล่าสุด</h2>
+      <h2 class="head-main-cate-new f-k">ประกาศล่าสุด</h2>
     </div>
     <div class="col-xs-12" style="padding:0px;">
 
       <?php
           $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                         FROM sb_job sj
-                        INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
-                        INNER JOIN p_category pc ON (sj.jType = pc.id_category)
-                        INNER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
-                        WHERE ( sj.jPic1 != '' AND sj.jStatus = '1' )
+                        LEFT OUTER JOIN p_type pt ON (sj.jaType = pt.id_Type)
+                        LEFT OUTER JOIN p_category pc ON (sj.jType = pc.id_category)
+                        LEFT OUTER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
+                        WHERE ( sj.jStatus = '1' )
                         ORDER BY sj.jDate_Create DESC
                         LIMIT 0,10;";
           foreach (select_tb($SqlSelect) as $row) {
             ?>
               <a href="<?php echo $LinkWeb;?>post/<?php echo $row['jID'];?>" class="row click-post">
-                <div class="col-xs-3 p-0">
+                <div class="col-xs-5 col-sm-3 p-0">
                   <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
                   <?php
                     if (!empty($row['jPic1'])) {
-                      ?><img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" /><?php
+                      ?>
+						<div class="photo-in-thumnail">
+							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+							<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+							<div class="middle">
+								<div class="text">เข้าดู</div>
+							</div>
+						</div>
+					<?php
                     }else {
-                      ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="" /><?php
+					  ?>
+						<div class="photo-in-thumnail">
+							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+							<img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" />
+							<div class="middle">
+								<div class="text">เข้าดู</div>
+							</div>
+						</div>
+					<?php
                     }
                   ?>
                 </div>
-                <div class="col-xs-9 p-0">
-                  <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
-                  <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-                  <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
-                                 <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span> |
-                                 <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
-                  <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
-                  <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
-                  <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>
+                <div class="col-xs-7 col-sm-9 p-0">
+				 <div class="col-xs-12">
+					  <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
+					  <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
+					  <p class="m-0"><span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span>&nbsp;&nbsp;
+									 <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
+					  <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
+					  <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
+					  <h4 class="pt-10 pb-10 m-0 font-price">
+						  <?php
+                $vaprice = floatval($row['jPrice']);
+                if(!empty($vaprice) && $vaprice>0) {
+                  echo "ราคา ".number_format($vaprice);
+                }else{
+                  echo "ไม่ระบุราคา";
+                }
+						?>
+					  </h4>
+					</div>
                 </div>
               </a>
             <?php

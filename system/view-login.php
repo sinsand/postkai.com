@@ -1,12 +1,16 @@
 <h2 class="main-head-cate t-search f-k">เข้าสู่ระบบ</h2>
 <?php
 if (isset($_POST['btnlogin'])) {
-  $SqlSelect = "SELECT mID
-                FROM member
-                WHERE ( mEmail = '".$_POST['email']."' AND mPassword = '".$_POST['password']."' ) ";
+  $SqlSelect = "SELECT mid,uid,mphone
+                FROM n_member
+                WHERE ( mphone = '".$_POST['mphone']."' AND mpass = '".md5(md5($_POST['mpassword']))."' ) ";
+  //echo $SqlSelect;
   if (select_num($SqlSelect)>0) {
     foreach (select_tb($SqlSelect) as $value) {
-      setcookie($CookieID, base64url_encode($value['mID']), time()+3600,'/');
+      setcookie("uid", base64url_encode($value['uid']), time()+86400,'/');
+      setcookie("mid", base64url_encode($value['mid']), time()+86400,'/');
+      setcookie("mphone", base64url_encode($value['mphone']), time()+86400,'/');
+      setcookie("mfullname", base64url_encode($value['mfullname']), time()+86400,'/');
       echo fSuccess(5,"เข้าสู่ระบบสำเร็จ รอสักครู่...",$LinkWeb."member",2);
     }
   }else {
@@ -18,23 +22,47 @@ if (isset($_POST['btnlogin'])) {
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Email:</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" name="email" placeholder="Enter email" required autocomplete="off">
+        <label class="control-label col-sm-3" for="email">เบอร์มือถือ:</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" name="mphone" placeholder="กรอก เบอร์มือถือ" required autocomplete="off">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="password">Password:</label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" name="password" placeholder="Enter password" required autocomplete="off">
+        <label class="control-label col-sm-3" for="password">รหัสผ่าน:</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" name="mpassword" placeholder="กรอก รหัสผ่าน" required autocomplete="off">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="email"></label>
-        <div class="col-sm-10">
+        <label class="control-label col-sm-3" for="email"></label>
+        <div class="col-sm-9">
           <button type="submit" name="btnlogin" class="btn btn-success">เข้าสูระบบ</button> | <a href="<?php echo $LinkWeb;?>forgot">ลืมรหัสผ่าน</a>
         </div>
       </div>
     </form>
   </div>
 </div>
+<!--
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDxvrbQGcRSFb68yaaRPaDLd6hEd9YuvDY",
+    authDomain: "postkai-otp.firebaseapp.com",
+    projectId: "postkai-otp",
+    storageBucket: "postkai-otp.appspot.com",
+    messagingSenderId: "111722777636",
+    appId: "1:111722777636:web:8a346a840fdfe6608cdcb1",
+    measurementId: "G-2D0R244E6K"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>-->

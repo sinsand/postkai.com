@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-72x72.png">
@@ -23,6 +23,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo $LinkWeb;?>images/system/logo/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+	 <link href="https://cdn.lazywasabi.net/fonts/Anuphan/Anuphan.css?woff2" rel="stylesheet" />
     <?php
       if (empty($UrlPage)) {
         ?>
@@ -174,6 +175,12 @@
                 <?php
               }
             }
+          }else {
+            ?>
+            <title>ค้นหาประกาศฟรี - postkai.com</title>
+            <meta name="keywords" content="ค้นหาประกาศฟรี ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
+            <meta name="description" content="ค้นหาลงประกาศฟรี ประกาศขาย ประกาศบริการ ทั่วประเทศ ใช้งานฟรีไม่จำกัด เข้าชมประกาศได้ฟรีตลอด 24ชม." />
+            <?php
           }
         }
       }
@@ -213,6 +220,7 @@
         <?php
       }
     ?>
+    <meta name="ahrefs-site-verification" content="ef41621adceccd652e8ace8ababb7c711563215a3e240731bd817ed91dec76e9">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704899-7"></script>
     <script>
@@ -227,7 +235,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
@@ -245,7 +254,9 @@
           </a>
         </div>
         <div class="col-sm-10 p-0 text-left">
-          <a href="https://bit.ly/3gwUthO" target="_blank"><img src="https://affiliates.moneyrobot.com/banners/798x90-1.gif" width="728" height="90" border="0" /></a>
+          <a href="https://bit.ly/3gwUthO" target="_blank">
+			  <img src="<?php echo $LinkWeb;?>images/data_ban/robo2.gif" style="width:100%;height:auto;" border="0" />
+		  </a>
           <!--<a href="<?php echo $LinkWeb;?>">
             <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12 p-0" alt="ads Banner" />
           </a>-->
@@ -271,8 +282,9 @@
             <ul class="nav navbar-nav">
               <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>">หน้าหลัก</a></li>
               <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search">ค้นหาประกาศ</a></li>
+			  <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all">ประกาศทั้งหมด</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">หมวดหมู่ <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ประเภท <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <?php
                     $SqlSelect = "SELECT *
@@ -286,11 +298,11 @@
                   ?>
                 </ul>
               </li>
-              <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new">ลงประกาศฟรี</a></li>
+              <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new" class="blink_me">ลงประกาศฟรี</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <?php
-              if (empty($_COOKIE[$CookieID])) {
+              if (empty($_COOKIE["uid"])) {
                 ?>
                 <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
                 <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
@@ -318,28 +330,29 @@
                 case 'post'             : include("view-post-detail.php"); break;
                 case 'post-all'         : include("view-post-all.php"); break;
                 case 'post-new'         : include("view-post-new.php"); break;
+                case 'post-edit'        : include("view-post-edit.php"); break;
 
                 case 'login'            : include("view-login.php"); break;
+                case 'view-verification': include("view-verification.php"); break;
                 case 'register'         : include("view-register.php"); break;
+                case 'forgot'           : include("view-forgot.php"); break;
 
                 case 'member'           : include("view-member.php"); break;
+                case 'preview'           : include("view-preview.php"); break;
 
 
                 case 'policy'           : include("view-policy.php"); break;
                 case 'sitemap'          : include("view-sitemap.php"); break;
                 case 'term-and-condition'  : include("view-term-and-condition.php"); break;
 
-                case 'logout'           : setcookie($CookieID, null, time()-3600,'/');
-                                          unset($_COOKIE[$CookieID]);
-                                          unset($_COOKIE[$CookieType]);
-
-                                          unset($_SESSION[$SessionID]);
-                                          unset($_SESSION[$SessionType]);
+                case 'logout'           : setcookie("uid", null, time()-86400,'/');
+                                          setcookie("mid", null, time()-86400,'/');
+                                          unset($_COOKIE["mid"]);
+                                          unset($_COOKIE["uid"]);
 
                                           session_unset();
                                           session_destroy();
-                                          $host  = $_SERVER['HTTP_HOST'];
-                                          header("Location: https://$host/");break;
+                                          header("Location:".$LinkWeb);break;
 
                 default                 : include("main-dashboard.php"); break;
               }
@@ -469,6 +482,8 @@
           <p>
             ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข
           </p>
+          <script id="dbd-init" src="https://www.trustmarkthai.com/callbackData/initialize.js?t=1466a-25-5-23d8cf4b464a33664c21893775a3bed724533607"></script>
+          <div id="Certificate-banners" style="background: #fff;display: inline-table;border-radius: 10px;"></div>
         </div>
         <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Menu</h5>
@@ -481,23 +496,127 @@
         <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Contact us</h5>
           <p style="padding-left:25px;">Email : contact@postkai.com</p>
-          <p style="padding-left:25px;">LINE ID : seen_nuakaew</p>
+          <p style="padding-left:25px;">LINE ID : <a href="https://line.me/ti/p/0xn6zip09D" rel="nofollow" style="color:#fff;text-decoration: none;">seen_nuakaew</a></p>
           <p style="padding-left:25px;">ติดต่อโฆษณา</p>
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
-        สงวนลิขสิทธิ์ © 2552-2564 - <a href="https://www.postkai.com/" class="" style="color:#fff;">PostKai</a>
+        สงวนลิขสิทธิ์ © 2552-2565 - <a href="https://www.postkai.com/" class="" style="color:#fff;">PostKai</a>
       </div>
     </div>
     <!-- Footer -->
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+    <!-- Accept Cookie -->
+    <?php
+    if (empty($_COOKIE[$CookieAccept])) {
+      ?>
+      <div class="accept-cookie-notice">
+        <div class="">
+          <div class="row">
+            <div class="col-sm-12 col-lg-9">
+              <p class="jsx">
+                <strong class="jsx">เว็บไซต์นี้ใช้คุกกี้</strong>
+                เราใช้คุกกี้เพื่อนำเสนอคอนเทนต์และโฆษณาที่ท่านอาจสนใจเพื่อให้ท่านได้รับประสบการณ์ที่ดีบนบริการของเรา หากท่านใช้บริการเว็บไซต์ของเราต่อไปโดยไม่ได้ปรับการตั้งค่าใดๆ เราเข้าใจว่าท่านยินยอมที่จะรับคุกกี้บนเว็บไซต์ของเรา
+                <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank" class="jsx-link">คลิกเพื่อดูข้อเพิ่มเติมเกี่ยวกับระเบียบข้อบังคับ</a>
+              </p>
+            </div>
+            <div class="buttonWrapper col-12 col-sm-12 col-lg-3 text-center">
+              <button type="button" class="jsx button btn-accept-cookie">ยอมรับ</button>
+              <a href="<?php echo $LinkWeb;?>policy" type="button" target="_blank" class="jsx button btn-others">เพิ่มเติม</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .accept-cookie-notice{
+          background-color: rgb(14 14 14 / 88%);
+          position: fixed;
+          bottom: 50px;
+          width: 50%;
+          left: 25%;
+          color: #cbcbcb;
+          z-index: 9999;
+          font-size: 15px;
+          border-radius: 20px;
+          padding: 25px;
+          line-height: 25px;
+        }
+        .accept-cookie-notice .button{
+          display: inline-block;
+          border: 1px solid #cbcbcb;
+          border-radius: 20px;
+          background: transparent;
+          color: #cbcbcb;
+          height: 30px;
+          min-width: 100px;
+          padding: 0 15px;
+          margin: 2px 5px;
+          cursor: pointer;
+          font-weight: bold;
+          line-height: 28px;
+          -webkit-appearance: none;
+        }
+        .accept-cookie-notice a.jsx-link{
+          color:#fff;
+          text-decoration: underline;
+        }
+        .accept-cookie-notice a.jsx-link:hover{
+          text-decoration: none;
+        }
+        .accept-cookie-notice .button{
+          width:100%;
+        }
+        .accept-cookie-notice .button.btn-accept-cookie{
+          background: #fff;
+          color:#222;
+          margin-bottom: 20px;
+          padding: 10px;
+          height: 50px;
+        }
+        .accept-cookie-notice .button.btn-others:hover{
+          background: #fff;
+          color:#222;
+        }
+        .accept-cookie-notice .button.btn-accept-cookie:hover{
+          background: #dedede;
+          color:#222;
+        }
+      </style>
+      <script>
+        $(document).ready(function() {
+          $(".btn-accept-cookie").click(function(e) {
+            $.post("<?php echo $LinkWeb;?>query/query-system.php",
+            {
+              linkpath : "<?php echo $LinkPath;?>",
+              post :"accept-cookie-notice"
+            },
+            function(d){
+              $(".accept-cookie-notice").attr("style","display:none;");
+            });
+          });
+        });
+      </script>
+      <?php
+      }
+    ?>
+    <!-- Accept Cookie -->
+
+
 
     <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe-ui-default.js"></script>
     <script type="text/javascript"  src="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.js"></script>
@@ -875,6 +994,58 @@
         img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
       }
     </script>
+  	<script>
+    	$(document).ready(function() {
 
+    		$(".post_click_tel_hide").click(function(e) {
+    			$(".post_click_tel_hide").attr("style","display:none;");
+    			$(".post_click_tel_show").attr("style","display:block;");
+    		});
+    	});
+    </script>
+  	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  	<script>
+  		$(document).ready(function() {
+  			$('.grid').masonry({
+  			  // options
+  			  itemSelector: '.grid-item'
+  			});
+  		});
+  	 </script>
+  	<style>
+  		.grid-item { width: 100%; }
+
+  		@media screen and (min-width: 768px) {
+  		  /* 5 columns for larger screens */
+  		  .grid-item { width: 33.333%; }
+  		}
+  	</style>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDxvrbQGcRSFb68yaaRPaDLd6hEd9YuvDY",
+          authDomain: "postkai-otp.firebaseapp.com",
+          projectId: "postkai-otp",
+          storageBucket: "postkai-otp.appspot.com",
+          messagingSenderId: "111722777636",
+          appId: "1:111722777636:web:8a346a840fdfe6608cdcb1",
+          measurementId: "G-2D0R244E6K"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="<?php echo $LinkWeb;?>js/firebase.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var specialKeys = new Array();
+       specialKeys.push(8); //Backspace
+       function IsNumeric(e) {
+           var keyCode = e.which ? e.which : e.keyCode
+           var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+           document.getElementById("error").style.display = ret ? "none" : "inline";
+           return ret;
+       }
+    </script>
   </body>
 </html>

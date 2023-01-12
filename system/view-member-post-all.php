@@ -1,12 +1,12 @@
 <div class="row pb-10">
   <div class="col-xs-12 text-right pb-10">
-    <a href="<?php echo $LinkWeb;?>post-new" class="btn btn-lg btn-success" target="_blank">เพิ่มประกาศ <i class="fa fa-plus"></i></a>
+    <a href="<?php echo $LinkWeb;?>post-new" class="btn btn-lg btn-success">เพิ่มประกาศ <i class="fa fa-plus"></i></a>
   </div>
 </div>
 <?php
  $SqlSelect = "SELECT *
                FROM sb_job
-               WHERE ( mID = '".base64url_decode($_COOKIE[$CookieID])."' )";
+               WHERE ( mID = '".base64url_decode($_COOKIE['mid'])."' )";
  if (select_num($SqlSelect)>0) {
    foreach (select_tb($SqlSelect) as $row) {
      ?>
@@ -20,9 +20,17 @@
             <button id="<?php echo $row['jID'];?>" data-toggle="modal" class="btn btn-sm btn-default modal-trash" data-target="#modal-trash"><i class="fa fa-trash"></i></button>
           </div>
         </div>
-        <div class="col-xs-12 pt-5 hidden-sm hidden-md hidden-lg"><b>#หัวข้อเรื่อง :</b> <?php echo $row['jTitle'];?></div>
+        <div class="col-xs-12 pt-5 hidden-sm hidden-md hidden-lg"><b>#หัวข้อเรื่อง</b> <?php echo $row['jTitle'];?></div>
       </div>
      <?php
    }
+ }else {
+   ?>
+    <div class="row p-10">
+      <div class="col-xs-12 p-10 text-center" style="background: #f5f5f5;">
+        ยังไม่มีโพส
+      </div>
+    </div>
+   <?php
  }
 ?>
