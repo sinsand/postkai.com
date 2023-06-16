@@ -1,9 +1,30 @@
-<?php
-include('config/config.php');
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transport Cost Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <h1>Transport Cost Calculator</h1>
+    <form>
+      <label for="distance">Distance (in miles):</label>
+      <input type="number" id="distance" name="distance">
 
-$SqlSelect = "SELECT a.jID,a.jProvince,b.PROVINCE_ID FROM sb_job a LEFT OUTER JOIN p_province b ON (a.jProvince = b.PROVINCE_NAME) ORDER BY a.jProvince ASC";
-foreach (select_tb($SqlSelect) as $value) {
-  echo "<p> UPDATE sb_job SET jProvince = '".$value['PROVINCE_ID']."' WHERE jID = '".$value['jID']."'; ## ".$value['jProvince']." </p>";
-}
+      <label for="weight">Weight (in pounds):</label>
+      <input type="number" id="weight" name="weight">
 
-?>
+      <label for="speed">Average speed (in mph):</label>
+      <input type="number" id="speed" name="speed">
+
+      <label for="mpg">Miles per gallon:</label>
+      <input type="number" id="mpg" name="mpg">
+
+      <button type="button" onclick="calculateCost()">Calculate Cost</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

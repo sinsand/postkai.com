@@ -208,7 +208,7 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จำนวนวันประกาศ</label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_day">
-                <option value="0" <?php echo $_POST['post_day']=="0"?"selected":"";?>>ไม่จำกัด</option>
+                <!--<option value="0" <?php echo $_POST['post_day']=="0"?"selected":"";?>>ไม่จำกัด</option>-->
                 <option value="30" <?php echo $_POST['post_day']=="30"?"selected":"";?>>30 วัน</option>
                 <option value="90" <?php echo $_POST['post_day']=="90"?"selected":"";?>>90 วัน</option>
                 <option value="365" <?php echo $_POST['post_day']=="365"?"selected":"";?>>365 วัน</option>

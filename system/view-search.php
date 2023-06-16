@@ -149,7 +149,7 @@
 				  ?>
 				  <div class="photo-in-thumnail">
 					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-					  <img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+					  <img  class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 					  <div class="middle">
 						  <div class="text">เข้าดู</div>
 					  </div>
@@ -159,7 +159,7 @@
 				  ?>
 				  <div class="photo-in-thumnail">
 					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-					  <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" />
+					  <img  class="col-xs-12" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
 					  <div class="middle">
 						  <div class="text">เข้าดู</div>
 					  </div>
@@ -246,7 +246,7 @@
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-                  <img src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" border="0" />
+                  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
                 </a>
                 <?php
               }

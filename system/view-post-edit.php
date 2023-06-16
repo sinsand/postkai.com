@@ -309,35 +309,35 @@ if (base64url_decode($_SESSION['editsession'])=='confirm') {
 
                       if ($value['jPic1']!="") {
                         ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
-                            <img src="<?php echo $LinkWeb."images/post/picture_job_1/".$value['jPic1'];?>" class="img-thumbnail">
+                            <img class="img-thumbnail lazy" data-src="<?php echo $LinkWeb."images/post/picture_job_1/".$value['jPic1'];?>" src="">
                             <button style="margin:5px 5px 15px 5px;" type="button" id="<?php echo $value['jPic1'];?>" class="btn btn-xs btn-default click_delete_image">ลบรูป</button>
                           </div><?php
                           $varsum = $varsum+1;
                       }
                       if ($value['jPic2']!="") {
                         ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
-                            <img src="<?php echo $LinkWeb."images/post/picture_job_2/".$value['jPic2'];?>" class="img-thumbnail">
+                            <img class="img-thumbnail lazy" data-src="<?php echo $LinkWeb."images/post/picture_job_2/".$value['jPic2'];?>" src="">
                             <button style="margin:5px 5px 15px 5px;" type="button" id="<?php echo $value['jPic2'];?>" class="btn btn-xs btn-default click_delete_image">ลบรูป</button>
                           </div><?php
                           $varsum = $varsum+1;
                       }
                       if ($value['jPic3']!="") {
                         ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
-                            <img src="<?php echo $LinkWeb."images/post/picture_job_3/".$value['jPic3'];?>" class="img-thumbnail">
+                            <img class="img-thumbnail lazy" data-src="<?php echo $LinkWeb."images/post/picture_job_3/".$value['jPic3'];?>" src="">
                             <button style="margin:5px 5px 15px 5px;" type="button" id="<?php echo $value['jPic3'];?>" class="btn btn-xs btn-default click_delete_image">ลบรูป</button>
                           </div><?php
                           $varsum = $varsum+1;
                       }
                       if ($value['jPic4']!="") {
                         ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
-                            <img src="<?php echo $LinkWeb."images/post/picture_job_4/".$value['jPic4'];?>" class="img-thumbnail">
+                            <img class="img-thumbnail lazy" data-src="<?php echo $LinkWeb."images/post/picture_job_4/".$value['jPic4'];?>" src="">
                             <button style="margin:5px 5px 15px 5px;" type="button" id="<?php echo $value['jPic4'];?>" class="btn btn-xs btn-default click_delete_image">ลบรูป</button>
                           </div><?php
                           $varsum = $varsum+1;
                       }
                       if ($value['jPic5']!="") {
                         ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
-                            <img src="<?php echo $LinkWeb."images/post/picture_job_5/".$value['jPic5'];?>" class="img-thumbnail">
+                            <img class="img-thumbnail lazy" data-src="<?php echo $LinkWeb."images/post/picture_job_5/".$value['jPic5'];?>" src="">
                             <button style="margin:5px 5px 15px 5px;" type="button" id="<?php echo $value['jPic5'];?>" class="btn btn-xs btn-default click_delete_image">ลบรูป</button>
                           </div><?php
                           $varsum = $varsum+1;

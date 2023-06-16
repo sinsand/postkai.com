@@ -30,14 +30,14 @@
                   ?>
 					<div class="photo-in-thumnail">
 						<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-						<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+						<img class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 						<div class="middle">
     						<div class="text">เข้าดู</div>
   						</div>
 					</div>
 					<?php
                 }else {
-                  ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt=""/><?php
+                  ?><img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 lazy" alt=""/><?php
                 }
               ?>
                 <div class="caption col-xs-12 p-0">
@@ -45,12 +45,12 @@
                   <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
                   <p class="text-desc-2 text-row">
 					  <?php
-              $vaprice = floatval($row['jPrice']);
-              if(!empty($vaprice) && $vaprice>0) {
-                echo "<span style='color: #f00;font-weight: bold;'>ราคา ".number_format($vaprice)."</span>";
-              }else{
-                echo "<span style='color: #f00;font-weight: bold;'>ไม่ระบุราคา</span>";
-              }
+                        $vaprice = floatval($row['jPrice']);
+                        if(!empty($vaprice) && $vaprice>0) {
+                          echo "<span style='color: #f00;font-weight: bold;'>ราคา ".number_format($vaprice)."</span>";
+                        }else{
+                          echo "<span style='color: #f00;font-weight: bold;'>ไม่ระบุราคา</span>";
+                        }
 					  ?>
 				  </p>
               </div>
@@ -67,8 +67,9 @@
   $SqlSelectSL = "SELECT *
                   FROM n_slide
                   WHERE (
-                    DATE_FORMAT(sstr,'%Y-%m-%d') <= '".date('Y-m-d')."' AND
-                    DATE_FORMAT(send,'%Y-%m-%d') >= '".date('Y-m-d')."'
+                    (DATE_FORMAT(sstr,'%Y-%m-%d') <= '".date('Y-m-d')."' AND
+                    DATE_FORMAT(send,'%Y-%m-%d') >= '".date('Y-m-d')."' ) AND
+                    sstatus = '1'
                   )
                   ORDER BY RAND();";
 if (select_num($SqlSelectSL)>0) {
@@ -126,7 +127,7 @@ if (select_num($SqlSelectSL)>0) {
                 ?>
                 <div class="item <?php echo $clas;?>">
       			        <a href="<?php echo $row['slink'];?>" target="_blank">
-                  	 <img src="<?php echo $LinkWeb;?>query/view-image.php?sview=<?php echo $row['sid'];?>" alt="<?php echo $row['sname'];?>" style="width:100%;">
+                  	 <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?sview=<?php echo $row['sid'];?>" src="" alt="<?php echo $row['sname'];?>" style="width:100%;">
       			        </a>
                 </div>
                 <?php $i++;
@@ -178,7 +179,7 @@ if (select_num($SqlSelectSL)>0) {
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-            		  <img src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" border="0" />
+            		  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
             	  </a>
                 <?php
               }
@@ -276,7 +277,7 @@ if (select_num($SqlSelectSL)>0) {
                       ?>
 						<div class="photo-in-thumnail">
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+							<img class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 							<div class="middle">
 								<div class="text">เข้าดู</div>
 							</div>
@@ -286,7 +287,7 @@ if (select_num($SqlSelectSL)>0) {
 					  ?>
 						<div class="photo-in-thumnail">
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" />
+							<img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
 							<div class="middle">
 								<div class="text">เข้าดู</div>
 							</div>
@@ -305,12 +306,12 @@ if (select_num($SqlSelectSL)>0) {
 					  <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
 					  <h4 class="pt-10 pb-10 m-0 font-price">
 						  <?php
-                $vaprice = floatval($row['jPrice']);
-                if(!empty($vaprice) && $vaprice>0) {
-                  echo "ราคา ".number_format($vaprice);
-                }else{
-                  echo "ไม่ระบุราคา";
-                }
+                            $vaprice = floatval($row['jPrice']);
+                            if(!empty($vaprice) && $vaprice>0) {
+                              echo "ราคา ".number_format($vaprice);
+                            }else{
+                              echo "ไม่ระบุราคา";
+                            }
 						?>
 					  </h4>
 					</div>

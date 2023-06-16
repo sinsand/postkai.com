@@ -8,9 +8,9 @@ $SqlSelectPost = "SELECT sj.jDate_Create
                   ORDER BY sj.jDate_Create DESC
                   LIMIT 0,1 ";
 if (select_num($SqlSelectPost)>0) {
-  foreach (select_tb($SqlSelectType) as $row) {
+  foreach (select_tb($SqlSelectPost) as $row) {
     echo "<sitemap>";
-    echo "<loc>".$LinkWeb."search/?type=".$row['id_Type']."</loc>";
+    echo "<loc>".$LinkWeb."sitemap-post.xml</loc>";
     echo "<lastmod>".con_xml($row['jDate_Create'])."</lastmod>";
     echo "</sitemap>";
   }

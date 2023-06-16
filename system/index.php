@@ -6,28 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $LinkWeb;?>images/system/logo/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $LinkWeb;?>images/system/logo/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo $LinkWeb;?>images/system/logo/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-	 <link href="https://cdn.lazywasabi.net/fonts/Anuphan/Anuphan.css?woff2" rel="stylesheet" />
+    <?php 
+      if ($post_domain=="postkai.com" || $post_domain=="www.postkai.com") {
+        ?>
+          <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-57x57.png">
+          <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-60x60.png">
+          <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-72x72.png">
+          <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-76x76.png">
+          <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-114x114.png">
+          <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-120x120.png">
+          <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-144x144.png">
+          <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-152x152.png">
+          <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-180x180.png">
+          <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $LinkWeb;?>images/system/logo/android-icon-192x192.png">
+          <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/favicon-32x32.png">
+          <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $LinkWeb;?>images/system/logo/favicon-96x96.png">
+          <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/favicon-16x16.png">
+          <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/manifest.json">
+          <meta name="msapplication-TileColor" content="#ffffff">
+          <meta name="msapplication-TileImage" content="<?php echo $LinkWeb;?>images/system/logo/ms-icon-144x144.png">
+          <meta name="theme-color" content="#ffffff">
+        <?php 
+      }elseif ($post_domain=="meekai.com" || $post_domain=="www.meekai.com") {
+        ?>
+          <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/apple-touch-icon.png">
+          <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/favicon-32x32.png">
+          <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/favicon-16x16.png">
+          <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/site.webmanifest">
+          <link rel="mask-icon" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/safari-pinned-tab.svg" color="#5bbad5">
+          <meta name="msapplication-TileColor" content="#da532c">
+          <meta name="theme-color" content="#ffffff">
+        <?php 
+      }
+    ?>
+	  <link href="https://cdn.lazywasabi.net/fonts/Anuphan/Anuphan.css?woff2" rel="stylesheet" />
     <?php
       if (empty($UrlPage)) {
         ?>
-        <title>โพสขายฟรี ลงประกาศฟรี - postkai.com</title>
+        <title>โพสขายฟรี ลงประกาศฟรี ลงขายออนไลน์ ลงขายฟรี - <?php echo $post_domain ;?></title>
         <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์,โพสขายฟรี,ลงขายฟรี" />
         <meta name="description" content="เว็บไซต์ยอดนิยมให้บริการออนไลน์ โพสขายลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
         <?php
@@ -40,13 +56,13 @@
           if (select_num($SqlSelectPost)>0) {
             foreach (select_tb($SqlSelectPost) as $rowpost) {
               ?>
-              <title><?php echo $rowpost['jTitle'];?> - postkai.com</title>
+              <title><?php echo $rowpost['jTitle'];?> - <?php echo $post_domain ;?></title>
               <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์" />
               <meta name="description" content="<?php echo $rowpost['jDetail'];?>" />
               <meta property="og:title" content="<?php echo $rowpost['jTitle'];?>"/>
               <meta property="og:description" content="<?php echo $rowpost['jDetail'];?>"/>
               <meta property="og:url" content="<?php echo $LinkPath;?>"/>
-              <meta property="og:site_name" content="- postkai.com ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์"/>
+              <meta property="og:site_name" content="- <?php echo $post_domain ;?> ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์"/>
               <meta property="og:locale" content="th_TH"/>
               <meta property="og:type" content="website"/>
               <!--<meta property="fb:admins" content="102845294863081" />-->
@@ -93,7 +109,7 @@
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
-            <title><?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+            <title><?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - <?php echo $post_domain;?></title>
             <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
             <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
             <?php
@@ -120,7 +136,7 @@
           if (select_num($SqlSelectsearch)>0) {
             foreach (select_tb($SqlSelectsearch) as $rowtype) {
               ?>
-              <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+              <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - <?php echo $post_domain;?></title>
               <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
               <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
               <?php
@@ -135,7 +151,7 @@
             if (select_num($SqlSelectsearch)>0) {
               foreach (select_tb($SqlSelectsearch) as $rowtype) {
                 ?>
-                <title>ประกาศจังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> ลงประกาศฟรี - postkai.com</title>
+                <title>ประกาศจังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> ลงประกาศฟรี - <?php echo $post_domain;?></title>
                 <meta name="keywords" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
                 <meta name="description" content="จังหวัด<?php echo $rowtype['PROVINCE_NAME'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
                 <?php
@@ -149,7 +165,7 @@
             if (select_num($SqlSelectsearch)>0) {
               foreach (select_tb($SqlSelectsearch) as $rowtype) {
                 ?>
-                <title>หมวดหมู่ <?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - postkai.com</title>
+                <title>หมวดหมู่ <?php echo $rowtype['name_Type'];?> ลงประกาศฟรี - <?php echo $post_domain;?></title>
                 <meta name="keywords" content="<?php echo $rowtype['name_Type'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
                 <meta name="description" content="<?php echo $rowtype['name_Type'];?> เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
                 <?php
@@ -169,7 +185,7 @@
             if (select_num($SqlSelectsearch)>0) {
               foreach (select_tb($SqlSelectsearch) as $rowtype) {
                 ?>
-                <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - postkai.com</title>
+                <title>ค้นหา <?php echo $rowtype['jTitle'];?> ลงประกาศฟรี - <?php echo $post_domain;?></title>
                 <meta name="keywords" content="ค้นหา <?php echo $rowtype['jTitle'];?>,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
                 <meta name="description" content="ค้นหา <?php echo $rowtype['jDetail'];?>" />
                 <?php
@@ -177,7 +193,7 @@
             }
           }else {
             ?>
-            <title>ค้นหาประกาศฟรี - postkai.com</title>
+            <title>ค้นหาประกาศฟรี - <?php echo $post_domain;?></title>
             <meta name="keywords" content="ค้นหาประกาศฟรี ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
             <meta name="description" content="ค้นหาลงประกาศฟรี ประกาศขาย ประกาศบริการ ทั่วประเทศ ใช้งานฟรีไม่จำกัด เข้าชมประกาศได้ฟรีตลอด 24ชม." />
             <?php
@@ -186,50 +202,67 @@
       }
       if ($UrlPage=="policy") {
         ?>
-        <title>นโยบายการให้บริการ ลงประกาศฟรี - postkai.com</title>
+        <title>นโยบายการให้บริการ ลงประกาศฟรี - <?php echo $post_domain;?></title>
         <meta name="keywords" content="นโยบาย,นโยบายการให้บริการลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
         <meta name="description" content="ห้ามโพสประกาศขายสิ่งผิดกฏหมายทุกชนิด การพนัน, เว็บลามก, ยาผิดกฏหมายทุกชนิด, บริการทางเพศ ฯลฯ หากพบเห็นจะลบประกาศทันที ห้ามโพสข้อความหรือสิ่งใดที่เป็นการดูหมิ่นสถาบันพระมหากษัตริย์โดยเด็ดขาด" />
         <?php
       }
       if ($UrlPage=="term-and-condition") {
         ?>
-        <title>กฏ กติกา ระเบียบข้อบังคับ ลงประกาศฟรี - postkai.com</title>
+        <title>กฏ กติกา ระเบียบข้อบังคับ ลงประกาศฟรี - <?php echo $post_domain;?></title>
         <meta name="keywords" content="ระเบียบข้อบังคับ,ข้อบังคับลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
-        <meta name="description" content="ห้ามโพสข้อความหรือสิ่งใดที่เป็นการดูหมิ่นสถาบันพระมหากษัตริย์ โดยเด็ดขาด เว็บไซต์ www.postkai.com เป็นเว็บไซต์ให้บริการประกาศโฆษณาฟรี หรือ ประชาสัมพันธ์เว็บไซต์เพื่อการค้าขายบนอินเตอร์เน็ต (อี-คอมเมิร์ซ) เท่านั้นเว็บไซต์" />
+        <meta name="description" content="ห้ามโพสข้อความหรือสิ่งใดที่เป็นการดูหมิ่นสถาบันพระมหากษัตริย์ โดยเด็ดขาด เว็บไซต์ <?php echo $post_domain;?> เป็นเว็บไซต์ให้บริการประกาศโฆษณาฟรี หรือ ประชาสัมพันธ์เว็บไซต์เพื่อการค้าขายบนอินเตอร์เน็ต (อี-คอมเมิร์ซ) เท่านั้นเว็บไซต์" />
         <?php
       }
       if ($UrlPage=="login") {
         ?>
-        <title>เข้าสู่ระบบ ลงประกาศฟรี  - postkai.com</title>
+        <title>เข้าสู่ระบบ ลงประกาศฟรี  - <?php echo $post_domain;?></title>
         <meta name="keywords" content="เข้าสู่ระบบ,เข้าสู่ระบบลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
         <meta name="description" content="เข้าสู่ระบบ เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
         <?php
       }
       if ($UrlPage=="register") {
         ?>
-        <title>สมัครสมาชิก ลงประกาศฟรี ไม่มีค่าบริการ - postkai.com</title>
+        <title>สมัครสมาชิก ลงประกาศฟรี ไม่มีค่าบริการ - <?php echo $post_domain;?></title>
         <meta name="keywords" content="สมัครสมาชิก,สมัครลงประกาศ,ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
         <meta name="description" content="สมัครสมาชิก เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
         <?php
       }
       if ($UrlPage=="post-new") {
         ?>
-        <title>ลงประกาศฟรี ไม่มีค่าบริการ - postkai.com</title>
+        <title>ลงประกาศฟรี ไม่มีค่าบริการ - <?php echo $post_domain;?></title>
         <meta name="keywords" content="ลงประกาศฟรี,ลงขายออนไลน์,โพสขายของฟรี" />
         <meta name="description" content="ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข" />
         <?php
       }
     ?>
-    <meta name="ahrefs-site-verification" content="ef41621adceccd652e8ace8ababb7c711563215a3e240731bd817ed91dec76e9">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704899-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <?php 
+      if ($post_domain=="postkai.com" || $post_domain=="www.postkai.com") {
+        ?>
+          <meta name="ahrefs-site-verification" content="ef41621adceccd652e8ace8ababb7c711563215a3e240731bd817ed91dec76e9">
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704899-7"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-163704899-7');
+          </script>
+        <?php 
+      }elseif ($post_domain=="meekai.com" || $post_domain=="www.meekai.com") {
+        ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HD8LNTE4GV"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-      gtag('config', 'UA-163704899-7');
-    </script>
+          gtag('config', 'G-HD8LNTE4GV');
+        </script>
+        <?php 
+      }
+
+      ?>
     <!-- Ads Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6703509271619714" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
@@ -242,15 +275,26 @@
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/default-skin/default-skin.css">
+    <!-- Ads involasia -->
+    <script type="text/javascript" src="https://xhr.invl.co/magic/577796/auto.js"></script>
+    <link rel="stylesheet" href="<?php echo $LinkWeb;?>css/font-awesome-animation.min.css">
+    
+    
+    
   </head>
-  <body>
+  <body data-spy="scroll">
     <!-- Logo and ads -->
     <div class="container">
       <div class="row" style="margin:20px 0;">
         <div class="col-sm-2" style="padding:0px;">
           <a href="<?php echo $LinkWeb;?>" class="col-xs-12 p-0">
-            <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo">
-            <!--<img src="http://placehold.it/300/300" class="col-sm-12 hidden-xs" alt="Logo">-->
+          <?php 
+            if ($post_domain=="www.postkai.com" || $post_domain=="postkai.com") {
+              ?><img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo"><?php
+            }elseif ($post_domain=="www.meekai.com" || $post_domain=="meekai.com") {
+              ?><img src="<?php echo $LinkWeb;?>images/system/logo-meekai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo"><?php
+            }
+          ?>
           </a>
         </div>
         <div class="col-sm-10 p-0 text-left">
@@ -339,6 +383,7 @@
 
                 case 'member'           : include("view-member.php"); break;
                 case 'preview'           : include("view-preview.php"); break;
+                case 'cron-file'           : include("cron-file.php"); break;
 
 
                 case 'policy'           : include("view-policy.php"); break;
@@ -478,7 +523,7 @@
     <div class="row mr-0 ml-0" style="background-color:#45637d;color:#fff;margin-top:30px;">
       <div class="container" style="padding:20px 15px;">
         <div class="col-sm-6 col-xs-12">
-          <h5 class="text-uppercase">Postkai</h5>
+          <h5 class="text-uppercase"><?php echo ucfirst(str_replace("www.", "", $post_domain));?></h5>
           <p>
             ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข
           </p>
@@ -495,13 +540,13 @@
         </div>
         <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase">Contact us</h5>
-          <p style="padding-left:25px;">Email : contact@postkai.com</p>
+          <p style="padding-left:25px;">Email : contact@<?php echo str_replace("www.", "", $post_domain);?></p>
           <p style="padding-left:25px;">LINE ID : <a href="https://line.me/ti/p/0xn6zip09D" rel="nofollow" style="color:#fff;text-decoration: none;">seen_nuakaew</a></p>
-          <p style="padding-left:25px;">ติดต่อโฆษณา</p>
+          <p style="padding-left:25px;"><a rel="nofollow" style="color:#fff;text-decoration: none;" href="https://line.me/ti/p/0xn6zip09D">ติดต่อโฆษณา</a></p>
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
-        สงวนลิขสิทธิ์ © 2552-2565 - <a href="https://www.postkai.com/" class="" style="color:#fff;">PostKai</a>
+        สงวนลิขสิทธิ์ © 2552-2565 - <a href="https://<?php echo $post_domain;?>/" class="" style="color:#fff;"><?php echo str_replace("www.", "", $post_domain);?></a>
       </div>
     </div>
     <!-- Footer -->
@@ -518,8 +563,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
+    <!--<script src="<?php echo $LinkWeb;?>plugins/jquery.lazy.ajax.js"></script>-->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+    <script>
+      $(function($) {
+          $("img.lazy").Lazy();
+      });
+    </script>
 
     <!-- Accept Cookie -->
     <?php

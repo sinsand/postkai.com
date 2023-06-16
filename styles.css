@@ -1,0 +1,65 @@
+/* Default styles */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Responsive styles for desktop */
+@media screen and (min-width: 768px) {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  label {
+    width: 30%;
+    margin-bottom: 10px;
+  }
+
+  input[type="number"] {
+    width: 60%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  #result {
+    margin-top: 30px;
+    font-size: 1.5em;
+  }
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 767px) {
+  label, input[type="number"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 15px;
+  }
+
+  #result {
+    margin-top: 15px;
+    font-size: 1em;
+  }
+}

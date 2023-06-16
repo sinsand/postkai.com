@@ -228,7 +228,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_1/".$row['jPic1']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="demo-gallery__img--main" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="รูปที่ 1">
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="col-xs-12 p-0 pb-2" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;" />
+                          <img  class="col-xs-12 p-0 pb-2 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;" />
                           <figure  style="display:none;" class="text-center">รูปที่ 1</figure>
                         </a>
                       <?php
@@ -236,7 +236,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 1">
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0 pb-2" alt="" />
+                          <img class="col-xs-12 p-0 pb-2 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
                           <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
@@ -247,15 +247,15 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_2/".$row['jPic2']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2" class="col-xs-6 col-sm-3 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
                           <figure  style="display:none;" class="text-center">รูปที่ 2</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2">
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
+                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2 lazy" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2">
+                          <img  class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
                           <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
@@ -266,7 +266,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_3/".$row['jPic3']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="รูปที่ 3" class="col-xs-6 col-sm-3 p-0 pb-2" >
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <img class="lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
                           <figure  style="display:none;" class="text-center">รูปที่ 3</figure>
                         </a>
                       <?php
@@ -274,7 +274,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 3">
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
+                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
                           <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
@@ -285,7 +285,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_4/".$row['jPic4']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-6 col-sm-3 p-0 pb-2"  data-med-size="<?php echo $width."x".$height;?>" data-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <img  class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
                           <figure  style="display:none;" class="text-center">รูปที่ 4</figure>
                         </a>
                       <?php
@@ -293,7 +293,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
                       <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
+                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
                           <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
@@ -304,7 +304,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_5/".$row['jPic5']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" data-med-size="<?php echo $width."x".$height;?>"  data-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
-                          <img src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-12 p-0" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
                           <figure  style="display:none;" class="text-center">รูปที่ 5</figure>
                         </a>
                       <?php
@@ -312,7 +312,7 @@
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
                       <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
-                          <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 p-0" alt="" />
+                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
                           <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
                         </a>
                       <?php
@@ -526,7 +526,7 @@
                         }else {
                           ?>
                           <a href="<?php echo $row['blink'];?>" target="_blank">
-                      		  <img src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" border="0" />
+                      		  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
                       	  </a>
                           <?php
                         }
@@ -574,7 +574,7 @@
                       ?>
 						<div class="photo-in-thumnail">
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show" alt="<?php echo $row['jTitle'];?>"/>
+							<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show lazy" alt="<?php echo $row['jTitle'];?>"/>
 							<div class="middle">
 								<div class="text">เข้าดู</div>
 							</div>
@@ -584,7 +584,7 @@
 					  ?>
 						<div class="photo-in-thumnail">
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12" alt="<?php echo $row['jTitle'];?>" />
+							<img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
 							<div class="middle">
 								<div class="text">เข้าดู</div>
 							</div>
@@ -604,19 +604,19 @@
                       <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
                       <h4 class="pt-10 pb-10 m-0 font-price">
 					  <?php
-              $vaprice = floatval($row['jPrice']);
-              if(!empty($vaprice) && $vaprice>0) {
-                echo "ราคา ".number_format($vaprice);
-              }else{
-                echo "ไม่ระบุราคา";
-              }
-			  		  ?>
-					  </h4>
-                    </div>
-					  </div>
-                  </a>
-                <?php
-              }
+                          $vaprice = floatval($row['jPrice']);
+                          if(!empty($vaprice) && $vaprice>0) {
+                            echo "ราคา ".number_format($vaprice);
+                          }else{
+                            echo "ไม่ระบุราคา";
+                          }
+                                  ?>
+                                  </h4>
+                                </div>
+                                  </div>
+                              </a>
+                            <?php
+                          }
               ?>
               </div>
           </div>

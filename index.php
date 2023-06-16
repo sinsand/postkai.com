@@ -10,6 +10,10 @@ if ($UrlPage!="") {
     include("view-sitemap-category.php");
   }else if ($UrlPage=="sitemap-type.xml") {
     include("view-sitemap-type.php");
+  }else if ($UrlPage=="outlink") {
+    include("outlink.php");
+  }else if ($UrlPage=="isys") {
+    include("admin/index.php");
   }else {
     include("system/index.php");
   }
