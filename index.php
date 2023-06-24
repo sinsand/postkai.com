@@ -1,6 +1,25 @@
 <?php
 include("config/config.php");
 
+
+
+
+if (isset($_GET['lang'])) {
+  $selectedLang = $_GET['lang'];
+  setcookie('lang', $selectedLang, time() + (86400 * 30), '/'); // Cookie expires in 30 days
+} elseif (isset($_COOKIE['lang'])) {
+  $selectedLang = $_COOKIE['lang'];
+} else {
+  $selectedLang = 'th'; // Thai
+}
+
+$lang = "lanaguage/".$selectedLang.".php";
+include($lang);
+
+
+
+
+
 if ($UrlPage!="") {
   if ($UrlPage=="sitemap.xml") {
     include("view-sitemap.php");

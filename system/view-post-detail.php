@@ -80,12 +80,12 @@
       }
 
       ?>
-      <h2 class="main-head-cate t-announce f-k">ลบประกาศเลขที่ : <?php echo $UrlId;?></h2>
+      <h2 class="main-head-cate t-announce f-k"><?php echo $translations["delete-post-header"];?> : <?php echo $UrlId;?></h2>
       <div class="col-xs-12 pt-10 pb-10">
         <form action="<?php echo $LinkPath;?>" method="post">
           <div class="row">
           	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-          		<label for="InputReason">เหตุผล</label>
+          		<label for="InputReason"><?php echo $translations["delete-post-reason"];?></label>
           	</div>
           	<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
           		<div class="form-group">
@@ -108,7 +108,7 @@
           </div>
           <div class="row">
           	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-          		<label for="InputEmail">หมายเหตุ</label>
+          		<label for="InputEmail"><?php echo $translations["delete-post-remark"];?></label>
           	</div>
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
@@ -120,7 +120,7 @@
           </div>
           <div class="row">
           	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-          		<label for="InputEmail">Email</label>
+          		<label for="InputEmail"><?php echo $translations["delete-post-email"];?></label>
           	</div>
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
@@ -133,7 +133,7 @@
           </div>
           <div class="row">
           	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-          		<label for="InputTel">เบอร์โทรศัพท์</label>
+          		<label for="InputTel"><?php echo $translations["delete-post-phone"];?></label>
           	</div>
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
@@ -148,7 +148,7 @@
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"></div>
             <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
               <img src="<?php echo $LinkWeb;?>/plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 p-0">
-              <p style="margin: 0px;">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
+              <p style="margin: 0px;"><?php echo $translations["post-recap-1"];?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"];?></a> <?php echo $translations["post-recap-3"];?></p>
           		<div class="form-group">
                   <div class="input-group">
                       <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="ใส่รหัสยืนยัน" required>
@@ -159,7 +159,7 @@
           </div>
           <div class="row">
           	<div class="col-xs-12">
-                <button type="submit" name="nsubmit" class="btn btn-success btn-block">แจ้งลบประกาศ</button>
+                <button type="submit" name="nsubmit" class="btn btn-success btn-block"><?php echo $translations["delete-post-submit"];?></button>
             </div>
           </div>
         </form>
@@ -214,7 +214,7 @@
       $mID = "";
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-        <h2 class="head-main-cate-new  f-k">ประกาศเลขที่ : <?php echo $row['jID'];?></h2>
+        <h2 class="head-main-cate-new  f-k"><?php echo $translations["dpost-no"];?> : <?php echo $row['jID'];?></h2>
         <div class="col-xs-12">
           <h2 class="lh-15 f-k wb"><?php echo htmlspecialchars_decode($row['jTitle']);?></h2>
           <div class="row">
@@ -324,7 +324,7 @@
               <div class="row m-0 p-0" style="background:#f7f7f7;">
                 <table class="table fs-11">
                   <tr class="fs-15">
-                    <th style="width:40%">ประเภท</th>
+                    <th style="width:40%"><?php echo $translations["dpost-type"];?></th>
                     <td class="wb"><?php echo $row['name_Type'];?></td>
                   </tr>
                   <tr class="fs-15">
@@ -335,51 +335,51 @@
           			  			if(!empty($vaprice) && $vaprice>0) {
             							echo number_format($vaprice);
             						}else{
-            							echo "ไม่ระบุราคา";
+            							echo $translations["price-annouce"];
             						}
 			  		           ?>
         					  </td>
                   </tr>
                   <tr>
-                    <th>จังหวัด</th>
+                    <th><?php echo $translations["dpost-province"];?></th>
                     <td class="wb"><?php echo $row['PROVINCE_NAME'];?></td>
                   </tr>
                   <tr>
-                    <th>เลขที่ประกาศ</th>
+                    <th><?php echo $translations["dpost-no"];?></th>
                     <td><?php echo $row['jID'];?></td>
                   </tr>
                   <tr>
-                    <th>เข้าชม</th>
-                    <td><?php echo number_format($row['jRead']);?> ครั้ง</td>
+                    <th><?php echo $translations["dpost-view"];?></th>
+                    <td><?php echo number_format($row['jRead']);?></td>
                   </tr>
                   <tr>
-                    <th>แก้ไข</th>
-                    <td><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-edit=check">แก้ไขประกาศ</a></td>
+                    <th><?php echo $translations["dpost-edit"];?></th>
+                    <td><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-edit=check"><?php echo $translations["dpost-edit-text"];?></a></td>
                   </tr>
                   <tr>
-                    <th>แจ้งลบ</th>
-                    <td><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-delete=check">แจ้งลบประกาศ</a></td>
+                    <th><?php echo $translations["dpost-delete"];?></th>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb.$UrlPage."/".$UrlId;?>/?confirm-delete=check"><?php echo $translations["dpost-delete-text"];?></a></td>
                   </tr>
                   <tr>
-                    <th>วันที่ประกาศ</th>
+                    <th><?php echo $translations["dpost-date"];?></th>
                     <td class="wb"><?php echo day_format_month_thai($row['jDate_Create']);?></td>
                   </tr>
                   <tr>
-                    <th>ผู้ลงประกาศ</th>
+                    <th><?php echo $translations["dpost-name"];?></th>
                     <td class="wb"><?php echo $row['jc_Name'];?></td>
                   </tr>
                   <tr>
-                    <th>ที่อยู่</th>
+                    <th><?php echo $translations["dpost-address"];?></th>
                     <td class="wb"><?php echo $row['jc_Address'];?></td>
                   </tr>
                   <tr>
-                    <th>Email</th>
+                    <th><?php echo $translations["dpost-email"];?></th>
                     <td class="wb"><?php echo $row['jc_Email'];?></td>
                   </tr>
                   <tr>
-                    <th>เบอร์ติดต่อ</th>
+                    <th><?php echo $translations["dpost-phone"];?></th>
                     <td class="wb">
-                      <div class="post_click_tel_hide" style="cursor: pointer;color:#004dff;">กดดูข้อมูล</div>
+                      <div class="post_click_tel_hide" style="cursor: pointer;color:#004dff;"><?php echo $translations["dpost-phone-click"];?></div>
                       <div class="post_click_tel_show" style="display:none;"><?php echo $row['jc_Telephone'];?></div>
                     </td>
                   </tr>
@@ -392,7 +392,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12 p-0">
-              <h3 class="main-head-cate t-announce f-k">รายละเอียด</h3>
+              <h3 class="main-head-cate t-announce f-k"><?php echo $translations["dpost-detail"];?></h3>
               <div class="row m-0 wb">
       				  <div class="col-xs-12 " style="font-family: 'Anuphan', sans-serif;background: #f7f7f7;padding: 20px;">
       				      <?php echo check_tags(htmlspecialchars_decode($row['jDesc']));?>
@@ -419,15 +419,15 @@
                               <textarea class="form-control summernote-comment" name="ncomment" required></textarea>
                             </div>
                             <div class="form-group col-xs-12 pr-0 pl-0">
-                              <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล</label>
+                              <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["dpost-com-name"];?></label>
                               <div class="col-sm-9 pr-0 pl-0">
-                                <input type="text" class="form-control" name="nname" value="" placeholder="กรอกชื่อ และ นามสกุล" required autocomplete="off">
+                                <input type="text" class="form-control" name="nname" value="" placeholder="<?php echo $translations["dpost-com-name-text"];?>" required autocomplete="off">
                               </div>
                             </div>
                             <div class="form-group col-xs-12 pr-0 pl-0">
-                              <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email</label>
+                              <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email<?php echo $translations["dpost-com-email"];?></label>
                               <div class="col-sm-9 pr-0 pl-0">
-                                <input type="text" class="form-control" name="nemail" value="" required placeholder="email สำหรับติดต่อ" autocomplete="off">
+                                <input type="text" class="form-control" name="nemail" value="" required placeholder="<?php echo $translations["dpost-com-email-text"];?>" autocomplete="off">
                               </div>
                             </div>
                             <div class="form-group col-xs-12 pr-0 pl-0">
@@ -438,8 +438,8 @@
                                     <img src="<?php echo $LinkWeb;?>plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-12 col-sm-12 p-0">
                                   </div>
                                   <div class="col-xs-12 col-sm-6 pl-0 pr-0">
-                                    <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
-                                    <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ" required>
+                                    <p class="m-0"><?php echo $translations["post-recap-1"];?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"];?></a> <?php echo $translations["post-recap-3"];?></p>
+                                    <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="<?php echo $translations["post-recap-text"];?>" required>
                                   </div>
                                 </div>
                               </div>
@@ -447,7 +447,7 @@
                             <div class="form-group col-xs-12 pr-0 pl-0">
                               <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
                               <div class="col-sm-9 pr-0 pl-0 text-right">
-                                <button type="submit" name="btnPostComment" class="btn btn-success">บันทึก Comment</button>
+                                <button type="submit" name="btnPostComment" class="btn btn-success"><?php echo $translations["dpost-com-submit"];?></button>
                               </div>
                             </div>
                           </form>
@@ -464,7 +464,7 @@
                         foreach (select_tb($SqlSelectCom) as $rowcom) {
                           ?>
                           <div class="box-comment row m-0 mb-10">
-                            <h4 class="lh-15">Comment จากคุณ <b><a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a></b> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
+                            <h4 class="lh-15"><?php echo $translations["dpost-com-from"];?> <b><a href="mailto:<?php echo $rowcom['c_email'];?>"><?php echo $rowcom['c_name'];?></a></b> <span class="label label-default"><?php echo $rowcom['c_create_date'];?></span> </h4>
                             <div class="col-xs-12 pt-5 pb-5 box-show-left wb">
                               <?php echo check_tags(htmlspecialchars_decode($rowcom['c_detail']));?>
                             </div>
@@ -481,7 +481,7 @@
                         foreach (select_tb($SqlSelectComn) as $rowcomn) {
                           ?>
                           <div class="box-comment row m-0 mb-10">
-                            <h4 class="lh-15">Comment จากคุณ <b><a href="mailto:<?php echo $rowcomn['cemail'];?>"><?php echo $rowcomn['cname'];?></a></b> <span class="label label-default"><?php echo $rowcomn['ccreatedate'];?></span> </h4>
+                            <h4 class="lh-15"><?php echo $translations["dpost-com-from"];?> <b><a href="mailto:<?php echo $rowcomn['cemail'];?>"><?php echo $rowcomn['cname'];?></a></b> <span class="label label-default"><?php echo $rowcomn['ccreatedate'];?></span> </h4>
                             <div class="col-xs-12 pt-5 pb-5 box-show-left wb">
                               <?php echo check_tags(htmlspecialchars_decode($rowcomn['ccomment']));?>
                             </div>
@@ -500,12 +500,12 @@
       <!-- Ads -->
       <div class="row">
         <div class="col-xs-12">
-          <h2 class="head-main-cate-new  f-k">จากผู้สนับสนุน</h2>
+          <h2 class="head-main-cate-new  f-k"><?php echo $translations["sponsor"];?></h2>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <div class="grid">
+          <div class="row">
             <!-- show new 4 --->
             <?php
               $SqlSelect = "SELECT *
@@ -518,16 +518,16 @@
               if (select_num($SqlSelect)>0) {
                 foreach (select_tb($SqlSelect) as $row) {
                   ?>
-                  <div class="grid-item p-10">
-                    <div class="thumbnail p-0">
+                  <div class="col-xs-12 col-sm-4 col-md-4 p-10">
+                    <div class=" p-0">
                       <?php
                         if (!empty($row['bscript'])) {
                           echo htmlspecialchars_decode($row['bscript']);
                         }else {
                           ?>
                           <a href="<?php echo $row['blink'];?>" target="_blank">
-                      		  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
-                      	  </a>
+                            <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
+                          </a>
                           <?php
                         }
                       ?>
@@ -561,7 +561,7 @@
       ?>
         <div class="row">
           <div class="col-xs-12 p-0" style="margin-top:20px;">
-            <h2 class="main-head-cate f-k">ประกาศอื่นๆ</h2>
+            <h2 class="main-head-cate f-k"><?php echo $translations["dpost-other-header"];?></h2>
               <div class="col-xs-12">
               <?php
               foreach (select_tb($SqlSelectA) as $row) {
@@ -571,30 +571,30 @@
                       <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
                       <?php
                         if (!empty($row['jPic1'])) {
-                      ?>
-						<div class="photo-in-thumnail">
-							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show lazy" alt="<?php echo $row['jTitle'];?>"/>
-							<div class="middle">
-								<div class="text">เข้าดู</div>
-							</div>
-						</div>
-					<?php
-                    }else {
-					  ?>
-						<div class="photo-in-thumnail">
-							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-							<img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
-							<div class="middle">
-								<div class="text">เข้าดู</div>
-							</div>
-						</div>
-					<?php
-                    }
+                        ?>
+                          <div class="photo-in-thumnail">
+                            <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                            <img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show lazy" alt="<?php echo $row['jTitle'];?>"/>
+                            <div class="middle">
+                              <div class="text"><?php echo $translations["dpost-other-header"];?></div>
+                            </div>
+                          </div>
+                          <?php
+                        }else {
+                          ?>
+                          <div class="photo-in-thumnail">
+                            <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                            <img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
+                            <div class="middle">
+                              <div class="text"><?php echo $translations["dpost-other-header"];?></div>
+                            </div>
+                          </div>
+                        <?php
+                      }
                       ?>
                     </div>
                     <div class="col-xs-7 col-sm-9 p-0">
-					<div class="col-xs-12">
+					            <div class="col-xs-12">
                       <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
                       <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
                       <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
@@ -608,7 +608,7 @@
                           if(!empty($vaprice) && $vaprice>0) {
                             echo "ราคา ".number_format($vaprice);
                           }else{
-                            echo "ไม่ระบุราคา";
+                            echo $translations["price-annouce"];
                           }
                                   ?>
                                   </h4>
@@ -624,7 +624,7 @@
         <?php
       }
     }else {
-      ?><div class="text-center f-k" style="margin:10% 0;font-size:2em;border:1px solid #e1e1e1;border-radius:5px;color: #888888;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> ขออภัย!<br>ประกาศนี้ไม่มี หรือ ยกเลิกประกาศแล้ว</div><?php
+      ?><div class="text-center f-k" style="margin:10% 0;font-size:2em;border:1px solid #e1e1e1;border-radius:5px;color: #888888;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $translations["dpost-no-post"];?></div><?php
     }
   }
 ?>

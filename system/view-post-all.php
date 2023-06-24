@@ -1,4 +1,4 @@
-<h2 class="head-main-cate-new f-k">ประกาศทั้งหมด</h2>
+<h2 class="head-main-cate-new f-k"><?php echo $translations["post-all"];?></h2>
 <?php
     $SqlSelect = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                         FROM sb_job sj
@@ -103,7 +103,7 @@
                       if(!empty($vaprice) && $vaprice>0) {
                         echo number_format($vaprice);
                       }else{
-                        echo "ไม่ระบุราคา";
+                        echo $translations["price-annouce"]; 
                       }
 					?>
 				</h4>
@@ -144,10 +144,10 @@
 <!-- Ads -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="head-main-cate-new  f-k">จากผู้สนับสนุน</h2>
+    <h2 class="head-main-cate-new  f-k"><?php echo $translations["sponsor"];?></h2>
   </div>
 </div>
-<div class="grid">
+<div class="row">
   <!-- show new 4 --->
   <?php
     $SqlSelect = "SELECT *
@@ -160,16 +160,16 @@
     if (select_num($SqlSelect)>0) {
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-        <div class="grid-item p-10">
-          <div class="thumbnail p-0">
+        <div class="col-xs-12 col-sm-4 col-md-4 p-10">
+          <div class=" p-0">
             <?php
               if (!empty($row['bscript'])) {
                 echo htmlspecialchars_decode($row['bscript']);
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-            		  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
-            	  </a>
+                  <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
+                </a>
                 <?php
               }
             ?>

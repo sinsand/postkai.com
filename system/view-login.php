@@ -1,4 +1,4 @@
-<h2 class="main-head-cate t-search f-k">เข้าสู่ระบบ</h2>
+<h2 class="main-head-cate t-search f-k"><?php echo $translations["login"];?></h2>
 <?php
 if (isset($_POST['btnlogin'])) {
   $SqlSelect = "SELECT mid,uid,mphone
@@ -22,21 +22,21 @@ if (isset($_POST['btnlogin'])) {
   <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
       <div class="form-group">
-        <label class="control-label col-sm-3" for="email">เบอร์มือถือ:</label>
+        <label class="control-label col-sm-3" for="email"><?php echo $translations["login-phone"];?>:</label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" name="mphone" placeholder="กรอก เบอร์มือถือ" required autocomplete="off">
+          <input type="number" class="form-control" name="mphone" placeholder="<?php echo $translations["login-phone-text"];?>" required autocomplete="off">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-3" for="password">รหัสผ่าน:</label>
+        <label class="control-label col-sm-3" for="password"><?php echo $translations["login-password"];?>:</label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" name="mpassword" placeholder="กรอก รหัสผ่าน" required autocomplete="off">
+          <input type="password" class="form-control" name="mpassword" placeholder="<?php echo $translations["login-password-text"];?>" required autocomplete="off">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-3" for="email"></label>
         <div class="col-sm-9">
-          <button type="submit" name="btnlogin" class="btn btn-success">เข้าสูระบบ</button> | <a href="<?php echo $LinkWeb;?>forgot">ลืมรหัสผ่าน</a>
+          <button type="submit" name="btnlogin" class="btn btn-success"><?php echo $translations["login-submit"];?></button> | <a href="<?php echo $LinkWeb;?>forgot"><?php echo $translations["login-forgot"];?></a>
         </div>
       </div>
     </form>

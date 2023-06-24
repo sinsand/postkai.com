@@ -1,4 +1,4 @@
-<h2 class="head-main-cate-new  f-k">ค้นหาประกาศ</h2>
+<h2 class="head-main-cate-new  f-k"><?php echo $translations["search"];?></h2>
 <?php
     $S_search = null;
     $U_search = "?";
@@ -64,14 +64,14 @@
       <form action="<?php echo $LinkWeb;?>search/" method="get">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="email">ข้อความค้นหา</label>
-            <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" value="<?php echo $_GET['keywords'];?>" required>
+            <label for="email"><?php echo $translations["message-search"];?></label>
+            <input type="search" class="form-control" placeholder="<?php echo $translations["message-search"];?>" name="keywords" autocomplete="off" value="<?php echo $_GET['keywords'];?>" required>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4">
           <div class="form-group">
             <select class="form-control" name="province">
-              <option value="">ทุกจังหวัด</option>
+              <option value=""><?php echo $translations["all-province"];?></option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_province
@@ -88,7 +88,7 @@
         <div class="col-xs-12 col-sm-4">
           <div class="form-group">
             <select class="form-control" name="category">
-              <option value="">ทุกหมวดหมู่</option>
+              <option value=""><?php echo $translations["all-category"];?></option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_category
@@ -105,7 +105,7 @@
         <div class="col-xs-12 col-sm-4">
           <div class="form-group">
             <select class="form-control" name="type">
-              <option value="">ทุกประเภท</option>
+              <option value=""><?php echo $translations["all-type"];?></option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_type
@@ -120,7 +120,7 @@
           </div>
         </div>
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success mb-10" style="width:100%;">ค้นหา</button>
+          <button type="submit" class="btn btn-success mb-10" style="width:100%;"><?php echo $translations["button-search"];?></button>
         </div>
       </form>
     </div>
@@ -133,8 +133,8 @@
       if (select_num($SqlSelectSearch)>0) {
         ?>
         <div class="col-xs-12 p-0">
-          <h2 class="head-main-cate-new f-k">พบข้อมูล
-			  <?php echo  ($Page*select_num($SqlSelectSearch))."/".select_num($SqlSelectSearchAll);?> รายการ
+          <h2 class="head-main-cate-new f-k"><?php echo $translations["search-result"];?>
+			  <?php echo  ($Page*select_num($SqlSelectSearch))."/".select_num($SqlSelectSearchAll);?> 
 		  </h2>
         </div>
 		<div class="col-xs-12">
@@ -151,7 +151,7 @@
 					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
 					  <img  class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 					  <div class="middle">
-						  <div class="text">เข้าดู</div>
+						  <div class="text"><?php echo $translations["dpost-view"];?></div>
 					  </div>
 				  </div>
 				  <?php
@@ -161,7 +161,7 @@
 					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
 					  <img  class="col-xs-12" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
 					  <div class="middle">
-						  <div class="text">เข้าดู</div>
+						  <div class="text"><?php echo $translations["dpost-view"];?></div>
 					  </div>
 				  </div>
 				  <?php
@@ -177,7 +177,7 @@
                                <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
                 <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
                 <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
-                <h4 class="pt-10 pb-10 m-0 font-price">ราคา <?php echo $row['jPrice'];?></h4>
+                <h4 class="pt-10 pb-10 m-0 font-price"><?php echo $translations["dpost-price"];?> <?php echo $row['jPrice'];?></h4>
                </div>
 			  </div>
             </a>
@@ -212,7 +212,7 @@
         <?php
       }else {
         ?>
-			<p class="text-center pt-10 pb-10"><h4 class="text-center m-0 p-0">ขออภัยไม่พบข้อมูลที่ค้นหา - Search not found</h4></p>
+			<p class="text-center pt-10 pb-10"><h4 class="text-center m-0 p-0"><?php echo $translations["search-not-found"];?></h4></p>
         <?php
       }
     }
@@ -222,10 +222,10 @@
 <!-- Ads -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="head-main-cate-new  f-k">จากผู้สนับสนุน</h2>
+    <h2 class="head-main-cate-new  f-k"><?php echo $translations["sponsor"];?></h2>
   </div>
 </div>
-<div class="grid">
+<div class="row">
   <!-- show new 4 --->
   <?php
     $SqlSelect = "SELECT *
@@ -238,15 +238,15 @@
     if (select_num($SqlSelect)>0) {
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-        <div class="grid-item p-10">
-          <div class="thumbnail p-0">
+        <div class="col-xs-12 col-sm-4 col-md-4 p-10">
+          <div class=" p-0">
             <?php
               if (!empty($row['bscript'])) {
                 echo htmlspecialchars_decode($row['bscript']);
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-                  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
+                  <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
                 </a>
                 <?php
               }

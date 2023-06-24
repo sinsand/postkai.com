@@ -1,7 +1,7 @@
 <!-- recommand -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="head-main-cate-new f-k">ประกาศแนะนำประจำเดือน</h2>
+    <h2 class="head-main-cate-new f-k"><?php echo $translations["recommend-month"];?></h2>
   </div>
   <?php
       /*$SqlSelect = "SELECT sj.*,pt.name_Type
@@ -32,7 +32,7 @@
 						<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
 						<img class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 						<div class="middle">
-    						<div class="text">เข้าดู</div>
+    						<div class="text"><?php echo $translations["post-view-main"];?></div>
   						</div>
 					</div>
 					<?php
@@ -155,10 +155,10 @@ if (select_num($SqlSelectSL)>0) {
 <!-- Ads -->
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="head-main-cate-new  f-k">จากผู้สนับสนุน</h2>
+    <h2 class="head-main-cate-new  f-k"><?php echo $translations["sponsor"];?></h2>
   </div>
 </div>
-<div class="grid">
+<div class="row">
   <!-- show new 4 --->
   <?php
     $SqlSelect = "SELECT *
@@ -171,16 +171,16 @@ if (select_num($SqlSelectSL)>0) {
     if (select_num($SqlSelect)>0) {
       foreach (select_tb($SqlSelect) as $row) {
         ?>
-        <div class="grid-item p-10">
-          <div class="thumbnail p-0">
+        <div class="col-xs-12 col-sm-4 col-md-4 p-10">
+          <div class=" p-0">
             <?php
               if (!empty($row['bscript'])) {
                 echo htmlspecialchars_decode($row['bscript']);
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-            		  <img class="lazy" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>" src="" border="0" />
-            	  </a>
+                  <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
+                </a>
                 <?php
               }
             ?>
@@ -200,8 +200,8 @@ if (select_num($SqlSelectSL)>0) {
   <!-- show tab --->
   <div class="col-xs-12 p-0">
     <ul class="nav nav-tabs f-k fs-13">
-      <li class="active"><a data-toggle="tab" href="#category_post">ประกาศตามหมวดหมู่</a></li>
-      <li><a data-toggle="tab" href="#province_post">ประกาศตามจังหวัด</a></li>
+      <li class="active"><a data-toggle="tab" href="#category_post"><?php echo $translations["post-from-cat"];?></a></li>
+      <li><a data-toggle="tab" href="#province_post"><?php echo $translations["post-from-province"];?></a></li>
     </ul>
     <div class="tab-content">
       <div id="category_post" class="tab-pane fade in active">
@@ -254,7 +254,7 @@ if (select_num($SqlSelectSL)>0) {
 <div class="row">
   <div class="col-xs-12 col-sm-12">
     <div class="col-xs-12" style="padding:0px 0px 15px 0px;">
-      <h2 class="head-main-cate-new f-k">ประกาศล่าสุด</h2>
+      <h2 class="head-main-cate-new f-k"><?php echo $translations["new-post"];?></h2>
     </div>
     <div class="col-xs-12" style="padding:0px;">
 
@@ -279,7 +279,7 @@ if (select_num($SqlSelectSL)>0) {
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
 							<img class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
 							<div class="middle">
-								<div class="text">เข้าดู</div>
+								<div class="text"><?php echo $translations["post-view-main"];?></div>
 							</div>
 						</div>
 					<?php
@@ -289,7 +289,7 @@ if (select_num($SqlSelectSL)>0) {
 							<h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
 							<img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
 							<div class="middle">
-								<div class="text">เข้าดู</div>
+								<div class="text"><?php echo $translations["post-view-main"];?></div>
 							</div>
 						</div>
 					<?php
@@ -308,9 +308,9 @@ if (select_num($SqlSelectSL)>0) {
 						  <?php
                             $vaprice = floatval($row['jPrice']);
                             if(!empty($vaprice) && $vaprice>0) {
-                              echo "ราคา ".number_format($vaprice);
+                              echo $translations["price"]." ".number_format($vaprice);
                             }else{
-                              echo "ไม่ระบุราคา";
+                              echo $translations["price-annouce"];
                             }
 						?>
 					  </h4>
@@ -321,7 +321,7 @@ if (select_num($SqlSelectSL)>0) {
           }
       ?>
       <div class="text-center col-xs-12 pt-10">
-        <a href="<?php echo $LinkWeb;?>post-all" class="btn btn-success">ดูประกาศทั้งหมด >></a>
+        <a href="<?php echo $LinkWeb;?>post-all" class="btn btn-success"><?php echo $translations["all-post"];?> >></a>
       </div>
 
     </div>

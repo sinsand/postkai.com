@@ -1,4 +1,4 @@
-<h2 class="main-head-cate t-announce f-k">เพิ่มประกาศใหม่</h2>
+<h2 class="main-head-cate t-announce f-k"><?php echo $translations["post-header"];?></h2>
 <?php
   if (isset($_POST['btnPost'])) {
     if(empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0){
@@ -114,10 +114,10 @@
     <div class="row">
       <div class="col-xs-12" style="padding:25px 0px;">
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category">หมวดหมู่ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_category"><?php echo $translations["post-cate"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_category" id="post_category" required>
-              <option value="">เลือกหมวดหมู่</option>
+              <option value=""><?php echo $translations["post-cate-text"];?></option>
               <?php
               $SqlSelect = "SELECT *
                             FROM p_category
@@ -132,10 +132,10 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_province">จังหวัด <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_province"><?php echo $translations["post-province"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_province" required>
-              <option value="">เลือกจังหวัด</option>
+              <option value=""><?php echo $translations["post-province-text"];?></option>
               <?php
                 $SqlSelect = "SELECT *
                               FROM p_province
@@ -150,10 +150,10 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type">ประเภท <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_type"><?php echo $translations["post-type"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 col-xs-12 pr-0 pl-0">
             <select class="form-control" name="post_type" required>
-              <option value="">เลือกประเภท</option>
+              <option value=""><?php echo $translations["post-type-text"];?></option>
               <?php
               $SqlSelect = "SELECT *
                             FROM p_type
@@ -168,33 +168,33 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject">หัวข้อประกาศ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_subject"><?php echo $translations["post-subject"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_subject" value="<?php echo $_POST['post_subject'];?>" required placeholder="หัวข้อประกาศ" autocomplete="off">
+            <input class="form-control" type="text" name="post_subject" value="<?php echo $_POST['post_subject'];?>" required placeholder="<?php echo $translations["post-subject"];?>" autocomplete="off">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc">รายละเอียดย่อ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_desc"><?php echo $translations["post-detail-short"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_desc" value="<?php echo $_POST['post_desc'];?>" required placeholder="รายละเอียดย่อ" autocomplete="off">
+            <input class="form-control" type="text" name="post_desc" value="<?php echo $_POST['post_desc'];?>" required placeholder="<?php echo $translations["post-detail-short"];?>" autocomplete="off">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full">รายละเอียดทั้งหมด <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll mb-5 pr-0 pl-0" for="post_desc_full"><?php echo $translations["post-detail"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-12 pr-0 pl-0">
             <textarea class="form-control summernote" name="post_desc_full" required ><?php echo $_POST['post_desc_full'];?></textarea>
           </div>
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_price">ราคา</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_price"><?php echo $translations["post-price"];?></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input class="form-control" type="text" name="post_price" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" value="<?php echo $_POST['post_price'];?>" placeholder="ไม่ใส่ หรือ ใส่เฉพาะตัวเลขเท่านั้น" autocomplete="off">
-            <span id="error" style="color: Red; display: none">* ตัวเลขเท่านั้น (0 - 9)</span>
+            <input class="form-control" type="text" name="post_price" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" value="<?php echo $_POST['post_price'];?>" placeholder="<?php echo $translations["post-price-text"];?>" autocomplete="off">
+            <span id="error" style="color: Red; display: none">* Number Only (0 - 9)</span>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">สภาพสินค้า</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-product"];?></label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_product">
                 <option value="0" <?php echo $_POST['post_product']=="0"?"selected":"";?>>ไม่ระบุ</option>
@@ -205,7 +205,7 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จำนวนวันประกาศ</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-day"];?></label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_day">
                 <!--<option value="0" <?php echo $_POST['post_day']=="0"?"selected":"";?>>ไม่จำกัด</option>-->
@@ -216,7 +216,7 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_comment">สถานะ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_comment"><?php echo $translations["post-status"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_comment" required>
                 <option value="1">เปิดให้ Comment</option>
@@ -225,7 +225,7 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">แนบรูปภาพ <span style="color:#f00;">*</span><br>(.jpg .jpeg หรือ .png เท่านั้น)<br> ขนาดเหมาะสม คือ 1:1,800x800px</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-attach"];?> <span style="color:#f00;">*</span><br><?php echo $translations["post-attach-text"];?></label>
           <div class="col-sm-9 pr-0 pl-0">
             <div class="col-xs-12 p-0 ">
               <div class="form-group pr-0 pl-0">
@@ -261,22 +261,22 @@
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ชื่อ - นามสกุล <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-name"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="post_n_fullname" placeholder="กรอกชื่อ และ นามสกุล"value="<?php echo !empty($_COOKIE['mfullname'])?base64url_decode($_COOKIE['mfullname']):$_POST['post_n_fullname'];?>"  <?php echo !empty($_COOKIE['mfullname'])?"readonly":"";?> autocomplete="off">
+            <input type="text" class="form-control" name="post_n_fullname" placeholder="<?php echo $translations["post-contact-name"];?>" value="<?php echo !empty($_COOKIE['mfullname'])?base64url_decode($_COOKIE['mfullname']):$_POST['post_n_fullname'];?>"  <?php echo !empty($_COOKIE['mfullname'])?"readonly":"";?> autocomplete="off">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">ที่อยู่ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-address"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <textarea class="form-control" name="post_n_address" placeholder="กรอกที่อยู่" required autocomplete="off"><?php echo $_POST['post_n_address'];?></textarea>
+            <textarea class="form-control" name="post_n_address" placeholder="<?php echo $translations["post-contact-address-text"];?>" required autocomplete="off"><?php echo $_POST['post_n_address'];?></textarea>
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">จังหวัด <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-province"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 pr-0 pl-0">
             <select class="form-control" name="post_n_province" required>
-                <option value="">เลือกจังหวัด</option>
+                <option value=""><?php echo $translations["post-contact-province-text"];?></option>
                 <?php
                   $SqlSelect = "SELECT *
                                 FROM p_province
@@ -291,28 +291,28 @@
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">เบอร์ติดต่อ <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-phone"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 pr-0 pl-0">
-            <input type="text" class="form-control" name="post_n_telephone" required placeholder="เบอร์ติดต่อกลับ" value="<?php echo !empty($_COOKIE['mphone'])?base64url_decode($_COOKIE['mphone']):"";?>"  <?php echo !empty($_COOKIE['mphone'])?"readonly":"";?> autocomplete="off">
+            <input type="text" class="form-control" name="post_n_telephone" required placeholder="<?php echo $translations["post-contact-phone-text"];?>" value="<?php echo !empty($_COOKIE['mphone'])?base64url_decode($_COOKIE['mphone']):"";?>"  <?php echo !empty($_COOKIE['mphone'])?"readonly":"";?> autocomplete="off">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">Email <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-email"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <input type="text" class="form-control" name="post_n_email" value="<?php echo $_POST['post_n_email'];?>" required placeholder="email สำหรับติดต่อ" autocomplete="off">
+            <input type="text" class="form-control" name="post_n_email" value="<?php echo $_POST['post_n_email'];?>" required placeholder="<?php echo $translations["post-contact-email-text"];?>" autocomplete="off">
           </div>
         </div>
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_n_lineid">LINE ID</label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_n_lineid"><?php echo $translations["post-contact-line"];?></label>
           <div class="col-sm-6 pr-0 pl-0">
-            <input type="text" class="form-control" name="post_n_lineid" value="<?php echo $_POST['post_n_lineid'];?>" placeholder="LINE ID" autocomplete="off">
+            <input type="text" class="form-control" name="post_n_lineid" value="<?php echo $_POST['post_n_lineid'];?>" placeholder="<?php echo $translations["post-contact-line"];?>" autocomplete="off">
           </div>
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข<?php echo $translations["post-contact-edit"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 pr-0 pl-0">
-            <input type="number" class="form-control" name="post_code_edit" value="<?php echo $_POST['post_code_edit'];?>" required placeholder="รหัส สำหรับแก้ไขประกาศ ตัวเลขเท่านั้น" autocomplete="off">
+            <input type="number" class="form-control" name="post_code_edit" value="<?php echo $_POST['post_code_edit'];?>" required placeholder="<?php echo $translations["post-contact-edit-text"];?>" autocomplete="off">
           </div>
         </div>
 
@@ -324,7 +324,7 @@
                 <img src="<?php echo $LinkWeb;?>plugins/phpcaptcha/captcha.php?rand=<?php echo rand();?>" id='captchaimg' class="col-xs-6 col-sm-12 p-0">
               </div>
               <div class="col-xs-12 col-sm-6 pl-0 pr-0">
-                <p class="m-0">รูปไม่ชัดคลิก <a href='javascript: refreshCaptcha();'>รีโหลด</a> ใหม่</p>
+                <p class="m-0"><?php echo $translations["post-recap-1"];?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"];?></a> <?php echo $translations["post-recap-3"];?></p>
                 <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
               </div>
             </div>
@@ -333,14 +333,14 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0 pt-5 pb-5">
-            <input type="checkbox" name="re_check_policy" value="1" required id="re_check_policy"> <label style="display: initial;" for="re_check_policy">ยอมรับ <a href="<?php echo $LinkWeb;?>policy" target="_blank">นโยบายการให้บริการ</a> และ <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank">กฏ กติกา ระเบียบข้อบังคับ</a> ของ postkai</label>
+            <input type="checkbox" name="re_check_policy" value="1" required id="re_check_policy"> <label style="display: initial;" for="re_check_policy"><?php echo $translations["post-check"];?> <a href="<?php echo $LinkWeb;?>policy" target="_blank">นโยบายการให้บริการ</a> <?php echo $translations["post-check-and"];?> <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank">กฏ กติกา ระเบียบข้อบังคับ</a> ของ postkai</label>
           </div>
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0">
-            <button type="submit" name="btnPost" class="btn btn-success btn-lg">บันทึกประกาศ</button>
+            <button type="submit" name="btnPost" class="btn btn-success btn-lg"><?php echo $translations["post-confirm"];?></button>
           </div>
         </div>
       </div>

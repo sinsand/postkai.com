@@ -324,11 +324,11 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>">หน้าหลัก</a></li>
-              <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search">ค้นหาประกาศ</a></li>
-			  <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all">ประกาศทั้งหมด</a></li>
+              <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>"><?php echo $translations["home"];?></a></li>
+              <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search"><?php echo $translations["search"];?></a></li>
+			  <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all"><?php echo $translations["post-all"];?></a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ประเภท <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $translations["type-search"];?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <?php
                     $SqlSelect = "SELECT *
@@ -342,19 +342,19 @@
                   ?>
                 </ul>
               </li>
-              <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new" class="blink_me">ลงประกาศฟรี</a></li>
+              <li <?php echo $UrlPage=="post-new"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-new" class="blink_me"><?php echo $translations["post-new"];?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <?php
               if (empty($_COOKIE["uid"])) {
                 ?>
-                <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login">เข้าสู่ระบบ</a></li>
-                <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register">สมัครสมาชิก</a></li>
+                <li <?php echo $UrlPage=="login"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>login"><?php echo $translations["login-submit"];?></a></li>
+                <li <?php echo $UrlPage=="register"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>register"><?php echo $translations["register-header"];?></a></li>
                 <?php
               }else {
                 ?>
-                <li <?php echo $UrlPage=="member"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>member">ข้อมูลของฉัน</a></li>
-                <li><a href="<?php echo $LinkWeb;?>logout">ออกจากระบบ</a></li>
+                <li <?php echo $UrlPage=="member"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>member"><?php echo $translations["login-profile"];?></a></li>
+                <li><a href="<?php echo $LinkWeb;?>logout"><?php echo $translations["login-logout"];?></a></li>
                 <?php
               }
               ?>
@@ -409,16 +409,16 @@
               ?>
               <div class="row">
                 <div class="col-xs-12">
-                  <h2 class="main-head-cate t-search f-k">ค้นหาประกาศ</h2>
+                  <h2 class="main-head-cate t-search f-k"><?php echo $translations["search"];?></h2>
                   <div class="col-xs-12 p-0">
                     <form action="<?php echo $LinkWeb;?>search/" method="get">
                       <div class="form-group">
-                        <label for="email">ข้อความค้นหา</label>
+                        <label for="email"><?php echo $translations["message-search"];?></label>
                         <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" required>
                       </div>
                       <div class="form-group">
                         <select class="form-control" name="province">
-                          <option value="">ทุกจังหวัด</option>
+                          <option value=""><?php echo $translations["all-province"];?></option>
                           <?php
                             $SqlSelect = "SELECT *
                                           FROM p_province
@@ -433,7 +433,7 @@
                       </div>
                       <div class="form-group">
                         <select class="form-control" name="category">
-                          <option value="">ทุกหมวดหมู่</option>
+                          <option value=""><?php echo $translations["all-category"];?></option>
                           <?php
                             $SqlSelect = "SELECT *
                                           FROM p_category
@@ -448,7 +448,7 @@
                       </div>
                       <div class="form-group">
                         <select class="form-control" name="type">
-                          <option value="">ทุกประเภท</option>
+                          <option value=""><?php echo $translations["all-type"];?></option>
                           <?php
                             $SqlSelect = "SELECT *
                                           FROM p_type
@@ -461,8 +461,8 @@
                           ?>
                         </select>
                       </div>
-                      <p class="text-center"><a href="<?php echo $LinkWeb;?>search">หน้าค้นหา</a></p>
-                      <button type="submit" class="btn btn-success mb-10" style="width:100%;">ค้นหา</button>
+                      <p class="text-center"><a href="<?php echo $LinkWeb;?>search"><?php echo $translations["page-search"];?></a></p>
+                      <button type="submit" class="btn btn-success mb-10" style="width:100%;"><?php echo $translations["button-search"];?></button>
                     </form>
                   </div>
                 </div>
@@ -473,7 +473,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="col-xs-12 p-0">
-                <h2 class="main-head-cate t-type f-k mb-0">ประเภท</h2>
+                <h2 class="main-head-cate t-type f-k mb-0"><?php echo $translations["type-search"];?></h2>
               </div>
               <div class="col-xs-12 p-0">
               <ul class="list-group">
@@ -495,7 +495,7 @@
 
             <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="col-xs-12 p-0">
-                <h2 class="main-head-cate t-province f-k mb-0">ประกาศตามจังหวัด</h2>
+                <h2 class="main-head-cate t-province f-k mb-0"><?php echo $translations["from-province"];?></h2>
               </div>
               <div class="col-xs-12 p-0">
                 <ul class="list-group">
@@ -531,22 +531,22 @@
           <div id="Certificate-banners" style="background: #fff;display: inline-table;border-radius: 10px;"></div>
         </div>
         <div class="col-sm-3 col-xs-12">
-          <h5 class="text-uppercase">Menu</h5>
+          <h5 class="text-uppercase"><?php echo $translations["footer-menu"];?></h5>
           <p style="padding-left:25px;">
-            <a href="<?php echo $LinkWeb;?>" class="col-xs-12 text-link-footer">หน้าหลัก</a>
-            <a href="<?php echo $LinkWeb;?>policy" class="col-xs-12 text-link-footer">นโยบายการให้บริการ</a>
-            <a href="<?php echo $LinkWeb;?>term-and-condition" class="col-xs-12 text-link-footer">ระเบียบข้อบังคับ</a>
+            <a href="<?php echo $LinkWeb;?>" class="col-xs-12 text-link-footer"><?php echo $translations["home"];?></a>
+            <a href="<?php echo $LinkWeb;?>policy" class="col-xs-12 text-link-footer"><?php echo $translations["policy"];?></a>
+            <a href="<?php echo $LinkWeb;?>term-and-condition" class="col-xs-12 text-link-footer"><?php echo $translations["term-and-condition"];?></a>
           </p>
         </div>
         <div class="col-sm-3 col-xs-12">
-          <h5 class="text-uppercase">Contact us</h5>
+          <h5 class="text-uppercase"><?php echo $translations["footer-contact"];?></h5>
           <p style="padding-left:25px;">Email : contact@<?php echo str_replace("www.", "", $post_domain);?></p>
           <p style="padding-left:25px;">LINE ID : <a href="https://line.me/ti/p/0xn6zip09D" rel="nofollow" style="color:#fff;text-decoration: none;">seen_nuakaew</a></p>
-          <p style="padding-left:25px;"><a rel="nofollow" style="color:#fff;text-decoration: none;" href="https://line.me/ti/p/0xn6zip09D">ติดต่อโฆษณา</a></p>
+          <p style="padding-left:25px;"><a rel="nofollow" style="color:#fff;text-decoration: none;" href="https://line.me/ti/p/0xn6zip09D"><?php echo $translations["footer-ads"];?></a></p>
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
-        สงวนลิขสิทธิ์ © 2552-2565 - <a href="https://<?php echo $post_domain;?>/" class="" style="color:#fff;"><?php echo str_replace("www.", "", $post_domain);?></a>
+      <?php echo $translations["copyright"];?> © 2552-2565 - <a href="https://<?php echo $post_domain;?>/" class="" style="color:#fff;"><?php echo str_replace("www.", "", $post_domain);?></a>
       </div>
     </div>
     <!-- Footer -->
