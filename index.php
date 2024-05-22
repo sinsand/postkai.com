@@ -1,8 +1,5 @@
 <?php
-include("config/config.php");
-
-
-
+require("config/config.php");
 
 if (isset($_GET['lang'])) {
   $selectedLang = $_GET['lang'];
@@ -13,11 +10,8 @@ if (isset($_GET['lang'])) {
   $selectedLang = 'th'; // Thai
 }
 
-$lang = "lanaguage/".$selectedLang.".php";
-include($lang);
-
-
-
+$lang = "language/".$selectedLang.".php";
+require($lang);
 
 
 if ($UrlPage!="") {
@@ -34,10 +28,10 @@ if ($UrlPage!="") {
   }else if ($UrlPage=="isys") {
     include("admin/index.php");
   }else {
-    include("system/index.php");
+    include("new/index.php");
   }
 }else {
-  include("system/index.php");
+  include("new/index.php");
   //include("under.php");
 }
 ?>

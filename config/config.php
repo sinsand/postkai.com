@@ -14,22 +14,10 @@ $httplink ;
 $linkpath = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https" : "http")."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 //echo $link;
 if(isset($_SERVER['HTTPS']) &&  $_SERVER['HTTPS'] === 'on'){  $httplink = "https"; }else{  $httplink = "http"; }
-//$LinkWeb 		= $httplink."://".$_SERVER['HTTP_HOST']."/deltasalereport/";//"http://dsp.deltapaintgroup.com/";
-$LinkWeb 		    = $httplink."://".$_SERVER['HTTP_HOST']."/";//"http://dsp.deltapaintgroup.com/";
 $LinkPath 		  = $linkpath;
 
-
-/// postkai.com
-$Host = "localhost" ;
-$User = "chonjob_postkai" ;
-$Pass = "5ad~6r8V" ;
-$DBname = "chonjob_postkai" ;
-
-/// localhost postkai
-//$Host = "localhost";
-//$User = "admin";
-//$Pass = "admin";
-//$DBname = "postkai";
+require("config-local.php");
+//require("config-lunch.php");
 
 //// Job step show
 $s_start = 0;
@@ -48,21 +36,6 @@ $UrlOther     = "";
 $UrlOther2    = "";
 
 
-if (!empty($PathExplode[1])) {
-  $UrlPage = $PathExplode[1];
-}
-if (!empty($PathExplode[2])) {
-  $UrlId = $PathExplode[2];
-}
-if (!empty($PathExplode[3])) {
-  $UrlIdSub = $PathExplode[3];
-}
-if (!empty($PathExplode[4])) {
-  $UrlOther = $PathExplode[4];
-}
-if (!empty($PathExplode[5])) {
-  $UrlOther2 = $PathExplode[5];
-}
 
 /// Session and Cookie Admin
 $CookieID = 'C_UID'; //ID_admin
@@ -165,7 +138,6 @@ function update_tb($query){
 function base64url_encode($data) { return base64_encode($data); }
 
 function base64url_decode($data) { return base64_decode($data); }
-
 
 //// Function
 require('function.php');
