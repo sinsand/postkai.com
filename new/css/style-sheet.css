@@ -1,45 +1,178 @@
 .ibm-plex-sans-thai-thin {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 100;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-extralight {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 200;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-light {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 300;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-regular {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 400;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-medium {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 500;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-semibold {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 600;
     font-style: normal;
   }
   
   .ibm-plex-sans-thai-bold {
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
     font-weight: 700;
     font-style: normal;
   }
 
   body{
-    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-family: "IBM Plex Sans Thai";
   }
+
+  .bg_box_l {
+    background-color: #efeffa;
+  }
+
+
+
+
+
+  /**/
+  /* 
+.main-head-cate{
+  background: #45637d;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+.navbar-new{
+  border-radius: 5px !important;
+  background: #45637d;
+  border-color: #294156;
+}
+
+.click-post{
+  display:block;
+  text-decoration: none;
+  padding:5px;
+  margin:10px 0;
+  color:#000;
+  transition: 0.3s;
+  border-top: 1px solid #d7d7d7;
+  -webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+}
+.click-post:hover{
+  background: #45637d0d;
+  border-radius: 5px;
+  color:#000;
+}
+.click-post div img{
+  padding:0px 15px 0px 0px;
+  width:100%;
+  height: auto;
+}
+
+.t-search{
+  background: #45637d !important;
+}
+.t-province{
+  background: #45637d !important;
+}
+.t-type{
+  background: #45637d !important;
+}
+.t-advertis{
+  background: #45637d !important;
+}
+.t-announce{
+  background: #45637d !important;
+}
+.t-others{
+  color: #fff !important;
+  background: #45637d !important;
+}
+
+.box-comment{
+  border-bottom: 1px dotted #d7d7d7;
+}
+
+.main-sub-cate-show{
+  color: #fff;
+  padding: 5px !important;
+  border-radius: 5px;
+  margin-left: 20px !important;
+  font-size: 1.2em !important;
+}
+.row-sub{
+  margin-left: 20px !important;
+}
+.box-show-left{
+  border-left:1px solid #d7d7d7 !important;
+}
+
+.box-comment{
+  border-bottom: 1px dotted #d7d7d7;
+}
+
+.main-sub-cate-show{
+  color: #fff;
+  padding: 5px !important;
+  border-radius: 5px;
+  margin-left: 20px !important;
+  font-size: 1.2em !important;
+}
+
+.box-cate{
+  padding: 5px;
+}
+.box-in-cate{
+  background: #e1e1e1;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none !important;
+  color: #000 !important;
+  -webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+}
+.box-in-cate:hover{
+  background: #45637d !important;
+  color: #fff !important;
+}
+.box-province{
+  margin:0px 0px 3px 0px !important;
+}
+.box-in-province{
+  color:#000 !important;
+  display: block;
+  text-decoration: none !important;
+  -webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+}
+.box-in-province:hover{
+  color: #f00 !important;
+}
+
+ */

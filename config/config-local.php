@@ -6,7 +6,7 @@ $LinkWeb = $httplink."://".$_SERVER['HTTP_HOST']."/postkai.com/";
 $Host = "localhost";
 $User = "root";
 $Pass = "";
-$DBname = "postkai";
+$DBname = "chonjob_postkai";
 
 
 
