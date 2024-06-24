@@ -6,40 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <?php 
-      if ($post_domain=="postkai.com" || $post_domain=="www.postkai.com") {
-        ?>
-          <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-57x57.png">
-          <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-60x60.png">
-          <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-72x72.png">
-          <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-76x76.png">
-          <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-114x114.png">
-          <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-120x120.png">
-          <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-144x144.png">
-          <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-152x152.png">
-          <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-180x180.png">
-          <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $LinkWeb;?>images/system/logo/android-icon-192x192.png">
-          <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/favicon-32x32.png">
-          <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $LinkWeb;?>images/system/logo/favicon-96x96.png">
-          <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/favicon-16x16.png">
-          <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/manifest.json">
-          <meta name="msapplication-TileColor" content="#ffffff">
-          <meta name="msapplication-TileImage" content="<?php echo $LinkWeb;?>images/system/logo/ms-icon-144x144.png">
-          <meta name="theme-color" content="#ffffff">
-        <?php 
-      }elseif ($post_domain=="meekai.com" || $post_domain=="www.meekai.com") {
-        ?>
-          <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/apple-touch-icon.png">
-          <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/favicon-32x32.png">
-          <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/favicon-16x16.png">
-          <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/site.webmanifest">
-          <link rel="mask-icon" href="<?php echo $LinkWeb;?>images/system/logo/meekai.com/fav_icon/safari-pinned-tab.svg" color="#5bbad5">
-          <meta name="msapplication-TileColor" content="#da532c">
-          <meta name="theme-color" content="#ffffff">
-        <?php 
-      }
-    ?>
-	  <link href="https://cdn.lazywasabi.net/fonts/Anuphan/Anuphan.css?woff2" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $LinkWeb;?>images/system/logo/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $LinkWeb;?>images/system/logo/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $LinkWeb;?>images/system/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $LinkWeb;?>images/system/logo/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $LinkWeb;?>images/system/logo/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo $LinkWeb;?>images/system/logo/manifest.json">
+    <meta name="monetag" content="a913092c176dac02741a5ec082537f05">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?php echo $LinkWeb;?>images/system/logo/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <?php
       if (empty($UrlPage)) {
         ?>
@@ -78,13 +62,26 @@
         }
       }
       if ($UrlPage=="post-all") {
-        $P_Per_Page = 50;
-        $P_Page = $_GET['page'];
-        if(!$P_Page){
-          $P_Page = 1;
+        $Per_Page = 20;   // Per Page
+        $Page = $_GET['page'];
+        if(!$_GET['page']){
+          $Page=1;
         }
-        $P_Prev_Page = $P_Page-1;
-        $P_Next_Page = $P_Page+1;
+
+        $Prev_Page = $Page-1;
+        $Next_Page = $Page+1;
+
+        $Page_Start = (($Per_Page*$Page)-$Per_Page);
+        if(60000<=$Per_Page){
+          $Num_Pages =1;
+        }
+        else if((60000 % $Per_Page)==0){
+          $Num_Pages =(60000/$Per_Page) ;
+        }else{
+          $Num_Pages =(60000/$Per_Page)+1;
+          $Num_Pages = (int)$Num_Pages;
+        }
+        $id_run = $Page_Start+1;
         $SqlSelectPostAll = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                             FROM sb_job sj
                             INNER JOIN p_type pt ON (sj.jaType = pt.id_Type)
@@ -93,19 +90,8 @@
                             WHERE (
                                     ( sj.jStatus = '1' )
                                   )
-                            ORDER BY sj.jDate_Create DESC ";
-        $P_Page_Start = (($P_Per_Page*$P_Page)-$P_Per_Page);
-        if(select_num($SqlSelectPostAll)<=$P_Per_Page){
-          $P_Num_Pages =1;
-        }
-        else if((select_num($SqlSelectPostAll) % $P_Per_Page)==0){
-          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page) ;
-        }else{
-          $P_Num_Pages =(select_num($SqlSelectPostAll)/$P_Per_Page)+1;
-          $P_Num_Pages = (int)$P_Num_Pages;
-        }
-        $id_run = $Page_Start+1;
-        $SqlSelectPostAll .= " LIMIT $P_Page_Start,1; ";
+                            ORDER BY sj.jDate_Create DESC 
+                            LIMIT ".$Page_Start.",1; ";
         if (select_num($SqlSelectPostAll)>0) {
           foreach (select_tb($SqlSelectPostAll) as $rowtype) {
             ?>
@@ -117,6 +103,28 @@
         }
       }
       if ($UrlPage=="search") {
+        $Per_Page = 20;   // Per Page
+        $Page = $_GET['page'];
+        if(!$_GET['page']){
+          $Page=1;
+        }
+
+        $Prev_Page = $Page-1;
+        $Next_Page = $Page+1;
+
+        $Page_Start = (($Per_Page*$Page)-$Per_Page);
+        if(60000<=$Per_Page){
+          $Num_Pages =1;
+        }
+        else if((60000 % $Per_Page)==0){
+          $Num_Pages =(60000/$Per_Page) ;
+        }else{
+          $Num_Pages =(60000/$Per_Page)+1;
+          $Num_Pages = (int)$Num_Pages;
+        }
+        $id_run = $Page_Start+1;
+
+
         if (!empty($_GET['keywords'])) {
           ////// search all
           $SqlSelectsearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
@@ -236,42 +244,24 @@
         <?php
       }
     ?>
-    <?php 
-      if ($post_domain=="postkai.com" || $post_domain=="www.postkai.com") {
-        ?>
-          <meta name="ahrefs-site-verification" content="ef41621adceccd652e8ace8ababb7c711563215a3e240731bd817ed91dec76e9">
-          <!-- Global site tag (gtag.js) - Google Analytics -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704899-7"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-163704899-7');
-          </script>
-        <?php 
-      }elseif ($post_domain=="meekai.com" || $post_domain=="www.meekai.com") {
-        ?>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HD8LNTE4GV"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-HD8LNTE4GV');
-        </script>
-        <?php 
-      }
-
-      ?>
+    <meta name="ahrefs-site-verification" content="ef41621adceccd652e8ace8ababb7c711563215a3e240731bd817ed91dec76e9">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163704899-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-163704899-7');
+    </script>
     <!-- Ads Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6703509271619714" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Sarabun|Anuphan">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"/>
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/summernote/summernote.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/photoswipe.css">
     <link rel="stylesheet" href="<?php echo $LinkWeb;?>plugins/photoswipe-4.1.3/dist/default-skin/default-skin.css">
@@ -288,22 +278,13 @@
       <div class="row" style="margin:20px 0;">
         <div class="col-sm-2" style="padding:0px;">
           <a href="<?php echo $LinkWeb;?>" class="col-xs-12 p-0">
-          <?php 
-            if ($post_domain=="www.postkai.com" || $post_domain=="postkai.com") {
-              ?><img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo"><?php
-            }elseif ($post_domain=="www.meekai.com" || $post_domain=="meekai.com") {
-              ?><img src="<?php echo $LinkWeb;?>images/system/logo-meekai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo"><?php
-            }
-          ?>
-          </a>
+          <img src="<?php echo $LinkWeb;?>images/system/Logo-postkai.png" style="width:120px;height:auto;" class="col-sm-12 hidden-xs" alt="Logo">
+        </a>
         </div>
         <div class="col-sm-10 p-0 text-left">
           <a href="https://bit.ly/3gwUthO" target="_blank">
-			  <img src="<?php echo $LinkWeb;?>images/data_ban/robo2.gif" style="width:100%;height:auto;" border="0" />
-		  </a>
-          <!--<a href="<?php echo $LinkWeb;?>">
-            <img src="<?php echo $LinkWeb;?>images/system/ads-banner-top.jpg" class="col-xs-12 p-0" alt="ads Banner" />
-          </a>-->
+            <img src="<?php echo $LinkWeb;?>images/data_ban/robo2.gif" style="width:100%;height:auto;" border="0" />
+          </a>
         </div>
       </div>
     </div>
@@ -320,13 +301,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="<?php echo $LinkWeb;?>">โพสขายฟรี</a>
+            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="<?php echo $LinkWeb;?>"><?php echo $siteTitleMobile;?></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li <?php echo empty($UrlPage)?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>"><?php echo $translations["home"];?></a></li>
               <li <?php echo $UrlPage=="search"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>search"><?php echo $translations["search"];?></a></li>
-			  <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all"><?php echo $translations["post-all"];?></a></li>
+			        <li <?php echo $UrlPage=="post-all"?" class='active' ":"";?>><a href="<?php echo $LinkWeb;?>post-all"><?php echo $translations["post-all"];?></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $translations["type-search"];?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -357,6 +338,20 @@
                 <li><a href="<?php echo $LinkWeb;?>logout"><?php echo $translations["login-logout"];?></a></li>
                 <?php
               }
+              ?>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-solid fa-globe"></i> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo ch_lang($LinkPath);?>?lang=us"><span class="fi fi-us"></span> English</a></li>
+                  <li><a href="<?php echo ch_lang($LinkPath);?>?lang=th"><span class="fi fi-th"></span> ภาษาไทย</a></li>
+                </ul>
+                </li>
+              <?php 
+                function ch_lang($value){
+                    $vo = array("?lang=us", "?lang=th");
+                    $voc = "";
+                    return str_replace($vo,"",$value);
+                }
               ?>
             </ul>
           </div><!--/.nav-collapse -->
@@ -414,7 +409,7 @@
                     <form action="<?php echo $LinkWeb;?>search/" method="get">
                       <div class="form-group">
                         <label for="email"><?php echo $translations["message-search"];?></label>
-                        <input type="search" class="form-control" placeholder="ข้อความค้นหา" name="keywords" autocomplete="off" required>
+                        <input type="search" class="form-control" placeholder="<?php echo $translations["message-search"];?>" name="keywords" autocomplete="off" required>
                       </div>
                       <div class="form-group">
                         <select class="form-control" name="province">
@@ -485,7 +480,7 @@
                                 ORDER BY pt.name_Type ASC";
                   foreach (select_tb($SqlSelect) as $row) {
                     ?>
-                      <a href="<?php echo $LinkWeb;?>search/?type=<?php echo $row['id_Type'];?>" class="list-group-item"><?php echo $row['name_Type'];?> (<?php echo $row['cjaType'];?>)</a>
+                      <a href="<?php echo $LinkWeb;?>search/?type=<?php echo $row['id_Type'];?>" class="list-group-item"><?php echo $row['name_Type'];?> (<?php echo number_format($row['cjaType']);?>)</a>
                     <?php
                   }
                 ?>
@@ -507,7 +502,7 @@
                                   ORDER BY p.PROVINCE_ID,p.PROVINCE_NAME ASC";
                     foreach (select_tb($SqlSelect) as $row) {
                       ?>
-                      <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo $row['cjProvince'];?>)</a>
+                      <a href="<?php echo $LinkWeb;?>search/?province=<?php echo $row['PROVINCE_ID'];?>" class="list-group-item"><?php echo $row['PROVINCE_NAME'];?> (<?php echo number_format($row['cjProvince']);?>)</a>
                       <?php
                     }
                   ?>
@@ -525,7 +520,7 @@
         <div class="col-sm-6 col-xs-12">
           <h5 class="text-uppercase"><?php echo ucfirst(str_replace("www.", "", $post_domain));?></h5>
           <p>
-            ลงประกาศฟรี เว็บไซต์ยอดนิยมให้บริการออนไลน์ ลงประกาศขายบ้านฟรี ลงประกาศขาย ซื้อ ให้เช่า ประกาศและบริการต่างๆ ฟรีไม่มีข้อผูกมัดแค่ทำตามเงื่อนไข
+          <?php echo $translations["footer_about"];?>
           </p>
           <script id="dbd-init" src="https://www.trustmarkthai.com/callbackData/initialize.js?t=1466a-25-5-23d8cf4b464a33664c21893775a3bed724533607"></script>
           <div id="Certificate-banners" style="background: #fff;display: inline-table;border-radius: 10px;"></div>
@@ -540,32 +535,31 @@
         </div>
         <div class="col-sm-3 col-xs-12">
           <h5 class="text-uppercase"><?php echo $translations["footer-contact"];?></h5>
-          <p style="padding-left:25px;">Email : contact@<?php echo str_replace("www.", "", $post_domain);?></p>
+          <p style="padding-left:25px;">Email : nuakaew.a@gmail.com<?php //echo "contact@".str_replace("www.", "", $post_domain);?></p>
           <p style="padding-left:25px;">LINE ID : <a href="https://line.me/ti/p/0xn6zip09D" rel="nofollow" style="color:#fff;text-decoration: none;">seen_nuakaew</a></p>
           <p style="padding-left:25px;"><a rel="nofollow" style="color:#fff;text-decoration: none;" href="https://line.me/ti/p/0xn6zip09D"><?php echo $translations["footer-ads"];?></a></p>
         </div>
       </div>
       <div class="col-xs-12 text-center" style="background-color: rgba(0, 0, 0, 0.2);padding:15px 0;">
-      <?php echo $translations["copyright"];?> © 2552-2565 - <a href="https://<?php echo $post_domain;?>/" class="" style="color:#fff;"><?php echo str_replace("www.", "", $post_domain);?></a>
+      <?php echo $translations["copyright"];?> © 2552-2566 - <a href="https://<?php echo $post_domain;?>/" class="" style="color:#fff;"><?php echo str_replace("www.", "", $post_domain);?></a>
       </div>
     </div>
     <!-- Footer -->
 
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    -->
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!--<script src="<?php echo $LinkWeb;?>plugins/jquery.lazy.ajax.js"></script>-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+      });
+    </script>
+
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+  	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
     <script>
       $(function($) {
           $("img.lazy").Lazy();
@@ -581,14 +575,14 @@
           <div class="row">
             <div class="col-sm-12 col-lg-9">
               <p class="jsx">
-                <strong class="jsx">เว็บไซต์นี้ใช้คุกกี้</strong>
-                เราใช้คุกกี้เพื่อนำเสนอคอนเทนต์และโฆษณาที่ท่านอาจสนใจเพื่อให้ท่านได้รับประสบการณ์ที่ดีบนบริการของเรา หากท่านใช้บริการเว็บไซต์ของเราต่อไปโดยไม่ได้ปรับการตั้งค่าใดๆ เราเข้าใจว่าท่านยินยอมที่จะรับคุกกี้บนเว็บไซต์ของเรา
-                <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank" class="jsx-link">คลิกเพื่อดูข้อเพิ่มเติมเกี่ยวกับระเบียบข้อบังคับ</a>
+                <strong class="jsx"><?php echo $translations["pdpa_title"];?></strong>
+                <?php echo $translations["pdpa_desc"];?>
+                <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank" class="jsx-link"><?php echo $translations["pdpa_link"];?></a>
               </p>
             </div>
             <div class="buttonWrapper col-12 col-sm-12 col-lg-3 text-center">
-              <button type="button" class="jsx button btn-accept-cookie">ยอมรับ</button>
-              <a href="<?php echo $LinkWeb;?>policy" type="button" target="_blank" class="jsx button btn-others">เพิ่มเติม</a>
+              <button type="button" class="jsx button btn-accept-cookie"><?php echo $translations["pdpa_accept"];?></button>
+              <a href="<?php echo $LinkWeb;?>policy" type="button" target="_blank" class="jsx button btn-others"><?php echo $translations["pdpa_more"];?></a>
             </div>
           </div>
         </div>
@@ -1016,30 +1010,7 @@
               theme: 'monokai'
           }
       });
-      /*
-      $("input:file").filestyle({
-        classIcon: "icon-plus",
-        buttonText: "Upload Photo",
-        buttonName: "btn-primary"
-      });
-      */
-      // List Menu Category & Sub Category
-      $(function(){
-
-
-          /*// เมื่อเปลี่ยนค่าของ select id เท่ากับ list1
-           $("select#cate_id").change(function(){
-               // ส่งค่า ตัวแปร list1 มีค่าเท่ากับค่าที่เลือก ส่งแบบ get ไปที่ไฟล์ data_for_list2.php
-               $.get("data_for_list2.php",{
-                   cate_id:$(this).val()
-               },function(data){ // คืนค่ากลับมา
-                      $("select#sub_cate_id").html(data);  // นำค่าที่ได้ไปใส่ใน select id เท่ากับ list2
-                      $("select#sub_cate_id").trigger("change"); // อัพเดท list2 เพื่อให้ list2 ทำงานสำหรับรีเซ็ตค่า
-               });
-          });
-          */
-
-      });
+      
       function refreshCaptcha(){
         var img = document.images['captchaimg'];
         img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;

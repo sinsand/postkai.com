@@ -4,9 +4,9 @@ $LinkWeb = $httplink."://".$_SERVER['HTTP_HOST']."/";
 
 /// postkai.com
 $Host = "localhost";
-$User = "chonjob_postkai";
-$Pass = "5ad~6r8V";
-$DBname = "chonjob_postkai";
+$User = "postkaic_post";
+$Pass = "PpAVZqhvVA22a6sSPaMu";
+$DBname = "postkaic_post";
 
 
 

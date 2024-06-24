@@ -16,16 +16,9 @@ $linkpath = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https" : "htt
 if(isset($_SERVER['HTTPS']) &&  $_SERVER['HTTPS'] === 'on'){  $httplink = "https"; }else{  $httplink = "http"; }
 $LinkPath 		  = $linkpath;
 
-require("config-local.php");
-//require("config-lunch.php");
 
-//// Job step show
-$s_start = 0;
-$s_limit = 5;
-
-//define(SITE_URL,$LinkWeb);
-
-error_reporting(~E_NOTICE);
+//error_reporting(~E_NOTICE);
+error_reporting(0);
 $Path         = $LinkPath;
 $PathExplode  = explode("/",$_SERVER['REQUEST_URI']);
 $Url          = $LinkWeb;
@@ -35,6 +28,8 @@ $UrlIdSub     = "";
 $UrlOther     = "";
 $UrlOther2    = "";
 
+require("config-local.php");
+//require("config-lunch.php");
 
 
 /// Session and Cookie Admin
@@ -58,86 +53,6 @@ $SessionCountry = 'S_UCOUNTRY'; //member_country
 $SessionEditSystem = 'S_SYSTEM'; /// Edit System
 $SessionViewReport = 'S_REPORT'; /// View Report
 $SessionAdminID = 'S_ADMIN'; ///
-
-
-if (!empty($_SESSION[$SessionID]) ) {
-  if ( empty($_COOKIE[$CookieID]) ) {
-    unset($_SESSION[$SessionID]);
-
-    session_unset();
-    session_destroy();
-    header("Refresh:0; url=$linkpath");
-  }
-}
-
-function ConnectToDB() {
-	global $Link, $Host, $User, $Pass, $DBname;
-	$Link = mysqli_connect($Host,$User,$Pass,$DBname);
-  if (mysqli_connect_errno()){
-		echo "Database Connect Failed : " . mysqli_connect_error();
-	}
-	mysqli_set_charset($Link,"utf8");
-}
-
-function insert_tb($query){
-	ConnectToDB();
-	global $Link;
-	$objQuery = mysqli_query($Link,$query);
-	if($objQuery){
-		return true;
-	}else{
-		return false;
-	}
-  mysqli_close($Link);
-}
-
-function delete_tb($query){
-	ConnectToDB();
-	global $Link;
-	$objQuery = mysqli_query($Link,$query);
-	if($objQuery){
-		return true;
-	}else{
-		return false;
-	}
-  mysqli_close($Link);
-}
-
-function select_tb($query){
-	ConnectToDB();
-	global $Link;
-	$obj = mysqli_query($Link,$query);
-	while($ro = mysqli_fetch_array($obj,MYSQLI_ASSOC)){
-		$rows[] = $ro;
-	}
-	return $rows;
-  mysqli_close($Link);
-}
-
-function select_num($query){
-	ConnectToDB();
-	global $Link;
-	$obj = mysqli_query($Link,$query);
-	$numrow = mysqli_num_rows($obj);
-	return $numrow;
-  mysqli_close($Link);
-}
-
-function update_tb($query){
-	ConnectToDB();
-	global $Link;
-	$objQuery = mysqli_query($Link,$query);
-	if($objQuery){
-		return true;
-	}else{
-		return false;
-	}
-  mysqli_close($Link);
-}
-
-function base64url_encode($data) { return base64_encode($data); }
-
-function base64url_decode($data) { return base64_decode($data); }
 
 //// Function
 require('function.php');

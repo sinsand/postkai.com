@@ -32,6 +32,5 @@ if ($UrlPage!="") {
   }
 }else {
   include("new/index.php");
-  //include("under.php");
 }
 ?>
