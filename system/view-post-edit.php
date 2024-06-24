@@ -35,39 +35,6 @@ if (base64url_decode($_SESSION['editsession'])=='confirm') {
         $e_mID = ",mID = '".base64url_decode($_COOKIE['mID'])."' ";
       }
 
-  	  /*
-
-  	 if (isset($_FILES["fileshow"]["tmp_name"][0])){
-  	  $fp = fopen($_FILES["fileshow"]["tmp_name"][0],"r");
-        $ReadBinary = fread($fp,filesize($_FILES["fileshow"]["tmp_name"][0]));
-        fclose($fp);
-        $v_photo1 = addslashes($ReadBinary);
-  	 }
-  	 if (isset($_FILES["fileshow"]["tmp_name"][1])){
-  	  $fp = fopen($_FILES["fileshow"]["tmp_name"][1],"r");
-        $ReadBinary = fread($fp,filesize($_FILES["fileshow"]["tmp_name"][1]));
-        fclose($fp);
-        $v_photo2 = addslashes($ReadBinary);
-  	 }
-  	 if (isset($_FILES["fileshow"]["tmp_name"][2])){
-  	  $fp = fopen($_FILES["fileshow"]["tmp_name"][2],"r");
-        $ReadBinary = fread($fp,filesize($_FILES["fileshow"]["tmp_name"][2]));
-        fclose($fp);
-        $v_photo3 = addslashes($ReadBinary);
-  	 }
-  	 if (isset($_FILES["fileshow"]["tmp_name"][3])){
-  	  $fp = fopen($_FILES["fileshow"]["tmp_name"][3],"r");
-        $ReadBinary = fread($fp,filesize($_FILES["fileshow"]["tmp_name"][3]));
-        fclose($fp);
-        $v_photo4 = addslashes($ReadBinary);
-  	 }
-  	 if (isset($_FILES["fileshow"]["tmp_name"][4])){
-  	  $fp = fopen($_FILES["fileshow"]["tmp_name"][4],"r");
-        $ReadBinary = fread($fp,filesize($_FILES["fileshow"]["tmp_name"][4]));
-        fclose($fp);
-        $v_photo5 = addslashes($ReadBinary);
-  	 }
-  	  */
 
 
       for ($i=1; $i <= count($_FILES['fileshow']['name']); $i++) {
@@ -140,35 +107,7 @@ if (base64url_decode($_SESSION['editsession'])=='confirm') {
     		//log_insert("แก้ไขประกาศ เลขที่ : ".$UrlId." ไม่สำเร็จ",$_COOKIE[$CookieID]);
       }
 
-      /*
-
-      $SqlInsert = "INSERT INTO sb_job
-                    (jTitle,jDetail,jDesc,jPrice,jaType,jType,jProvince,jPic1,jPic2,jPic3,jPic4,jPic5,
-                     jc_Name,jc_Address,jc_Province,jc_Telephone,jc_Email,jRead,jDate_Create,jStatus,
-                     jComment,jTypeProduct,jPostDay,jLINEID,jEditor $v_mID)
-                    VALUES(
-                      '$v_subject','$v_detail','$v_description','$v_price','$v_type','$v_cate','$v_province','$v_photo1','$v_photo2','$v_photo3','$v_photo4','$v_photo5',
-                      '$n_name','$n_address','$n_province','$n_phone','$n_email','1',now(),'1',
-                      '$v_comment','$v_type_product','$v_day','$n_line','$n_code_edit' $m_mID
-                    );";
-      if (insert_tb($SqlInsert)==true) {
-        $jID = "";
-        $SqlSelect = "SELECT MAX(jID) as jID FROM sb_job LIMIT 1;";
-        foreach (select_tb($SqlSelect) as $kue) {
-          $jID = $kue['jID'];
-        }
-    		echo fSuccess(1,"ลงประกาศสำเร็จ",$LinkWeb."post/".$jID,2);
-    		//log_insert("เพิ่มประกาศใหม่ สำเร็จ",$_COOKIE[$CookieID]);
-    	}else {
-    		echo fError(1,"ประกาศไม่สำเร็จ กรุณาตรวจสอบข้อมูล",$SqlInsert);
-    		//log_insert("เพิ่มประกาศใหม่ ไม่สำเร็จ",$_COOKIE[$CookieID]);
-    	}
-      /*
-      echo "v1 : ".$v_photo1,"<br>";
-      echo "v2 : ".$v_photo2,"<br>";
-      echo "v3 : ".$v_photo3,"<br>";
-      echo "v4 : ".$v_photo4,"<br>";
-      echo "v5 : ".$v_photo5,"<br>";*/
+   
 
     }
 

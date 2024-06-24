@@ -2,7 +2,7 @@
 <?php
   if (isset($_POST['btnPost'])) {
     if(empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0){
-      echo fError(1,"รหัสยืนยันไม่ถูกต้อง","");
+      echo fError(1,$translations["pd_delete_re_show"],"");
     }else {
       $v_cate       = $_POST['post_category'];
       $v_province   = $_POST['post_province'];
@@ -93,8 +93,7 @@
         $SqlSelectIN = "SELECT jID,jDate_Create FROM sb_job  ORDER BY jID DESC LIMIT 1;";
         foreach (select_tb($SqlSelectIN) as $kueu) {
 
-          echo fSuccess(1,"ลงประกาศสำเร็จ",$LinkWeb."post/".$kueu['jID'],2);
-      		//log_insert("เพิ่มประกาศใหม่ สำเร็จ",$_COOKIE[$CookieID]);
+          echo fSuccess(1,$translations["pd_show_text_complete"],$LinkWeb."post/".$kueu['jID'],2);
           //// line notify
           $sMessage = "\nมีประกาศใหม่..".$kueu['jDate_Create']." \nหัวข้อ : *".$v_subject."* \nดูประกาศ : ".$LinkWeb."post/".$kueu['jID'];
       		line_notify($sMessage);
@@ -102,8 +101,7 @@
         }
 
     	}else {
-    		echo fError(1,"ลงประกาศไม่สำเร็จ กรุณาตรวจสอบข้อมูล","");
-    		//log_insert("เพิ่มประกาศใหม่ ไม่สำเร็จ",$_COOKIE[$CookieID]);
+    		echo fError(1,$translations["pd_show_text_error"],"");
     	}
     }
   }
@@ -197,10 +195,10 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-product"];?></label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_product">
-                <option value="0" <?php echo $_POST['post_product']=="0"?"selected":"";?>>ไม่ระบุ</option>
-                <option value="1" <?php echo $_POST['post_product']=="1"?"selected":"";?>>ใหม่</option>
-                <option value="2" <?php echo $_POST['post_product']=="2"?"selected":"";?>>มือสอง</option>
-                <option value="3" <?php echo $_POST['post_product']=="3"?"selected":"";?>>ล้างสต๊อก</option>
+                <option value="0" <?php echo $_POST['post_product']=="0"?"selected":"";?>><?php echo $translations["pn_product_1"];?></option>
+                <option value="1" <?php echo $_POST['post_product']=="1"?"selected":"";?>><?php echo $translations["pn_product_2"];?></option>
+                <option value="2" <?php echo $_POST['post_product']=="2"?"selected":"";?>><?php echo $translations["pn_product_3"];?></option>
+                <option value="3" <?php echo $_POST['post_product']=="3"?"selected":"";?>><?php echo $translations["pn_product_4"];?></option>
             </select>
           </div>
         </div>
@@ -209,9 +207,9 @@
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_day">
                 <!--<option value="0" <?php echo $_POST['post_day']=="0"?"selected":"";?>>ไม่จำกัด</option>-->
-                <option value="30" <?php echo $_POST['post_day']=="30"?"selected":"";?>>30 วัน</option>
-                <option value="90" <?php echo $_POST['post_day']=="90"?"selected":"";?>>90 วัน</option>
-                <option value="365" <?php echo $_POST['post_day']=="365"?"selected":"";?>>365 วัน</option>
+                <option value="30" <?php echo $_POST['post_day']=="30"?"selected":"";?>><?php echo $translations["pn_day_1"];?></option>
+                <option value="90" <?php echo $_POST['post_day']=="90"?"selected":"";?>><?php echo $translations["pn_day_2"];?></option>
+                <option value="365" <?php echo $_POST['post_day']=="365"?"selected":"";?>><?php echo $translations["pn_day_3"];?></option>
             </select>
           </div>
         </div>
@@ -219,8 +217,8 @@
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="post_comment"><?php echo $translations["post-status"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-9 pr-0 pl-0">
             <select class="form-control" name="post_comment" required>
-                <option value="1">เปิดให้ Comment</option>
-                <option value="0">ปิด Comment</option>
+                <option value="1"><?php echo $translations["pn_comment_open"];?></option>
+                <option value="0"><?php echo $translations["pn_comment_close"];?></option>
             </select>
           </div>
         </div>
@@ -310,7 +308,7 @@
         </div>
 
         <div class="form-group col-xs-12 pr-0 pl-0">
-          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for="">รหัสแก้ไข<?php echo $translations["post-contact-edit"];?> <span style="color:#f00;">*</span></label>
+          <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""><?php echo $translations["post-contact-edit"];?> <span style="color:#f00;">*</span></label>
           <div class="col-sm-6 pr-0 pl-0">
             <input type="number" class="form-control" name="post_code_edit" value="<?php echo $_POST['post_code_edit'];?>" required placeholder="<?php echo $translations["post-contact-edit-text"];?>" autocomplete="off">
           </div>
@@ -325,7 +323,7 @@
               </div>
               <div class="col-xs-12 col-sm-6 pl-0 pr-0">
                 <p class="m-0"><?php echo $translations["post-recap-1"];?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"];?></a> <?php echo $translations["post-recap-3"];?></p>
-                <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="กรอกตามรูปภาพ">
+                <input type="text" class="form-control" id="captcha_code" name="captcha_code" placeholder="<?php echo $translations["pn_receptcha_text"];?>">
               </div>
             </div>
           </div>
@@ -333,7 +331,7 @@
         <div class="form-group col-xs-12 pr-0 pl-0">
           <label class="control-label col-sm-3 text-ll pr-0 pl-0" for=""></label>
           <div class="col-sm-9 pr-0 pl-0 pt-5 pb-5">
-            <input type="checkbox" name="re_check_policy" value="1" required id="re_check_policy"> <label style="display: initial;" for="re_check_policy"><?php echo $translations["post-check"];?> <a href="<?php echo $LinkWeb;?>policy" target="_blank">นโยบายการให้บริการ</a> <?php echo $translations["post-check-and"];?> <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank">กฏ กติกา ระเบียบข้อบังคับ</a> ของ postkai</label>
+            <input type="checkbox" name="re_check_policy" value="1" required id="re_check_policy"> <label style="display: initial;" for="re_check_policy"><?php echo $translations["post-check"];?> <a href="<?php echo $LinkWeb;?>policy" target="_blank"><?php echo $translations["policy"];?></a> <?php echo $translations["post-check-and"];?> <a href="<?php echo $LinkWeb;?>term-and-condition" target="_blank"><?php echo $translations["term-and-condition"];?></a> postkai</label>
           </div>
         </div>
 

@@ -10,14 +10,14 @@ if (isset($_POST['btnUpdate'])) {
                               mfullname = '".$_POST['mfullname']."'
                       WHERE ( uid = '".base64url_decode($_COOKIE['uid'])."' )";
         if (update_tb($SqlUpdate)==true) {
-          echo  fSuccess(1,"บันทึกรหัสผ่านใหม่สำเร็จ",$LinkPath,2);
+          echo  fSuccess(1,$translations["mem-profile-save"],$LinkPath,2);
         }else {
-          echo fError(1,"ไม่สามารถบันทึก รหัสผ่านใหม่ได้","");
+          echo fError(1,$translations["mem-profile-error"],"");
         }
       }
     }
   }else {
-    echo fError(1,"รหัสผ่านไม่ตรงกัน กรุณากรอกใหม่","");
+    echo fError(1,$translations["mem-profile-error-match"],"");
   }
 }
 
@@ -32,39 +32,39 @@ if (isset($_POST['btnUpdate'])) {
       <div class="col-xs-12">
         <form class="form-horizontal" action="<?php echo $LinkPath;?>" method="post">
           <div class="form-group">
-            <label class="control-label col-sm-3" for="email">ชื่อ-นามสกุล:</label>
+            <label class="control-label col-sm-3" for="email"><?php echo $translations["mem-fetch-name"];?>:</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="mfullname" value="<?php echo $row['mfullname'];?>" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3" for="email">เบอร์มือถือ:</label>
+            <label class="control-label col-sm-3" for="email"><?php echo $translations["mem-fetch-phone"];?>:</label>
             <div class="col-sm-9">
               <input type="number" class="form-control" name="nphone" value="<?php echo $row['mphone'];?>" readonly>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3" for="password">รหัสผ่านเก่า:</label>
+            <label class="control-label col-sm-3" for="password"><?php echo $translations["mem-fetch-old-pass"];?>:</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" name="npassword" placeholder="รหัสผ่านเก่า" required autocomplete="off">
+              <input type="password" class="form-control" name="npassword" placeholder="<?php echo $translations["mem-fetch-old-pass"];?>" required autocomplete="off">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3" for="password">รหัสผ่านใหม่:</label>
+            <label class="control-label col-sm-3" for="password"><?php echo $translations["mem-fetch-new-pass"];?>:</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" name="npasswordnew" placeholder="รหัสผ่านใหม่" required autocomplete="off">
+              <input type="password" class="form-control" name="npasswordnew" placeholder="<?php echo $translations["mem-fetch-new-pass"];?>" required autocomplete="off">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3" for="password">ยืนยัน รหัสผ่านใหม่:</label>
+            <label class="control-label col-sm-3" for="password"><?php echo $translations["mem-fetch-confirm-pass"];?>:</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" name="nconfirmpasswordnew" placeholder="ยืนยัน รหัสผ่านใหม่อีกครั้ง" required autocomplete="off">
+              <input type="password" class="form-control" name="nconfirmpasswordnew" placeholder="<?php echo $translations["mem-fetch-confirm-pass"];?>" required autocomplete="off">
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-sm-12 text-right">
-              <button type="submit" name="btnUpdate" class="btn btn-success">บันทึกข้อมูล</button>
+              <button type="submit" name="btnUpdate" class="btn btn-success"><?php echo $translations["mem-fetch-submit"];?></button>
             </div>
           </div>
         </form>

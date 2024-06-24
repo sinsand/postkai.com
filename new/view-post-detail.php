@@ -59,16 +59,20 @@
                            " . $valuedata . "
                          );";
             if (insert_tb($SqlInsert) == true) {
-              echo fSuccess(1, $translations["pd_delete_re_show_complete"], $LinkWeb . "post/" . $UrlId, 3);
+
 
               $SqlSelect = "SELECT n.nid,n.ncreatedate
                           FROM n_notify n
                           ORDER BY n.ncreatedate DESC
                           LIMIT 1;";
               foreach (select_tb($SqlSelect) as $rowi) {
-                $sMessage = "\nมีการแจ้ง.." . $rowi['ncreatedate'] . "\nเหตุผล : " . $_POST['ndetail'] . "\nดูการแจ้ง : " . $LinkWeb . "isys/view-report/\nดูประกาศ : " . $LinkWeb . "post/" . $UrlId;
-                //line_notify($sMessage);
+                $sMessage = "\nการแจ้ง.." . $rowi['ncreatedate'] . "\nเหตุผล : " . $_POST['ndetail'] . "\nดูการแจ้ง : " . $LinkWeb . "isys/view-report/\nดูประกาศ : " . $LinkWeb . "post/" . $UrlId;
+                line_notify($sMessage);
               }
+
+              $_SESSION['show'] =  fSuccess(1, $translations["pd_delete_re_show_complete"], $LinkWeb . "post/" . $UrlId, 2);
+              header("Location:" . $LinkPath);
+              exit();
             } else {
               echo fError(1, $translations["pd_delete_re_show_notify"], '');
             }
@@ -77,13 +81,13 @@
 
       ?>
         <h2 class=""><?php echo $translations["delete-post-header"]; ?> : <?php echo $UrlId; ?></h2>
-        <div class="col-12 col-md-6 pt-0 pb-5">
-          <form action="<?php echo $LinkPath; ?>" method="post">
-            <div class="row">
+        <div class="col-12 col-md-12 col-lg-6 p-3 pb-5 card">
+          <form action="<?php echo $LinkPath; ?>" method="post" onsubmit="return onSubmit(event)">
+            <div class="row m-0">
               <div class="col-12 col-sm-3 col-md-2 col-lg-2">
                 <label for="InputReason"><?php echo $translations["delete-post-reason"]; ?></label>
               </div>
-              <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+              <div class="col-12 col-sm-9 col-md-10 col-lg-10">
                 <div class="mb-3">
                   <?php
                   $SqlSelect = "SELECT *
@@ -94,7 +98,7 @@
                     foreach (select_tb($SqlSelect) as $value) {
                   ?>
                       <div class="radio">
-                        <label><input type="radio" name="nreason" value="<?php echo $value['tid']; ?>" <?php echo $i == 0 ? "checked" : ""; ?>><?php echo $value['tname']; ?></label>
+                        <label><input type="radio" name="nreason" value="<?php echo $value['tid']; ?>" <?php echo $i == 0 ? "checked" : ""; ?>> <?php echo $value['tname']; ?></label>
                       </div>
                   <?php $i++;
                     }
@@ -103,23 +107,23 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row m-0">
               <div class="col-12 col-sm-3 col-md-2 col-lg-2">
-                <label for="InputEmail"><?php echo $translations["delete-post-remark"]; ?></label>
+                <label for=""><?php echo $translations["delete-post-remark"]; ?></label>
               </div>
-              <div class="col-12 col-sm-9 col-md-6 col-lg-6">
+              <div class="col-12 col-sm-9 col-md-10 col-lg-10">
                 <div class="mb-3">
-                  <div class="mb-3">
-                    <textarea name="ndetail" class="form-control" placeholder="<?php echo $translations["pd_report_text_placeholder"]; ?>"></textarea>
+                  <div class="col">
+                    <textarea name="ndetail" class="form-control" placeholder="<?php echo $translations["pd_report_text_placeholder"]; ?>" required></textarea>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row m-0">
               <div class="col-12 col-sm-3 col-md-2 col-lg-2">
                 <label for="InputEmail"><?php echo $translations["delete-post-email"]; ?></label>
               </div>
-              <div class="col-12 col-sm-9 col-md-6 col-lg-6">
+              <div class="col-12 col-sm-9 col-md-10 col-lg-10">
                 <div class="mb-3">
                   <div class="input-group">
                     <input type="email" class="form-control" name="nemail" id="email" placeholder="Email" required>
@@ -128,11 +132,11 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row m-0">
               <div class="col-12 col-sm-3 col-md-2 col-lg-2">
                 <label for="InputTel"><?php echo $translations["delete-post-phone"]; ?></label>
               </div>
-              <div class="col-12 col-sm-9 col-md-6 col-lg-6">
+              <div class="col-12 col-sm-9 col-md-10 col-lg-10">
                 <div class="mb-3">
                   <div class="input-group">
                     <input type="text" class="form-control" name="ntel" id="tel" placeholder="<?php echo $translations["pd_report_mobile"]; ?>" required>
@@ -141,21 +145,16 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row m-0">
               <div class="col-12 col-sm-3 col-md-2 col-lg-2"></div>
               <div class="col-12 col-sm-9 col-md-6 col-lg-6">
-                <img src="<?php echo $LinkWeb; ?>/plugins/phpcaptcha/captcha.php?rand=<?php echo rand(); ?>" id='captchaimg' class="col-6 p-0">
-                <p style="margin: 0px;"><?php echo $translations["post-recap-1"]; ?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"]; ?></a> <?php echo $translations["post-recap-3"]; ?></p>
-                <div class="mb-3">
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="<?php echo $translations["pd_report_recaptcha_text"]; ?>" required>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                  </div>
-                </div>
+                <div class="g-recaptcha" data-sitekey="6LcK9v4pAAAAALh_WlZV5JYCqLFQToygb_lqfxju"></div>
+                <div class="show-alert mt-2 text-danger text-center"></div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
+            <div class="row m-0">
+              <div class="col-12 col-sm-3 col-md-2 col-lg-2"></div>
+              <div class="col-12 col-sm-9 col-md-6 col-lg-6">
                 <button type="submit" name="nsubmit" class="btn btn-success btn-block"><?php echo $translations["delete-post-submit"]; ?></button>
               </div>
             </div>
@@ -186,9 +185,8 @@
           $sMessage = "\nมีความคิดเห็นใหม่.." . date("Y-m-d H:i:s") . "\nดูประกาศ : " . $LinkWeb . "post/" . $UrlId;
           line_notify($sMessage);
           $_SESSION['show'] = fSuccess(1, $translations["pd_comment_confirm_show_complete"], $LinkPath, 2);
-          header("Location:".$LinkPath);
+          header("Location:" . $LinkPath);
           exit();
-          
         } else {
           echo fError(1, $translations["pd_comment_confirm_show_error"], "");
         }
@@ -325,15 +323,15 @@
               </div>
               <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 pt-5">
                 <div class="row m-0 p-2 card">
-                  <div class="table-responsive">
-                    <table class="table">
+                  <div class="col">
+                    <table class="table col">
                       <tr>
                         <th style="width:40%"><?php echo $translations["dpost-type"]; ?></th>
                         <td class="text-truncate"><?php echo $row['name_Type']; ?></td>
                       </tr>
                       <tr class="fs-15">
                         <th><?php echo $translations["dpost-price"]; ?></th>
-                        <td class="text-truncate" style="color:#f00;">
+                        <td class="text-danger">
                           <?php
                           $vaprice = floatval($row['jPrice']);
                           if (!empty($vaprice) && $vaprice > 0) {
@@ -346,39 +344,43 @@
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-province"]; ?></th>
-                        <td class="text-truncate"><?php echo $row['PROVINCE_NAME']; ?></td>
+                        <td><?php echo $row['PROVINCE_NAME']; ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-no"]; ?></th>
-                        <td class="text-truncate"><?php echo $row['jID']; ?></td>
+                        <td><?php echo $row['jID']; ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-view"]; ?></th>
-                        <td class="text-truncate"><?php echo number_format($row['jRead']); ?></td>
+                        <td><?php echo number_format($row['jRead']); ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-edit"]; ?></th>
-                        <td class="text-truncate"><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb . $UrlPage . "/" . $UrlId; ?>/?confirm-edit=check"><?php echo $translations["dpost-edit-text"]; ?></a></td>
+                        <td><i class="fa fa-cog" aria-hidden="true"></i> <a href="<?php echo $LinkWeb . $UrlPage . "/" . $UrlId; ?>/?confirm-edit=check"><?php echo $translations["dpost-edit-text"]; ?></a></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-delete"]; ?></th>
-                        <td class="text-truncate"><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb . $UrlPage . "/" . $UrlId; ?>/?confirm-delete=check"><?php echo $translations["dpost-delete-text"]; ?></a></td>
+                        <td><i class="fa fa-trash" aria-hidden="true"></i> <a href="<?php echo $LinkWeb . $UrlPage . "/" . $UrlId; ?>/?confirm-delete=check"><?php echo $translations["dpost-delete-text"]; ?></a></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-date"]; ?></th>
-                        <td class="text-truncate"><?php echo day_format_month_thai($row['jDate_Create']); ?></td>
+                        <td><?php echo day_format_month_thai($row['jDate_Create']); ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-name"]; ?></th>
-                        <td class="text-truncate"><?php echo $row['jc_Name']; ?></td>
+                        <td><?php echo $row['jc_Name']; ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-address"]; ?></th>
-                        <td class="text-truncate"><?php echo $row['jc_Address']; ?></td>
+                        <td>
+                          <div class="row m-0">
+                            <div class="col p-0"><?php echo $row['jc_Address']; ?></div>
+                          </div>
+                        </td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-email"]; ?></th>
-                        <td class="text-truncate"><?php echo $row['jc_Email']; ?></td>
+                        <td><?php echo $row['jc_Email']; ?></td>
                       </tr>
                       <tr>
                         <th><?php echo $translations["dpost-phone"]; ?></th>
@@ -484,7 +486,11 @@
                       foreach (select_tb($SqlSelectComn) as $rowcomn) {
                       ?>
                         <div class="card col m-0 mb-2 p-2">
-                          <div class="fs-6 fw-bold"><?php echo $translations["dpost-com-from"]; ?> <b><a href="mailto:<?php echo $rowcomn['cemail']; ?>"><?php echo $rowcomn['cname']; ?></a></b> <span class="label label-default"><?php echo $rowcomn['ccreatedate']; ?></span> </div>
+                          <div class="fs-6">
+                            <?php echo $translations["dpost-com-from"]; ?> 
+                            <b><a class="text-decoration-none text-black" href="mailto:<?php echo $rowcomn['cemail']; ?>"><?php echo $rowcomn['cname']; ?></a></b> 
+                            <span class="label label-default"><?php echo day_format_month_us($rowcomn['ccreatedate']); ?></span> 
+                          </div>
                           <div class="col-12 pt-2 pb-2 ">
                             <?php echo check_tags(htmlspecialchars_decode($rowcomn['ccomment'])); ?>
                           </div>
@@ -522,17 +528,15 @@
               <div class="row m-0">
                 <?php
                 foreach (select_tb($SqlSelectA) as $row) {
+                  $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
+                  if (!empty($row['jPic1'])) {
+                    $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
+                  }
                 ?>
                   <div class="p-1 col">
                     <div class="card shadow-sm p-0">
                       <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>" class="row m-0 text-decoration-none text-black row-cols-2">
-                        <div class="col-4 col-sm-3 p-0">
-                          <?php
-                          $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
-                          if (!empty($row['jPic1'])) {
-                            $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
-                          }
-                          ?>
+                        <div class="col-4 col-sm-3 p-0 lazyload" style="background-image: url('<?php echo $image_p1; ?>');background-size: cover;background-repeat: no-repeat;">
                           <div class="col-12 p-0">
                             <div class="position-relative">
                               <div class="position-absolute" style="top: 10px;left: 5px;">
@@ -541,7 +545,7 @@
                                 </span>
                               </div>
                             </div>
-                            <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" />
+                            <!-- <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" /> -->
                           </div>
                         </div>
                         <div class="col-8 col-sm-9 p-2 ps-3">

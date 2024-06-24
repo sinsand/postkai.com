@@ -557,6 +557,15 @@
             return ret;
         }
     </script>
+    <script>
+    	$(document).ready(function() {
+            /*  click to show for post */
+    		$(".post_click_tel_hide").click(function(e) {
+    			$(".post_click_tel_hide").attr("style","display:none;");
+    			$(".post_click_tel_show").attr("style","display:block;");
+    		});
+    	});
+    </script>
 
 </body>
 

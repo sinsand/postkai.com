@@ -11,10 +11,10 @@ if (isset($_POST['btnlogin'])) {
       setcookie("mid", base64url_encode($value['mid']), time()+86400,'/');
       setcookie("mphone", base64url_encode($value['mphone']), time()+86400,'/');
       setcookie("mfullname", base64url_encode($value['mfullname']), time()+86400,'/');
-      echo fSuccess(5,"เข้าสู่ระบบสำเร็จ รอสักครู่...",$LinkWeb."member",2);
+      echo fSuccess(5,$translations["login-submit-completed"],$LinkWeb."member",2);
     }
   }else {
-    fError(5,"เข้าสู่ระบบไม่สำเร็จ ข้อมูลไม่ถูกต้อง","");
+    fError(5,$translations["login-submit-error"],"");
   }
 }
 ?>

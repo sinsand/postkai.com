@@ -130,6 +130,16 @@ function day_format_month_thai($value)
   return substr($value, 8, 2) . " " . $a_monthth[substr($value, 5, 2) - 0] . " " . (substr($value, 0, 4) + 543) . " " . $timeto;
 }
 
+function day_format_month_us($value)
+{
+  $time = substr($value, 11, 8);
+  $timeto = "";
+  if ($time != "") {
+    $timeto = substr($value, 11, 8);
+  }
+  return substr($value, 8, 2) . " " . date("F", mktime(0, 0, 0, substr($value, 5, 2) - 0, 0, 0)). " " . (substr($value, 0, 4) + 543) . " " . $timeto;
+}
+
 //// alert success
 function fSuccess($type, $value, $link, $time)
 {

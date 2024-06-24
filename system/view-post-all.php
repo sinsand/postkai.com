@@ -6,30 +6,8 @@
                         LEFT OUTER JOIN p_category pc ON (sj.jType = pc.id_category)
                         LEFT OUTER JOIN p_province p  ON (sj.jProvince = p.PROVINCE_ID)
                         WHERE ( sj.jStatus = '1' )
-                        ORDER BY sj.jDate_Create DESC ";
-
-    $Per_Page = 50;   // Per Page
-    $Page = $_GET['page'];
-    if(!$_GET['page']){
-      $Page=1;
-    }
-
-    $Prev_Page = $Page-1;
-    $Next_Page = $Page+1;
-
-    $Page_Start = (($Per_Page*$Page)-$Per_Page);
-    if(select_num($SqlSelect)<=$Per_Page){
-      $Num_Pages =1;
-    }
-    else if((select_num($SqlSelect) % $Per_Page)==0){
-      $Num_Pages =(select_num($SqlSelect)/$Per_Page) ;
-    }else{
-      $Num_Pages =(select_num($SqlSelect)/$Per_Page)+1;
-      $Num_Pages = (int)$Num_Pages;
-    }
-    $id_run = $Page_Start+1;
-
-    $SqlSelect .= " LIMIT $Page_Start , $Per_Page; ";
+                        ORDER BY sj.jDate_Create DESC 
+                        LIMIT $Page_Start , $Per_Page; ";
 
 
 ?>
@@ -66,50 +44,53 @@
             <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
             <?php
               if (!empty($row['jPic1'])) {
-			  ?>
-			  <div class="photo-in-thumnail">
-				  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-				  <img class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
-				  <div class="middle">
-					  <div class="text">เข้าดู</div>
-				  </div>
-			  </div>
-			  <?php
-			  }else {
-			  ?>
-			  <div class="photo-in-thumnail">
-				  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-				  <img src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-12 lazy" alt="<?php echo $row['jTitle'];?>" />
-				  <div class="middle">
-					  <div class="text">เข้าดู</div>
-				  </div>
-			  </div>
-			  <?php
-			  }
+              ?>
+                <div class="photo-in-thumnail">
+                  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                  <img class="col-xs-12 p-0 image-show lazy" 
+                        data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" 
+                        src="https://placehold.co/600x600?text=Waiting" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
+                  <div class="middle">
+                    <div class="text"><?php echo $translations["post-view-main"];?></div>
+                  </div>
+                </div>
+              <?php
+              }else {
+              ?>
+                <div class="photo-in-thumnail">
+                  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                  <img data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                      src="https://placehold.co/600x600?text=Waiting" class="col-xs-12 lazy" alt="<?php echo $row['jTitle'];?>" />
+                  <div class="middle">
+                    <div class="text"><?php echo $translations["post-view-main"];?></div>
+                  </div>
+                </div>
+              <?php
+              }
             ?>
           </div>
           <div class="col-xs-7 col-sm-9 p-0">
-			  <div class="col-xs-12">
-				<h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
-				<p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
-				<p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
-							   <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span> |
-							   <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
-				<p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
-				<p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
-				<h4 class="pt-10 pb-10 m-0 font-price">
-					<?php
-                      $vaprice = floatval($row['jPrice']);
-                      if(!empty($vaprice) && $vaprice>0) {
-                        echo number_format($vaprice);
-                      }else{
-                        echo $translations["price-annouce"]; 
-                      }
-					?>
-				</h4>
-			 </div>
+            <div class="col-xs-12">
+            <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
+            <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
+            <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
+                <span class="label label-warning t-province t-text-desc"><?php echo $row['PROVINCE_NAME'];?></span> |
+                <span class="label label-warning t-province t-text-desc"><?php echo $row['name_category'];?></span></p>
+            <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
+            <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
+            <h4 class="pt-10 pb-10 m-0 font-price">
+              <?php
+                $vaprice = floatval($row['jPrice']);
+                if(!empty($vaprice) && $vaprice>0) {
+                  echo number_format($vaprice);
+                }else{
+                  echo $translations["price-annouce"]; 
+                }
+              ?>
+            </h4>
           </div>
-        </a>
+        </div>
+      </a>
       <?php
     }
 ?>
@@ -168,7 +149,7 @@
               }else {
                 ?>
                 <a href="<?php echo $row['blink'];?>" target="_blank">
-                  <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
+                  <img class="col-xs-12 lazy" src="https://placehold.co/600x600?text=Waiting" data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
                 </a>
                 <?php
               }

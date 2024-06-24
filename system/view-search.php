@@ -19,7 +19,6 @@
 	  $U_search .= "&keywords=".$_GET['keywords'];
     }
     $SqlSelectSearch = "";
-    $SqlSelectSearchAll ="";
     if (!empty($S_search)) {
       $SqlSelectSearch = "SELECT sj.*,pt.name_Type,p.PROVINCE_NAME,pc.name_category
                           FROM sb_job sj
@@ -30,32 +29,10 @@
                                   ( sj.jStatus = '1' )
                                   $S_search
                                 )
-                          ORDER BY sj.jDate_Create DESC ";
-      //echo $SqlSelectSearch;
-      $Per_Page = 50;   // Per Page
-      $Page = $_GET['page'];
-      if(!$_GET['page']){
-        $Page=1;
-      }
-
-      $Prev_Page = $Page-1;
-      $Next_Page = $Page+1;
-
-      $Page_Start = (($Per_Page*$Page)-$Per_Page);
-      if(select_num($SqlSelectSearch)<=$Per_Page){
-        $Num_Pages =1;
-      }
-      else if((select_num($SqlSelectSearch) % $Per_Page)==0){
-        $Num_Pages =(select_num($SqlSelectSearch)/$Per_Page) ;
-      }else{
-        $Num_Pages =(select_num($SqlSelectSearch)/$Per_Page)+1;
-        $Num_Pages = (int)$Num_Pages;
-      }
-      $id_run = $Page_Start+1;
-
-      $SqlSelectSearchAll  = $SqlSelectSearch;
-      $SqlSelectSearch .= " LIMIT $Page_Start , $Per_Page; ";
-
+                          ORDER BY sj.jDate_Create DESC 
+                          LIMIT $Page_Start , $Per_Page; ";
+    
+    $SqlSelectSearchAll = $SqlSelectSearch ;
     }
 
     ?>
@@ -143,33 +120,36 @@
           ?>
             <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
               <div class="col-xs-5 col-sm-3 p-0">
-                <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
                 <?php
                   if (!empty($row['jPic1'])) {
-				  ?>
-				  <div class="photo-in-thumnail">
-					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-					  <img  class="col-xs-12 p-0 image-show lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
-					  <div class="middle">
-						  <div class="text"><?php echo $translations["dpost-view"];?></div>
-					  </div>
-				  </div>
-				  <?php
-				  }else {
-				  ?>
-				  <div class="photo-in-thumnail">
-					  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-					  <img  class="col-xs-12" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
-					  <div class="middle">
-						  <div class="text"><?php echo $translations["dpost-view"];?></div>
-					  </div>
-				  </div>
-				  <?php
-				  }
+                ?>
+                <div class="photo-in-thumnail">
+                  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                  <img  class="col-xs-12 p-0 image-show lazy" 
+                        data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" 
+                        src="https://placehold.co/600x600?text=Waiting" style="width:100%;height:auto;" alt="<?php echo $row['jTitle'];?>"/>
+                  <div class="middle">
+                    <div class="text"><?php echo $translations["dpost-view"];?></div>
+                  </div>
+                </div>
+                <?php
+                }else {
+                ?>
+                <div class="photo-in-thumnail">
+                  <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
+                  <img  class="col-xs-12 lazy" 
+                        data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                        src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" />
+                  <div class="middle">
+                    <div class="text"><?php echo $translations["dpost-view"];?></div>
+                  </div>
+                </div>
+                <?php
+                }
                 ?>
               </div>
               <div class="col-xs-7 col-sm-9 p-0">
-				 <div class="col-xs-12">
+				      <div class="col-xs-12">
                 <h3 class="text-row pt-5 pb-5"><?php echo $row['jTitle'];?></h3>
                 <p class="text-desc-2 text-row"><?php echo $row['jDetail'];?></p>
                 <p class="m-0"><span class="label label-success t-type t-text-desc"><?php echo $row['name_Type'];?></span> |
@@ -179,7 +159,7 @@
                 <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($row['jRead']);?></span></p>
                 <h4 class="pt-10 pb-10 m-0 font-price"><?php echo $translations["dpost-price"];?> <?php echo $row['jPrice'];?></h4>
                </div>
-			  </div>
+			        </div>
             </a>
           <?php
         }

@@ -16,21 +16,21 @@ require($lang);
 
 if ($UrlPage!="") {
   if ($UrlPage=="sitemap.xml") {
-    include("view-sitemap.php");
+    require("view-sitemap.php");
   }else if ($UrlPage=="sitemap-post.xml") {
-    include("view-sitemap-post.php");
+    require("view-sitemap-post.php");
   }else if ($UrlPage=="sitemap-category.xml") {
-    include("view-sitemap-category.php");
+    require("view-sitemap-category.php");
   }else if ($UrlPage=="sitemap-type.xml") {
-    include("view-sitemap-type.php");
+    require("view-sitemap-type.php");
   }else if ($UrlPage=="outlink") {
-    include("outlink.php");
+    require("outlink.php");
   }else if ($UrlPage=="isys") {
-    include("admin/index.php");
+    require("admin/index.php");
   }else {
-    include("new/index.php");
+    require("new/index.php");
   }
 }else {
-  include("new/index.php");
+  require("new/index.php");
 }
 ?>

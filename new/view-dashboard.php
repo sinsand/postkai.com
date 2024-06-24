@@ -38,20 +38,20 @@
                 }
               ?>
                 <div class="p-1 col">
+                  <a class="d-block text-decoration-none text-black" href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>">
                   <div class="card shadow-sm p-0">
-                    <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>">
+                    <div class="card-header lazyload" data-src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" style="background-image: url('<?php echo $image_p1; ?>');background-size: cover;background-repeat: no-repeat;min-height:250px;"></div>
+                    <!-- <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>">
                       <img src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" data-src="<?php echo $image_p1; ?>" class="col-12 p-0 lazyload bd-placeholder-img card-img-top" alt="" />
-                      <!-- <img class="col-12 p-0 lazyload bd-placeholder-img card-img-top" data-original="<?php echo $LinkWeb; ?>query/view-image.php?sview=<?php echo $row['sid']; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" alt="<?php echo $row['sname']; ?>" > -->
-                    </a>
+                    <img class="col-12 p-0 lazyload bd-placeholder-img card-img-top" data-original="<?php echo $LinkWeb; ?>query/view-image.php?sview=<?php echo $row['sid']; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" alt="<?php echo $row['sname']; ?>" > 
+                    </a> -->
                     <div class="card-body">
-                      <p class="card-text text-truncate" alt="<?php echo $row['jTitle']; ?>">
-                        <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>" class="text-decoration-none text-black fw-bold">
-                          <?php echo $row['jTitle']; ?>
-                        </a>
+                      <p class="card-text text-truncate  text-black fw-bold" alt="<?php echo $row['jTitle']; ?>">
+                        <?php echo $row['jTitle']; ?>
                       </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>" class="btn btn-sm btn-outline-secondary"><?php echo $translations['post-view-main']; ?></a>
+                          <button type="button" class="btn btn-sm btn-outline-secondary"><?php echo $translations['post-view-main']; ?></button>
                         </div>
                         <small class="text-muted text-end">
                           <?php
@@ -66,6 +66,7 @@
                       </div>
                     </div>
                   </div>
+                  </a>
                 </div>
               <?php
               }
@@ -235,17 +236,15 @@
                         ORDER BY sj.jDate_Create DESC
                         LIMIT 0,10;";
             foreach (select_tb($SqlSelect) as $row) {
+              $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
+              if (!empty($row['jPic1'])) {
+                $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
+              }
             ?>
               <div class="p-1 col">
                 <div class="card shadow-sm p-0">
                   <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>" class="row m-0 text-decoration-none text-black row-cols-2">
-                    <div class="col-4 col-sm-3 p-0">
-                      <?php
-                      $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
-                      if (!empty($row['jPic1'])) {
-                        $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
-                      }
-                      ?>
+                    <div class="col-4 col-sm-3 p-0 " style="background-image: url('<?php echo $image_p1; ?>');background-size: cover;background-repeat: no-repeat;">
                       <div class="col-12 p-0">
                         <div class="position-relative">
                           <div class="position-absolute" style="top: 10px;left: 5px;">
@@ -254,7 +253,7 @@
                             </span>
                           </div>
                         </div>
-                        <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" />
+                        <!-- <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="<?php echo $LinkWeb . "images/loading-screen.gif"; ?>" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" /> -->
                       </div>
                     </div>
                     <div class="col-8 col-sm-9 p-2 ps-3">

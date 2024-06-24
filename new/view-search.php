@@ -182,17 +182,15 @@
             <div class="row m-0 row-cols-1">
               <?php
               foreach (select_tb($SqlSelectSearch) as $row) {
+                $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
+                        if (!empty($row['jPic1'])) {
+                          $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
+                        }
               ?>
                 <div class="col p-0 pb-1">
                   <div class="card shadow-sm p-0">
                     <a href="<?php echo $LinkWeb; ?>post/<?php echo $row['jID']; ?>" class="row m-0 text-decoration-none text-black row-cols-2">
-                      <div class="col-4 col-sm-3 p-0">
-                        <?php
-                        $image_p1 = $LinkWeb . "images/system/no-image.jpeg";
-                        if (!empty($row['jPic1'])) {
-                          $image_p1 = $LinkWeb . "images/post/picture_job_1/" . $row['jPic1'];
-                        }
-                        ?>
+                      <div class="col-4 col-sm-3 p-0 lazyload" style="background-image: url('<?php echo $image_p1; ?>');background-size: cover;background-repeat: no-repeat;">
                         <div class="col-12 p-0">
                           <div class="position-relative">
                             <div class="position-absolute" style="top: 10px;left: 5px;">
@@ -201,7 +199,7 @@
                               </span>
                             </div>
                           </div>
-                          <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" />
+                          <!-- <img class="col-12 p-0 lazyload" data-src="<?php echo $image_p1; ?>" src="" style="width:100%;height:auto;" alt="<?php echo $row['jTitle']; ?>" /> -->
                         </div>
                       </div>
                       <div class="col-8 col-sm-9 p-2 ps-3">

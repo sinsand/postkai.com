@@ -14,21 +14,19 @@
           $_SESSION['editsession'] = base64url_encode('confirm');
           header("location:".$LinkWeb."post-edit/".$UrlId);
         }else {
-          fError(4,"กรอกรหัสผ่านไม่ถูกต้อง","กรุณากรอกหรัสผ่านสำหรับแก้ไขอีกครั้ง");
+          fError(4,$translations["pd_edit_re_show"],$translations["pd_edit_re_show2"]);
         }
       }
 
 
       ?>
-      <h2 class="main-head-cate t-announce f-k">แก้ไขประกาศเลขที่ : <?php echo $UrlId;?></h2>
+      <h2 class="main-head-cate t-announce f-k"><?php echo $translations["pd_edit_no"];?> : <?php echo $UrlId;?></h2>
       <div class="col-xs-12 pt-10 pb-10">
         <form class="" action="<?php $LinkWeb;?>" method="post">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="ใส่รหัสสำหรับแก้ไขประกาศ" required name="numbercheck">
+            <input type="text" class="form-control" placeholder="<?php echo $translations["pd_edit_text"];?>" required name="numbercheck">
             <div class="input-group-btn">
-              <button class="btn btn-success" type="submit" name="confirmcheck">
-                ยืนยัน
-              </button>
+              <button class="btn btn-success" type="submit" name="confirmcheck"><?php echo $translations["pd_edit_confrim"];?></button>
             </div>
           </div>
         </form>
@@ -39,7 +37,7 @@
       ///// notify
       if (isset($_POST['nsubmit'])) {
         if(empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0){
-          echo fError(1,"รหัสยืนยันไม่ถูกต้อง","");
+          echo fError(1,$translations["pd_delete_re_show"],"");
         }else {
           $valuecolumn = "";
           $valuedata = "";
@@ -59,7 +57,7 @@
                            ".$valuedata."
                          );";
          if (insert_tb($SqlInsert)==true) {
-           echo fSuccess(1,"ทำการแจ้งประกาศสำเร็จ ทางผู้ดูแลจะดำเนินการให้เร็วที่สุด",$LinkWeb."post/".$UrlId,3);
+           echo fSuccess(1,$translations["pd_delete_re_show_complete"],$LinkWeb."post/".$UrlId,3);
 
            $SqlSelect = "SELECT n.nid,n.ncreatedate
                           FROM n_notify n
@@ -73,7 +71,7 @@
 
 
          }else {
-           echo fError(1,"ทำการแจ้งประกาศไม่สำเร็จ กรุณาตรวจสอบข้อมูล",'');
+           echo fError(1,$translations["pd_delete_re_show_notify"],'');
          }
 
         }
@@ -113,7 +111,7 @@
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
                   <div class="form-group">
-                      <textarea name="ndetail" class="form-control" placeholder="เมื่อเลือกเหตุผลอื่นๆ กรุณาระบุ หมายเหตุ เพิ่มเติม"></textarea>
+                      <textarea name="ndetail" class="form-control" placeholder="<?php echo $translations["pd_report_text_placeholder"];?>"></textarea>
                   </div>
               </div>
           	</div>
@@ -138,7 +136,7 @@
           	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
           		<div class="form-group">
                   <div class="input-group">
-                      <input type="text" class="form-control" name="ntel" id="tel" placeholder="เบอร์โทรศัพท์" required>
+                      <input type="text" class="form-control" name="ntel" id="tel" placeholder="<?php echo $translations["pd_report_mobile"];?>" required>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                   </div>
               </div>
@@ -151,7 +149,7 @@
               <p style="margin: 0px;"><?php echo $translations["post-recap-1"];?> <a href='javascript: refreshCaptcha();'><?php echo $translations["post-recap-2"];?></a> <?php echo $translations["post-recap-3"];?></p>
           		<div class="form-group">
                   <div class="input-group">
-                      <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="ใส่รหัสยืนยัน" required>
+                      <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="<?php echo $translations["pd_report_recaptcha_text"];?>" required>
                       <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                   </div>
               </div>
@@ -172,7 +170,7 @@
     /////  comment
     if (isset($_POST['btnPostComment'])) {
       if(empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0){
-        echo fError(1,"รหัสยืนยันไม่ถูกต้อง","");
+        echo fError(1,$translations["pd_delete_re_show"],"");
       }else {
         $column ="";$data ="";
         if (!empty($_COOKIE['mid'])) {
@@ -189,11 +187,11 @@
                           now()".$data."
                         )";
         if (insert_tb($SqlInsert)==true) {
-          echo fSuccess(1,"เพิ่มคอมเม้นท์สำเร็จ",$LinkPath,2);
+          echo fSuccess(1,$translations["pd_comment_confirm_show_complete"],$LinkPath,2);
           $sMessage = "\nมีความคิดเห็น..".date("Y-m-d H:i:s")."\nดูประกาศ : ".$LinkWeb."post/".$UrlId;
           line_notify($sMessage);
         }else {
-          echo fError(1,"ไม่สามารถเพิ่มคอมเม้นท์","");
+          echo fError(1,$translations["pd_comment_confirm_show_error"],"");
         }
       }
     }
@@ -221,99 +219,112 @@
             <div class="col-xs-12 col-sm-12 col-md-7 pt-5">
                 <div id="demo-test-gallery" class="demo-gallery" data-pswp-uid="1">
                   <?php
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/system/");
-                    /// pic1
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/post/picture_job_1/");
                     if (!empty($row['jPic1']) || $row['jPic1']!="") {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_1/".$row['jPic1']);
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="demo-gallery__img--main" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="รูปที่ 1">
-                          <img  class="col-xs-12 p-0 pb-2 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;" />
-                          <figure  style="display:none;" class="text-center">รูปที่ 1</figure>
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" class="demo-gallery__img--main" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="<?php echo $row['jTitle'];?>">
+                          <img  class="col-xs-12 p-0 pb-2 lazy" 
+                            data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" 
+                            src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;" />
+                          <figure  style="display:none;" class="text-center"><?php echo $row['jTitle'];?> 1</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 1">
-                          <img class="col-xs-12 p-0 pb-2 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
-                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
+                          <img class="col-xs-12 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="" />
+                          <figure  style="display:none;" class="text-center"><?php echo $translations["pd_view_nopic"];?></figure>
                         </a>
                       <?php
                     }
                     /// pic2
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/post/picture_job_2/");
                     if (!empty($row['jPic2']) || $row['jPic2']!="") {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_2/".$row['jPic2']);
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2" class="col-xs-6 col-sm-3 p-0 pb-2" >
-                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
-                          <figure  style="display:none;" class="text-center">รูปที่ 2</figure>
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="<?php echo $row['jTitle'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
+                          <img class="col-xs-3 p-0 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/post/picture_job_2/<?php echo $row['jPic2'];?>"
+                              src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <figure  style="display:none;" class="text-center"><?php echo $row['jTitle'];?> 2</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2 lazy" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2">
-                          <img  class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
-                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
+                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 2">
+                          <img class="col-xs-3 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="" />
+                          <figure  style="display:none;" class="text-center"><?php echo $translations["pd_view_nopic"];?></figure>
                         </a>
                       <?php
                     }
                     /// pic3
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/post/picture_job_3/");
                     if (!empty($row['jPic3']) || $row['jPic3']!="") {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_3/".$row['jPic3']);
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="รูปที่ 3" class="col-xs-6 col-sm-3 p-0 pb-2" >
-                          <img class="lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
-                          <figure  style="display:none;" class="text-center">รูปที่ 3</figure>
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>"  data-author="<?php echo $row['jTitle'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
+                          <img class="col-xs-3 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/post/picture_job_3/<?php echo $row['jPic3'];?>" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <figure  style="display:none;" class="text-center"><?php echo $row['jTitle'];?> 3</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2" data-size="<?php echo $width."x".$height;?>"  data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 3">
-                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
-                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
+                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 3">
+                          <img class="col-xs-3 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="" />
+                          <figure  style="display:none;" class="text-center"><?php echo $translations["pd_view_nopic"];?></figure>
                         </a>
                       <?php
                     }
                     /// pic4
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/post/picture_job_4/");
                     if (!empty($row['jPic4']) || $row['jPic4']!="") {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_4/".$row['jPic4']);
                       ?>
-                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" class="col-xs-6 col-sm-3 p-0 pb-2"  data-med-size="<?php echo $width."x".$height;?>" data-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
-                          <img  class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
-                          <figure  style="display:none;" class="text-center">รูปที่ 4</figure>
+                        <a href="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>"  data-med-size="<?php echo $width."x".$height;?>" data-size="<?php echo $width."x".$height;?>" data-author="<?php echo $row['jTitle'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" >
+                          <img  class="col-xs-3 p-0 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/post/picture_job_4/<?php echo $row['jPic4'];?>" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <figure  style="display:none;" class="text-center"><?php echo $row['jTitle'];?> 4</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
-                      <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
-                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
-                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
+                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 4">
+                          <img class="col-xs-3 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="" />
+                          <figure  style="display:none;" class="text-center"><?php echo $translations["pd_view_nopic"];?></figure>
                         </a>
                       <?php
                     }
                     /// pic5
-                    //chmod_r("C:/xampp/htdocs/postkai.com/images/post/picture_job_5/");
                     if (!empty($row['jPic5']) || $row['jPic5']!="") {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/post/picture_job_5/".$row['jPic5']);
                       ?>
                         <a href="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" data-med="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" class="col-xs-6 col-sm-3 p-0 pb-2" data-med-size="<?php echo $width."x".$height;?>"  data-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
-                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" src="" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
-                          <figure  style="display:none;" class="text-center">รูปที่ 5</figure>
+                          <img class="col-xs-3 p-0 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/post/picture_job_5/<?php echo $row['jPic5'];?>" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" style="width:100%;height:100%;"  />
+                          <figure  style="display:none;" class="text-center"><?php echo $row['jTitle'];?> 5</figure>
                         </a>
                       <?php
                     }else {
                       list($width, $height, $type, $attr) = getimagesize($LinkWeb."images/system/no-image.jpeg");
                       ?>
-                      <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="col-xs-6 col-sm-3 p-0 pb-2"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
-                          <img class="col-xs-12 p-0 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="" />
-                          <figure  style="display:none;" class="text-center">ไม่มีข้อมูลรูป</figure>
+                        <a href="<?php echo $LinkWeb;?>images/system/no-image.jpeg" data-med="<?php echo $LinkWeb;?>images/system/no-image.jpeg" class="demo-gallery__img--main"  data-size="<?php echo $width."x".$height;?>" data-med-size="<?php echo $width."x".$height;?>" data-author="รูปที่ 5">
+                          <img class="col-xs-3 p-0 pb-2 lazy" 
+                              data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                              src="https://placehold.co/600x600?text=Waiting" alt="" />
+                          <figure  style="display:none;" class="text-center"><?php echo $translations["pd_view_nopic"];?></figure>
                         </a>
                       <?php
                     }
@@ -328,7 +339,7 @@
                     <td class="wb"><?php echo $row['name_Type'];?></td>
                   </tr>
                   <tr class="fs-15">
-                    <th>ราคา</th>
+                    <th><?php echo $translations["dpost-price"];?></th>
                     <td class="wb" style="color:#f00;">
     					         <?php
                         $vaprice = floatval($row['jPrice']);
@@ -526,7 +537,9 @@
                         }else {
                           ?>
                           <a href="<?php echo $row['blink'];?>" target="_blank">
-                            <img class="col-xs-12" src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"  border="0" />
+                            <img class="col-xs-12 lazy" 
+                                data-src="<?php echo $LinkWeb;?>query/view-image.php?bview=<?php echo $row['bid'];?>"
+                                src="https://placehold.co/600x600?text=Waiting"  border="0" />
                           </a>
                           <?php
                         }
@@ -568,13 +581,14 @@
                 ?>
                   <a href="<?php echo $LinkWeb."post/".$row['jID'];?>" class="row click-post">
                     <div class="col-xs-5 col-sm-3 p-0">
-                      <!--<img src="http://placehold.it/500x300" class="col-xs-12" alt="">-->
                       <?php
                         if (!empty($row['jPic1'])) {
                         ?>
                           <div class="photo-in-thumnail">
                             <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-                            <img src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>" style="width:100%;height:auto;" class="col-xs-12 p-0 image-show lazy" alt="<?php echo $row['jTitle'];?>"/>
+                            <img data-src="<?php echo $LinkWeb;?>images/post/picture_job_1/<?php echo $row['jPic1'];?>"
+                                  src="https://placehold.co/600x600?text=Waiting"
+                                  style="width:100%;height:auto;" class="col-xs-12 p-0 image-show lazy" alt="<?php echo $row['jTitle'];?>"/>
                             <div class="middle">
                               <div class="text"><?php echo $translations["dpost-other-header"];?></div>
                             </div>
@@ -584,7 +598,9 @@
                           ?>
                           <div class="photo-in-thumnail">
                             <h5 class="p-5 lh-15 text-row cat-on-photo"><?php echo $row['name_Type'];?></h5>
-                            <img class="col-xs-12 lazy" data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" src="" alt="<?php echo $row['jTitle'];?>" />
+                            <img class="col-xs-12 lazy" 
+                                  data-src="<?php echo $LinkWeb;?>images/system/no-image.jpeg" 
+                                  src="https://placehold.co/600x600?text=Waiting" alt="<?php echo $row['jTitle'];?>" />
                             <div class="middle">
                               <div class="text"><?php echo $translations["dpost-other-header"];?></div>
                             </div>
@@ -603,21 +619,21 @@
                       <p class="mt-2 m-0"><span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo day_format_month_thai($row['jDate_Create']);?></span></p>
                       <p class="mt-2 m-0"><span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['jRead'];?></span></p>
                       <h4 class="pt-10 pb-10 m-0 font-price">
-					  <?php
+					              <?php
                           $vaprice = floatval($row['jPrice']);
                           if(!empty($vaprice) && $vaprice>0) {
-                            echo "ราคา ".number_format($vaprice);
+                            echo $translations["dpost-price"]." ".number_format($vaprice);
                           }else{
                             echo $translations["price-annouce"];
                           }
-                                  ?>
-                                  </h4>
-                                </div>
-                                  </div>
-                              </a>
-                            <?php
-                          }
-              ?>
+                        ?>
+                        </h4>
+                      </div>
+                    </div>
+                  </a>
+                  <?php
+                  }
+                ?>
               </div>
           </div>
         </div>
